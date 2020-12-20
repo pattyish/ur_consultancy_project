@@ -38,7 +38,7 @@
                                         <input type="text" class="form-control" id="" placeholder="Enter Password">
                                     </div>
                                     <div class="form-group">
-                                        <label>Multiple</label>
+                                        <label>Country</label>
                                         <select class="form-control select2" multiple="multiple"
                                             data-placeholder="Select a State" style="width: 100%;">
                                             <option>Alabama</option>
