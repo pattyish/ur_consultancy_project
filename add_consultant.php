@@ -1,7 +1,9 @@
 <?php include 'public/includes/header_link.php';?>
 <?php include 'public/includes/layouts/header.php';?>
 <?php include 'public/includes/layouts/left_bar_side.php';?>
+<script>
 
+</script>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -25,21 +27,21 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form">
+                    <form role="form" id="saveConsultant">
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">First-name</label>
-                                        <input type="text" class="form-control" id="" placeholder="Enter First-name">
+                                        <input type="text" class="form-control" id="fName" placeholder="Enter First-name">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Last-name</label>
-                                        <input type="text" class="form-control" id="" placeholder="Enter Password">
+                                        <input type="text" class="form-control" id="lName" placeholder="Enter Password">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Gender</label>
-                                        <select name="gender" class=form-control>
+                                        <select id="gender" class=form-control>
                                             <option>Select Gender</option>
                                             <option>Male</option>
                                             <option>Female</option>
@@ -47,25 +49,29 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">National Id</label>
-                                        <input type="text" class="form-control" id="" placeholder="Enter Id Number">
+                                        <input type="text" class="form-control" id="natId" placeholder="Enter Id Number">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
+                                        <input type="email" class="form-control" id="userEmail"
                                             placeholder="Enter email">
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Password</label>
-                                        <input type="password" class="form-control" id="" placeholder="Password">
+                                        <label for="">User Type </label>
+                                        <select id="userType" class=form-control>
+                                            <option>Select Type</option>
+                                        <?php
+                                        include 'backend/getUserTypes.php';
+                                        ?>
+                                        </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="">User Type </label>
-                                        <select name="gender" class=form-control>
-                                            <option>Select Gender</option>
-                                            <option>Bdcs</option>
-                                            <option>Consultant</option>
+                                        <label>Multiple</label>
+                                        <select class="form-control select2" id="country" multiple="multiple"
+                                            data-placeholder="Select a State" style="width: 100%;">
+                                            <?php include 'backend/getCountries.php'; ?>
                                         </select>
                                     </div>
                                 </div>
@@ -74,7 +80,8 @@
                         <!-- /.box-body -->
 
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Save User</button>
+                            <button type="submit" id="saveCons" class="btn btn-primary">Save User</button> <br>
+                            <span id="feedback"> </span>
                         </div>
                     </form>
                 </div>

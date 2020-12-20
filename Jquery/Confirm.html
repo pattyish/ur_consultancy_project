@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="sweetalert.min.js"></script>
+  <link rel="stylesheet" href="sweetalert.css">
+</head>
+<body>
+<button onclick="JSconfirm()">Redirect me to home page</a>
+
+<script type="text/javascript">
+function JSconfirm(){
+var a="Paul";
+	swal({ 
+    title: "Redirect to main page!",   
+    text: "Redirect me to home page?",   
+    type: "warning",   
+    showCancelButton: true,   
+    confirmButtonColor: "#34abeb",   
+    confirmButtonText: "Yes",   
+    cancelButtonText: "No",   
+    closeOnConfirm: false,   
+    closeOnCancel: false }, 
+    function(isConfirm){   
+        if (isConfirm) 
+    {   
+        swal("You are to be redirected!", "success");   
+        } 
+        else {     
+            swal(a, "success");   
+            } });
+}
+</script>
+</body>
+</html>
+
