@@ -20,7 +20,7 @@ if($retrieveCount > 0)
             <td><?php echo $email; ?></td>
             <td>
                 <div class="btn-group btn-group-sm table-button-div">
-                    <a href="#" data-toggle="modal" data-target=""
+                    <a href="#" data-toggle="modal" data-target="#view_consultant<?php echo $lineRetrieve -> user_id; ?>"
                         class=" btn btn-info table_button">
                         <i class="fa fa-eye"></i> View
                     </a>

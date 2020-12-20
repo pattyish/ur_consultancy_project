@@ -1,4 +1,4 @@
-<div class="modal fade" id="view_consultancy">
+<div class="modal fade" id="view_consultant<?php echo $lineRetrieve -> user_id; ?>">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
