@@ -29,7 +29,7 @@
                     <div class="box-body">
                         <table id="completed_consultancy" class="table table-bordered table-striped">
                             <thead>
-                                <tr>
+                                <tr class="text-blue">
                                     <th>Consultacy Title</th>
                                     <th>Signed Date</th>
                                     <th>Start Date</th>

@@ -28,7 +28,7 @@
                     <div class="box-body">
                         <table id="all_consultants" class="table table-bordered table-striped">
                             <thead>
-                                <tr>
+                                <tr class="text-blue">
                                     <th>Names</th>
                                     <th>Gender</th>
                                     <th>National ID</th>
@@ -37,28 +37,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Tasman</td>
-                                    <td>Internet Explorer 4.5</td>
-                                    <td>Mac OS 8-9</td>
-                                    <td>Mac OS 8-9</td>
-                                    <td>
-                                        <div class="btn-group btn-group-sm table-button-div">
-                                            <a href="#" data-toggle="modal" data-target=""
-                                                class=" btn btn-info table_button">
-                                                <i class="fa fa-eye"></i> View
-                                            </a>
-                                            <a href="#" data-toggle="modal" data-target=""
-                                                class=" btn btn-success table_button">
-                                                <i class="fa fa-edit"></i> Edit
-                                            </a>
-                                            <a href="#" data-toggle="modal" data-target=""
-                                                class="btn btn-danger table_button">
-                                                <i class="fa fa-trash"></i> Delete
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                <?php include 'backend/existingConsultants.php'; ?>
                             </tbody>
 
                         </table>
