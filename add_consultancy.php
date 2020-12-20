@@ -31,13 +31,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Consultance-Name</label>
-                                        <input type="text" id="consultancy-name" placeholder="Consultancy Name......"
+                                        <input type="text" id="consultancy-name" placeholder="Consultancy Title......"
                                             class="form-control">
                                     </div>
                                     <div class="form-group">
+                                    <?php $contract_sign_date = date("Y-m-d"); ?>
                                         <label for="">Consultancy-Sign-Date</label>
-                                        <input type="date" id="sign_date" placeholder="Consultancy Sign Date....."
-                                            class="form-control">
+                                        <input type="date" value="<?php echo $contract_sign_date; ?>" id="sign_date" placeholder="Consultancy Sign Date....."
+                                            class="form-control" disabled>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Consultancy-Start-Date</label>
@@ -53,13 +54,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Total-Amount</label>
-                                        <input type="text" id="amount" placeholder="Consultancy Name......"
+                                        <input type="text" id="amount" placeholder="Cash......"
                                             class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Currency</label>
                                         <select name="currency" class="form-control" id="currency">
-                                            <option>Select Currency</option>
+                                            <option>Select Currency...</option>
                                             <option>Rwf</option>
                                             <option>Dollar</option>
                                             <option>Euro</option>
@@ -69,37 +70,31 @@
                                     <div class="form-group">
                                         <label for="">Choose Client</label>
                                         <select class="form-control select2" multiple="multiple"
-                                            id="clients" name="clients" data-placeholder="Select a State"
+                                            id="clients" name="clients" data-placeholder="Select a State..."
                                             style="width: 100%;">
-                                            <option>Alabama</option>
-                                            <option>Alaska</option>
-                                            <option>California</option>
-                                            <option>Delaware</option>
-                                            <option>Tennessee</option>
-                                            <option>Texas</option>
-                                            <option>Washington</option>
+                                            <?php include 'backend/getClients.php' ?>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <p><b>If Client not Exist, Follow the Link to </b><a href="register_client.php">
-                                                To Register Client
+                                        <p><b>If Client not Exist, Follow the Link to first </b><a href="register_client.php">
+                                                 Register Client
                                             </a>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <legend style="font-weight: bold;"> Charges Fess Percentage </legend>
+                                    <legend style="font-weight: bold;"> Charges Fees Percentage </legend>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">UR-Percentage</label>
-                                                <input type="text" placeholder="First name..." class="form-control">
+                                                <input type="text" placeholder="UR part..." class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Tax-Percentage</label>
-                                                <input text="text" placeholder="First name..." class="form-control">
+                                                <input text="text" placeholder="Tax charges..." class="form-control">
                                             </div>
                                         </div>
                                     </div>

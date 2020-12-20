@@ -41,4 +41,36 @@ $(document).ready(function(){
             });   
         }
     });
+
+    // Adding new client
+    $("#addClientForm").on("submit",function(e){
+        e.preventDefault();
+        var cName = $("#clientName").val();
+        var cEmail = $("#clientEmail").val();
+        var country = $("#country").val();
+        if($.trim(cName).length == 0 || $.trim(cEmail).length == 0 || $.trim(country).length == 0)
+        {
+            $("#addClientFeedback").html("All fields are required.");
+        }
+        else
+        {
+            $("#addClientFeedback").html("Saving...");
+            // AJAX to link to backend/addUser
+            $.ajax({
+                type:"post",
+                url:"backend/addClient.php",
+                data: {cName : cName, cEmail : cEmail, country : country},
+                success: function(response)
+                {
+                    $("#addClientFeedback").html(response);
+                    if(response.includes("successfully"))
+                    {
+                        $("#clientName").val("");
+                        $("#clientEmail").val("");
+                        $("#country").val("");
+                    }
+                }
+            });   
+        }
+    });
 });

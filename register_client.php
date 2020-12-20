@@ -25,29 +25,23 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form">
+                    <form role="form" id="addClientForm">
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label for="">Client Name</label>
-                                        <input type="text" class="form-control" id="" placeholder="Enter First-name">
+                                        <input type="text" class="form-control" id="clientName" placeholder="Name">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Client Email</label>
-                                        <input type="text" class="form-control" id="" placeholder="Enter Password">
+                                        <input type="email" class="form-control" id="clientEmail" placeholder="Email">
                                     </div>
                                     <div class="form-group">
                                         <label>Country</label>
-                                        <select class="form-control select2" multiple="multiple"
+                                        <select id="country" class="form-control select2" multiple="multiple"
                                             data-placeholder="Select a State" style="width: 100%;">
-                                            <option>Alabama</option>
-                                            <option>Alaska</option>
-                                            <option>California</option>
-                                            <option>Delaware</option>
-                                            <option>Tennessee</option>
-                                            <option>Texas</option>
-                                            <option>Washington</option>
+                                            <?php include 'backend/getCountries.php'; ?>
                                         </select>
                                     </div>
 
@@ -57,7 +51,8 @@
                         <!-- /.box-body -->
 
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Save Client</button>
+                            <button type="submit" class="btn btn-primary">Save Client</button><br>
+                            <span id="addClientFeedback"></span>
                         </div>
                     </form>
                 </div>

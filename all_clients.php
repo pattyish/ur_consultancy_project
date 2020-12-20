@@ -28,35 +28,14 @@
                     <div class="box-body">
                         <table id="all_clients" class="table table-bordered table-striped">
                             <thead>
-                                <tr>
+                                <tr class="text-blue">
                                     <th>Client Name</th>
                                     <th>Client Email</th>
                                     <th>Country</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Tasman</td>
-                                    <td>Internet Explorer 4.5</td>
-                                    <td>Mac OS 8-9</td>
-                                    <td>
-                                        <?php include 'models/clients_models/view_model.php'; ?>
-                                        <div class="btn-group btn-group-sm table-button-div">
-                                            <a href="#" data-toggle="modal"
-                                                data-target="#view_client"
-                                                class=" btn btn-info table_button">
-                                                <i class="fa fa-eye"></i> View
-                                            </a>
-                                            <a href="#" data-toggle="modal"
-                                                data-target="#edit_client"
-                                                class="btn btn-success table_button">
-                                                <i class="fa fa-edit"></i> Edit
-                                            </a>
-                                        </div>
-                                        <?php include 'models/clients_models/edit_model.php'; ?>
-                                    </td>
-                                </tr>
+                                <?php include 'backend/existingClients.php'; ?>
                             </tbody>
 
                         </table>

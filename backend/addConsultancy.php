@@ -10,7 +10,7 @@ $ = $connect -> real_escape_string($_POST['']);
 $ = $connect -> real_escape_string($_POST['']);
 $ = $connect -> real_escape_string($_POST['']);
 $ = $connect -> real_escape_string($_POST['']);
-$now = date("Y:m:d h:i:s");
+$now = date("Y-m-d h:i:s");
 $status_id = 1;
 
 // Query to insert into database
