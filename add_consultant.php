@@ -2,7 +2,12 @@
 <?php include 'public/includes/layouts/header.php';?>
 <?php include 'public/includes/layouts/left_bar_side.php';?>
 <script>
-
+$(document).ready(function(){
+    $("#natId").on("keyup",function(){
+        var length = $(this).val();
+        $("#natIdLength").html(length.length);
+    });
+});
 </script>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -41,14 +46,14 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Gender</label>
-                                        <select id="gender" class=form-control>
+                                        <select id="gender" class="form-control">
                                             <option>Select Gender</option>
-                                            <option>Male</option>
-                                            <option>Female</option>
+                                            <option value="M">Male</option>
+                                            <option value="F">Female</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="">National Id</label>
+                                        <label for="">National Id &nbsp;&nbsp; <span class="text-blue" id="natIdLength"> </span></label>
                                         <input type="text" class="form-control" id="natId" placeholder="Enter Id Number">
                                     </div>
                                 </div>
@@ -60,7 +65,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">User Type </label>
-                                        <select id="userType" class=form-control>
+                                        <select id="userType" class="form-control">
                                             <option>Select Type</option>
                                         <?php
                                         include 'backend/getUserTypes.php';
@@ -80,7 +85,10 @@
                         <!-- /.box-body -->
 
                         <div class="box-footer">
-                            <button type="submit" id="saveCons" class="btn btn-primary">Save User</button> <br>
+                        <button type="submit" id="saveCons" class="btn btn-primary">Save User</button> 
+                        &nbsp;&nbsp;&nbsp;
+                        <button type="reset" id="reset" class="btn btn-link">Reset</button>
+                         <br>
                             <span id="feedback"> </span>
                         </div>
                     </form>

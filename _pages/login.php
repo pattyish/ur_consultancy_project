@@ -28,6 +28,36 @@
     <!-- Google Font -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        <script src="../Jquery/jquery.js"></script>
+        <script src="../js/myJs.js"></script>
+        <script>
+        $(document).ready(function(){
+            $("#login_form").on("submit",function(e){
+                e.preventDefault();
+                var uName= $("#username").val();
+                var password= $("#password").val();
+                if($.trim(uName).length == 0 || $.trim(password).length == 0)
+                {
+                    $("#login_feedback").html("<i class='text-red'>Fill all fields.</i>");
+                }
+                else
+                {
+                    $("#login_feedback").html("<i class='text-blue'>Checking...</i>");
+                    // AJAX to link to backend/addUser
+                    $.ajax({
+                        type:"post",
+                        url:"../backend/login.php",
+                        data: {uName : uName, password : password},
+                        success: function(response)
+                        {
+                            $("#login_feedback").html("<i class='text-green'>"+response+"</i>");
+                        }
+                    }); 
+                }
+                
+            });
+        });
+        </script>
 </head>
 
 <body class="hold-transition login-page">
@@ -39,13 +69,13 @@
         <div class="login-box-body">
             <p class="login-box-msg">Use Email And Password to Sign in</p>
 
-            <form action="../../index2.html" method="post">
+            <form id="login_form">
                 <div class="form-group has-feedback">
-                    <input type="email" class="form-control" placeholder="Email">
+                    <input type="email" class="form-control" id="username" placeholder="Email">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" class="form-control" id="password" placeholder="Password">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="row">
@@ -56,9 +86,10 @@
                             </label>
                         </div>
                     </div>
+                    <span id="login_feedback" style="margin-left: -70px;"> </span>
                     <!-- /.col -->
                     <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                        <button type="submit" id="btnlog" class="btn btn-primary btn-block btn-flat">Sign In</button>
                     </div>
                     <!-- /.col -->
                 </div>

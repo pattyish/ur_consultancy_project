@@ -18,7 +18,7 @@ $(document).ready(function(){
         }
         else
         {
-            $("#feedback").html(country);
+            $("#feedback").html("Saving...");
             // AJAX to link to backend/addUser
             $.ajax({
                 type:"post",
@@ -27,6 +27,16 @@ $(document).ready(function(){
                 success: function(response)
                 {
                     $("#feedback").html(response);
+                    if(response.includes("successfully"))
+                    {
+                        $("#fName").val("");
+                        $("#lName").val("");
+                        $("#gender").val("");
+                        $("#natId").val("");
+                        $("#userEmail").val("");
+                        $("#userType").val("");
+                        $("#country").val("");
+                    }
                 }
             });   
         }

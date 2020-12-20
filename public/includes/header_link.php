@@ -1,9 +1,19 @@
+<?php
+session_start();
+include 'backend/Database.php';
+$myId=$_SESSION['User_ID'];
+if(!(isset($_SESSION['User_ID'])))
+{
+    ?>
+    <script>
+        window.location.href='_pages/login.php';
+    </script>
+    <?php
+}
+?>
 <!DOCTYPE html>
 <html>
 <?php
-session_start();
-$myId = 2;
-include 'backend/Database.php';
 ?>
 <head>
     <meta charset="utf-8">

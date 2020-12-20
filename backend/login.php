@@ -1,15 +1,15 @@
 <?php
 session_start();
 include 'Database.php'; // include database connection
-$UserEmail=$connect -> real_escape_string($_POST['email']);
-$UserPass=$connect -> real_escape_string($_POST['Upass']);
+$UserEmail=$connect -> real_escape_string($_POST['uName']);
+$UserPass=$connect -> real_escape_string($_POST['password']);
 // check user account info
 $Query_check = "SELECT * FROM users WHERE (users.user_email = '$UserEmail')";
 $Answer_check = mysqli_query($connect,$Query_check);
 $Count_check = mysqli_num_rows($Answer_check);
 if($Count_check == 0)
 {
-    echo "Oops, user is not found!";
+    echo "Oops, user is not found!<br>";
 }
 else
 {
@@ -42,7 +42,7 @@ else
         if($UserType == 1) // if admin
         {
             ?>
-            <script>window.location.href='admin/Home';</script>
+            <script>window.location.href='../index.php';</script>
             <?php
         }
         else if($UserType == 2) // if BDSC
@@ -64,7 +64,7 @@ else
     }
     else
     {
-        echo "Oops, incorrect username or password!";
+        echo "Oops, none matches your input!";
     }
 }
 ?>
