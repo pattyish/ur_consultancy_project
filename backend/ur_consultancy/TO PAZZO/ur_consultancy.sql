@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2020 at 01:47 PM
+-- Generation Time: Dec 20, 2020 at 09:24 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -57,6 +57,13 @@ CREATE TABLE `client` (
   `client_email` varchar(60) NOT NULL,
   `country_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `client`
+--
+
+INSERT INTO `client` (`client_id`, `client_name`, `client_email`, `country_id`) VALUES
+(1, 'Rwanda Social Security Board', 'rssb@rssb.rw', 1);
 
 -- --------------------------------------------------------
 
@@ -255,13 +262,26 @@ CREATE TABLE `users` (
   `user_gender` varchar(10) NOT NULL,
   `user_national_id` varchar(20) NOT NULL,
   `user_email` varchar(45) NOT NULL,
-  `user_password` varchar(45) NOT NULL,
+  `user_password` varchar(100) NOT NULL,
   `user_status_id` int(11) NOT NULL DEFAULT 1,
   `user_type_id` int(11) NOT NULL,
-  `user_profile_image` varchar(45) NOT NULL,
+  `user_profile_image` varchar(45) NOT NULL DEFAULT 'img/mimage.png',
   `user_adder_id` int(11) NOT NULL,
-  `user_last_active` datetime NOT NULL
+  `user_last_active` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `user_first_name`, `user_last_name`, `user_gender`, `user_national_id`, `user_email`, `user_password`, `user_status_id`, `user_type_id`, `user_profile_image`, `user_adder_id`, `user_last_active`) VALUES
+(1, 'Jean Paul', 'NISHIMIRWE', 'M', '119978011706319', 'nishimirwepaul2015@gmail.com', '$2y$10$OSM2wGTWg/xixV27YD3dy.UGaC3ZffrnPKLGLtzUZPTs9cTxOo7oe', 1, 1, 'img/mimage.png', 1, '2020-12-20 17:34:42'),
+(2, 'Patrick', 'ISHIMWE', 'M', '1199680012546588', 'patrickishimwe16@gmail.com', '$2y$10$GdSKTTYKjl9261czmGXjs.dNpA1UHJWSfmpGRSKyP55eNIOjHnAN2', 1, 2, 'img/mimage.png', 1, '0000-00-00 00:00:00'),
+(3, 'Jean', 'NISHIMIRWE', 'M', '1199780117063134', 'nishimirwepaul2015@gmail.con', '$2y$10$gV42exXaWrJslt4ti7ZQH.iUORMbluOdh7LSW1vFySjK5mCraeD8m', 1, 2, 'img/mimage.png', 1, '0000-00-00 00:00:00'),
+(4, 'Jean', 'NISHIMIRWE', 'M', '1199780117063135', 'nishimirwepaul2015@gmail.cmm', '$2y$10$ae4sj8.2DDhU2GOf6kTyTuKcKHVtD9/byrlcvMEUHE3DfaoX7e8lW', 1, 1, 'img/mimage.png', 1, '0000-00-00 00:00:00'),
+(5, 'Jean', 'NISHIMIRWE', 'M', '1199780117063139', 'nishimirwepaul2015@gmail.cm', '$2y$10$E6RKSG5HGpMJTR14z05xQeLexMEGgd2IfX9gSapOzcLOyOuOvIfrm', 1, 1, 'img/mimage.png', 1, '0000-00-00 00:00:00'),
+(6, 'Jean', 'NISHIMIRWE', 'F', '1199680012546587', 'nishimirwepaul2015@gmail.c', '$2y$10$uG87Xn/ZIfEBiJHP4/wbYuFSQFgAoR5mfLhTAjiH18cfzG1.rIZP.', 1, 1, 'img/fimage.png', 1, '0000-00-00 00:00:00'),
+(7, 'Patrick', 'ISHIMWE', 'F', '1199680012546544', 'patrickishimwe16@gmail.cok', '$2y$10$zbKoqNWpiVHUgO4EUbNYjO8CqRLXQF2.9C6sYh.5CV5jncUyHsfT.', 1, 1, 'img/fimage.png', 1, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -425,7 +445,7 @@ ALTER TABLE `campus`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `college`
@@ -497,7 +517,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user_type`
