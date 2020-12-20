@@ -19,19 +19,25 @@
         <!-- Main row -->
         <div class="row">
             <div class="col-md-12">
-                <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title">Data Table With Full Features</h3>
+                <div class="box" style="padding-left: 5px; padding-right: 5px;">
+                <div class="box-header"
+                        style="border-bottom: 1px solid rgba(60, 141, 188, 0.3); margin-bottom: 10px;">
+                        <h3 class="box-title" style="padding-top: 10px; padding-bottom: 10px;">In Progress
+                            Consultacies</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <table id="in_progress_consultancy" class="table table-bordered table-striped">
-                        <thead>
+                            <thead>
                                 <tr>
-                                    <th>Names</th>
-                                    <th>Gender</th>
-                                    <th>National ID</th>
-                                    <th>Email Address</th>
+                                    <th>Consultacy Title</th>
+                                    <th>Signed Date</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Amount</th>
+                                    <th>UR(%) Charge</th>
+                                    <th>Tax(%) charge</th>
+                                    <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -39,6 +45,10 @@
                                 <tr>
                                     <td>Tasman</td>
                                     <td>Internet Explorer 4.5</td>
+                                    <td>Mac OS 8-9</td>
+                                    <td>Mac OS 8-9</td>
+                                    <td>Mac OS 8-9</td>
+                                    <td>Mac OS 8-9</td>
                                     <td>Mac OS 8-9</td>
                                     <td>Mac OS 8-9</td>
                                     <td>
@@ -50,10 +60,6 @@
                                             <a href="#" data-toggle="modal" data-target=""
                                                 class=" btn btn-success table_button">
                                                 <i class="fa fa-edit"></i> Edit
-                                            </a>
-                                            <a href="#" data-toggle="modal" data-target=""
-                                                class="btn btn-danger table_button">
-                                                <i class="fa fa-trash"></i> Delete
                                             </a>
                                         </div>
                                     </td>

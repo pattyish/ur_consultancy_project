@@ -19,9 +19,10 @@
         <!-- Main row -->
         <div class="row">
             <div class="col-md-12">
-                <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title">Data Table With Full Features</h3>
+                <div class="box" style="padding-left: 5px; padding-right: 5px;">
+                <div class="box-header"
+                        style="border-bottom: 1px solid rgba(60, 141, 188, 0.3); margin-bottom: 10px;">
+                        <h3 class="box-title" style="padding-top: 10px; padding-bottom: 10px;">All Clients</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
