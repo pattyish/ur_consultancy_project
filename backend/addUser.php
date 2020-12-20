@@ -5,15 +5,15 @@ $myId = $_SESSION['User_ID'];
 include 'Database.php'; // include database connection
 
 // declaration of variables needed to insert a new user
-$fname = $connect -> real_escape_string($_POST['']);
-$lname = $connect -> real_escape_string($_POST['']);
-$gender = $connect -> real_escape_string($_POST['']);
-$national_id = $connect -> real_escape_string($_POST['']);
-$email = $connect -> real_escape_string($_POST['']);
+$fname = $connect -> real_escape_string($_POST['fName']);
+$lname = $connect -> real_escape_string($_POST['lName']);
+$gender = $connect -> real_escape_string($_POST['gender']);
+$national_id = $connect -> real_escape_string($_POST['natId']);
+$email = $connect -> real_escape_string($_POST['userEmail']);
 $random_number = rand(100000,99999);
 $password = md5(""+$random_number+""+time()+""+$email);
 $status_id = 1;
-$user_type_id = $connect -> real_escape_string($_POST['']);
+$user_type_id = $connect -> real_escape_string($_POST['userType']);
 $profile_image = "";
 
 if($gender == 'M')
@@ -47,7 +47,7 @@ else
         $subject = "";
         $message = "";
         $header = "";
-        mail($to,$subject,$message);
+        //mail($to,$subject,$message);
     }
     else
     {
