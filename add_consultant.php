@@ -68,7 +68,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label>Multiple</label>
+                                        <label>Country</label>
                                         <select class="form-control select2" id="country" multiple="multiple"
                                             data-placeholder="Select a State" style="width: 100%;">
                                             <?php include 'backend/getCountries.php'; ?>
