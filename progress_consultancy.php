@@ -52,17 +52,19 @@
                                     <td>Mac OS 8-9</td>
                                     <td>Mac OS 8-9</td>
                                     <td>
+                                    <?php include 'models/consultancy_models/view_in_progress.php'; ?>
                                         <div class="btn-group btn-group-sm table-button-div">
-                                            <a href="#" data-toggle="modal" data-target=""
+                                            <a href="#" data-toggle="modal" data-target="#view_in_progress"
                                                 class=" btn btn-info table_button">
                                                 <i class="fa fa-eye"></i> View
                                             </a>
-                                            <a href="#" data-toggle="modal" data-target=""
+                                            <a href="#" data-toggle="modal" data-target="#edit_in_progress""
                                                 class=" btn btn-success table_button">
                                                 <i class="fa fa-edit"></i> Edit
                                             </a>
                                         </div>
                                     </td>
+                                    <?php include 'models/consultancy_models/edit_in_progress.php'; ?>
                                 </tr>
                             </tbody>
 

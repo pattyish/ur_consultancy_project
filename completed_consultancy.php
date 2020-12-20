@@ -53,11 +53,12 @@
                                     <td>Mac OS 8-9</td>
                                     <td>
                                         <div class="btn-group btn-group-sm table-button-div">
-                                            <a href="#" data-toggle="modal" data-target=""
+                                            <a href="#" data-toggle="modal" data-target="#view_completely"
                                                 class=" btn btn-info table_button">
                                                 <i class="fa fa-eye"></i> View
                                             </a>
                                         </div>
+                                        <?php include 'models/consultancy_models/view_completely.php'; ?>
                                     </td>
                                 </tr>
                             </tbody>

@@ -85,13 +85,14 @@
                                 <input type="checkbox"> Remember Me
                             </label>
                         </div>
+                        <span id="login_feedback" style="padding: 10px 0px; margin: 4px 0px;"> </span>
                     </div>
-                    <span id="login_feedback" style="margin-left: -70px;"> </span>
                     <!-- /.col -->
                     <div class="col-xs-4">
                         <button type="submit" id="btnlog" class="btn btn-primary btn-block btn-flat">Sign In</button>
                     </div>
                     <!-- /.col -->
+                    
                 </div>
             </form>
             <!-- /.social-auth-links -->

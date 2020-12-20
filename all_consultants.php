@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box" style="padding-left: 5px; padding-right: 5px;">
-                <div class="box-header"
+                    <div class="box-header"
                         style="border-bottom: 1px solid rgba(60, 141, 188, 0.3); margin-bottom: 10px;">
                         <h3 class="box-title" style="padding-top: 10px; padding-bottom: 10px;">All Consultants</h3>
                     </div>
@@ -43,21 +43,25 @@
                                     <td>Mac OS 8-9</td>
                                     <td>Mac OS 8-9</td>
                                     <td>
+                                        <?php include 'models/consultant_models/view_consultancy.php'; ?>
                                         <div class="btn-group btn-group-sm table-button-div">
-                                            <a href="#" data-toggle="modal" data-target=""
+                                            <a href="#" data-toggle="modal" data-target="#view_consultancy"
                                                 class=" btn btn-info table_button">
                                                 <i class="fa fa-eye"></i> View
                                             </a>
-                                            <a href="#" data-toggle="modal" data-target=""
+                                            <a href="#" data-toggle="modal" data-target="#edit_consultancy"
                                                 class=" btn btn-success table_button">
                                                 <i class="fa fa-edit"></i> Edit
                                             </a>
-                                            <a href="#" data-toggle="modal" data-target=""
+                                            <a href="#" data-toggle="modal" data-target="#delete_consultancy"
                                                 class="btn btn-danger table_button">
                                                 <i class="fa fa-trash"></i> Delete
                                             </a>
+
+                                            <?php include 'models/consultant_models/edit_consultancy.php'; ?>
                                         </div>
                                     </td>
+                                    <?php include 'models/consultant_models/delete.php'; ?>
                                 </tr>
                             </tbody>
 
