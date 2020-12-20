@@ -1,0 +1,27 @@
+RewriteEngine on
+
+RewriteRule Home index.php [NC,L]
+RewriteRule Welcome login.html [NC,L]
+RewriteRule Register register.php [NC,L]
+RewriteRule Contacts MyContacts.php [NC,L]
+RewriteRule MyProfile Profile.php [NC,L]
+RewriteRule MySettings UserSettings.php [NC,L]
+RewriteRule ChangePassword ChangePassword.php [NC,L]
+RewriteRule FollowUser follow.php [NC,L]
+RewriteRule NewBuddy AddNewFriends.php [NC,L]
+RewriteRule Posting User_Posting.php [NC,L]
+RewriteRule AddingProfile User_ProfilePhoto.php [NC,L]
+RewriteRule BuddiesPosts BuddiesPosts.php [NC,L]
+RewriteRule Mine MyPosts.php [NC,L]
+RewriteRule GetOut logout.php [NC,L]
+RewriteRule vddddeo VideoIndex.php [NC,L]
+RewriteRule ResetPassword forgot-password.html [NC,L]
+RewriteRule chats Chats.php [NC,L]
+RewriteRule VUploading VideoPostUpload.php [NC,L]
+RewriteRule MVvv vMyPosts.php [NC,L]
+RewriteRule BlockUser Block.php [NC,L]
+RewriteRule NewUser NewUser.php [NC,L]
+
+
+
+
