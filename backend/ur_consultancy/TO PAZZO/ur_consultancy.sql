@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2020 at 09:24 PM
+-- Generation Time: Dec 21, 2020 at 02:54 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -45,6 +45,13 @@ CREATE TABLE `campus` (
   `campus_name` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `campus`
+--
+
+INSERT INTO `campus` (`campus_id`, `campus_name`) VALUES
+(1, 'NYARUGENGE');
+
 -- --------------------------------------------------------
 
 --
@@ -55,15 +62,16 @@ CREATE TABLE `client` (
   `client_id` int(11) NOT NULL,
   `client_name` varchar(60) NOT NULL,
   `client_email` varchar(60) NOT NULL,
-  `country_id` int(11) NOT NULL
+  `country_id` int(11) NOT NULL,
+  `client_status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `client`
 --
 
-INSERT INTO `client` (`client_id`, `client_name`, `client_email`, `country_id`) VALUES
-(1, 'Rwanda Social Security Board', 'rssb@rssb.rw', 1);
+INSERT INTO `client` (`client_id`, `client_name`, `client_email`, `country_id`, `client_status`) VALUES
+(2, 'Rwanda Social Security Board', 'rssb@rssb.rw', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -76,6 +84,13 @@ CREATE TABLE `college` (
   `college_name` text NOT NULL,
   `campus_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `college`
+--
+
+INSERT INTO `college` (`college_id`, `college_name`, `campus_id`) VALUES
+(4, 'COLLEGE OF SCIENCE AND TECHNOLOGY', 1);
 
 -- --------------------------------------------------------
 
@@ -95,8 +110,16 @@ CREATE TABLE `consultancy` (
   `consultancy_Tax_percentage` double NOT NULL,
   `consultancy_consultants_percentage` double NOT NULL,
   `consultancy_client_id` int(11) NOT NULL,
-  `consultancy_progress` int(11) NOT NULL DEFAULT 1
+  `consultancy_progress` int(11) NOT NULL DEFAULT 1,
+  `consultancy_adder` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `consultancy`
+--
+
+INSERT INTO `consultancy` (`consultancy_id`, `consultancy_name`, `consultancy_sign_date`, `consultancy_start_date`, `consultancy_end_date`, `consultancy_amount`, `consultancy_currency`, `consultancy_UR_percentage`, `consultancy_Tax_percentage`, `consultancy_consultants_percentage`, `consultancy_client_id`, `consultancy_progress`, `consultancy_adder`) VALUES
+(47, 'Rwandan Population Statistics', '2020-12-21 00:00:00', '2020-12-23', '2020-12-31', 20000, 'EUROS', 20, 30, 50, 2, 1, 6);
 
 -- --------------------------------------------------------
 
@@ -114,8 +137,8 @@ CREATE TABLE `consultancy_progress` (
 --
 
 INSERT INTO `consultancy_progress` (`consultancy_progress_id`, `consultancy_progress_name`) VALUES
-(1, 'Ongoing'),
-(2, 'Completed');
+(1, 'IN PROGRESS'),
+(2, 'COMPLETED');
 
 -- --------------------------------------------------------
 
@@ -154,7 +177,8 @@ INSERT INTO `country` (`country_id`, `country_name`) VALUES
 (2, 'Uganda'),
 (3, 'Tanzania'),
 (4, 'Kenya'),
-(5, 'Morroco');
+(5, 'Morroco'),
+(6, 'Tunisia');
 
 -- --------------------------------------------------------
 
@@ -167,6 +191,13 @@ CREATE TABLE `department` (
   `department_name` text NOT NULL,
   `school_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `department`
+--
+
+INSERT INTO `department` (`department_id`, `department_name`, `school_id`) VALUES
+(1, 'COMPUTER SCIENCE', 1);
 
 -- --------------------------------------------------------
 
@@ -197,14 +228,6 @@ CREATE TABLE `message_read` (
   `message_read_name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `message_read`
---
-
-INSERT INTO `message_read` (`message_read_id`, `message_read_name`) VALUES
-(1, 'READ'),
-(2, 'UNREAD');
-
 -- --------------------------------------------------------
 
 --
@@ -229,6 +252,13 @@ CREATE TABLE `school` (
   `school_name` text NOT NULL,
   `college_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `school`
+--
+
+INSERT INTO `school` (`school_id`, `school_name`, `college_id`) VALUES
+(1, 'INFORMATION COMMUNICATION AND TECHNOLOGY', 4);
 
 -- --------------------------------------------------------
 
@@ -265,23 +295,20 @@ CREATE TABLE `users` (
   `user_password` varchar(100) NOT NULL,
   `user_status_id` int(11) NOT NULL DEFAULT 1,
   `user_type_id` int(11) NOT NULL,
-  `user_profile_image` varchar(45) NOT NULL DEFAULT 'img/mimage.png',
+  `user_country` int(11) NOT NULL,
+  `user_profile_image` varchar(45) NOT NULL,
   `user_adder_id` int(11) NOT NULL,
-  `user_last_active` datetime NOT NULL DEFAULT current_timestamp()
+  `user_last_active` datetime NOT NULL,
+  `user_department` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_first_name`, `user_last_name`, `user_gender`, `user_national_id`, `user_email`, `user_password`, `user_status_id`, `user_type_id`, `user_profile_image`, `user_adder_id`, `user_last_active`) VALUES
-(1, 'Jean Paul', 'NISHIMIRWE', 'M', '119978011706319', 'nishimirwepaul2015@gmail.com', '$2y$10$OSM2wGTWg/xixV27YD3dy.UGaC3ZffrnPKLGLtzUZPTs9cTxOo7oe', 1, 1, 'img/mimage.png', 1, '2020-12-20 17:34:42'),
-(2, 'Patrick', 'ISHIMWE', 'M', '1199680012546588', 'patrickishimwe16@gmail.com', '$2y$10$GdSKTTYKjl9261czmGXjs.dNpA1UHJWSfmpGRSKyP55eNIOjHnAN2', 1, 2, 'img/mimage.png', 1, '0000-00-00 00:00:00'),
-(3, 'Jean', 'NISHIMIRWE', 'M', '1199780117063134', 'nishimirwepaul2015@gmail.con', '$2y$10$gV42exXaWrJslt4ti7ZQH.iUORMbluOdh7LSW1vFySjK5mCraeD8m', 1, 2, 'img/mimage.png', 1, '0000-00-00 00:00:00'),
-(4, 'Jean', 'NISHIMIRWE', 'M', '1199780117063135', 'nishimirwepaul2015@gmail.cmm', '$2y$10$ae4sj8.2DDhU2GOf6kTyTuKcKHVtD9/byrlcvMEUHE3DfaoX7e8lW', 1, 1, 'img/mimage.png', 1, '0000-00-00 00:00:00'),
-(5, 'Jean', 'NISHIMIRWE', 'M', '1199780117063139', 'nishimirwepaul2015@gmail.cm', '$2y$10$E6RKSG5HGpMJTR14z05xQeLexMEGgd2IfX9gSapOzcLOyOuOvIfrm', 1, 1, 'img/mimage.png', 1, '0000-00-00 00:00:00'),
-(6, 'Jean', 'NISHIMIRWE', 'F', '1199680012546587', 'nishimirwepaul2015@gmail.c', '$2y$10$uG87Xn/ZIfEBiJHP4/wbYuFSQFgAoR5mfLhTAjiH18cfzG1.rIZP.', 1, 1, 'img/fimage.png', 1, '0000-00-00 00:00:00'),
-(7, 'Patrick', 'ISHIMWE', 'F', '1199680012546544', 'patrickishimwe16@gmail.cok', '$2y$10$zbKoqNWpiVHUgO4EUbNYjO8CqRLXQF2.9C6sYh.5CV5jncUyHsfT.', 1, 1, 'img/fimage.png', 1, '0000-00-00 00:00:00');
+INSERT INTO `users` (`user_id`, `user_first_name`, `user_last_name`, `user_gender`, `user_national_id`, `user_email`, `user_password`, `user_status_id`, `user_type_id`, `user_country`, `user_profile_image`, `user_adder_id`, `user_last_active`, `user_department`) VALUES
+(6, 'Jean Paul', 'NISHIMIRWE', 'M', '1199780117063139', 'nishimirwepaul2015@gmail.com', '$2y$10$42a7GyPmub4DeSntpNT6p.iw1XepinKf/0YTHXLpM9WSn0T24.TTG', 1, 1, 1, 'img/mimage.png', 1, '2020-12-21 13:50:50', 1),
+(7, 'Patrick', 'ISHIMWE', 'M', '1199680012546588', 'patrickishimwe16@gmail.com', '$2y$10$qPIIi8FlvJGyBTt3KKGs8uJkiwCnJFQLPUUZj.JHcvtLIJGBRgi0G', 1, 2, 1, 'img/mimage.png', 6, '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -327,7 +354,8 @@ ALTER TABLE `campus`
 ALTER TABLE `client`
   ADD PRIMARY KEY (`client_id`),
   ADD UNIQUE KEY `client_email_UNIQUE` (`client_email`),
-  ADD KEY `client.country_idx` (`country_id`);
+  ADD KEY `client.country_idx` (`country_id`),
+  ADD KEY `client.status_idx` (`client_status`);
 
 --
 -- Indexes for table `college`
@@ -342,7 +370,8 @@ ALTER TABLE `college`
 ALTER TABLE `consultancy`
   ADD PRIMARY KEY (`consultancy_id`),
   ADD KEY `consultancy.client_idx` (`consultancy_client_id`),
-  ADD KEY `consultancy.progress_idx` (`consultancy_progress`);
+  ADD KEY `consultancy.progress_idx` (`consultancy_progress`),
+  ADD KEY `consultancy.users.adder_idx` (`consultancy_adder`);
 
 --
 -- Indexes for table `consultancy_progress`
@@ -417,7 +446,9 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `user_email_UNIQUE` (`user_email`),
   ADD KEY `users.status_idx` (`user_status_id`),
   ADD KEY `users.user_type_idx` (`user_type_id`),
-  ADD KEY `users.users.adder_idx` (`user_adder_id`);
+  ADD KEY `users.users.adder_idx` (`user_adder_id`),
+  ADD KEY `users.country_idx` (`user_country`),
+  ADD KEY `users.department_idx` (`user_department`);
 
 --
 -- Indexes for table `user_type`
@@ -439,25 +470,25 @@ ALTER TABLE `block_user`
 -- AUTO_INCREMENT for table `campus`
 --
 ALTER TABLE `campus`
-  MODIFY `campus_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `campus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `college`
 --
 ALTER TABLE `college`
-  MODIFY `college_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `college_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `consultancy`
 --
 ALTER TABLE `consultancy`
-  MODIFY `consultancy_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `consultancy_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `consultancy_progress`
@@ -475,13 +506,13 @@ ALTER TABLE `consultant_contract`
 -- AUTO_INCREMENT for table `country`
 --
 ALTER TABLE `country`
-  MODIFY `country_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `country_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-  MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `message`
@@ -493,7 +524,7 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT for table `message_read`
 --
 ALTER TABLE `message_read`
-  MODIFY `message_read_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `message_read_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `reset_password`
@@ -505,7 +536,7 @@ ALTER TABLE `reset_password`
 -- AUTO_INCREMENT for table `school`
 --
 ALTER TABLE `school`
-  MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `status`
@@ -540,7 +571,8 @@ ALTER TABLE `block_user`
 -- Constraints for table `client`
 --
 ALTER TABLE `client`
-  ADD CONSTRAINT `client.country` FOREIGN KEY (`country_id`) REFERENCES `country` (`country_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `client.country` FOREIGN KEY (`country_id`) REFERENCES `country` (`country_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `client.status` FOREIGN KEY (`client_status`) REFERENCES `status` (`status_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `college`
@@ -553,7 +585,8 @@ ALTER TABLE `college`
 --
 ALTER TABLE `consultancy`
   ADD CONSTRAINT `consultancy.client` FOREIGN KEY (`consultancy_client_id`) REFERENCES `client` (`client_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `consultancy.progress` FOREIGN KEY (`consultancy_progress`) REFERENCES `consultancy_progress` (`consultancy_progress_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `consultancy.progress` FOREIGN KEY (`consultancy_progress`) REFERENCES `consultancy_progress` (`consultancy_progress_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `consultancy.users.adder` FOREIGN KEY (`consultancy_adder`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `consultant_contract`
@@ -594,9 +627,10 @@ ALTER TABLE `school`
 -- Constraints for table `users`
 --
 ALTER TABLE `users`
+  ADD CONSTRAINT `users.country` FOREIGN KEY (`user_country`) REFERENCES `country` (`country_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `users.department` FOREIGN KEY (`user_department`) REFERENCES `department` (`department_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `users.status` FOREIGN KEY (`user_status_id`) REFERENCES `status` (`status_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `users.user_type` FOREIGN KEY (`user_type_id`) REFERENCES `user_type` (`user_type_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `users.users.adder` FOREIGN KEY (`user_adder_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `users.user_type` FOREIGN KEY (`user_type_id`) REFERENCES `user_type` (`user_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
