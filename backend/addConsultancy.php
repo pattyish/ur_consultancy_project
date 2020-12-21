@@ -26,7 +26,7 @@ $Insert = $connect -> prepare("INSERT INTO consultancy(consultancy_name,consulta
 consultancy_end_date,consultancy_amount,consultancy_currency,consultancy_UR_percentage,
 consultancy_Tax_percentage,consultancy_consultants_percentage,consultancy_client_id,consultancy_adder) 
 VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-$Insert->bind_param("ssssdsdddii",$name,$sign_date,$start_date,$end_date,$amount,$currency,$ur_charges,$tax_charges,
+$Insert->bind_param("ssssdsdddii",$name,$now,$start_date,$end_date,$amount,$currency,$ur_charges,$tax_charges,
 $consultant_charges,$client,$myId);
 $Insert->execute();
 if($Insert)

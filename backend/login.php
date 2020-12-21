@@ -4,7 +4,8 @@ include 'Database.php'; // include database connection
 $UserEmail = $connect -> real_escape_string($_POST['uName']);
 $UserPass = $connect -> real_escape_string($_POST['password']);
 // check user account info
-$Query_check = "SELECT * FROM users WHERE (users.user_email = '$UserEmail')";
+$Query_check = "SELECT * FROM users INNER JOIN user_type INNER JOIN country ON users.user_type_id = user_type.user_type_id 
+                AND users.user_country = country.country_id WHERE (users.user_email = '$UserEmail')";
 $Answer_check = mysqli_query($connect,$Query_check);
 $Count_check = mysqli_num_rows($Answer_check);
 if($Count_check == 0)
@@ -18,10 +19,13 @@ else
         $UserId= $line -> user_id;
         $Firstname= $line -> user_first_name;
         $Lastname= $line -> user_last_name;
+        $User_Gender= $line -> user_gender;
         $UserEmail= $line -> user_email;
         $UserPassword= $line -> user_password;
         $UserType= $line -> user_type_id;
+        $UserTypeName= $line -> user_type;
         $UserNational_id= $line -> user_national_id;
+        $Country= $line -> country_name;
         $UserProfileImage= $line -> user_profile_image;
         $user_adder_id= $line -> user_adder_id;
     }
@@ -32,10 +36,13 @@ else
         $_SESSION['LastName']=$Lastname;
         $_SESSION['User_ID']=$UserId;
         $_SESSION['UserEmail']=$UserEmail;
+        $_SESSION['Gender']=$User_Gender;
         $_SESSION['UserPassword']=$UserPassword;
         $_SESSION['UserEmail']=$UserEmail;
         $_SESSION['UserType']=$UserType;
+        $_SESSION['UserTypeName']=$UserTypeName;
         $_SESSION['UserNational_id']=$UserNational_id;
+        $_SESSION['Country']=$Country;
         $_SESSION['UserProfileImage']=$UserProfileImage;
 
         echo "Welcome, ".$_SESSION['FirstName']; // Feedback to the user.

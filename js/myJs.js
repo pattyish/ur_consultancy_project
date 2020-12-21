@@ -120,14 +120,61 @@ $(document).ready(function(){
                         $("#addConsultancyFeedback").html("<i class='text-blue'><b>"+response+"</b></i>");
                         if(response.includes("successfully"))
                         {
-                            /*$("#consultancy_name").val("");
+                            $("#consultancy_name").val("");
                             $("#start_date").val("");
                             $("#end_date").val("");
                             $("#amount").val("");
                             $("#currency").val("");
                             $("#chargesToUr").val("");
                             $("#taxCharges").val("");
-                            $("#client").val(""); */
+                            $("#client").val("");
+                        }
+                    }
+                });  
+            }
+        }
+    });
+
+    // Changing Password
+    $("#changePasswordForm").on("submit",function(e){
+        e.preventDefault();
+        var OP = $("#oldPassword").val();
+        var NP = $("#newPassword").val();
+        var CNP = $("#cNewPassword").val();
+        if($.trim(OP).length == 0 || $.trim(NP).length == 0 || $.trim(CNP).length == 0)
+        {
+            $("#changePasswordFeedback").html("<b><i class='text-red'>All fields are required.</i></b>");
+        }
+        else
+        {
+            if(NP.length < 6)
+            {
+                $("#changePasswordFeedback").html("<b><i class='text-red'>Password should be least 6 characters.</i></b>");
+            }
+            else if(NP != CNP)
+            {
+                $("#changePasswordFeedback").html("<b><i class='text-red'>Confirmed password is not correct.</i></b>");
+            }
+            else if(OP == CNP && OP == NP)
+            {
+                $("#changePasswordFeedback").html("<b><i class='text-red'>Your new password seems to be the same as the oldest password.</i></b>");
+            }
+            else
+            {
+                $("#changePasswordFeedback").html("<b><i class='text-blue'>Wait... Changes are being saved.</i></b>");
+                // AJAX to link to backend/changePassword
+                $.ajax({
+                    type: "post",
+                    url: "backend/changeYourPassword.php",
+                    data: {OP : OP, NP : NP, CNP : CNP},
+                    success: function(response)
+                    {
+                        $("#changePasswordFeedback").html(response);
+                        if(response.includes("Changed"))
+                        {
+                            $("#oldPassword").val("");
+                            $("#newPassword").val("");
+                            $("#cNewPassword").val("");
                         }
                     }
                 });  

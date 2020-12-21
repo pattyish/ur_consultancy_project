@@ -25,12 +25,12 @@
                 <!-- Profile Image -->
                 <div class="box box-primary">
                     <div class="box-body box-profile">
-                        <img class="profile-user-img img-responsive img-circle" src="dist/img/user4-128x128.jpg"
+                        <img class="profile-user-img img-responsive img-circle" src="<?php echo $_SESSION['UserProfileImage']; ?>"
                             alt="User profile picture">
 
-                        <h3 class="profile-username text-center">Nina Mcintire</h3>
+                        <h3 class="profile-username text-center"><?php echo $_SESSION['FirstName']." ".$_SESSION['LastName']; ?></h3>
 
-                        <p class="text-muted text-center">Software Engineer</p>
+                        <p class="text-muted text-center text-blue"><b><?php echo $_SESSION['UserTypeName']; ?></b></p>
 
                         <ul class="list-group list-group-unbordered">
                             <li class="list-group-item">
@@ -78,9 +78,9 @@
             <div class="col-md-9">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#activity" data-toggle="tab">Summary</a></li>
-                        <li><a href="#timeline" data-toggle="tab">Change Password</a></li>
-                        <li><a href="#settings" data-toggle="tab">Update Profile</a></li>
+                        <li class="active"><a href="#activity" data-toggle="tab"class="text-green"><h4>Summary</h4></a></li>
+                        <li><a href="#timeline" data-toggle="tab" class="text-green"><h4>Change Password</h4></a></li>
+                        <li><a href="#settings" data-toggle="tab"class="text-green"><h4>Update Profile</h4></a></li>
                     </ul>
                     <div class="tab-content">
                         <div class="active tab-pane" id="activity">
@@ -127,32 +127,32 @@
                         </div>
                         <!-- /.tab-pane -->
                         <div class="tab-pane" id="timeline">
-                            <form role="form" id="changePassword">
+                            <form role="form" id="changePasswordForm">
                                 <div class="box-body">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Current-Password</label>
-                                                <input type="password" class="form-control" id="cur_password"
+                                                <input type="password" class="form-control" id="oldPassword"
                                                     placeholder="Current Password.." value="">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">New-Password</label>
-                                                <input type="password" class="form-control" id="n_password"
+                                                <input type="password" class="form-control" id="newPassword"
                                                     placeholder="New Password...">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Confirm-New-Password</label>
-                                                <input type="password" class="form-control" id="fName"
-                                                    placeholder="Retype New Password..." value="">
+                                                <input type="password" class="form-control" id="cNewPassword"
+                                                    placeholder="Confirm New Password..." value="">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="box-footer">
-                                    <button type="submit" id="saveCons" class="btn btn-primary">Change Password</button>
+                                    <button type="submit" id="changePassword" class="btn btn-primary">Change Password</button>
                                     &nbsp;&nbsp;&nbsp;
-                                    <span id="feedback"> </span>
+                                    <span style="font-size: 20px;" id="changePasswordFeedback"> </span>
                                 </div>
                             </form>
                         </div>
@@ -166,45 +166,50 @@
                                             <div class="form-group">
                                                 <label for="">First-name</label>
                                                 <input type="text" class="form-control" id="fName"
-                                                    placeholder="Enter First-name" value="">
+                                                    placeholder="Enter First-name" value="<?php echo $_SESSION['FirstName']; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Last-name</label>
                                                 <input type="text" class="form-control" id="lName"
-                                                    placeholder="Enter Password" value="">
+                                                    placeholder="Enter Password" value="<?php echo $_SESSION['LastName']; ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">User Type </label>
+                                                <input type="text" class="form-control" id="userType" placeholder="Type"
+                                                    value="<?php echo $_SESSION['UserTypeName']; ?>" disabled>
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Gender</label>
                                                 <input type="text" class="form-control" id="natId" placeholder="Gender"
-                                                    value="">
+                                                    value="<?php echo $_SESSION['Gender']; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">National Id &nbsp;&nbsp; <span class="text-blue"
                                                         id="natIdLength">
                                                     </span></label>
                                                 <input type="text" class="form-control" id="natId"
-                                                    placeholder="Enter Id Number" value="" disabled>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="">User Type </label>
-                                                <input type="text" class="form-control" id="userType" placeholder="Type"
-                                                    value="" disabled>
+                                                     value="<?php echo $_SESSION['UserNational_id']; ?>" disabled>
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Email address</label>
                                                 <input type="email" class="form-control" id="userEmail" placeholder=""
-                                                    value="">
+                                                    value="<?php echo $_SESSION['UserEmail']; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
+                                                <label for="">Telephone </label>
+                                                <input type="text" class="form-control" id="phone" placeholder="Phone number"
+                                                    value="<?php echo "session Phone"; ?>">
+                                            </div>
+                                            <div class="form-group">
                                                 <label>Country</label>
-                                                <input type="text" class="form-control" id="userType"
-                                                    placeholder="Enter Country" value="">
+                                                <input type="text" class="form-control" id="country"
+                                                    placeholder="Enter Country" value="<?php echo $_SESSION['Country']; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Location</label>
-                                                <input type="email" class="form-control" id="userEmail" placeholder=""
+                                                <input type="email" class="form-control" id="userEmail" placeholder="your location"
                                                     value="">
                                             </div>
                                             <div class="form-group">
@@ -223,7 +228,7 @@
                                 <!-- /.box-body -->
 
                                 <div class="box-footer">
-                                    <button type="submit" id="saveCons" class="btn btn-primary">Save User</button>
+                                    <button type="submit" id="saveCons" class="btn btn-primary">Save Changes</button>
                                     &nbsp;&nbsp;&nbsp;
                                     <button type="reset" id="reset" class="btn btn-link">Reset</button>
                                     <br>
