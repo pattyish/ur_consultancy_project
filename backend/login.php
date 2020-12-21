@@ -1,8 +1,8 @@
 <?php
 session_start();
 include 'Database.php'; // include database connection
-$UserEmail=$connect -> real_escape_string($_POST['uName']);
-$UserPass=$connect -> real_escape_string($_POST['password']);
+$UserEmail = $connect -> real_escape_string($_POST['uName']);
+$UserPass = $connect -> real_escape_string($_POST['password']);
 // check user account info
 $Query_check = "SELECT * FROM users WHERE (users.user_email = '$UserEmail')";
 $Answer_check = mysqli_query($connect,$Query_check);
@@ -38,7 +38,7 @@ else
         $_SESSION['UserNational_id']=$UserNational_id;
         $_SESSION['UserProfileImage']=$UserProfileImage;
 
-        echo "Welcome. ".$_SESSION['FirstName']; // Feedback to the user.
+        echo "Welcome, ".$_SESSION['FirstName']; // Feedback to the user.
         if($UserType == 1) // if admin
         {
             ?>

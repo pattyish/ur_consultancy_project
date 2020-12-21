@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>UR-Consultancy</title>
+    <link rel="shortcut icon" href="../img/logo.JPG" />
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -80,11 +81,13 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-8">
+                    <!--
                         <div class="checkbox icheck">
                             <label>
                                 <input type="checkbox"> Remember Me
                             </label>
                         </div>
+                        -->
                         <span id="login_feedback" style="padding: 10px 0px; margin: 4px 0px;"> </span>
                     </div>
                     <!-- /.col -->

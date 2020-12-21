@@ -16,6 +16,8 @@ $password1 = md5("".$random_number."".time()."".$email);
 $password = password_hash($password1, PASSWORD_DEFAULT);
 $status_id = 1;
 $user_type_id = $connect -> real_escape_string($_POST['userType']);
+$country = $_POST['country'];
+$department = $_POST['department'];
 $profile_image = "";
 
 if($gender == 'M')
@@ -38,9 +40,11 @@ if($count_check > 0)
 else
 {
     // Query to insert into database
-    $Insert = $connect ->prepare("INSERT INTO users(user_first_name,user_last_name,user_gender,user_national_id,user_email,user_password,user_status_id,user_type_id,user_profile_image,user_adder_id)
-     VALUES(?,?,?,?,?,?,?,?,?,?)");
-    $Insert -> bind_param("ssssssiisi",$fname,$lname,$gender,$national_id,$email,$password,$status_id,$user_type_id,$profile_image,$myId);
+    $Insert = $connect ->prepare("INSERT INTO 
+    users(user_first_name,user_last_name,user_gender,user_national_id,user_email,user_password,
+    user_status_id,user_type_id,user_country,user_profile_image,user_adder_id,user_department )
+     VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
+    $Insert -> bind_param("ssssssiiisii",$fname,$lname,$gender,$national_id,$email,$password,$status_id,$user_type_id,$country,$profile_image,$myId,$department );
     $Insert->execute();
     if($Insert)
     {
