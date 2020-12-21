@@ -28,7 +28,7 @@ if($retrieveCount > 0)
             <td><?php echo $consultancy_start_date; ?></td>
             <td><?php echo $consultancy_end_date; ?></td>
             <td><?php echo $consultancy_amount; ?></td>
-            <td><?php echo $consultancy_progress; ?></td>
+            <td class="text-warning" style="font-weight: bold;"><?php echo $consultancy_progress; ?></td>
             <td>
             <?php include 'models/consultancy_models/view_in_progress.php'; ?>
                 <div class="btn-group btn-group-sm table-button-div">
