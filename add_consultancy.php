@@ -23,7 +23,7 @@
                     <div class="box-header with-border">
                         <h3 class="box-title">Record Consultancy</h3>
                     </div>
-                    <form class="form" role="form" action="">
+                    <form class="form" id="addConsultancyForm">
                         <div class=""
                             style="padding: 20px; border: 1px solid rgba(60, 141, 188, 0.3); border-radius: 5px;">
                             <legend style="font-weight: bold;"> Consultancy Details </legend>
@@ -31,7 +31,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Consultance-Name</label>
-                                        <input type="text" id="consultancy-name" placeholder="Consultancy Title......"
+                                        <input type="text" id="consultancy_name" placeholder="Consultancy Title......"
                                             class="form-control">
                                     </div>
                                     <div class="form-group">
@@ -42,42 +42,42 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Consultancy-Start-Date</label>
-                                        <input type="date" id="start_date" placeholder="Consultancy Start Date....."
+                                        <input type="date" id="start_date" min="<?php echo $contract_sign_date; ?>" placeholder="Consultancy Start Date....."
                                             class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Consultancy-End-Date</label>
-                                        <input type="date" id="end_date" placeholder="Consultancy Sign Date....."
+                                        <input type="date" id="end_date" min="<?php echo $contract_sign_date; ?>" placeholder="Consultancy Sign Date....."
                                             class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Total-Amount</label>
-                                        <input type="text" id="amount" placeholder="Cash......"
+                                        <input type="number"  step="any" id="amount" placeholder="Cash......"
                                             class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Currency</label>
                                         <select name="currency" class="form-control" id="currency">
-                                            <option>Select Currency...</option>
-                                            <option>Rwf</option>
-                                            <option>Dollar</option>
-                                            <option>Euro</option>
-                                            <option>Pound</option>
+                                            <option value="">Select Currency...</option>
+                                            <option value="RWF">RWF</option>
+                                            <option value="USD">USD</option>
+                                            <option value="EUROS">EUROS</option>
+                                            <option value="POUNDS">POUNDS</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Choose Client</label>
                                         <select class="form-control select2" multiple="multiple"
-                                            id="clients" name="clients" data-placeholder="Select a State..."
+                                            id="client" name="client" data-placeholder="Select a client..."
                                             style="width: 100%;">
                                             <?php include 'backend/getClients.php' ?>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <p><b>If Client not Exist, Follow the Link to first </b><a href="register_client.php">
-                                                 Register Client
+                                        <p>If Client not Exist, Follow this Link to first <a href="register_client.php">
+                                                 <b>Register Client</b>
                                             </a>
                                         </p>
                                     </div>
@@ -88,13 +88,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">UR-Percentage</label>
-                                                <input type="text" placeholder="UR part..." class="form-control">
+                                                <input type="number" step="any" id="chargesToUr" placeholder="UR part..." class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Tax-Percentage</label>
-                                                <input text="text" placeholder="Tax charges..." class="form-control">
+                                                <input type="number" step="any" id="taxCharges" placeholder="Tax charges..." class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -103,6 +103,7 @@
                             <div class="row">
                                 <div class="col-md-12 text-left">
                                     <button type="submit" class="btn btn-primary" style="padding: 10px; font-size: 17px;"> Submit</button>
+                                    &nbsp; &nbsp; <span id="addConsultancyFeedback"></span>
                                 </div>
                             </div>
                         </div>

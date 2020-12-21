@@ -79,6 +79,13 @@ $(document).ready(function(){
                                             <?php include 'backend/getCountries.php'; ?>
                                         </select>
                                     </div>
+                                    <div class="form-group">
+                                        <label>Department</label>
+                                        <select class="form-control select2" id="department" multiple="multiple"
+                                            data-placeholder="Select a State" style="width: 100%;">
+                                            <?php include 'backend/getDepartments.php'; ?>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -88,7 +95,7 @@ $(document).ready(function(){
                         <button type="submit" id="saveCons" class="btn btn-primary">Save User</button> 
                         &nbsp;&nbsp;&nbsp;
                         <button type="reset" id="reset" class="btn btn-link">Reset</button>
-                         <br>
+                        <br><br>
                             <span id="feedback"> </span>
                         </div>
                     </form>

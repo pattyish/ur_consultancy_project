@@ -46,6 +46,6 @@ if($retrieveCount > 0)
 }
 else
 {
-    echo "No consultancts available";
+    echo "";
 }
 ?>
