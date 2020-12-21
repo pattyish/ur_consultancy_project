@@ -1,4 +1,4 @@
-<div class="modal fade" id="edit_consultancy">
+<div class="modal fade" id="disable_client<?php echo $clientId; ?>">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -8,10 +8,11 @@
               </div>
               <div class="modal-body">
                 <p>One fine body&hellip;</p>
+                <p><?php echo $clientId; ?></p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success">Edit</button>
+                <button type="button" class="btn btn-danger">Delete</button>
               </div>
             </div>
             <!-- /.modal-content -->

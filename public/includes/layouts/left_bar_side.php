@@ -109,7 +109,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i>My Profile</a></li>
+                    <li><a href="profile.php"><i class="fa fa-circle-o"></i>My Profile</a></li>
                     <li><a href="backend/logout.php"><i class="fa fa-circle-o"></i> Logout </a></li>
                 </ul>
             </li>

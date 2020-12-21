@@ -1,4 +1,4 @@
-<div class="modal fade" id="view_consultant<?php echo $user_id;  ?>">
+<div class="modal fade" id="edit_consultant<?php echo $user_id;  ?>">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -12,7 +12,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-success">Edit</button>
               </div>
             </div>
             <!-- /.modal-content -->

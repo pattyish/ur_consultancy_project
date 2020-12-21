@@ -39,7 +39,6 @@
                             <tbody>
 
                                 <?php include 'backend/existingConsultants.php'; ?>
-                                <?php include 'models/consultant_models/view_consultant.php'; ?>
                             </tbody>
 
                         </table>
