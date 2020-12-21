@@ -33,6 +33,7 @@
                                     <th>Gender</th>
                                     <th>National ID</th>
                                     <th>Email Address</th>
+                                    <th>Department</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>

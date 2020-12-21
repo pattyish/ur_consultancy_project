@@ -1,6 +1,6 @@
 <?php
 // file to retrieve all existing consultants and show them in table with possible options
-$retrieve = "SELECT * FROM users INNER JOIN user_type ON users.user_type_id = user_type.user_type_id;";
+$retrieve = "SELECT * FROM users INNER JOIN user_type INNER JOIN department ON users.user_type_id = user_type.user_type_id AND users.user_department = department.department_id;";
 $retrieve = mysqli_query($connect,$retrieve);
 $retrieveCount = mysqli_num_rows($retrieve);
 if($retrieveCount > 0)
@@ -13,12 +13,14 @@ if($retrieveCount > 0)
         $gender = $lineRetrieve -> user_gender;
         $natId = $lineRetrieve -> user_national_id;
         $email = $lineRetrieve -> user_email;
+        $department = $lineRetrieve -> user_department;
         ?>
         <tr>
             <td><?php echo $fName." ".$lName ?></td>
             <td><?php echo $gender; ?></td>
             <td><?php echo $natId; ?></td>
             <td><?php echo $email; ?></td>
+            <td><?php echo $department; ?></td>
             <td>
             <?php include 'models/consultant_models/view_consultant.php'; ?>
                 <div class="btn-group btn-group-sm table-button-div">

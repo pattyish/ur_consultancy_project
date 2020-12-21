@@ -66,19 +66,6 @@
                         <p class="text-muted">Kigali, Rwanda</p>
 
                         <hr>
-
-                        <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
-
-                        <p>
-                            <span class="label label-danger">UI Design</span>
-                            <span class="label label-success">Coding</span>
-                            <span class="label label-info">Javascript</span>
-                            <span class="label label-warning">PHP</span>
-                            <span class="label label-primary">Node.js</span>
-                        </p>
-
-                        <hr>
-
                         <strong><i class="fa fa-file-text-o margin-r-5"></i> Summary</strong>
 
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
@@ -224,155 +211,92 @@
                         </div>
                         <!-- /.tab-pane -->
                         <div class="tab-pane" id="timeline">
-                            <!-- The timeline -->
-                            <ul class="timeline timeline-inverse">
-                                <!-- timeline time label -->
-                                <li class="time-label">
-                                    <span class="bg-red">
-                                        10 Feb. 2014
-                                    </span>
-                                </li>
-                                <!-- /.timeline-label -->
-                                <!-- timeline item -->
-                                <li>
-                                    <i class="fa fa-envelope bg-blue"></i>
-
-                                    <div class="timeline-item">
-                                        <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-
-                                        <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
-
-                                        <div class="timeline-body">
-                                            Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                                            weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                                            jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                                            quora plaxo ideeli hulu weebly balihoo...
-                                        </div>
-                                        <div class="timeline-footer">
-                                            <a class="btn btn-primary btn-xs">Read more</a>
-                                            <a class="btn btn-danger btn-xs">Delete</a>
+                            <form role="form" id="saveConsultant">
+                                <div class="box-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Current-Password</label>
+                                                <input type="password" class="form-control" id="cur_password"
+                                                    placeholder="Current Password.." value="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">New-Password</label>
+                                                <input type="password" class="form-control" id="n_password"
+                                                    placeholder="New Password...">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Confirm-New-Password</label>
+                                                <input type="password" class="form-control" id="fName"
+                                                    placeholder="Retype New Password..." value="">
+                                            </div>
                                         </div>
                                     </div>
-                                </li>
-                                <!-- END timeline item -->
-                                <!-- timeline item -->
-                                <li>
-                                    <i class="fa fa-user bg-aqua"></i>
-
-                                    <div class="timeline-item">
-                                        <span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
-
-                                        <h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your
-                                            friend request
-                                        </h3>
-                                    </div>
-                                </li>
-                                <!-- END timeline item -->
-                                <!-- timeline item -->
-                                <li>
-                                    <i class="fa fa-comments bg-yellow"></i>
-
-                                    <div class="timeline-item">
-                                        <span class="time"><i class="fa fa-clock-o"></i> 27 mins ago</span>
-
-                                        <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post
-                                        </h3>
-
-                                        <div class="timeline-body">
-                                            Take me to your leader!
-                                            Switzerland is small and neutral!
-                                            We are more like Germany, ambitious and misunderstood!
-                                        </div>
-                                        <div class="timeline-footer">
-                                            <a class="btn btn-warning btn-flat btn-xs">View comment</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- END timeline item -->
-                                <!-- timeline time label -->
-                                <li class="time-label">
-                                    <span class="bg-green">
-                                        3 Jan. 2014
-                                    </span>
-                                </li>
-                                <!-- /.timeline-label -->
-                                <!-- timeline item -->
-                                <li>
-                                    <i class="fa fa-camera bg-purple"></i>
-
-                                    <div class="timeline-item">
-                                        <span class="time"><i class="fa fa-clock-o"></i> 2 days ago</span>
-
-                                        <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
-
-                                        <div class="timeline-body">
-                                            <img src="http://placehold.it/150x100" alt="..." class="margin">
-                                            <img src="http://placehold.it/150x100" alt="..." class="margin">
-                                            <img src="http://placehold.it/150x100" alt="..." class="margin">
-                                            <img src="http://placehold.it/150x100" alt="..." class="margin">
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- END timeline item -->
-                                <li>
-                                    <i class="fa fa-clock-o bg-gray"></i>
-                                </li>
-                            </ul>
+                                </div>
+                                <div class="box-footer">
+                                    <button type="submit" id="saveCons" class="btn btn-primary">Change Password</button>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <span id="feedback"> </span>
+                                </div>
+                            </form>
                         </div>
                         <!-- /.tab-pane -->
 
                         <div class="tab-pane" id="settings">
-                            <form class="form-horizontal">
-                                <div class="form-group">
-                                    <label for="inputName" class="col-sm-2 control-label">Name</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="inputName" placeholder="Name">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputName" class="col-sm-2 control-label">Name</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputName" placeholder="Name">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
-
-                                    <div class="col-sm-10">
-                                        <textarea class="form-control" id="inputExperience"
-                                            placeholder="Experience"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputSkills" class="col-sm-2 control-label">Skills</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> I agree to the <a href="#">terms and
-                                                    conditions</a>
-                                            </label>
+                            <form role="form" id="saveConsultant">
+                                <div class="box-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">First-name</label>
+                                                <input type="text" class="form-control" id="fName"
+                                                    placeholder="Enter First-name" value="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Last-name</label>
+                                                <input type="text" class="form-control" id="lName"
+                                                    placeholder="Enter Password" value="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Gender</label>
+                                                <input type="text" class="form-control" id="natId" placeholder="Gender"
+                                                    value="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">National Id &nbsp;&nbsp; <span class="text-blue"
+                                                        id="natIdLength">
+                                                    </span></label>
+                                                <input type="text" class="form-control" id="natId"
+                                                    placeholder="Enter Id Number" value="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Email address</label>
+                                                <input type="email" class="form-control" id="userEmail"
+                                                    placeholder="Enter email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">User Type </label>
+                                                <input type="text" class="form-control" id="userType"
+                                                    placeholder="Enter email" value="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Country</label>
+                                                <input type="text" class="form-control" id="userType"
+                                                    placeholder="Enter email" value="">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <button type="submit" class="btn btn-danger">Submit</button>
-                                    </div>
+                                <!-- /.box-body -->
+
+                                <div class="box-footer">
+                                    <button type="submit" id="saveCons" class="btn btn-primary">Save User</button>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <button type="reset" id="reset" class="btn btn-link">Reset</button>
+                                    <br>
+                                    <span id="feedback"> </span>
                                 </div>
                             </form>
                         </div>
