@@ -19,10 +19,10 @@ $now = date("Y-m-d h:i:s");
 $status_id = 1;
 
 // Query to insert into database
-$Insert=$connect ->prepare("INSERT INTO consultancy(consultancy_name,consultancy_sign_date,consultancy_start_date,
+$Insert = $connect -> prepare("INSERT INTO consultancy(consultancy_name,consultancy_sign_date,consultancy_start_date,
                             consultancy_end_date,consultancy_amount,consultancy_currency,consultancy_UR_percentage,
                             consultancy_Tax_percentage,consultancy_consultants_percentage,consultancy_client_id,consultancy_adder) 
-                            VALUES(?,?,?,?,?,?,?,?,?,?,?)");
+                            VALUES (?,?,?,?,?,?,?,?,?,?,?)");
 $Insert->bind_param("ssssdsdddii",$name,$sign_date,$start_date,$end_date,$amount,$currency,$ur_charges,$tax_charges,
             $consultant_charges,$client,$myId);
 $Insert->execute();

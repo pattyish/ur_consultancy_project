@@ -18,6 +18,7 @@ $status_id = 1;
 $user_type_id = $connect -> real_escape_string($_POST['userType']);
 $country = $_POST['country'];
 $department = $_POST['department'];
+$now = date("Y-m-d h:i:s");
 $profile_image = "";
 
 if($gender == 'M')
@@ -42,9 +43,9 @@ else
     // Query to insert into database
     $Insert = $connect ->prepare("INSERT INTO 
     users(user_first_name,user_last_name,user_gender,user_national_id,user_email,user_password,
-    user_status_id,user_type_id,user_country,user_profile_image,user_adder_id,user_department )
-     VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
-    $Insert -> bind_param("ssssssiiisii",$fname,$lname,$gender,$national_id,$email,$password,$status_id,$user_type_id,$country,$profile_image,$myId,$department );
+    user_status_id,user_type_id,user_country,user_profile_image,user_adder_id,user_last_active,user_department )
+     VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+    $Insert -> bind_param("ssssssiiisisi",$fname,$lname,$gender,$national_id,$email,$password,$status_id,$user_type_id,$country,$profile_image,$myId,$now,$department );
     $Insert->execute();
     if($Insert)
     {
