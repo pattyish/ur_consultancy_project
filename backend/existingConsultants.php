@@ -7,6 +7,7 @@ if($retrieveCount > 0)
 {
     while($lineRetrieve = mysqli_fetch_object($retrieve))
     {
+        $user_id = $lineRetrieve -> user_id;
         $fName = $lineRetrieve -> user_first_name;
         $lName = $lineRetrieve -> user_last_name;
         $gender = $lineRetrieve -> user_gender;
@@ -19,21 +20,24 @@ if($retrieveCount > 0)
             <td><?php echo $natId; ?></td>
             <td><?php echo $email; ?></td>
             <td>
+            <?php include 'models/consultant_models/view_consultant.php'; ?>
                 <div class="btn-group btn-group-sm table-button-div">
-                    <a href="#" data-toggle="modal" data-target="#view_consultant<?php echo $lineRetrieve -> user_id; ?>"
+                    <a href="#" data-toggle="modal" data-target="#view_consultant<?php echo $user_id;  ?>"
                         class=" btn btn-info table_button">
                         <i class="fa fa-eye"></i> View
                     </a>
-                    <a href="#" data-toggle="modal" data-target=""
+                    <a href="#" data-toggle="modal" data-target="#edit_consultant<?php echo $user_id;  ?>"
                         class=" btn btn-success table_button">
                         <i class="fa fa-edit"></i> Edit
                     </a>
-                    <a href="#" data-toggle="modal" data-target=""
+                    <a href="#" data-toggle="modal" data-target="#delete_consultant<?php echo $user_id;  ?>"
                         class="btn btn-danger table_button">
                         <i class="fa fa-trash"></i> Delete
                     </a>
                 </div>
+                <?php include 'models/consultant_models/edit_consultant.php'; ?>
             </td>
+            <?php include 'models/consultant_models/delete.php'; ?>
         </tr>
         <?php
     }
