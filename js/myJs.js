@@ -82,18 +82,18 @@ $(document).ready(function(){
         var sign_date = $("#sign_date").val();
         var start_date = $("#start_date").val();
         var end_date = $("#end_date").val();
-        var amount = $("#amount").val();
+        var amount = parseInt($("#amount").val());
         var currency = $("#currency").val();
-        var ur_charges = $("#chargesToUr").val();
-        var tax_charges = $("#taxCharges").val();
-        var all_charges = parseInt(ur_charges) + parseInt(tax_charges);
+        var ur_charges = parseInt($("#chargesToUr").val());
+        var tax_charges = parseInt($("#taxCharges").val());
+        var all_charges = ur_charges + tax_charges;
         var consultant_charges = 100 - all_charges;
-        var client = $("#client").val();
+        var client = parseInt($("#client").val());
         if($.trim(cName).length == 0 || $.trim(sign_date).length == 0
         || $.trim(start_date).length == 0 || $.trim(end_date).length == 0 || $.trim(amount).length == 0
         || $.trim(currency).length == 0 || $.trim(ur_charges).length == 0 || $.trim(tax_charges).length == 0 || $.trim(client).length == 0)
         {
-            $("#addConsultancyFeedback").html("<i class='text-red'><b>All fields are required.</b></i>");
+            $("#addConsultancyFeedback").html("<i class='text-red'><b>All fields are required. "+client+"</b></i>");
         }
         else
         {
@@ -120,14 +120,14 @@ $(document).ready(function(){
                         $("#addConsultancyFeedback").html("<i class='text-blue'><b>"+response+"</b></i>");
                         if(response.includes("successfully"))
                         {
-                            $("#consultancy_name").val("");
+                            /*$("#consultancy_name").val("");
                             $("#start_date").val("");
                             $("#end_date").val("");
                             $("#amount").val("");
                             $("#currency").val("");
                             $("#chargesToUr").val("");
                             $("#taxCharges").val("");
-                            $("#client").val("");
+                            $("#client").val(""); */
                         }
                     }
                 });  

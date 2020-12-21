@@ -42,12 +42,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Consultancy-Start-Date</label>
-                                        <input type="date" id="start_date" placeholder="Consultancy Start Date....."
+                                        <input type="date" id="start_date" min="<?php echo $contract_sign_date; ?>" placeholder="Consultancy Start Date....."
                                             class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Consultancy-End-Date</label>
-                                        <input type="date" id="end_date" placeholder="Consultancy Sign Date....."
+                                        <input type="date" id="end_date" min="<?php echo $contract_sign_date; ?>" placeholder="Consultancy Sign Date....."
                                             class="form-control">
                                     </div>
                                 </div>
