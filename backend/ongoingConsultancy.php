@@ -25,12 +25,9 @@ if($retrieveCount > 0)
         ?>
         <tr>
             <td><?php echo $consultancy_name; ?></td>
-            <td><?php echo $consultancy_sign_date; ?></td>
             <td><?php echo $consultancy_start_date; ?></td>
             <td><?php echo $consultancy_end_date; ?></td>
             <td><?php echo $consultancy_amount; ?></td>
-            <td><?php echo $consultancy_UR_percentage."%"; ?></td>
-            <td><?php echo $consultancy_Tax_percentage."%"; ?></td>
             <td><?php echo $consultancy_progress; ?></td>
             <td>
             <?php include 'models/consultancy_models/view_in_progress.php'; ?>

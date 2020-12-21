@@ -31,12 +31,9 @@
                             <thead>
                                 <tr class="text-blue">
                                     <th>Consultacy Title</th>
-                                    <th>Signed Date</th>
                                     <th>Start Date</th>
                                     <th>End Date</th>
                                     <th>Amount</th>
-                                    <th>UR(%) Charge</th>
-                                    <th>Tax(%) charge</th>
                                     <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
