@@ -9,7 +9,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            User Profile
+           
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -18,17 +18,18 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content" style="margin-top: 20px;">
         <div class="row">
             <div class="col-md-3">
 
                 <!-- Profile Image -->
                 <div class="box box-primary">
                     <div class="box-body box-profile">
-                        <img class="profile-user-img img-responsive img-circle" src="<?php echo $_SESSION['UserProfileImage']; ?>"
-                            alt="User profile picture">
+                        <img class="profile-user-img img-responsive img-circle"
+                            src="<?php echo $_SESSION['UserProfileImage']; ?>" alt="User profile picture">
 
-                        <h3 class="profile-username text-center"><?php echo $_SESSION['FirstName']." ".$_SESSION['LastName']; ?></h3>
+                        <h3 class="profile-username text-center">
+                            <?php echo $_SESSION['FirstName']." ".$_SESSION['LastName']; ?></h3>
 
                         <p class="text-muted text-center text-blue"><b><?php echo $_SESSION['UserTypeName']; ?></b></p>
 
@@ -78,9 +79,15 @@
             <div class="col-md-9">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#activity" data-toggle="tab"class="text-green"><h4>Summary</h4></a></li>
-                        <li><a href="#timeline" data-toggle="tab" class="text-green"><h4>Change Password</h4></a></li>
-                        <li><a href="#settings" data-toggle="tab"class="text-green"><h4>Update Profile</h4></a></li>
+                        <li class="active"><a href="#activity" data-toggle="tab">
+                                <h4>Summary</h4>
+                            </a></li>
+                        <li><a href="#timeline" data-toggle="tab">
+                                <h4>Change Password</h4>
+                            </a></li>
+                        <li><a href="#settings" data-toggle="tab">
+                                <h4>Update Profile</h4>
+                            </a></li>
                     </ul>
                     <div class="tab-content">
                         <div class="active tab-pane" id="activity">
@@ -91,7 +98,7 @@
                                         alt="user image">
                                     <span class="username">
                                         <a href="#">Patrick Ishimwe.</a>
-                                        <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+
                                     </span>
                                     <span class="description">Kigali, Rwanda</span>
                                 </div>
@@ -109,8 +116,8 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                    <div>
-                                            <h4>Eperience Summary</h4>
+                                        <div>
+                                            <h4>Experience Summary</h4>
                                             <p>
                                                 Lorem ipsum represents a long-held tradition for designers,
                                                 typographers and the like. Some people hate it and argue for
@@ -150,7 +157,8 @@
                                     </div>
                                 </div>
                                 <div class="box-footer">
-                                    <button type="submit" id="changePassword" class="btn btn-primary">Change Password</button>
+                                    <button type="submit" id="changePassword" class="btn btn-primary">Change
+                                        Password</button>
                                     &nbsp;&nbsp;&nbsp;
                                     <span style="font-size: 20px;" id="changePasswordFeedback"> </span>
                                 </div>
@@ -166,12 +174,14 @@
                                             <div class="form-group">
                                                 <label for="">First-name</label>
                                                 <input type="text" class="form-control" id="fName"
-                                                    placeholder="Enter First-name" value="<?php echo $_SESSION['FirstName']; ?>">
+                                                    placeholder="Enter First-name"
+                                                    value="<?php echo $_SESSION['FirstName']; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Last-name</label>
                                                 <input type="text" class="form-control" id="lName"
-                                                    placeholder="Enter Password" value="<?php echo $_SESSION['LastName']; ?>">
+                                                    placeholder="Enter Password"
+                                                    value="<?php echo $_SESSION['LastName']; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">User Type </label>
@@ -188,7 +198,7 @@
                                                         id="natIdLength">
                                                     </span></label>
                                                 <input type="text" class="form-control" id="natId"
-                                                     value="<?php echo $_SESSION['UserNational_id']; ?>" disabled>
+                                                    value="<?php echo $_SESSION['UserNational_id']; ?>" disabled>
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Email address</label>
@@ -199,18 +209,19 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Telephone </label>
-                                                <input type="text" class="form-control" id="phone" placeholder="Phone number"
-                                                    value="<?php echo "session Phone"; ?>">
+                                                <input type="text" class="form-control" id="phone"
+                                                    placeholder="Phone number" value="<?php echo "session Phone"; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label>Country</label>
                                                 <input type="text" class="form-control" id="country"
-                                                    placeholder="Enter Country" value="<?php echo $_SESSION['Country']; ?>">
+                                                    placeholder="Enter Country"
+                                                    value="<?php echo $_SESSION['Country']; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Location</label>
-                                                <input type="email" class="form-control" id="userEmail" placeholder="your location"
-                                                    value="">
+                                                <input type="email" class="form-control" id="userEmail"
+                                                    placeholder="your location" value="">
                                             </div>
                                             <div class="form-group">
                                                 <label>Education</label>
