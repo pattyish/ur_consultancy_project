@@ -21,25 +21,25 @@ if($retrieveCount > 0)
         $consultancy_UR_percentage = $lineRetrieve -> consultancy_UR_percentage;
         $consultancy_Tax_percentage = $lineRetrieve -> consultancy_Tax_percentage;
         $consultancy_consultants_percentage = $lineRetrieve -> consultancy_consultants_percentage;
-        $consultancy_progress = $lineRetrieve -> consultancy_progress;
+        $consultancy_progress = $lineRetrieve -> consultancy_progress_name;
         ?>
         <tr>
             <td><?php echo $consultancy_name; ?></td>
-            <td>Internet Explorer 4.5</td>
-            <td>Mac OS 8-9</td>
-            <td>Mac OS 8-9</td>
-            <td>Mac OS 8-9</td>
-            <td>Mac OS 8-9</td>
-            <td>Mac OS 8-9</td>
-            <td>Mac OS 8-9</td>
+            <td><?php echo $consultancy_sign_date; ?></td>
+            <td><?php echo $consultancy_start_date; ?></td>
+            <td><?php echo $consultancy_end_date; ?></td>
+            <td><?php echo $consultancy_amount; ?></td>
+            <td><?php echo $consultancy_UR_percentage."%"; ?></td>
+            <td><?php echo $consultancy_Tax_percentage."%"; ?></td>
+            <td><?php echo $consultancy_progress; ?></td>
             <td>
             <?php include 'models/consultancy_models/view_in_progress.php'; ?>
                 <div class="btn-group btn-group-sm table-button-div">
-                    <a href="#" data-toggle="modal" data-target="#view_in_progress"
+                    <a href="#" data-toggle="modal" data-target="#view_in_progress<?php echo $consultancy_id; ?>"
                         class=" btn btn-info table_button">
                         <i class="fa fa-eye"></i> View
                     </a>
-                    <a href="#" data-toggle="modal" data-target="#edit_in_progress"
+                    <a href="#" data-toggle="modal" data-target="#edit_in_progress<?php echo $consultancy_id; ?>"
                         class=" btn btn-success table_button">
                         <i class="fa fa-edit"></i> Edit
                     </a>

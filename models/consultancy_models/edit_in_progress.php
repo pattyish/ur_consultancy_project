@@ -1,4 +1,4 @@
-<div class="modal fade" id="edit_in_progress">
+<div class="modal fade" id="edit_in_progress<?php echo $consultancy_id; ?>">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -8,6 +8,7 @@
               </div>
               <div class="modal-body">
                 <p>One fine body&hellip;</p>
+                <?php echo $consultancy_id; ?>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
