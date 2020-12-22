@@ -19,7 +19,7 @@ else if(isset($_SESSION['User_ID']))
     // This query is to replace session when every time a user loads
     $myInfoQuery = "SELECT * FROM users INNER JOIN user_type INNER JOIN country INNER JOIN department ON users.user_type_id = user_type.user_type_id 
     AND users.user_country = country.country_id AND users.user_department = department.department_id
-     WHERE (users.user_id = '$myId')";
+     WHERE (users.user_id = '$myId') AND users.user_status_id= 1";
     $myInfoQuery = mysqli_query($connect,$myInfoQuery);
     while($line=mysqli_fetch_object($myInfoQuery)) // get results in loop
     {

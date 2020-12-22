@@ -7,6 +7,7 @@ include 'Database.php'; // include database connection
 // declaration of variables needed to insert a new user
 $name = $connect -> real_escape_string($_POST['cName']);
 $email = $connect -> real_escape_string($_POST['cEmail']);
+$email = strtolower($email);
 $address = $_POST['country'];
 
 

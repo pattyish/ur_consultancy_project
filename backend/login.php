@@ -6,7 +6,7 @@ $UserPass = $connect -> real_escape_string($_POST['password']);
 // check user account info
 $Query_check = "SELECT * FROM users INNER JOIN user_type INNER JOIN country INNER JOIN department ON users.user_type_id = user_type.user_type_id 
                 AND users.user_country = country.country_id AND users.user_department = department.department_id
-                 WHERE (users.user_email = '$UserEmail')";
+                 WHERE (users.user_email = '$UserEmail') AND users.user_status_id= 1";
 $Answer_check = mysqli_query($connect,$Query_check);
 $Count_check = mysqli_num_rows($Answer_check);
 if($Count_check == 0)

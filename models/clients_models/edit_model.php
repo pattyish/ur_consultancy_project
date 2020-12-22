@@ -26,6 +26,7 @@
                             <td style="padding: 7px;"><label>Country</label></br>
                                 <select id="country" class="form-control select2" multiple="multiple"
                                     data-placeholder="Select a State" style="width: 400px;">
+                                    <option value = "<?php echo $countryId; ?>" selected><?php echo $country; ?></option>
                                     <?php include 'backend/getCountries.php'; ?>
                                 </select>
                             </td>

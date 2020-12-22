@@ -4,7 +4,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">More Details On <b><span class="text-primary"><span
+                <h4 class="modal-title">More details about <b><span class="text-primary"><span
                                 class="text-danger"><?php echo $consultancy_name ; ?></span></span></b></h4>
             </div>
             <div class="modal-body">

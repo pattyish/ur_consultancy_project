@@ -1,6 +1,8 @@
 <?php
 // file to retrieve all existing consultants and show them in table with possible options
-$retrieve = "SELECT * FROM users INNER JOIN user_type INNER JOIN department ON users.user_type_id = user_type.user_type_id AND users.user_department = department.department_id;";
+$retrieve = "SELECT * FROM users INNER JOIN user_type INNER JOIN department ON 
+users.user_type_id = user_type.user_type_id AND users.user_department = department.department_id
+WHERE users.user_status_id = 1;";
 $retrieve = mysqli_query($connect,$retrieve);
 $retrieveCount = mysqli_num_rows($retrieve);
 if($retrieveCount > 0)

@@ -4,14 +4,14 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">More Details On <b><span
-                            class="text-primary"><?php echo  $fName." ". $fName; ?></span></b></h4>
+                <h4 class="modal-title">More details about <b><span
+                            class="text-primary"><?php echo $fName." ".$lName ?></span></b></h4>
             </div>
             <div class="modal-body">
                 <table>
                     <tr>
                         <td style="padding: 10px; font-weight: bold;">Full Name</td>
-                        <td><?php echo   $fName." ". $fName; ?></td>
+                        <td><?php echo $fName." ".$lName ?></td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; font-weight: bold;">Gender</td>

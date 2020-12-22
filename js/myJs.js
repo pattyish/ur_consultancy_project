@@ -15,7 +15,7 @@ $(document).ready(function(){
          || $.trim(natId).length == 0 || $.trim(userEmail).length == 0 || $.trim(userType).length == 0
          || $.trim(country).length == 0 || $.trim(department).length == 0)
         {
-            $("#feedback").html("<b><i class='text-red'>All fields are required.</i></b>");
+            $("#feedback").html("<i class='text-red'><b>All fields are required.</b></i>");
         }
         else
         {
@@ -27,7 +27,7 @@ $(document).ready(function(){
                 data: {fName : fName, lName : lName, gender : gender, natId : natId , userEmail : userEmail, userType : userType, country : country, department : department},
                 success: function(response)
                 {
-                    $("#feedback").html("<b><i class='text-red'>"+response+"</i></b>");
+                    $("#feedback").html("<i class='text-red'><b>"+response+"</b></i>");
                     if(response.includes("successfully"))
                     {
                         $("#fName").val("");
@@ -51,7 +51,7 @@ $(document).ready(function(){
         var country = $("#country").val();
         if($.trim(cName).length == 0 || $.trim(cEmail).length == 0 || $.trim(country).length == 0)
         {
-            $("#addClientFeedback").html("All fields are required.");
+            $("#addClientFeedback").html("<i class='text-red'><b>All fields are required.</b></i>");
         }
         else
         {
@@ -63,7 +63,7 @@ $(document).ready(function(){
                 data: {cName : cName, cEmail : cEmail, country : country},
                 success: function(response)
                 {
-                    $("#addClientFeedback").html(response);
+                    $("#addClientFeedback").html("<i class='text-green'><b>"+response+"</b></i>");
                     if(response.includes("successfully"))
                     {
                         $("#clientName").val("");
@@ -88,7 +88,7 @@ $(document).ready(function(){
         var tax_charges = parseInt($("#taxCharges").val());
         var all_charges = ur_charges + tax_charges;
         var consultant_charges = 100 - all_charges;
-        var client = parseInt($("#client").val());
+        var client = $("#client").val();
         if($.trim(cName).length == 0 || $.trim(sign_date).length == 0
         || $.trim(start_date).length == 0 || $.trim(end_date).length == 0 || $.trim(amount).length == 0
         || $.trim(currency).length == 0 || $.trim(ur_charges).length == 0 || $.trim(tax_charges).length == 0 || $.trim(client).length == 0)
@@ -117,7 +117,7 @@ $(document).ready(function(){
                             consultant_charges : consultant_charges, client : client},
                     success: function(response)
                     {
-                        $("#addConsultancyFeedback").html("<i class='text-blue'><b>"+response+"</b></i>");
+                        $("#addConsultancyFeedback").html("<i class='text-green'><b>"+response+"</b></i>");
                         if(response.includes("successfully"))
                         {
                             $("#consultancy_name").val("");
@@ -143,25 +143,25 @@ $(document).ready(function(){
         var CNP = $("#cNewPassword").val();
         if($.trim(OP).length == 0 || $.trim(NP).length == 0 || $.trim(CNP).length == 0)
         {
-            $("#changePasswordFeedback").html("<b><i class='text-red'>All fields are required.</i></b>");
+            $("#changePasswordFeedback").html("<i class='text-red'><b>All fields are required.</b></i>");
         }
         else
         {
             if(NP.length < 6)
             {
-                $("#changePasswordFeedback").html("<b><i class='text-red'>Password should be least 6 characters.</i></b>");
+                $("#changePasswordFeedback").html("<i class='text-red'><b>Password should be least 6 characters.</b></i>");
             }
             else if(NP != CNP)
             {
-                $("#changePasswordFeedback").html("<b><i class='text-red'>Confirmed password is not correct.</i></b>");
+                $("#changePasswordFeedback").html("<i class='text-red'><b>Confirmed password is not correct.</b></i>");
             }
             else if(OP == CNP && OP == NP)
             {
-                $("#changePasswordFeedback").html("<b><i class='text-red'>Your new password seems to be the same as the oldest password.</i></b>");
+                $("#changePasswordFeedback").html("<i class='text-red'><b>Your new password seems to be the same as the oldest password.</b></i>");
             }
             else
             {
-                $("#changePasswordFeedback").html("<b><i class='text-blue'>Wait... Changes are being saved.</i></b>");
+                $("#changePasswordFeedback").html("<i class='text-blue'><b>Wait... Changes are being saved.</b></i>");
                 // AJAX to link to backend/changeYourPassword
                 $.ajax({
                     type: "post",
@@ -202,11 +202,11 @@ $(document).ready(function(){
         || $.trim(country).length == 0 || $.trim(department).length == 0 || $.trim(userLocation).length == 0
         || $.trim(userEducation).length == 0 || $.trim(userSummary).length == 0)
         {
-            $("#updateProfileFeedback").html("<b><i class='text-red'>All fields are required.</i></b>");
+            $("#updateProfileFeedback").html("<i class='text-red'><b>All fields are required.</b></i>");
         }
         else
         {
-            $("#updateProfileFeedback").html("<b><i class='text-blue'>Wait... Changes are being saved.</i></b>");
+            $("#updateProfileFeedback").html("<i class='text-blue'><b>Wait... Changes are being saved.</b></i>");
             // AJAX to link to backend/changeProfile
             $.ajax({
                 type: "post",
@@ -214,7 +214,7 @@ $(document).ready(function(){
                 data: {fName : fName, lName : lName, gender : gender, natId : natId, userEmail : userEmail, userPhone : userPhone, userType : userType, country : country, department : department, userLocation : userLocation, userEducation : userEducation, userSummary : userSummary},
                 success: function(response)
                 {
-                    $("#updateProfileFeedback").html("<b><i class='text-green'>"+response+"</i></b>");
+                    $("#updateProfileFeedback").html("<i class='text-green'><b>"+response+"</b></i>");
                     if(response.includes("changed"))
                     {
                         setTimeout(function() {
@@ -224,5 +224,28 @@ $(document).ready(function(){
                 }
             }); 
         }
+    });
+
+    // Updating user profile
+    $(".disableConsultant").on("click",function(e){
+        e.preventDefault();
+        var userId = $(this).val();
+        $.ajax({
+            type: "post",
+            url: "backend/disableConsultant.php",
+            data: {userId : userId},
+            success: function(response)
+            {
+                $("#DCF"+userId).html("<b><i class='text-green'>"+response+"</i></b>");
+                
+                if(response.includes("Success"))
+                {
+                    $("#DCF"+userId).append(". <b><i class='text-green'>The page will refresh in 3 secs.</i></b>");
+                    setTimeout(function() {
+                        window.location.href="all_consultants.php";  
+                    }, 3000);
+                }
+            }
+        }); 
     });
 });

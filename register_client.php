@@ -51,8 +51,8 @@
                         <!-- /.box-body -->
 
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Save Client</button><br>
-                            <span id="addClientFeedback"></span>
+                            <button type="submit" class="btn btn-primary">Save Client</button>&nbsp;&nbsp;&nbsp;
+                            <span style="font-size: 20px;" id="addClientFeedback"></span>
                         </div>
                     </form>
                 </div>

@@ -72,7 +72,7 @@
                                         <select class="form-control select2" multiple="multiple"
                                             id="client" name="client" data-placeholder="Select a client..."
                                             style="width: 100%;">
-                                            <?php include 'backend/getClients.php' ?>
+                                            <?php include 'backend/getClients.php'; ?>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -103,7 +103,8 @@
                             <div class="row">
                                 <div class="col-md-12 text-left">
                                     <button type="submit" class="btn btn-primary" style="padding: 10px; font-size: 17px;"> Submit</button>
-                                    &nbsp; &nbsp; <span id="addConsultancyFeedback"></span>
+                                    &nbsp; &nbsp; 
+                                    <span style="font-size: 20px;" id="addConsultancyFeedback"></span>
                                 </div>
                             </div>
                         </div>
