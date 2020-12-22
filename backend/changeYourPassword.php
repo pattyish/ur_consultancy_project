@@ -29,7 +29,7 @@ if(password_verify($OP,$OldPass))
 else
 {
     ?>
-    <b><i class="text-red">Old Password you have entered is incorrect</i></b>
+    <b><i class="text-red">Current Password you have entered is incorrect</i></b>
     <?php	
 }
 ?>

@@ -3,16 +3,20 @@ session_start();
 include 'Database.php';
 if(isset($_SESSION['User_ID']))
 {
-    $MyId = $_SESSION['User_ID'];
+    $myId = $_SESSION['User_ID'];
+    $bynow = date("Y-m-d H:i:s");
     //update last active
-    $lastActive = "UPDATE users SET user_last_active= Now() WHERE user_id=$MyId";
+    $lastActive = "UPDATE users SET user_last_active= '$bynow' WHERE user_id=$myId";
     $lastActive = mysqli_query($connect,$lastActive);
-    session_destroy();
-    ?>
-    <script>
-        window.location.href='../_pages/login.php';
-    </script>
-    <?php
+    if($lastActive)
+    {
+        session_destroy();
+        ?>
+        <script>
+            window.location.href='../_pages/login.php';
+        </script>
+        <?php
+    }
 }
 else
 {

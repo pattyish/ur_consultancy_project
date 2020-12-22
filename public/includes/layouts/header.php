@@ -1,4 +1,3 @@
-
 <body class="hold-transition skin-blue sidebar-mini">
 
 
@@ -221,17 +220,24 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Patrick Ishimwe</span>
+              <img src="<?php echo $_SESSION['UserProfileImage']; ?>" class="user-image" alt="User Image">
+              <span class="hidden-xs"><?php echo $_SESSION['FirstName']." ".$_SESSION['LastName']; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo $_SESSION['UserProfileImage']; ?>" class="img-circle" alt="User Image">
 
                 <p>
-                  Patrick Ishimwe - Web Developer
-                  <small>Member since Nov. 2012</small>
+                <b>
+                <?php 
+                $now = date("Y-m-d");
+                echo $_SESSION['FirstName']." ".$_SESSION['LastName']; ?> - <span class="text-pink"><?php echo $_SESSION['UserTypeName']; ?></span>
+                  <br>
+                  <small>
+                  <?php echo date("d")."-".date("m")."-".date("Y").", on ".date("D", strtotime($now)); ?>
+                  </small>
+                  </b>
                 </p>
               </li>
               <!-- Menu Footer-->

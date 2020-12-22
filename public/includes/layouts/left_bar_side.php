@@ -5,11 +5,37 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo $_SESSION['UserProfileImage']; ?>" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Patrick Ishimwe</p>
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                <p><?php echo $_SESSION['FirstName']." ".$_SESSION['LastName']; ?></p>
+                <a href="#"><i class="fa fa-circle text-success"></i>
+                <?php
+                // //update last active every time that the user loads the system page
+                $myId = $_SESSION['User_ID'];
+                $bynow = date("Y-m-d H:i:s");
+                $lastActive = "UPDATE users SET user_last_active= '$bynow' WHERE user_id=$myId";
+                $lastActive = mysqli_query($connect,$lastActive);
+                if($lastActive)
+                {
+                    $Last_Act = $_SESSION['UserLastAct'];
+                    $datetime1 = new DateTime($Last_Act);
+                    $datetime2 = new DateTime($bynow);
+                    $interval = $datetime1->diff($datetime2);
+                    $hours   = $interval->format('%h'); 
+                    $minutes = $interval->format('%i');
+                    $totalMins = (($hours*60)+$minutes);
+                    if($totalMins <= 3)
+                    {
+                    echo "<span class='text-green'><b>Online</b></span>";
+                    }
+                    else
+                    {
+                        echo "<span class='text-red'><b>Offline</b></span>";
+                    }
+                }
+                ?>
+                </a>
             </div>
         </div>
         <!-- search form -->
@@ -31,7 +57,7 @@
                 <a href="index.php">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
+                       <!-- <i class="fa fa-angle-left pull-right"></i> -->
                     </span>
                 </a>
             </li>

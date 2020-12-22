@@ -53,23 +53,22 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
+                        <strong><i class="fa fa-book margin-r-5"></i>Location</strong>
 
                         <p class="text-muted">
-                            B.S. in Computer Science from the University of Rwanda</br>
-                            College of Science and Technology.
+                            <?php echo $_SESSION['UserLocation']; ?>
                         </p>
 
                         <hr>
 
-                        <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
+                        <strong><i class="fa fa-map-marker margin-r-5"></i>Education </strong>
 
-                        <p class="text-muted">Kigali, Rwanda</p>
+                        <p class="text-muted"><?php echo $_SESSION['UserEducation']; ?></p>
 
                         <hr>
                         <strong><i class="fa fa-file-text-o margin-r-5"></i> Summary</strong>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                        <p class="text-muted"><?php echo $_SESSION['UserSummary']; ?></p>
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -94,24 +93,20 @@
                             <!-- Post -->
                             <div class="post">
                                 <div class="user-block">
-                                    <img class="img-circle img-bordered-sm" src="dist/img/user1-128x128.jpg"
+                                    <img class="img-circle img-bordered-sm" src="<?php echo $_SESSION['UserProfileImage']; ?>"
                                         alt="user image">
                                     <span class="username">
-                                        <a href="#">Patrick Ishimwe.</a>
+                                        <a href="#"><?php echo $_SESSION['FirstName']." ".$_SESSION['LastName']; ?>.</a>
 
                                     </span>
-                                    <span class="description">Kigali, Rwanda</span>
+                                    <span class="description"><?php echo $_SESSION['UserLocation']; ?></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div>
                                             <h4>Education And Skills</h4>
                                             <p>
-                                                Lorem ipsum represents a long-held tradition for designers,
-                                                typographers and the like. Some people hate it and argue for
-                                                its demise, but others ignore the hate as they create awesome
-                                                tools to help create filler text for everyone from bacon lovers
-                                                to Charlie Sheen fans.
+                                                <?php echo $_SESSION['UserEducation']; ?>
                                             </p>
                                         </div>
                                     </div>
@@ -119,11 +114,7 @@
                                         <div>
                                             <h4>Experience Summary</h4>
                                             <p>
-                                                Lorem ipsum represents a long-held tradition for designers,
-                                                typographers and the like. Some people hate it and argue for
-                                                its demise, but others ignore the hate as they create awesome
-                                                tools to help create filler text for everyone from bacon lovers
-                                                to Charlie Sheen fans.
+                                                <?php echo $_SESSION['UserSummary']; ?>
                                             </p>
                                         </div>
                                     </div>
@@ -190,8 +181,11 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Gender</label>
-                                                <input type="text" class="form-control" id="natId" placeholder="Gender"
-                                                    value="<?php echo $_SESSION['Gender']; ?>">
+                                                <select id="Gender" class="form-control">
+                                                    <option value="<?php echo $_SESSION['Gender']; ?>"><?php echo $_SESSION['Gender']; ?></option>
+                                                    <option value="M">M</option>
+                                                    <option value="F">F</option>
+                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <label for="">National Id &nbsp;&nbsp; <span class="text-blue"
@@ -210,28 +204,33 @@
                                             <div class="form-group">
                                                 <label for="">Telephone </label>
                                                 <input type="text" class="form-control" id="phone"
-                                                    placeholder="Phone number" value="<?php echo "session Phone"; ?>">
+                                                    placeholder="Phone number" value="<?php echo $_SESSION['UserPhone']; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label>Country</label>
                                                 <input type="text" class="form-control" id="country"
                                                     placeholder="Enter Country"
-                                                    value="<?php echo $_SESSION['Country']; ?>">
+                                                    value="<?php echo $_SESSION['Country']; ?>" disabled>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Department</label>
+                                                <input type="text" class="form-control" id="department"
+                                                    placeholder="Department in which you belong"
+                                                    value="<?php echo $_SESSION['UserDepartment']; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Location</label>
-                                                <input type="email" class="form-control" id="userEmail"
-                                                    placeholder="your location" value="">
+                                                <input type="text" class="form-control" id="userEmail"
+                                                    placeholder="your location" value="<?php echo $_SESSION['UserLocation']; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label>Education</label>
-                                                <textarea class="form-control" id="education" placeholder="Enter email"
-                                                    value=""></textarea>
+                                                <textarea class="form-control" id="education" placeholder="About education and skills"><?php echo $_SESSION['UserEducation']; ?></textarea>
                                             </div>
                                             <div class="form-group">
                                                 <label>Summary</label>
-                                                <textarea class="form-control" id="summary" placeholder="Enter email"
-                                                    value=""></textarea>
+                                                <textarea class="form-control" id="summary" placeholder="Enter the summary about your self"
+                                                    ><?php echo $_SESSION['UserSummary']; ?></textarea>
                                             </div>
                                         </div>
                                     </div>
