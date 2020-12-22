@@ -24,7 +24,7 @@
             <div class="col-md-4">
             <div class="box">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Parterners</h3>
+                  <h3 class="box-title">Partners</h3>
                   <div class="box-tools pull-right">
                     <span class="label label-primary">8 New Members</span>
                   </div>
@@ -95,7 +95,7 @@
             <div class="col-md-8">
                 <div class="box direct-chat direct-chat-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Chat With Parterners</h3>
+                        <h3 class="box-title">Chat With Partners</h3>
 
                         <div class="box-tools pull-right">
                             <span data-toggle="tooltip" title="3 New Messages" class="badge bg-primary">3</span>
