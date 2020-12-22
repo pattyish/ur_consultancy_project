@@ -15,7 +15,7 @@ $(document).ready(function(){
          || $.trim(natId).length == 0 || $.trim(userEmail).length == 0 || $.trim(userType).length == 0
          || $.trim(country).length == 0 || $.trim(department).length == 0)
         {
-            $("#feedback").html("All fields are required.");
+            $("#feedback").html("<b><i class='text-red'>All fields are required.</i></b>");
         }
         else
         {
@@ -27,7 +27,7 @@ $(document).ready(function(){
                 data: {fName : fName, lName : lName, gender : gender, natId : natId , userEmail : userEmail, userType : userType, country : country, department : department},
                 success: function(response)
                 {
-                    $("#feedback").html(response);
+                    $("#feedback").html("<b><i class='text-red'>"+response+"</i></b>");
                     if(response.includes("successfully"))
                     {
                         $("#fName").val("");
@@ -162,7 +162,7 @@ $(document).ready(function(){
             else
             {
                 $("#changePasswordFeedback").html("<b><i class='text-blue'>Wait... Changes are being saved.</i></b>");
-                // AJAX to link to backend/changePassword
+                // AJAX to link to backend/changeYourPassword
                 $.ajax({
                     type: "post",
                     url: "backend/changeYourPassword.php",
@@ -179,6 +179,50 @@ $(document).ready(function(){
                     }
                 });  
             }
+        }
+    });
+
+    // Updating user profile
+    $("#UpdateProfile").on("submit",function(e){
+        e.preventDefault();
+        var fName = $("#firstName").val();
+        var lName = $("#lastName").val();
+        var gender = $("#Gender").val();
+        var natId = $("#natId").val();
+        var userEmail = $("#userEmail").val();
+        var userPhone = $("#phone").val();
+        var userType = parseInt($("#userType").val());
+        var country = parseInt($("#country").val());
+        var department = parseInt($("#department").val());
+        var userLocation = $("#userLocation").val();
+        var userEducation = $("#userEducation").val();
+        var userSummary = $("#userSummary").val();
+        if($.trim(fName).length == 0 || $.trim(lName).length == 0 || $.trim(gender).length == 0
+        || $.trim(natId).length == 0 || $.trim(userEmail).length == 0 || $.trim(userPhone).length == 0 || $.trim(userType).length == 0
+        || $.trim(country).length == 0 || $.trim(department).length == 0 || $.trim(userLocation).length == 0
+        || $.trim(userEducation).length == 0 || $.trim(userSummary).length == 0)
+        {
+            $("#updateProfileFeedback").html("<b><i class='text-red'>All fields are required.</i></b>");
+        }
+        else
+        {
+            $("#updateProfileFeedback").html("<b><i class='text-blue'>Wait... Changes are being saved.</i></b>");
+            // AJAX to link to backend/changeProfile
+            $.ajax({
+                type: "post",
+                url: "backend/changeProfile.php",
+                data: {fName : fName, lName : lName, gender : gender, natId : natId, userEmail : userEmail, userPhone : userPhone, userType : userType, country : country, department : department, userLocation : userLocation, userEducation : userEducation, userSummary : userSummary},
+                success: function(response)
+                {
+                    $("#updateProfileFeedback").html("<b><i class='text-green'>"+response+"</i></b>");
+                    if(response.includes("changed"))
+                    {
+                        setTimeout(function() {
+                            window.location.href="profile.php";  
+                        }, 3000);
+                    }
+                }
+            }); 
         }
     });
 });

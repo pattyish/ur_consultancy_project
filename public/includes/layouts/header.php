@@ -220,19 +220,19 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo $_SESSION['UserProfileImage']; ?>" class="user-image" alt="User Image">
-              <span class="hidden-xs"><?php echo $_SESSION['FirstName']." ".$_SESSION['LastName']; ?></span>
+              <img src="<?php echo $MYUserProfileImage; ?>" class="user-image" alt="User Image">
+              <span class="hidden-xs"><?php echo $MYFirstname." ".$MYLastname; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo $_SESSION['UserProfileImage']; ?>" class="img-circle" alt="User Image">
+                <img src="<?php echo $MYUserProfileImage; ?>" class="img-circle" alt="User Image">
 
                 <p>
                 <b>
                 <?php 
                 $now = date("Y-m-d");
-                echo $_SESSION['FirstName']." ".$_SESSION['LastName']; ?> - <span class="text-pink"><?php echo $_SESSION['UserTypeName']; ?></span>
+                echo $MYFirstname." ".$MYLastname; ?> - <span class="text-pink"><?php echo $MYUserTypeName; ?></span>
                   <br>
                   <small>
                   <?php echo date("d")."-".date("m")."-".date("Y").", on ".date("D", strtotime($now)); ?>

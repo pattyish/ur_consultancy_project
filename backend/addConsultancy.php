@@ -31,7 +31,7 @@ $consultant_charges,$client,$myId);
 $Insert->execute();
 if($Insert)
 {
-    echo $name." ".$sign_date." ".$start_date." ".$end_date." ".$amount." ".$currency." ".$ur_charges." ".$tax_charges." ".$consultant_charges." ".$client." ".$myId;
+    echo "A new consultancy is successfully recorded.";
 }
 else
 {

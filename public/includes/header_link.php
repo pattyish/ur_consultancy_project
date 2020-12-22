@@ -1,7 +1,6 @@
 <?php
 session_start();
 include 'backend/Database.php';
-$myId=$_SESSION['User_ID'];
 if(!(isset($_SESSION['User_ID'])))
 {
     ?>
@@ -10,6 +9,43 @@ if(!(isset($_SESSION['User_ID'])))
     </script>
     <?php
 }
+else if(isset($_SESSION['User_ID']))
+{
+    $myId = $_SESSION['User_ID'];
+    $bynow = date("Y-m-d H:i:s");
+    $lastActive = "UPDATE users SET user_last_active= '$bynow' WHERE user_id=$myId";
+    $lastActive = mysqli_query($connect,$lastActive);
+    
+    // This query is to replace session when every time a user loads
+    $myInfoQuery = "SELECT * FROM users INNER JOIN user_type INNER JOIN country INNER JOIN department ON users.user_type_id = user_type.user_type_id 
+    AND users.user_country = country.country_id AND users.user_department = department.department_id
+     WHERE (users.user_id = '$myId')";
+    $myInfoQuery = mysqli_query($connect,$myInfoQuery);
+    while($line=mysqli_fetch_object($myInfoQuery)) // get results in loop
+    {
+        $MYUserId= $line -> user_id;
+        $MYFirstname= $line -> user_first_name;
+        $MYLastname= $line -> user_last_name;
+        $MYUser_Gender= $line -> user_gender;
+        $MYUserEmail= $line -> user_email;
+        $MYUserPassword= $line -> user_password;
+        $MYUserType= $line -> user_type_id;
+        $MYUserTypeName= $line -> user_type;
+        $MYUserNational_id= $line -> user_national_id;
+        $MYCountryId= $line -> country_id;
+        $MYCountry= $line -> country_name;
+        $MYUserProfileImage= $line -> user_profile_image;
+        $MYuser_adder_id= $line -> user_adder_id;
+        $MYuser_location= $line -> user_location;
+        $MYuser_education= $line -> user_education;
+        $MYuser_summary= $line -> user_summary;
+        $MYuser_phone= $line -> user_phone;
+        $MYuser_last_active= $line -> user_last_active;
+        $MYdepartment_id= $line -> department_id;
+        $MYdepartment_name= $line -> department_name;
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html>

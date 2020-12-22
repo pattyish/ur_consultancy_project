@@ -35,32 +35,14 @@ else
         $user_summary= $line -> user_summary;
         $user_phone= $line -> user_phone;
         $user_last_active= $line -> user_last_active;
+        $department_id= $line -> department_id;
         $department_name= $line -> department_name;
     }
 
     if(password_verify($UserPass,$UserPassword)) // verify if the password entered matches with a hash
     {
-        $_SESSION['FirstName']=$Firstname;
-        $_SESSION['LastName']=$Lastname;
         $_SESSION['User_ID']=$UserId;
-        $_SESSION['UserEmail']=$UserEmail;
-        $_SESSION['Gender']=$User_Gender;
-        $_SESSION['UserPassword']=$UserPassword;
-        $_SESSION['UserEmail']=$UserEmail;
-        $_SESSION['UserType']=$UserType;
-        $_SESSION['UserTypeName']=$UserTypeName;
-        $_SESSION['UserNational_id']=$UserNational_id;
-        $_SESSION['CountryId']=$CountryId;
-        $_SESSION['Country']=$Country;
-        $_SESSION['UserProfileImage']=$UserProfileImage;
-        $_SESSION['UserLocation']=$user_location;
-        $_SESSION['UserEducation']=$user_education;
-        $_SESSION['UserSummary']=$user_summary;
-        $_SESSION['UserPhone']=$user_phone;
-        $_SESSION['UserLastAct']=$user_last_active;
-        $_SESSION['UserDepartment']=$department_name;
-
-        echo "Welcome, ".$_SESSION['FirstName']; // Feedback to the user.
+        echo "Welcome, ".$Firstname; // Feedback to the user.
         if($UserType == 1) // if admin
         {
             ?>
@@ -86,7 +68,7 @@ else
     }
     else
     {
-        echo "Oops, none matches your input!". password_hash($UserPass, PASSWORD_DEFAULT);
+        echo "Oops, none matches your input!";
     }
 }
 ?>
