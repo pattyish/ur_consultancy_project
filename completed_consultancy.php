@@ -23,7 +23,7 @@
                     <div class="box-header"
                         style="border-bottom: 1px solid rgba(60, 141, 188, 0.3); margin-bottom: 10px;">
                         <h3 class="box-title" style="padding-top: 10px; padding-bottom: 10px;">All Completed
-                            Consultacies</h3>
+                            Consultancies</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">

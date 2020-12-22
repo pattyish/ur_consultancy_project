@@ -1,14 +1,14 @@
 <div class="modal fade" id="view_in_progress<?php echo $consultancy_id; ?>">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">More Details On <b><span
-                            class="text-primary"><?php echo $consultancy_name ; ?></span></b></h4>
-              </div>
-              <div class="modal-body">
-              <table>
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">More Details On <b><span class="text-primary"><span
+                                class="text-danger"><?php echo $consultancy_name ; ?></span></span></b></h4>
+            </div>
+            <div class="modal-body">
+                <table>
                     <tr>
                         <td style="padding: 10px; font-weight: bold;">Consultancy Title</td>
                         <td><?php echo  $consultancy_name ; ?></td>
@@ -46,12 +46,12 @@
                         <td class="text-warning" style="font-weight: bold;"><?php echo $consultancy_progress; ?></td>
                     </tr>
                 </table>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
-              </div>
             </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+            </div>
         </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

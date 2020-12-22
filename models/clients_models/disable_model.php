@@ -5,7 +5,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title"> <b><span class="text-danger"><?php echo $clients; ?></span></b> Client will be
-                    disable
+                    disabled
                 </h4>
             </div>
             <div class="modal-body">
