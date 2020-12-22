@@ -68,7 +68,7 @@ else
     }
     else
     {
-        echo "Oops, none matches your input!". password_hash($UserPass, PASSWORD_DEFAULT);
+        echo "Oops, none matches your input!";
     }
 }
 ?>

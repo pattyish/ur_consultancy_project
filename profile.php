@@ -177,7 +177,7 @@
                                             <div class="form-group">
                                                 <label for="">User Type </label>
                                                 <input type="text" class="form-control" id="userType" placeholder="Type"
-                                                    value="<?php echo $MYUserType; ?>" disabled>
+                                                    value="<?php echo $MYUserTypeName; ?>" disabled>
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Gender</label>

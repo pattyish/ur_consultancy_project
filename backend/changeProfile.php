@@ -34,7 +34,7 @@ $Update= " UPDATE users SET user_first_name='$fname', user_last_name='$lname',
 $Update = mysqli_query($connect,$Update);
 if($Update)
 {
-    echo "Profile is successfully changed.".$userType;
+    echo "Profile is successfully changed.";
 }
 else
 {
