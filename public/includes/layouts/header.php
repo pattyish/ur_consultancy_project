@@ -232,7 +232,7 @@
                 <b>
                 <?php 
                 $now = date("Y-m-d");
-                echo $MYFirstname." ".$MYLastname; ?> - <span class="text-pink"><?php echo $MYUserTypeName; ?></span>
+                echo $MYFirstname; ?> - <span class="text-pink"><?php echo $MYUserTypeName; ?></span>
                   <br>
                   <small>
                   <?php echo date("d")."-".date("m")."-".date("Y").", on ".date("D", strtotime($now)); ?>

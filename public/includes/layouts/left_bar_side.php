@@ -61,31 +61,39 @@
                     </span>
                 </a>
             </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-users"></i>
-                    <span>Consultants</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="add_consultant.php"><i class="fa fa-circle-o"></i> Add Consultant </a></li>
-                    <li><a href="all_consultants.php"><i class="fa fa-circle-o"></i>Registered Consultants</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-users"></i> <span>Clients</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="register_client.php"><i class="fa fa-circle-o"></i> Add Client</a></li>
-                    <li><a href="all_clients.php"><i class="fa fa-circle-o"></i> All Clients</a></li>
-                </ul>
-            </li>
+            <?php 
+            // this part is not visible for usual consultant 
+            if($MYUserType != 3)
+            {
+                ?>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>Consultants</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="add_consultant.php"><i class="fa fa-circle-o"></i> Add Consultant </a></li>
+                        <li><a href="all_consultants.php"><i class="fa fa-circle-o"></i>Registered Consultants</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-users"></i> <span>Clients</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="register_client.php"><i class="fa fa-circle-o"></i> Add Client</a></li>
+                        <li><a href="all_clients.php"><i class="fa fa-circle-o"></i> All Clients</a></li>
+                    </ul>
+                </li>
+                <?php
+            }
+            ?>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-archive"></i>
@@ -95,7 +103,14 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="add_consultancy.php"><i class="fa fa-circle-o"></i>Add Consultancy</a></li>
+                    <?php
+                    if($MYUserType != 3)
+                    {
+                        ?>
+                        <li><a href="add_consultancy.php"><i class="fa fa-circle-o"></i>Add Consultancy</a></li>
+                        <?php
+                    }
+                    ?>
                     <li><a href="progress_consultancy.php"><i class="fa fa-circle-o"></i> In Progress Consultancy</a></li>
                     <li><a href="completed_consultancy.php"><i class="fa fa-circle-o"></i> Completed Consultancy</a></li>
                 </ul>
@@ -121,25 +136,6 @@
                 <ul class="treeview-menu">
                     <li><a href="profile.php"><i class="fa fa-circle-o"></i>My Profile</a></li>
                     <li><a href="backend/logout.php"><i class="fa fa-circle-o"></i> Logout </a></li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-folder"></i> <span>Examples</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-                    <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-                    <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-                    <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-                    <li><a href="pages/examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-                    <li><a href="pages/examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
-                    <li><a href="pages/examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
-                    <li><a href="pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-                    <li><a href="pages/examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
                 </ul>
             </li>
         </ul>

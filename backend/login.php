@@ -52,13 +52,13 @@ else
         else if($UserType == 2) // if BDSC
         {
             ?>
-            <script>window.location.href='bdsc/Home';</script>
+             <script>window.location.href='../index.php';</script>
             <?php
         }
         else if($UserType == 3) // if normal consultant
         {
             ?>
-            <script>window.location.href='consultant/HomeConsultant';</script>
+             <script>window.location.href='../index.php';</script>
             <?php
         }
         else
