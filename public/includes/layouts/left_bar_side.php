@@ -5,10 +5,10 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?php echo $_SESSION['UserProfileImage']; ?>" class="img-circle" alt="User Image">
+                <img src="<?php echo $MYUserProfileImage; ?>" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p><?php echo $_SESSION['FirstName']." ".$_SESSION['LastName']; ?></p>
+                <p><?php echo $MYFirstname." ".$MYLastname; ?></p>
                 <a href="#"><i class="fa fa-circle text-success"></i>
                 <?php
                 // //update last active every time that the user loads the system page
@@ -18,7 +18,7 @@
                 $lastActive = mysqli_query($connect,$lastActive);
                 if($lastActive)
                 {
-                    $Last_Act = $_SESSION['UserLastAct'];
+                    $Last_Act = $MYuser_last_active;
                     $datetime1 = new DateTime($Last_Act);
                     $datetime2 = new DateTime($bynow);
                     $interval = $datetime1->diff($datetime2);

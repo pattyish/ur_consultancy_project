@@ -45,7 +45,7 @@ else
     users(user_first_name,user_last_name,user_gender,user_national_id,user_email,user_password,
     user_status_id,user_type_id,user_country,user_profile_image,user_adder_id,user_last_active,user_department )
      VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
-    $Insert -> bind_param("ssssssiiisisi",$fname,$lname,$gender,$national_id,$email,$password,$status_id,$user_type_id,$country,$profile_image,$myId,$now,$department );
+    $Insert -> bind_param("ssssssiiisisi",$fname,$lname,$gender,$national_id,$email,$password,$status_id,$user_type_id,$country,$profile_image,$myId,$now,$department);
     $Insert->execute();
     if($Insert)
     {

@@ -26,12 +26,12 @@
                 <div class="box box-primary">
                     <div class="box-body box-profile">
                         <img class="profile-user-img img-responsive img-circle"
-                            src="<?php echo $_SESSION['UserProfileImage']; ?>" alt="User profile picture">
+                            src="<?php echo $MYUserProfileImage; ?>" alt="User profile picture">
 
                         <h3 class="profile-username text-center">
-                            <?php echo $_SESSION['FirstName']." ".$_SESSION['LastName']; ?></h3>
+                            <?php echo $MYFirstname." ".$MYLastname; ?></h3>
 
-                        <p class="text-muted text-center text-blue"><b><?php echo $_SESSION['UserTypeName']; ?></b></p>
+                        <p class="text-muted text-center text-blue"><b><?php echo $MYUserTypeName; ?></b></p>
 
                         <ul class="list-group list-group-unbordered">
                             <li class="list-group-item">
@@ -56,19 +56,19 @@
                         <strong><i class="fa fa-book margin-r-5"></i>Location</strong>
 
                         <p class="text-muted">
-                            <?php echo $_SESSION['UserLocation']; ?>
+                            <?php echo $MYuser_location; ?>
                         </p>
 
                         <hr>
 
                         <strong><i class="fa fa-map-marker margin-r-5"></i>Education </strong>
 
-                        <p class="text-muted"><?php echo $_SESSION['UserEducation']; ?></p>
+                        <p class="text-muted"><?php echo $MYuser_education; ?></p>
 
                         <hr>
                         <strong><i class="fa fa-file-text-o margin-r-5"></i> Summary</strong>
 
-                        <p class="text-muted"><?php echo $_SESSION['UserSummary']; ?></p>
+                        <p class="text-muted"><?php echo $MYuser_summary; ?></p>
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -93,20 +93,20 @@
                             <!-- Post -->
                             <div class="post">
                                 <div class="user-block">
-                                    <img class="img-circle img-bordered-sm" src="<?php echo $_SESSION['UserProfileImage']; ?>"
+                                    <img class="img-circle img-bordered-sm" src="<?php echo $MYUserProfileImage; ?>"
                                         alt="user image">
                                     <span class="username">
-                                        <a href="#"><?php echo $_SESSION['FirstName']." ".$_SESSION['LastName']; ?>.</a>
+                                        <a href="#"><?php echo $MYFirstname." ".$MYLastname; ?>.</a>
 
                                     </span>
-                                    <span class="description"><?php echo $_SESSION['UserLocation']; ?></span>
+                                    <span class="description"><?php echo $MYuser_location; ?></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div>
                                             <h4>Education And Skills</h4>
                                             <p>
-                                                <?php echo $_SESSION['UserEducation']; ?>
+                                                <?php echo $MYuser_education; ?>
                                             </p>
                                         </div>
                                     </div>
@@ -114,7 +114,7 @@
                                         <div>
                                             <h4>Experience Summary</h4>
                                             <p>
-                                                <?php echo $_SESSION['UserSummary']; ?>
+                                                <?php echo $MYuser_summary; ?>
                                             </p>
                                         </div>
                                     </div>
@@ -164,25 +164,25 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">First-name</label>
-                                                <input type="text" class="form-control" id="fName"
+                                                <input type="text" class="form-control" id="firstName"
                                                     placeholder="Enter First-name"
-                                                    value="<?php echo $_SESSION['FirstName']; ?>">
+                                                    value="<?php echo $MYFirstname; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Last-name</label>
-                                                <input type="text" class="form-control" id="lName"
+                                                <input type="text" class="form-control" id="lastName"
                                                     placeholder="Enter Password"
-                                                    value="<?php echo $_SESSION['LastName']; ?>">
+                                                    value="<?php echo $MYLastname; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">User Type </label>
                                                 <input type="text" class="form-control" id="userType" placeholder="Type"
-                                                    value="<?php echo $_SESSION['UserTypeName']; ?>" disabled>
+                                                    value="<?php echo $MYUserType; ?>" disabled>
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Gender</label>
                                                 <select id="Gender" class="form-control">
-                                                    <option value="<?php echo $_SESSION['Gender']; ?>"><?php echo $_SESSION['Gender']; ?></option>
+                                                    <option value="<?php echo $MYUser_Gender; ?>"><?php echo $MYUser_Gender; ?></option>
                                                     <option value="M">M</option>
                                                     <option value="F">F</option>
                                                 </select>
@@ -192,45 +192,49 @@
                                                         id="natIdLength">
                                                     </span></label>
                                                 <input type="text" class="form-control" id="natId"
-                                                    value="<?php echo $_SESSION['UserNational_id']; ?>" disabled>
+                                                    value="<?php echo $MYUserNational_id; ?>" disabled>
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Email address</label>
                                                 <input type="email" class="form-control" id="userEmail" placeholder=""
-                                                    value="<?php echo $_SESSION['UserEmail']; ?>">
+                                                    value="<?php echo $MYUserEmail; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Telephone </label>
                                                 <input type="text" class="form-control" id="phone"
-                                                    placeholder="Phone number" value="<?php echo $_SESSION['UserPhone']; ?>">
+                                                    placeholder="Phone number" value="<?php echo $MYuser_phone; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label>Country</label>
-                                                <input type="text" class="form-control" id="country"
-                                                    placeholder="Enter Country"
-                                                    value="<?php echo $_SESSION['Country']; ?>" disabled>
+                                                <select class="form-control select2" id="country" multiple="multiple"
+                                                    data-placeholder="Select a State" style="width: 100%;">
+                                                    <option value = "<?php echo $MYCountryId; ?>" selected><?php echo $MYCountry; ?></option>
+                                                    <?php include 'backend/getCountries.php'; ?>
+                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>Department</label>
-                                                <input type="text" class="form-control" id="department"
-                                                    placeholder="Department in which you belong"
-                                                    value="<?php echo $_SESSION['UserDepartment']; ?>">
+                                                <select class="form-control select2" id="department" multiple="multiple"
+                                                    data-placeholder="Select a State" style="width: 100%;">
+                                                    <option value = "<?php echo $MYdepartment_id; ?>" selected><?php echo $MYdepartment_name; ?></option>
+                                                    <?php include 'backend/getDepartments.php'; ?>
+                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Location</label>
-                                                <input type="text" class="form-control" id="userEmail"
-                                                    placeholder="your location" value="<?php echo $_SESSION['UserLocation']; ?>">
+                                                <input type="text" class="form-control" id="userLocation"
+                                                    placeholder="your location" value="<?php echo $MYuser_location; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label>Education</label>
-                                                <textarea class="form-control" id="education" placeholder="About education and skills"><?php echo $_SESSION['UserEducation']; ?></textarea>
+                                                <textarea class="form-control" id="userEducation" placeholder="About education and skills"><?php echo $MYuser_education; ?></textarea>
                                             </div>
                                             <div class="form-group">
                                                 <label>Summary</label>
-                                                <textarea class="form-control" id="summary" placeholder="Enter the summary about your self"
-                                                    ><?php echo $_SESSION['UserSummary']; ?></textarea>
+                                                <textarea class="form-control" id="userSummary" placeholder="Enter the summary about your self"
+                                                    ><?php echo $MYuser_summary; ?></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -241,8 +245,9 @@
                                     <button type="submit" id="saveCons" class="btn btn-primary">Save Changes</button>
                                     &nbsp;&nbsp;&nbsp;
                                     <button type="reset" id="reset" class="btn btn-link">Reset</button>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <span style="font-size: 20px;" id="updateProfileFeedback"> </span>
                                     <br>
-                                    <span id="feedback"> </span>
                                 </div>
                             </form>
                         </div>
