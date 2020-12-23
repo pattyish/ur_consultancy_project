@@ -52,7 +52,7 @@ if($retrieveCount > 0)
                     <div class="box-header with-border">
                         <h3 class="box-title">Edit Consultancy</h3>
                     </div>
-                    <form class="form" id="addConsultancyForm">
+                    <form class="form" id="editConsultancyForm">
                         <div class=""
                             style="padding: 20px; border: 1px solid rgba(60, 141, 188, 0.3); border-radius: 5px;">
                             <legend style="font-weight: bold;"> Consultancy Details </legend>
@@ -133,9 +133,10 @@ if($retrieveCount > 0)
                             </div>
                             <div class="row">
                                 <div class="col-md-12 text-left">
+                                <input type="hidden" id="consultancyId" value="<?php echo $consultancy_id; ?>">
                                     <button type="submit" class="btn btn-success"
-                                        style="padding: 7px; font-size: 15px;">Update</button>
-                                    &nbsp; &nbsp; <span id="addConsultancyFeedback"></span>
+                                        style="padding: 7px; font-size: 15px;">Save changes</button>
+                                    &nbsp; &nbsp; <span style="font-size: 20px;" id="editConsultancyFeedback"></span>
                                 </div>
                             </div>
                         </div>

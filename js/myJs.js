@@ -135,6 +135,53 @@ $(document).ready(function(){
         }
     });
 
+    // Edit new consultancy
+    $("#editConsultancyForm").on("submit",function(e){
+        e.preventDefault();
+        var consultancyId = parseInt($("#consultancyId").val());
+        var cName = $("#consultancy_name").val();
+        //var sign_date = $("#sign_date").val();
+        var start_date = $("#start_date").val();
+        var end_date = $("#end_date").val();
+        var amount = parseInt($("#amount").val());
+        var currency = $("#currency").val();
+        var ur_charges = parseInt($("#chargesToUr").val());
+        var tax_charges = parseInt($("#taxCharges").val());
+        var all_charges = ur_charges + tax_charges;
+        var client = $("#client").val();
+        if($.trim(cName).length == 0 || $.trim(start_date).length == 0 || $.trim(end_date).length == 0 || $.trim(amount).length == 0
+        || $.trim(currency).length == 0 || $.trim(ur_charges).length == 0 || $.trim(tax_charges).length == 0 || $.trim(client).length == 0)
+        {
+            $("#editConsultancyFeedback").html("<i class='text-red'><b>All fields are required. </b></i>");
+        }
+        else
+        {
+            if(start_date > end_date)
+            {
+                $("#editConsultancyFeedback").html("<i class='text-red'><b>Start date should be the date before the end date.</b></i>"); 
+            }
+            else if(all_charges >= 100)
+            {
+                $("#editConsultancyFeedback").html("<i class='text-red'><b>Consider changing your charges percentages. It seems to be unusual.</b></i>"); 
+            }
+            else
+            {
+                $("#editConsultancyFeedback").html("<i class='text-blue'><b>Saving...</b></i>");
+                // AJAX to link to backend/editConsultancy.php
+                $.ajax({
+                    type:"post",
+                    url:"backend/editConsultancy.php",
+                    data: {consultancyId : consultancyId, name : cName, start_date : start_date, end_date : end_date,
+                            amount  : amount, currency : currency, ur_charges : ur_charges, tax_charges : tax_charges, client : client},
+                    success: function(response)
+                    {
+                        $("#editConsultancyFeedback").html("<i class='text-green'><b>"+response+"</b></i>");
+                    }
+                });  
+            }
+        }
+    });
+
     // Changing Password
     $("#changePasswordForm").on("submit",function(e){
         e.preventDefault();
