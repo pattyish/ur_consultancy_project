@@ -31,12 +31,8 @@ if($retrieveCount > 0)
                         <i class="fa fa-eye"></i> View
                     </a>
                     <a href="#" data-toggle="modal" data-target="#edit_consultant<?php echo $user_id;  ?>"
-                        class=" btn btn-success table_button">
-                        <i class="fa fa-edit"></i> Edit
-                    </a>
-                    <a href="#" data-toggle="modal" data-target="#delete_consultant<?php echo $user_id;  ?>"
-                        class="btn btn-danger table_button">
-                        <i class="fa fa-trash"></i> Delete
+                        class=" btn btn-warning table_button">
+                        <i class="fa fa-edit"></i> Activate
                     </a>
                 </div>
                 <?php include 'models/consultant_models/edit_consultant.php'; ?>
