@@ -85,7 +85,7 @@ if($retrieveCount > 0)
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Total-Amount</label>
-                                        <input type="number" step="any" id="amount" placeholder="Cash......"
+                                        <input type="number" min="10" step="any" id="amount" placeholder="Cash......"
                                             value="<?php echo $consultancy_amount; ?>" class="form-control">
                                     </div>
                                     <div class="form-group">
@@ -115,7 +115,7 @@ if($retrieveCount > 0)
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">UR-Percentage</label>
-                                                <input type="number" step="any" id="chargesToUr"
+                                                <input type="number" min="10" step="any" id="chargesToUr"
                                                     value="<?php echo $consultancy_UR_percentage; ?>"
                                                     placeholder="UR part..." class="form-control">
                                             </div>
@@ -123,7 +123,7 @@ if($retrieveCount > 0)
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Tax-Percentage</label>
-                                                <input type="number" step="any" id="taxCharges"
+                                                <input type="number" min="10" step="any" id="taxCharges"
                                                     value="<?php echo $consultancy_Tax_percentage; ?>"
                                                     placeholder="Tax charges..." class="form-control">
                                             </div>

@@ -143,14 +143,18 @@ $(document).ready(function(){
         //var sign_date = $("#sign_date").val();
         var start_date = $("#start_date").val();
         var end_date = $("#end_date").val();
+        var amount1 = $("#amount").val();
         var amount = parseInt($("#amount").val());
         var currency = $("#currency").val();
+        var ur_charges1 = $("#chargesToUr").val();
         var ur_charges = parseInt($("#chargesToUr").val());
+        var tax_charges1 = $("#taxCharges").val();
         var tax_charges = parseInt($("#taxCharges").val());
         var all_charges = ur_charges + tax_charges;
+        var client1 = $("#client").val();
         var client = parseInt($("#client").val());
-        if($.trim(cName).length == 0 || $.trim(start_date).length == 0 || $.trim(end_date).length == 0 || $.trim(amount).length == 0
-        || $.trim(currency).length == 0 || $.trim(ur_charges).length == 0 || $.trim(tax_charges).length == 0 || $.trim(client).length == 0)
+        if($.trim(cName).length == 0 || $.trim(start_date).length == 0 || $.trim(end_date).length == 0 || $.trim(amount1).length == 0
+        || $.trim(currency).length == 0 || $.trim(ur_charges1).length == 0 || $.trim(tax_charges1).length == 0 || $.trim(client1).length == 0)
         {
             $("#editConsultancyFeedback").html("<i class='text-red'><b>All fields are required. </b></i>");
         }
@@ -162,7 +166,7 @@ $(document).ready(function(){
             }
             else if(all_charges >= 100)
             {
-                $("#editConsultancyFeedback").html("<i class='text-red'><b>Consider changing your charges percentages. It seems to be unusual.</b></i>"); 
+                $("#editConsultancyFeedback").html("<i class='text-red'><b>Consider changing your charges percentages. It seems to be unusual.</b></i>"+client); 
             }
             else
             {
@@ -175,7 +179,7 @@ $(document).ready(function(){
                             amount  : amount, currency : currency, ur_charges : ur_charges, tax_charges : tax_charges, client : client},
                     success: function(response)
                     {
-                        $("#editConsultancyFeedback").html("<i class='text-green'><b>"+response+"client</b></i>");
+                        $("#editConsultancyFeedback").html("<i class='text-green'><b>"+response+"</b></i>");
                     }
                 });  
             }
