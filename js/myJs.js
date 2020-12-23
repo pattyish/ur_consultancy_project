@@ -148,7 +148,7 @@ $(document).ready(function(){
         var ur_charges = parseInt($("#chargesToUr").val());
         var tax_charges = parseInt($("#taxCharges").val());
         var all_charges = ur_charges + tax_charges;
-        var client = $("#client").val();
+        var client = parseInt($("#client").val());
         if($.trim(cName).length == 0 || $.trim(start_date).length == 0 || $.trim(end_date).length == 0 || $.trim(amount).length == 0
         || $.trim(currency).length == 0 || $.trim(ur_charges).length == 0 || $.trim(tax_charges).length == 0 || $.trim(client).length == 0)
         {
@@ -175,7 +175,7 @@ $(document).ready(function(){
                             amount  : amount, currency : currency, ur_charges : ur_charges, tax_charges : tax_charges, client : client},
                     success: function(response)
                     {
-                        $("#editConsultancyFeedback").html("<i class='text-green'><b>"+response+"</b></i>");
+                        $("#editConsultancyFeedback").html("<i class='text-green'><b>"+response+"client</b></i>");
                     }
                 });  
             }
