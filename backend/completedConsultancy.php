@@ -24,6 +24,7 @@ if($retrieveCount > 0)
         $consultancy_progress = $lineRetrieve -> consultancy_progress_name;
         $consultancy_client = $lineRetrieve -> client_name;
         ?>
+<<<<<<< HEAD
 <tr>
     <td><?php echo $consultancy_name; ?></td>
     <td><?php echo $consultancy_sign_date; ?></td>
@@ -42,6 +43,28 @@ if($retrieveCount > 0)
 </tr>
 
 <?php
+=======
+        <tr>
+            <td><?php echo $consultancy_name; ?></td>
+            <td><?php echo $consultancy_sign_date; ?></td>
+            <td><?php echo $consultancy_start_date; ?></td>
+            <td><?php echo $consultancy_end_date; ?></td>
+            <td><?php echo $consultancy_amount; ?></td>
+            <td><?php echo $consultancy_UR_percentage; ?></td>
+            <td><?php echo $consultancy_Tax_percentage; ?></td>
+            <td class="text-green"><b><?php echo $consultancy_progress; ?></b></td>
+            <td>
+                <div class="btn-group btn-group-sm table-button-div">
+                    <a href="#" data-toggle="modal" data-target="#view_completely"
+                        class=" btn btn-info table_button">
+                        <i class="fa fa-eye"></i> View
+                    </a>
+                </div>
+                <?php include 'models/consultancy_models/view_completely.php'; ?>
+            </td>
+        </tr>
+        <?php
+>>>>>>> 84eec688b2a4af5d9cf996b4024e5f787bec0400
     }
 }
 else
