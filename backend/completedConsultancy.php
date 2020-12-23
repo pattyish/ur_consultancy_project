@@ -11,17 +11,43 @@ if($retrieveCount > 0)
 {
     while($lineRetrieve = mysqli_fetch_object($retrieve))
     {
-        $lineRetrieve = $lineRetrieve -> ;
-        $lineRetrieve = $lineRetrieve -> ;
-        $lineRetrieve = $lineRetrieve -> ;
-        $lineRetrieve = $lineRetrieve -> ;
-        $lineRetrieve = $lineRetrieve -> ;
-        $lineRetrieve = $lineRetrieve -> ;
+        $consultancy_id = $lineRetrieve -> consultancy_id;
+        $consultancy_name = $lineRetrieve -> consultancy_name;
+        $consultancy_sign_date = $lineRetrieve -> consultancy_sign_date;
+        $consultancy_start_date = $lineRetrieve -> consultancy_start_date;
+        $consultancy_end_date = $lineRetrieve -> consultancy_end_date;
+        $consultancy_amount = $lineRetrieve -> consultancy_amount;
+        $consultancy_currency = $lineRetrieve -> consultancy_currency;
+        $consultancy_UR_percentage = $lineRetrieve -> consultancy_UR_percentage;
+        $consultancy_Tax_percentage = $lineRetrieve -> consultancy_Tax_percentage;
+        $consultancy_consultants_percentage = $lineRetrieve -> consultancy_consultants_percentage;
+        $consultancy_progress = $lineRetrieve -> consultancy_progress_name;
+        $consultancy_client = $lineRetrieve -> client_name;
+        ?>
+        <tr>
+            <td><?php echo $consultancy_name; ?></td>
+            <td><?php echo $consultancy_sign_date; ?></td>
+            <td><?php echo $consultancy_start_date; ?></td>
+            <td><?php echo $consultancy_end_date; ?></td>
+            <td><?php echo $consultancy_amount; ?></td>
+            <td><?php echo $consultancy_UR_percentage; ?></td>
+            <td><?php echo $consultancy_Tax_percentage; ?></td>
+            <td class="text-green"><b><?php echo $consultancy_progress; ?></b></td>
+            <td>
+                <div class="btn-group btn-group-sm table-button-div">
+                    <a href="#" data-toggle="modal" data-target="#view_completely"
+                        class=" btn btn-info table_button">
+                        <i class="fa fa-eye"></i> View
+                    </a>
+                </div>
+                <?php include 'models/consultancy_models/view_completely.php'; ?>
+            </td>
+        </tr>
+        <?php
     }
-    echo "Show all consultancy";
 }
 else
 {
-    echo "No consultancts available";
+    echo "";
 }
 ?>

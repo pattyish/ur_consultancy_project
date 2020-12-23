@@ -12,10 +12,17 @@ if(!(isset($_SESSION['User_ID'])))
 else if(isset($_SESSION['User_ID']))
 {
     $myId = $_SESSION['User_ID'];
+    // update all needed information
+    // keep use online
     $bynow = date("Y-m-d H:i:s");
+    $byno = date("Y-m-d");
     $lastActive = "UPDATE users SET user_last_active= '$bynow' WHERE user_id=$myId";
     $lastActive = mysqli_query($connect,$lastActive);
-    
+
+    // complete all consultancies whose end date is yesterday
+    $complete = "UPDATE consultancy SET consultancy.consultancy_progress = 1";
+    //$complete = mysqli_query($connect,$complete);
+
     // This query is to replace session when every time a user loads
     $myInfoQuery = "SELECT * FROM users INNER JOIN user_type INNER JOIN country INNER JOIN department ON users.user_type_id = user_type.user_type_id 
     AND users.user_country = country.country_id AND users.user_department = department.department_id
