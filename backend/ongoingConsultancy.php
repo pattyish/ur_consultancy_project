@@ -22,6 +22,7 @@ if($retrieveCount > 0)
         $consultancy_Tax_percentage = $lineRetrieve -> consultancy_Tax_percentage;
         $consultancy_consultants_percentage = $lineRetrieve -> consultancy_consultants_percentage;
         $consultancy_progress = $lineRetrieve -> consultancy_progress_name;
+        $consultancy_client = $lineRetrieve -> client_name;
         ?>
         <tr>
             <td><?php echo $consultancy_name; ?></td>

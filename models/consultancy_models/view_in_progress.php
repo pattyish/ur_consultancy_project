@@ -9,9 +9,13 @@
             </div>
             <div class="modal-body">
                 <table>
-                    <tr>
+                <tr>
                         <td style="padding: 10px; font-weight: bold;">Consultancy Title</td>
                         <td><?php echo  $consultancy_name ; ?></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; font-weight: bold;">Client name</td>
+                        <td><?php echo  $consultancy_client ; ?></td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; font-weight: bold;">Signed-Date</td>
