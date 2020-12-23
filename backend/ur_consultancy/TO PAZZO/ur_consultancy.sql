@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2020 at 02:54 PM
+-- Generation Time: Dec 22, 2020 at 04:28 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -71,7 +71,8 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`client_id`, `client_name`, `client_email`, `country_id`, `client_status`) VALUES
-(2, 'Rwanda Social Security Board', 'rssb@rssb.rw', 1, 1);
+(1, 'Rwanda Social Security Board', 'rssb@rssb.rw', 1, 1),
+(2, 'Rwanda National Bank', 'rwandanationalBanK12@gmail.com', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -90,7 +91,7 @@ CREATE TABLE `college` (
 --
 
 INSERT INTO `college` (`college_id`, `college_name`, `campus_id`) VALUES
-(4, 'COLLEGE OF SCIENCE AND TECHNOLOGY', 1);
+(1, 'COLLEGE OF SCIENCE AND TECHNOLOGY', 1);
 
 -- --------------------------------------------------------
 
@@ -119,7 +120,8 @@ CREATE TABLE `consultancy` (
 --
 
 INSERT INTO `consultancy` (`consultancy_id`, `consultancy_name`, `consultancy_sign_date`, `consultancy_start_date`, `consultancy_end_date`, `consultancy_amount`, `consultancy_currency`, `consultancy_UR_percentage`, `consultancy_Tax_percentage`, `consultancy_consultants_percentage`, `consultancy_client_id`, `consultancy_progress`, `consultancy_adder`) VALUES
-(47, 'Rwandan Population Statistics', '2020-12-21 00:00:00', '2020-12-23', '2020-12-31', 20000, 'EUROS', 20, 30, 50, 2, 1, 6);
+(1, 'Rwandan Population Statistics', '2020-12-22 01:46:23', '2020-12-22', '2021-01-10', 15000, 'USD', 20, 10, 70, 2, 1, 4),
+(2, 'People use local currency than others', '2020-12-22 01:50:10', '2020-12-31', '2021-03-26', 500000, 'POUNDS', 20, 20, 60, 1, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -197,7 +199,7 @@ CREATE TABLE `department` (
 --
 
 INSERT INTO `department` (`department_id`, `department_name`, `school_id`) VALUES
-(1, 'COMPUTER SCIENCE', 1);
+(1, 'COMPUTER SCIENCE', 3);
 
 -- --------------------------------------------------------
 
@@ -227,6 +229,14 @@ CREATE TABLE `message_read` (
   `message_read_id` int(11) NOT NULL,
   `message_read_name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `message_read`
+--
+
+INSERT INTO `message_read` (`message_read_id`, `message_read_name`) VALUES
+(1, 'READ'),
+(2, 'UNREAD');
 
 -- --------------------------------------------------------
 
@@ -258,7 +268,7 @@ CREATE TABLE `school` (
 --
 
 INSERT INTO `school` (`school_id`, `school_name`, `college_id`) VALUES
-(1, 'INFORMATION COMMUNICATION AND TECHNOLOGY', 4);
+(3, 'INFORMATION COMMUNICATION AND TECHNOLOGY', 1);
 
 -- --------------------------------------------------------
 
@@ -299,16 +309,21 @@ CREATE TABLE `users` (
   `user_profile_image` varchar(45) NOT NULL,
   `user_adder_id` int(11) NOT NULL,
   `user_last_active` datetime NOT NULL,
-  `user_department` int(11) NOT NULL
+  `user_department` int(11) NOT NULL,
+  `user_location` text NOT NULL DEFAULT 'No entered location',
+  `user_education` text NOT NULL DEFAULT 'Not entered',
+  `user_summary` text NOT NULL DEFAULT 'No summary',
+  `user_phone` varchar(20) NOT NULL DEFAULT 'Input your number'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_first_name`, `user_last_name`, `user_gender`, `user_national_id`, `user_email`, `user_password`, `user_status_id`, `user_type_id`, `user_country`, `user_profile_image`, `user_adder_id`, `user_last_active`, `user_department`) VALUES
-(6, 'Jean Paul', 'NISHIMIRWE', 'M', '1199780117063139', 'nishimirwepaul2015@gmail.com', '$2y$10$42a7GyPmub4DeSntpNT6p.iw1XepinKf/0YTHXLpM9WSn0T24.TTG', 1, 1, 1, 'img/mimage.png', 1, '2020-12-21 13:50:50', 1),
-(7, 'Patrick', 'ISHIMWE', 'M', '1199680012546588', 'patrickishimwe16@gmail.com', '$2y$10$qPIIi8FlvJGyBTt3KKGs8uJkiwCnJFQLPUUZj.JHcvtLIJGBRgi0G', 1, 2, 1, 'img/mimage.png', 6, '0000-00-00 00:00:00', 1);
+INSERT INTO `users` (`user_id`, `user_first_name`, `user_last_name`, `user_gender`, `user_national_id`, `user_email`, `user_password`, `user_status_id`, `user_type_id`, `user_country`, `user_profile_image`, `user_adder_id`, `user_last_active`, `user_department`, `user_location`, `user_education`, `user_summary`, `user_phone`) VALUES
+(4, 'Jean Paul', 'NISHIMIRWE', 'M', '1199780117063139', 'nishimirwepaul2015@gmail.com', '$2y$10$/rG2rNMF.LvdvelOuroQQeSVB2JZfMebLHNMMHrH1HNFEpEmfpbI.', 1, 1, 1, 'img/mimage.png', 4, '2020-12-22 16:20:57', 1, 'Kigali, Rwanda', 'Software Engineering', 'Interested in developing software that aim at changing the world by helping everyone live in better and easy life.\n\nCollaboration and leadership skills are my strengths.', '(+250) 789 336 678'),
+(5, 'Patrick', 'ISHIMWE', 'M', '1199680012546588', 'patrickishimwe16@gmail.com', '$2y$10$OXCy5CGHORVrgz2KYJ4zmuQZ0z.B/ouQjTMtT64VDgM.k.PAf4jNe', 1, 2, 1, 'img/mimage.png', 4, '2020-12-22 16:24:35', 1, 'No entered location', 'Not entered', 'No summary', 'Input your number'),
+(7, 'Philius', 'HAKIZIMANA', 'M', '1199680012546544', 'hakizaphilius@gmail.com', '$2y$10$5HDLGrap45cFUfr/aVMrROmEY1Ku7bLPQl0Oy.bR5Zn/y8OQZXa0G', 1, 3, 1, 'img/mimage.png', 4, '2020-12-22 16:05:34', 1, 'No entered location', 'Not entered', 'No summary', 'Input your number');
 
 -- --------------------------------------------------------
 
@@ -482,13 +497,13 @@ ALTER TABLE `client`
 -- AUTO_INCREMENT for table `college`
 --
 ALTER TABLE `college`
-  MODIFY `college_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `college_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `consultancy`
 --
 ALTER TABLE `consultancy`
-  MODIFY `consultancy_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `consultancy_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `consultancy_progress`
@@ -524,7 +539,7 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT for table `message_read`
 --
 ALTER TABLE `message_read`
-  MODIFY `message_read_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `message_read_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `reset_password`
@@ -536,7 +551,7 @@ ALTER TABLE `reset_password`
 -- AUTO_INCREMENT for table `school`
 --
 ALTER TABLE `school`
-  MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `status`

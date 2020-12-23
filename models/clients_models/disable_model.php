@@ -9,12 +9,13 @@
                 </h4>
             </div>
             <div class="modal-body">
-                <p>By clicking on Delete Button this user will no long member of system. </br>
+                <p>By clicking on Delete Button, this client will no longer be seen in the system. </br>
                     Are sure you want to disable this Client.</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="button" id="disableClient" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button> &nbsp;&nbsp;
+                <span style="font-size: 15px;" id="DC<?php echo $clientId; ?>"></span> &nbsp;&nbsp;
+                <button type="button" class="btn btn-danger disableClient" value="<?php echo $clientId; ?>">Delete</button>
             </div>
         </div>
         <!-- /.modal-content -->

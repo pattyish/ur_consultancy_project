@@ -226,7 +226,7 @@ $(document).ready(function(){
         }
     });
 
-    // Updating user profile
+    // Disable a consultant
     $(".disableConsultant").on("click",function(e){
         e.preventDefault();
         var userId = $(this).val();
@@ -243,6 +243,30 @@ $(document).ready(function(){
                     $("#DCF"+userId).append(". <b><i class='text-green'>The page will refresh in 3 secs.</i></b>");
                     setTimeout(function() {
                         window.location.href="all_consultants.php";  
+                    }, 3000);
+                }
+            }
+        }); 
+    });
+
+    // Disable a client
+    $(".disableClient").on("click",function(e){
+        e.preventDefault();
+        var clientId = $(this).val();
+        // link to backend/disableClient
+        $.ajax({
+            type: "post",
+            url: "backend/disableClient.php",
+            data: {clientId : clientId},
+            success: function(response)
+            {
+                $("#DC"+clientId).html("<b><i class='text-green'>"+response+"</i></b>");
+                
+                if(response.includes("Success"))
+                {
+                    $("#DC"+clientId).append(". <b><i class='text-green'>The page will refresh in 3 secs.</i></b>");
+                    setTimeout(function() {
+                        window.location.href="all_clients.php";  
                     }, 3000);
                 }
             }

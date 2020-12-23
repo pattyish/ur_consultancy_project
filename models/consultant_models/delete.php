@@ -8,8 +8,8 @@
                     be disabled</b></h4>
             </div>
             <div class="modal-body">
-                <p>By clicking on Delete Button this user will no long member of system. </br>
-                    Are sure you want to disable this Client.</p>
+                <p>By clicking on Delete Button, this user will no long be a member of the system. </br>
+                    Are sure you want to disable this user?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button> &nbsp;&nbsp;
