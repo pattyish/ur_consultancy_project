@@ -117,12 +117,10 @@
             </li>
             <li>
                 <a href="chat_room.php">
-                    <i class="fa fa-envelope"></i> <span>Mailbox</span>
+                    <i class="fa fa-envelope"></i> <span>Chat Room</span>
                     <span class="pull-right-container">
-                        <small class="label pull-right bg-yellow">12</small>
-                        <small class="label pull-right bg-green">16</small>
-                        <small class="label pull-right bg-red">5</small>
-                    </span>
+                        <small class="label pull-right bg-green">12</small>
+                                     </span>
                 </a>
             </li>
             <li class="treeview">
