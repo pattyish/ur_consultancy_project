@@ -35,8 +35,6 @@
                                     <th>Start Date</th>
                                     <th>End Date</th>
                                     <th>Amount</th>
-                                    <th>UR(%) Charge</th>
-                                    <th>Tax(%) charge</th>
                                     <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
