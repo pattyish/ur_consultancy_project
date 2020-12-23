@@ -30,6 +30,10 @@
                         <td><?php echo $consultancy_amount; ?></td>
                     </tr>
                     <tr>
+                        <td style="padding: 10px; font-weight: bold;">Currency</td>
+                        <td class=""><?php echo $consultancy_currency; ?></td>
+                    </tr>
+                    <tr>
                         <td style="padding: 10px; font-weight: bold;">UR-Charges(%)</td>
                         <td><?php echo $consultancy_UR_percentage; ?></td>
                     </tr>
@@ -48,7 +52,8 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Maake Completely</button>
             </div>
         </div>
         <!-- /.modal-content -->

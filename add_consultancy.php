@@ -30,7 +30,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="">Consultance-Name</label>
+                                        <label for="">Consultancy-Name</label>
                                         <input type="text" id="consultancy_name" placeholder="Consultancy Title......"
                                             class="form-control">
                                     </div>

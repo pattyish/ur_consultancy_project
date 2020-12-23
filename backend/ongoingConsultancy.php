@@ -40,6 +40,10 @@ if($retrieveCount > 0)
                         class=" btn btn-success table_button">
                         <i class="fa fa-edit"></i> Edit
                     </a>
+                    <a href="sign_contract.php?consultancy_id=<?php echo $consultancy_id; ?>" data-toggle="modal" data-target=""
+                        class=" btn btn-warning table_button">
+                        <i class="fa fa-step-forward"></i> Make Contract
+                    </a>
                 </div>
             </td>
             <?php include 'models/consultancy_models/edit_in_progress.php'; ?>
