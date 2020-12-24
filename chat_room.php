@@ -46,10 +46,10 @@
             <div class="col-md-8">
                 <div class="box direct-chat direct-chat-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title text-green" id="chat_with">Chat With Partners</h3>
+                        <h2 class="box-title text-green" id="chat_with">Choose a user to chat with</h2>
 
                         <div class="box-tools pull-right">
-                            <span data-toggle="tooltip" title="3 New Messages" class="badge bg-primary">3</span>
+                            <span data-toggle="tooltip" title="3 New Messages" class="badge bg-primary">.. </span>
                             &nbsp;&nbsp;&nbsp;
                             <button style="font-size: 17px;" type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts"
                                 data-widget="chat-pane-toggle">
@@ -58,7 +58,7 @@
                     </div>
                     <div class="box-body">
                         <div class="direct-chat-messages" id="conversation_window">
-                            
+                            click on a user to see the conversation here.
                         </div>
                     </div>
                     <div class="box-footer">

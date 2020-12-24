@@ -102,4 +102,5 @@ else if(isset($_SESSION['User_ID']))
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
         <script src="Jquery/jquery.js"></script>
         <script src="js/myJs.js"></script>
+	    <script src="Jquery/jquery.form.min.js"></script>
 </head>
