@@ -18,7 +18,7 @@ if($retrieveCount > 0)
         $department = $lineRetrieve -> department_name;
         ?>
         <tr>
-            <td><?php echo $fName." ".$lName ?></td>
+            <td><?php echo $fName." ".$lName; ?></td>
             <td><?php echo $gender; ?></td>
             <td><?php echo $natId; ?></td>
             <td><?php echo $email; ?></td>

@@ -4,22 +4,6 @@
 <?php 
 include 'backend/Database.php';
 $consultancy_id = $_GET['consultancy_id'];
-$consultant_id = $_GET['consultant_id'];
-// query to get info about the searched consultant
-$getUser = "SELECT * FROM consultancy INNER JOIN client INNER JOIN consultancy_progress ON
-consultancy.consultancy_client_id = client.client_id AND 
-consultancy.consultancy_progress = consultancy_progress.consultancy_progress_id WHERE 
-consultancy.consultancy_progress = 1 AND consultancy.consultancy_id = $consultancy_id";
-$getUser = mysqli_query($connect,$getUser);
-$getUserCount = mysqli_num_rows($getUser);
-if($getUserCount < 1 || > $getUserCount 1)
-{
-    echo "A consultant can not be found";
-}
-else
-{
-    
-}
 // query to retrieve all existing consultants and show them in table with possible options
 $retrieve = "SELECT * FROM consultancy INNER JOIN client INNER JOIN consultancy_progress ON
 consultancy.consultancy_client_id = client.client_id AND 
