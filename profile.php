@@ -8,11 +8,13 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
+    <form action="TCPDF/pdf_files/cv_pdf.php" method="post">
     <div class="btn-group btn-group-sm table-button-div" style="margin-top: 15px;">
-            <button style="font-size: 15px;" class=" btn btn-info table_button">
-                Print Your CV
-            </button>
+            <input type="submit" value=" Print Your CV" name="generate_cv_pdf" style="font-size: 15px;" class=" btn btn-info table_button">
+                <!-- Print Your CV -->
+            <!-- </button> -->
         </div>
+    </form>
         <ol class="breadcrumb">
             <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">User profile</li>
@@ -29,7 +31,8 @@
                     <div class="box-body box-profile">
                         <a href="#" data-toggle="modal" data-target="#change_profile">
                             <img class="profile-user-img img-responsive img-circle"
-                                src="<?php echo "backend/".$MYUserProfileImage; ?>" alt="User profile picture" style="width:90px; height:90px; object-fit:cover; object-position: 50% 0;">
+                                src="<?php echo "backend/".$MYUserProfileImage; ?>" alt="User profile picture"
+                                style="width:90px; height:90px; object-fit:cover; object-position: 50% 0;">
                         </a>
                         <?php include 'models/consultant_models/changing_profile_image.php'; ?>
                         <h3 class="profile-username text-center">
@@ -97,8 +100,8 @@
                             <!-- Post -->
                             <div class="post">
                                 <div class="user-block">
-                                    <img class="img-circle img-bordered-sm" src="<?php echo "backend/".$MYUserProfileImage; ?>"
-                                        alt="user image">
+                                    <img class="img-circle img-bordered-sm"
+                                        src="<?php echo "backend/".$MYUserProfileImage; ?>" alt="user image">
                                     <span class="username">
                                         <a href="#"><?php echo $MYFirstname." ".$MYLastname; ?>.</a>
 
