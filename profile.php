@@ -8,13 +8,21 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-    <form action="TCPDF/pdf_files/cv_pdf.php" method="post">
+        <!-- <form action="TCPDF/pdf_files/cv_pdf.php" method="post">
     <div class="btn-group btn-group-sm table-button-div" style="margin-top: 15px;">
             <input type="submit" value=" Print Your CV" name="generate_cv_pdf" style="font-size: 15px;" class=" btn btn-info table_button">
-                <!-- Print Your CV -->
-            <!-- </button> -->
+                
+            
         </div>
-    </form>
+    </form> -->
+        <div class="btn-group btn-group-sm table-button-div" style="margin-top: 15px;">
+             <!-- <input type="submit" value=" Print Your CV" name="generate_cv_pdf" style="font-size: 15px;" -->
+                <!-- class=" btn btn-info table_button"> -->
+            <a href="TCPDF/pdf_files/cv_pdf.php?cv_id=<?php echo $MYUserId ;?>" target="_blank" class=" btn btn-info table_button">
+                <i class="fa fa-eye"></i> View
+            </a>
+
+        </div>
         <ol class="breadcrumb">
             <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">User profile</li>
