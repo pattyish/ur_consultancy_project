@@ -9,7 +9,7 @@
             <div class="modal-body">
                 <form action="" id="uploadProfileImage">
                     <div class="form-group">
-                        <input type="file" class="form-control" id="profileImage" style="border-radius: 5px;">
+                        <input type="file" class="form-control" id="profileImage" style="border-radius: 6px;">
                     </div>
                     <div class="priveiw bg-success" id="profileImagePriview"
                         style="width: 200px; height: 200px; border-radius: 5px;">
