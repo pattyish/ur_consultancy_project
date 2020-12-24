@@ -11,12 +11,12 @@
                         <div class="form-group">
                             <input type="file" class="form-control" name="imageProfile" id="chooseProfileImage" style="border-radius: 6px;" accept=".jpg,.JPEG,.JPG,.png;.PNG">
                         </div>
-                        <div class="preview bg-success text-center" id=""
+                        <div class="preview text-center" id=""
                             style="width: 250px; height: 250px; border-radius: 5px;">
-                            <img id="profilePreviewHolder" src="<?php echo $MYUserProfileImage; ?>" class="img w3-round-xlarge" style="width: 200px; height: auto;" alt="profile">
+                            <img id="profilePreviewHolder" src="<?php echo "backend/".$MYUserProfileImage; ?>" class="img w3-round-xlarge" style="width: 200px; height: auto;" alt="profile">
                         </div>
                         <progress id="prog" max="100" value="50" style="display: none; height: 30px;">
-                        </progress><span style="font-size: 20px;" id="results">ssqsq</span>
+                        </progress><span style="font-size: 20px;" id="results"></span>
                                         
                 </div>
                 <div class="modal-footer">

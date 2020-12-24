@@ -220,13 +220,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo $MYUserProfileImage; ?>" class="user-image" alt="User Image">
+              <img src="<?php echo "backend/".$MYUserProfileImage; ?>" class="user-image" alt="User Image">
               <span class="hidden-xs"><?php echo $MYFirstname." ".$MYLastname; ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo $MYUserProfileImage; ?>" class="img-circle" alt="User Image">
+                <img src="<?php echo "backend/".$MYUserProfileImage; ?>" class="img-circle" alt="User Image" style="width:70px; height:70px; object-fit:cover; object-position: 50% 0;">
 
                 <p>
                 <b>

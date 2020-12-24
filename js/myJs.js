@@ -420,17 +420,16 @@ $(document).ready(function(){
             $('#SendImage').attr("disabled",true);
             $('#results').html("<i class='text-blue'><b>Wait, we are uploading your profile...</b></i>");
             $.ajax({
-                url: "ssss.php",
+                url: "backend/changeProfilePicture.php",
                 type: "post",
                 data: fd,
                 contentType: false,
                 processData: false,
                 success: function(response)
                 {
-                    alert("Heyyye");
-                    //$('#SendImage').attr("disabled",false);
-                    //$("#uploadProfileImage").trigger("reset");
-                   // $('#results').html(response);
+                    $('#SendImage').attr("disabled",false);
+                    $("#uploadProfileImage").trigger("reset");
+                    $('#results').html(response);
                     
                 }
             });
