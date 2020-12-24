@@ -4,7 +4,23 @@
 <?php 
 include 'backend/Database.php';
 $consultancy_id = $_GET['consultancy_id'];
-// file to retrieve all existing consultants and show them in table with possible options
+$consultant_id = $_GET['consultant_id'];
+// query to get info about the searched consultant
+$getUser = "SELECT * FROM consultancy INNER JOIN client INNER JOIN consultancy_progress ON
+consultancy.consultancy_client_id = client.client_id AND 
+consultancy.consultancy_progress = consultancy_progress.consultancy_progress_id WHERE 
+consultancy.consultancy_progress = 1 AND consultancy.consultancy_id = $consultancy_id";
+$getUser = mysqli_query($connect,$getUser);
+$getUserCount = mysqli_num_rows($getUser);
+if($getUserCount < 1 || > $getUserCount 1)
+{
+    echo "A consultant can not be found";
+}
+else
+{
+    
+}
+// query to retrieve all existing consultants and show them in table with possible options
 $retrieve = "SELECT * FROM consultancy INNER JOIN client INNER JOIN consultancy_progress ON
 consultancy.consultancy_client_id = client.client_id AND 
 consultancy.consultancy_progress = consultancy_progress.consultancy_progress_id WHERE 
@@ -50,9 +66,9 @@ if($retrieveCount > 0)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Signing Contract With Consultant</h3>
+                        <h3 class="box-title"><?php echo "Add Consultant name to consultancy name"; ?></h3>
                     </div>
-                    <form class="form" id="addConsultancyForm">
+                    <form class="form" id="signContractForm">
                         <div class=""
                             style="padding: 20px; border: 1px solid rgba(60, 141, 188, 0.3); border-radius: 5px;">
                             <legend style="font-weight: bold;"> Consultancy Details </legend>
@@ -62,17 +78,19 @@ if($retrieveCount > 0)
                                         <label for="">Consultance-Name</label>
                                         <input type="text" id="consultancy_name"
                                             value="<?php echo $consultancy_name; ?>"
-                                            placeholder="Consultancy Title......" class="form-control" disabled>
+                                            placeholder="Consultancy Title......" class="form-control"> 
+                                            <input type="hidden" id="consultancy_id"
+                                            value="<?php echo $consultancy_id; ?>">
                                     </div>
                                     <div class="form-group">
+                                    <?php $now = date("Y-m-d h:i:m"); ?>
                                         <label for="">Contract-Sign-Date</label>
-                                        <input type="text" id="start_date" value="<?php echo $consultancy_sign_date; ?>"
+                                        <input type="text" id="sign_date" value="<?php echo $now; ?>"
                                             class="form-control" disabled>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Contract-Start-Date</label>
-                                        <input type="date" id="start_date" value=""
-                                            placeholder="Consultancy Start Date....." class="form-control">
+                                        <input type="date" min="<?php echo $consultancy_start_date; ?>" id="start_date" value="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -88,8 +106,7 @@ if($retrieveCount > 0)
                                     </div>
                                     <div class="form-group">
                                         <label for="">Contract-End-Date</label>
-                                        <input type="date" id="end_date" value=""
-                                            placeholder="Consultancy Sign Date....." class="form-control">
+                                        <input type="date" id="end_date" max="<?php echo $consultancy_end_date; ?>" value="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -102,6 +119,7 @@ if($retrieveCount > 0)
                                                     placeholder="Consultant-Name......"
                                                     value="<?php //echo $consultancy_currency; ?>" class="form-control"
                                                     disabled>
+                                                    <input type="text" id="consultant_id" value="<?php echo "his id here"; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -120,7 +138,7 @@ if($retrieveCount > 0)
                                 <div class="col-md-12 text-left">
                                     <button type="submit" class="btn btn-success"
                                         style="padding: 7px; font-size: 15px;">Sign Contract</button>
-                                    &nbsp; &nbsp; <span id="addConsultancyFeedback"></span>
+                                    &nbsp; &nbsp; <span id="signContractFeedback"></span>
                                 </div>
                             </div>
                         </div>
