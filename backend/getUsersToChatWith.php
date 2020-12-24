@@ -32,5 +32,6 @@ else
 {
     echo "No users to chat with.";
 }
+include 'backend/jsForChatting.php';
 ?>
 

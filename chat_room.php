@@ -34,7 +34,6 @@
                   <ul class="users-list clearfix" id="userToChatWith">
                   <?php include 'backend/getUsersToChatWith.php'; ?>
                   </ul>
-                  <?php include 'backend/jsForChatting.php'; ?>
                   <!-- /.users-list -->
                 </div>
                 <!-- /.box-body -->

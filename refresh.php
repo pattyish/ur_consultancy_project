@@ -1,6 +1,9 @@
 <?php
-include 'public/includes/header_link.php';
+session_start();
 include 'backend/Database.php';
+?>
+<link rel="stylesheet" href="dist/css/css_style.css">
+<?php
 
 $myId=$_SESSION['User_ID'];
 // select all people that I can chat with
@@ -26,7 +29,7 @@ if($retrieveCount > 0)
         ?>
         <li class="userToChat" value="<?php echo $user_id; ?>" username="<?php echo $fName; ?>">
             <img src="<?php echo "backend/".$user_profile_image; ?>" alt="User Image" style="width:60px; height:60px; object-fit:cover; object-position: 50% 0;">
-            <a class="users-list-name"  href="#"><?php echo $fName.""; ?></a>
+            <a class="users-list-name"  href="#"><?php echo $fName; ?></a>
             <span class="users-list-date"><?php echo $user_type; ?></span>
         </li>
         <?php
@@ -36,5 +39,27 @@ else
 {
     echo "No users to chat with.";
 }
-
 ?>
+<script>
+$(document).ready(function(){
+    $("#messageToSend").html("");
+    // chatting with other users
+    $(".userToChat").on("click",function(e){
+        var userId= parseInt($(this).val());
+        var username= $(this).attr("username");
+        $("#chat_with").html("<b>Chat with "+username+"</b>");
+        $("#receiverId").val(userId);
+        $("#conversation_window").html("Loading chats with "+username+"....." );
+        $.ajax({
+            type: "post",
+            url: "backend/qqq.php",
+            data: {userId : userId},
+            success: function(response)
+            {
+                $("#conversation_window").html(response);
+            }
+        });
+    });
+});
+
+</script>

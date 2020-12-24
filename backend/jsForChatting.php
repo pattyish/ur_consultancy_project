@@ -7,6 +7,7 @@ $(document).ready(function(){
         var username= $(this).attr("username");
         $("#chat_with").html("<b>Chat with "+username+"</b>");
         $("#receiverId").val(userId);
+        $("#conversation_window").html("Loading chats with "+username+"....." );
         $.ajax({
             type: "post",
             url: "backend/qqq.php",
