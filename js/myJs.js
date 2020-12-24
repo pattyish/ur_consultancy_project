@@ -389,4 +389,55 @@ $(document).ready(function(){
             }
         }
     });
+
+     //preview user profile image before upload
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+        $("#profilePreviewHolder").attr("src", e.target.result);
+        }
+        
+        reader.readAsDataURL(input.files[0]);
+        }
+        }
+        
+        $("#chooseProfileImage").on("change",function() {
+            //alert("changed");
+        readURL(this);
+        });
+
+        //upload profile image with progress
+	$("#uploadProfileImage").on("submit",function(e){
+		e.preventDefault();
+        var fd = new FormData();
+        var ImageName=$("#chooseProfileImage").val();
+        if(ImageName!="")
+        {
+            var files = $('#chooseProfileImage')[0].files[0];
+            fd.append('file',files);
+
+            $('#SendImage').attr("disabled",true);
+            $('#results').html("<i class='text-blue'><b>Wait, we are uploading your profile...</b></i>");
+            $.ajax({
+                url: "backend/changeProfilePicture.php",
+                type: "post",
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function(response)
+                {
+                    $('#SendImage').attr("disabled",false);
+                    $("#uploadProfileImage").trigger("reset");
+                    $('#results').html(response);
+                    
+                }
+            });
+        }
+        else
+        {
+            
+            $('#results').html("<i class='text-red'><b>No file chosen...</b>");
+        }
+	});
 });

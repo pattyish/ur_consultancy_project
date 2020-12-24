@@ -29,11 +29,11 @@
                     <div class="box-body box-profile">
                         <a href="#" data-toggle="modal" data-target="#change_profile">
                             <img class="profile-user-img img-responsive img-circle"
-                                src="<?php echo $MYUserProfileImage; ?>" alt="User profile picture">
+                                src="<?php echo "backend/".$MYUserProfileImage; ?>" alt="User profile picture" style="width:90px; height:90px; object-fit:cover; object-position: 50% 0;">
                         </a>
                         <?php include 'models/consultant_models/changing_profile_image.php'; ?>
                         <h3 class="profile-username text-center">
-                            <?php echo $MYFirstname." ".$MYLastname; ?></h3>
+                            <?php echo $MYFirstname; ?></h3>
 
                         <p class="text-muted text-center text-blue"><b><?php echo $MYUserTypeName; ?></b></p>
 
@@ -97,7 +97,7 @@
                             <!-- Post -->
                             <div class="post">
                                 <div class="user-block">
-                                    <img class="img-circle img-bordered-sm" src="<?php echo $MYUserProfileImage; ?>"
+                                    <img class="img-circle img-bordered-sm" src="<?php echo "backend/".$MYUserProfileImage; ?>"
                                         alt="user image">
                                     <span class="username">
                                         <a href="#"><?php echo $MYFirstname." ".$MYLastname; ?>.</a>

@@ -5,10 +5,10 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?php echo $MYUserProfileImage; ?>" class="img-circle" alt="User Image">
+                <img src="<?php echo "backend/".$MYUserProfileImage; ?>" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p><?php echo $MYFirstname." ".$MYLastname; ?></p>
+                <p><?php echo $MYFirstname; ?></p>
                 <a href="#"><i class="fa fa-circle text-success"></i>
                 <?php
                 // //update last active every time that the user loads the system page

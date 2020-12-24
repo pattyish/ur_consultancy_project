@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2020 at 04:28 PM
+-- Generation Time: Dec 24, 2020 at 02:06 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -120,8 +120,9 @@ CREATE TABLE `consultancy` (
 --
 
 INSERT INTO `consultancy` (`consultancy_id`, `consultancy_name`, `consultancy_sign_date`, `consultancy_start_date`, `consultancy_end_date`, `consultancy_amount`, `consultancy_currency`, `consultancy_UR_percentage`, `consultancy_Tax_percentage`, `consultancy_consultants_percentage`, `consultancy_client_id`, `consultancy_progress`, `consultancy_adder`) VALUES
-(1, 'Rwandan Population Statistics', '2020-12-22 01:46:23', '2020-12-22', '2021-01-10', 15000, 'USD', 20, 10, 70, 2, 1, 4),
-(2, 'People use local currency than others', '2020-12-22 01:50:10', '2020-12-31', '2021-03-26', 500000, 'POUNDS', 20, 20, 60, 1, 1, 4);
+(1, 'Rwandan Population Statistics ', '2020-12-22 01:46:23', '2020-12-22', '2021-01-10', 20000, 'USD', 20, 20, 60, 1, 1, 4),
+(2, 'People who use smartphones than others in Rwanda', '2020-12-22 01:50:10', '2020-12-22', '2021-01-10', 2000000, 'POUNDS', 10, 20, 70, 2, 1, 4),
+(3, 'Rwandan Population Statistics ', '2020-12-23 08:35:41', '2020-12-23', '2021-01-10', 15000, 'RWF', 20, 20, 60, 1, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -219,6 +220,34 @@ CREATE TABLE `message` (
   `message_reads` int(11) NOT NULL DEFAULT 2
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `message`
+--
+
+INSERT INTO `message` (`message_id`, `message_content`, `message_file_docs`, `message_img`, `message_send_date`, `message_sender_id`, `message_receiver_id`, `message_status_id`, `message_reads`) VALUES
+(1, 'Hi m boy Pazzo', NULL, NULL, '2020-12-24 08:35:45', 4, 5, 1, 2),
+(2, 'Hi m boy Pazzo', NULL, NULL, '2020-12-24 08:37:18', 4, 5, 1, 2),
+(3, 'Hi pazzo', NULL, NULL, '2020-12-24 08:40:58', 4, 5, 1, 2),
+(4, 'This is good', NULL, NULL, '2020-12-24 08:54:48', 4, 5, 1, 2),
+(5, 'This is good', NULL, NULL, '2020-12-24 08:55:24', 4, 5, 1, 2),
+(7, 'Hii', NULL, NULL, '2020-12-24 08:56:31', 4, 5, 1, 2),
+(8, 'Hello phizzo brother', NULL, NULL, '2020-12-24 08:57:01', 4, 7, 1, 1),
+(9, 'Umeze gt se', NULL, NULL, '2020-12-24 08:58:47', 4, 7, 1, 1),
+(10, 'Bjr', NULL, NULL, '2020-12-24 09:00:27', 4, 5, 1, 2),
+(11, 'Hello', NULL, NULL, '2020-12-24 09:00:49', 4, 5, 1, 2),
+(12, 'Boy boy Big man', NULL, NULL, '2020-12-24 09:01:20', 4, 7, 1, 1),
+(13, 'Uraryoshye', NULL, NULL, '2020-12-24 09:02:20', 4, 7, 1, 1),
+(14, 'Pazzzzz', NULL, NULL, '2020-12-24 09:05:28', 4, 5, 1, 2),
+(15, 'Hello', NULL, NULL, '2020-12-24 09:06:39', 4, 7, 1, 1),
+(16, 'Yewe, I\\\'m sorry, I have been busy ', NULL, NULL, '2020-12-24 09:11:36', 5, 4, 1, 2),
+(17, 'Yewe, I\\\'m sorry, I have been busy ', NULL, NULL, '2020-12-24 09:15:52', 5, 4, 1, 2),
+(18, 'But ubu ndahari kkbx', NULL, NULL, '2020-12-24 09:17:51', 5, 4, 1, 2),
+(19, 'Pazzo, Salama', NULL, NULL, '2020-12-24 09:19:23', 7, 5, 1, 2),
+(20, 'Pazzo, Salama', NULL, NULL, '2020-12-24 09:19:39', 7, 5, 1, 2),
+(21, 'Jay P', NULL, NULL, '2020-12-24 09:19:48', 7, 4, 1, 2),
+(22, 'Kbx, turaburanye', NULL, NULL, '2020-12-24 09:21:49', 7, 7, 1, 1),
+(23, 'Rwanda\\nBurundi', NULL, NULL, '2020-12-24 09:22:39', 7, 7, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -306,7 +335,7 @@ CREATE TABLE `users` (
   `user_status_id` int(11) NOT NULL DEFAULT 1,
   `user_type_id` int(11) NOT NULL,
   `user_country` int(11) NOT NULL,
-  `user_profile_image` varchar(45) NOT NULL,
+  `user_profile_image` varchar(100) NOT NULL,
   `user_adder_id` int(11) NOT NULL,
   `user_last_active` datetime NOT NULL,
   `user_department` int(11) NOT NULL,
@@ -321,9 +350,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_first_name`, `user_last_name`, `user_gender`, `user_national_id`, `user_email`, `user_password`, `user_status_id`, `user_type_id`, `user_country`, `user_profile_image`, `user_adder_id`, `user_last_active`, `user_department`, `user_location`, `user_education`, `user_summary`, `user_phone`) VALUES
-(4, 'Jean Paul', 'NISHIMIRWE', 'M', '1199780117063139', 'nishimirwepaul2015@gmail.com', '$2y$10$/rG2rNMF.LvdvelOuroQQeSVB2JZfMebLHNMMHrH1HNFEpEmfpbI.', 1, 1, 1, 'img/mimage.png', 4, '2020-12-22 16:20:57', 1, 'Kigali, Rwanda', 'Software Engineering', 'Interested in developing software that aim at changing the world by helping everyone live in better and easy life.\n\nCollaboration and leadership skills are my strengths.', '(+250) 789 336 678'),
-(5, 'Patrick', 'ISHIMWE', 'M', '1199680012546588', 'patrickishimwe16@gmail.com', '$2y$10$OXCy5CGHORVrgz2KYJ4zmuQZ0z.B/ouQjTMtT64VDgM.k.PAf4jNe', 1, 2, 1, 'img/mimage.png', 4, '2020-12-22 16:24:35', 1, 'No entered location', 'Not entered', 'No summary', 'Input your number'),
-(7, 'Philius', 'HAKIZIMANA', 'M', '1199680012546544', 'hakizaphilius@gmail.com', '$2y$10$5HDLGrap45cFUfr/aVMrROmEY1Ku7bLPQl0Oy.bR5Zn/y8OQZXa0G', 1, 3, 1, 'img/mimage.png', 4, '2020-12-22 16:05:34', 1, 'No entered location', 'Not entered', 'No summary', 'Input your number');
+(4, 'Mr. Jean Paul', 'NISHIMIRWE', 'M', '1199780117063139', 'nishimirwepaul2015@gmail.com', '$2y$10$/rG2rNMF.LvdvelOuroQQeSVB2JZfMebLHNMMHrH1HNFEpEmfpbI.', 1, 1, 1, 'profile_img/4de7931b4287506ba3a1166beefccb89b.jpg', 4, '2020-12-24 14:05:25', 1, 'Kigali, Rwanda', 'Software Engineering', 'Interested in developing software that aim at changing the world by helping everyone live in better and easy life.\n\nCollaboration and leadership skills are my strengths.', '(+250) 789 336 678'),
+(5, 'Patrick', 'ISHIMWE', 'M', '1199680012546588', 'patrickishimwe16@gmail.com', '$2y$10$OXCy5CGHORVrgz2KYJ4zmuQZ0z.B/ouQjTMtT64VDgM.k.PAf4jNe', 1, 2, 1, 'img/mimage.png', 4, '2020-12-24 09:18:57', 1, 'No entered location', 'Not entered', 'No summary', 'Input your number'),
+(7, 'Philius', 'HAKIZIMANA', 'M', '1199680012546544', 'hakizaphilius@gmail.com', '$2y$10$5HDLGrap45cFUfr/aVMrROmEY1Ku7bLPQl0Oy.bR5Zn/y8OQZXa0G', 1, 3, 1, 'img/mimage.png', 4, '2020-12-24 10:03:27', 1, 'No entered location', 'Not entered', 'No summary', 'Input your number');
 
 -- --------------------------------------------------------
 
@@ -503,7 +532,7 @@ ALTER TABLE `college`
 -- AUTO_INCREMENT for table `consultancy`
 --
 ALTER TABLE `consultancy`
-  MODIFY `consultancy_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `consultancy_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `consultancy_progress`
@@ -533,7 +562,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `message_read`
