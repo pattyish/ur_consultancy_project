@@ -8,17 +8,19 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
-
-        </h1>
+    <div class="btn-group btn-group-sm table-button-div" style="margin-top: 15px;">
+            <button style="font-size: 15px;" class=" btn btn-info table_button">
+                Print Your CV
+            </button>
+        </div>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">User profile</li>
         </ol>
     </section>
 
     <!-- Main content -->
-    <section class="content" style="margin-top: 20px;">
+    <section class="content" style="margin-top: 10px;">
         <div class="row">
             <div class="col-md-3">
 
