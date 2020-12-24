@@ -326,8 +326,7 @@ $(document).ready(function(){
 
     // chatting with other users
     $(".userToChat").on("click",function(e){
-        var userId= $(this).val();
-        alert(userId);
+        
     });
 
      // Sign contract with a consultant

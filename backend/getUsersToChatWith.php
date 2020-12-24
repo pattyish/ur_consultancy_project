@@ -28,17 +28,45 @@ if($retrieveCount > 0)
 ?>
 <script>
 $(document).ready(function(){
+    $("#messageToSend").html("");
     // chatting with other users
     $(".userToChat").on("click",function(e){
-        var userId= $(this).val();
+        var userId= parseInt($(this).val());
+        $("#receiverId").val(userId);
         $.ajax({
             type: "post",
             url: "backend/qqq.php",
+            data: {userId : userId},
             success: function(response)
             {
-                alert(response);
+                $("#conversation_window").html(response);
             }
-        
+        });
+    });
+
+     // sending a message
+     $("#sendMessageForm").on("submit",function(e){
+         e.preventDefault();
+        var userId= parseInt($("#receiverId").val());
+        var messageContent= $("#messageToSend").val();
+        if($.trim(messageContent).length == 0)
+        {
+            $("#sendMessageFeedback").html("<b>Write something, please</b>");
+        }
+        else
+        {
+            $.ajax({
+                type: "post",
+                url: "backend/sendMessage.php",
+                data: {userId : userId, messageContent : messageContent},
+                success: function(response)
+                {
+                    $("#conversation_window").html(response);
+                    $("#messageToSend").val("");
+                }
+            });
+        }
+      
     });
 });
 
