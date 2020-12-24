@@ -28,22 +28,22 @@ if($ImageName !== "" && !empty($_FILES["file"]["name"]))
 		if($imageSize <= 500000)
 		{
 			$compressQuality=90;
-			echo "90";
+			//echo "90";
 		}
 		else if($imageSize <= 1000000)
 		{
 			$compressQuality=70;
-			echo "70";
+			//echo "70";
 		}
 		else if($imageSize <= 15000000)
 		{
 			$compressQuality=30;
-			echo "30";
+			//echo "30";
 		}
 		else
 		{
 			$compressQuality=20;
-			echo "20";
+			//echo "20";
 		}
 		// real compression
 		$CompressedImage=compressImage($imageTemp,$target_filee,$compressQuality);
@@ -55,10 +55,10 @@ if($ImageName !== "" && !empty($_FILES["file"]["name"]))
 			$UpdatUsers->execute();
 			if($UpdatUsers)
 			{
-				echo "Profile Uploaded successfully.".$target_filee;
+				echo "Profile Uploaded successfully.";
 				?>
 				<script>
-					//window.location.href='profile.php';
+					window.location.href='profile.php';
 				</script>
 				<?php
 			}
