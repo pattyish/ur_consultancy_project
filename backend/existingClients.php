@@ -24,8 +24,7 @@ if($retrieveCount > 0)
                 class=" btn btn-info table_button">
                 <i class="fa fa-eye"></i> View
             </a>
-            <a href="#" data-toggle="modal" data-target="#edit_client<?php echo $clientId; ?>"
-                class="btn btn-success table_button">
+            <a href="edit_client.php?client_id=<?php echo $clientId; ?>" class="btn btn-success table_button">
                 <i class="fa fa-edit"></i> Edit
             </a>
             <a href="#" data-toggle="modal" data-target="#disable_client<?php echo $clientId; ?>"

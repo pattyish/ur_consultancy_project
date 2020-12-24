@@ -112,7 +112,7 @@
                     }
                     ?>
                     <li><a href="progress_consultancy.php"><i class="fa fa-circle-o"></i> In Progress Consultancy</a></li>
-                    <li><a href="completed_consultancy.php"><i class="fa fa-circle-o"></i> Completed Consultancy</a></li>
+                    <li><a href="completed_consultancy.php"><i class="fa fa-circle-o"></i> Archive</a></li>
                 </ul>
             </li>
             <li>
