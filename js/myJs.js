@@ -439,5 +439,29 @@ $(document).ready(function(){
             
             $('#results').html("<i class='text-red'><b>No file chosen...</b>");
         }
-	});
+    });
+    
+    // Reactivate a user and bring him back in usual consultants
+    $(".reActivateThisUser").on("click",function(e){
+        e.preventDefault();
+        var userId = $(this).val();
+        // link to backend/disableClient
+        $.ajax({
+            type: "post",
+            url: "backend/reActivateAUser.php",
+            data: {userId : userId},
+            success: function(response)
+            {
+                $("#RAU"+userId).html("<b><i class='text-green'>"+response+"</i></b>");
+                
+                if(response.includes("activated"))
+                {
+                    //$("#RAU"+userId).append(". <b><i class='text-green'>The page will refresh in 3 secs.</i></b>");
+                    setTimeout(function() {
+                        window.location.href="all_clients.php";  
+                    }, 1000);
+                }
+            }
+        }); 
+    });
 });

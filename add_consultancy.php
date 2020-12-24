@@ -81,7 +81,7 @@
                                     </div>
                                     <div class="form-group">
                                         <p>If Client not Exist, Follow this Link to first <a href="register_client.php">
-                                                 <b>Register Client</b>
+                                                 <b class="text-blue">Register Client</b>
                                             </a>
                                         </p>
                                     </div>

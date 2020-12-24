@@ -11,8 +11,9 @@
                 you can simply click there to restore.</p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="button" id="reActivateUser" value="<?php echo $user_id; ?>" class="btn btn-success">Re-activate</button>
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>&nbsp;&nbsp;
+                <span style="font-size: 15px;" id="RAU<?php echo $user_id; ?>"></span> &nbsp;&nbsp;
+                <button type="button" value="<?php echo $user_id; ?>" class="btn btn-success reActivateThisUser">Re-activate</button>
               </div>
             </div>
             <!-- /.modal-content -->

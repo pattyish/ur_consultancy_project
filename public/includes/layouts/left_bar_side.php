@@ -118,7 +118,7 @@
                 <a href="chat_room.php">
                     <i class="fa fa-envelope"></i> <span>Chat Room</span>
                     <span class="pull-right-container">
-                        <small class="label pull-right bg-green" id="newsmss">12</small>
+                        <small class="label pull-right bg-green" id="newsmss"></small>
                     </span>
                 </a>
             </li>
