@@ -16,9 +16,9 @@ if($retrieveCount > 0)
         $user_type = $lineRetrieve -> user_type;
         $user_profile_image = $lineRetrieve -> user_profile_image;
         ?>
-        <li class="userToChat" value="<?php echo $user_id; ?>">
+        <li class="userToChat" value="<?php echo $user_id; ?>" username="<?php echo $fName; ?>">
             <img src="<?php echo $user_profile_image; ?>" alt="User Image">
-            <a class="users-list-name" href="#"><?php echo $fName; ?></a>
+            <a class="users-list-name"  href="#"><?php echo $fName; ?></a>
             <span class="users-list-date"><?php echo $user_type; ?></span>
         </li>
         <?php
@@ -32,6 +32,8 @@ $(document).ready(function(){
     // chatting with other users
     $(".userToChat").on("click",function(e){
         var userId= parseInt($(this).val());
+        var username= $(this).attr("username");
+        $("#chat_with").html("Chat with "+username);
         $("#receiverId").val(userId);
         $.ajax({
             type: "post",

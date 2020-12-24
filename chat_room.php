@@ -46,7 +46,7 @@
             <div class="col-md-8">
                 <div class="box direct-chat direct-chat-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Chat With Partners</h3>
+                        <h3 class="box-title text-green" id="chat_with">Chat With Partners</h3>
 
                         <div class="box-tools pull-right">
                             <span data-toggle="tooltip" title="3 New Messages" class="badge bg-primary">3</span>
