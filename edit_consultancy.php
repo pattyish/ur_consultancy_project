@@ -1,6 +1,11 @@
 <?php include 'public/includes/header_link.php';?>
 <?php include 'public/includes/layouts/header.php';?>
 <?php include 'public/includes/layouts/left_bar_side.php';?>
+
+<!-- below ul tag is to help us load new sms automatically -->
+<ul class="users-list clearfix" id="userToChatWith" style="display: none;">
+</ul>
+
 <?php 
 include 'backend/Database.php';
 $consultancy_id = $_GET['consultancy_id'];

@@ -39,6 +39,44 @@ else
 {
     echo "No users to chat with.";
 }
+
+// let me add other needful autoloads based on SMS sent
+// Show all unreads messages
+// get number of unreads message for each friend
+$Unread_Query="SELECT COUNT(*) AS nbr FROM message WHERE message.message_receiver_id=$myId AND message.message_reads=2 ";
+$Unread_Answer=mysqli_query($connect,$Unread_Query);
+while($Unread_Line=mysqli_fetch_object($Unread_Answer))
+{
+$Unreads_Number=$Unread_Line ->nbr;
+}
+
+// alert new unreads
+if($Unreads_Number > 0)
+{
+    ?>
+    <script>
+		$(document).ready(function(){
+			var newtitle=<?php echo $Unreads_Number; ?>;
+			$("title").text('('+newtitle+') New messages');
+			$("#newsmss").html(newtitle);
+			$("#newsms").html(newtitle);
+		
+		});
+    </script>
+    <?php
+}
+else
+{
+?>
+    <script>
+		$(document).ready(function(){
+			$("title").text("Consultancy | Dashboard");
+			$("#newsmss").html("");
+			$("#newsms").html("");
+		});
+    </script>
+<?php
+}
 ?>
 <script>
 $(document).ready(function(){
