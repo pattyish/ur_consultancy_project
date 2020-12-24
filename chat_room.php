@@ -24,7 +24,7 @@
             <div class="col-md-4">
             <div class="box">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Partners</h3>
+                  <h3 class="box-title">Partners view</h3>
                   <div class="box-tools pull-right">
                     <span class="label label-primary">Groups</span>
                   </div>

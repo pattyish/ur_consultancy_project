@@ -4,6 +4,10 @@ $myId = $_SESSION['User_ID'];
 include 'Database.php';
 
 $userId = $_POST['userId'];
+
+// update message to readable message
+$Update_Query="UPDATE message SET message_reads=1 WHERE (message.message_receiver_id=$myId AND message.message_sender_id=$userId)";
+$Update_Answer=mysqli_query($connect,$Update_Query);
 // doing our staff, first get the data of the receiver
 $query="SELECT * FROM users WHERE users.user_id=$userId;";
 $answer=mysqli_query($connect,$query);
