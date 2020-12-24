@@ -1,4 +1,8 @@
-<?php 
+<?php
+include 'public/includes/header_link.php';
+include 'backend/Database.php';
+
+$myId=$_SESSION['User_ID'];
 // select all people that I can chat with
 $retrieve = "SELECT * FROM users INNER JOIN user_type ON users.user_type_id = user_type.user_type_id;";
 $retrieve = mysqli_query($connect,$retrieve);
@@ -22,7 +26,7 @@ if($retrieveCount > 0)
         ?>
         <li class="userToChat" value="<?php echo $user_id; ?>" username="<?php echo $fName; ?>">
             <img src="<?php echo "backend/".$user_profile_image; ?>" alt="User Image" style="width:60px; height:60px; object-fit:cover; object-position: 50% 0;">
-            <a class="users-list-name"  href="#"><?php echo $fName; ?></a>
+            <a class="users-list-name"  href="#"><?php echo $fName.""; ?></a>
             <span class="users-list-date"><?php echo $user_type; ?></span>
         </li>
         <?php
@@ -32,5 +36,5 @@ else
 {
     echo "No users to chat with.";
 }
-?>
 
+?>

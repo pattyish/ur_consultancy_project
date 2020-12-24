@@ -104,4 +104,23 @@ else if(isset($_SESSION['User_ID']))
         <script src="Jquery/jquery.js"></script>
         <script src="js/myJs.js"></script>
 	    <script src="Jquery/jquery.form.min.js"></script>
+
+        <script>
+        // autoLoad
+        function AutloadMessages()
+        {
+            $.ajax({
+                type: "POST",
+                url: "refresh.php",
+                success: function(data){
+                    $("#userToChatWith").html(data);
+                }
+            });
+        }
+        AutloadMessages();
+        setInterval(function () {
+            AutloadMessages(); 
+        }, 5000); 
+
+</script>
 </head>

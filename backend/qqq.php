@@ -48,7 +48,7 @@ else
                     <span class="direct-chat-name pull-left">Me</span>
                     <span class="direct-chat-timestamp pull-right"><?php echo $MessageTime; ?></span>
                 </div>
-                <img class="direct-chat-img" src="<?php echo $myProfileImage; ?>" alt="profile">
+                <img class="direct-chat-img" src="<?php echo "backend/".$myProfileImage; ?>" alt="profile" style="width:40px; height:40px; object-fit:cover; object-position: 50% 0;">
                 <div class="direct-chat-text">
                 <?php echo $Send_Messages; ?>
                 </div>
@@ -63,7 +63,7 @@ else
                     <span class="direct-chat-name pull-left"><?php echo $firstName; ?></span>
                     <span class="direct-chat-timestamp pull-right"><?php echo $MessageTime; ?></span>
                 </div>
-                <img class="direct-chat-img" src="<?php echo $receiverProfileImage; ?>" alt="profile">
+                <img class="direct-chat-img" src="<?php echo "backend/".$receiverProfileImage; ?>" alt="profile" style="width:40px; height:40px; object-fit:cover; object-position: 50% 0;">
 
                 <div class="direct-chat-text">
                     <?php echo $Send_Messages; ?>
