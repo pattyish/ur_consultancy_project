@@ -5,12 +5,13 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?php echo "backend/".$MYUserProfileImage; ?>" class="img-circle" alt="User Image">
+                <img src="<?php echo "backend/".$MYUserProfileImage; ?>" class="img-circle" alt="User Image"
+                    style="width:70px; height:70px; object-fit:cover; object-position: 50% 0;">
             </div>
             <div class="pull-left info">
                 <p><?php echo $MYFirstname; ?></p>
                 <a href="#"><i class="fa fa-circle text-success"></i>
-                <?php
+                    <?php
                 // //update last active every time that the user loads the system page
                 $myId = $_SESSION['User_ID'];
                 $bynow = date("Y-m-d H:i:s");
@@ -63,32 +64,32 @@
             if($MYUserType != 3)
             {
                 ?>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-users"></i>
-                        <span>Consultants</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="add_consultant.php"><i class="fa fa-circle-o"></i> Add Consultant </a></li>
-                        <li><a href="all_consultants.php"><i class="fa fa-circle-o"></i>Registered Consultants</a></li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-users"></i> <span>Clients</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="register_client.php"><i class="fa fa-circle-o"></i> Add Client</a></li>
-                        <li><a href="all_clients.php"><i class="fa fa-circle-o"></i> All Clients</a></li>
-                    </ul>
-                </li>
-                <?php
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-users"></i>
+                    <span>Consultants</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="add_consultant.php"><i class="fa fa-circle-o"></i> Add Consultant </a></li>
+                    <li><a href="all_consultants.php"><i class="fa fa-circle-o"></i>Registered Consultants</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-users"></i> <span>Clients</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="register_client.php"><i class="fa fa-circle-o"></i> Add Client</a></li>
+                    <li><a href="all_clients.php"><i class="fa fa-circle-o"></i> All Clients</a></li>
+                </ul>
+            </li>
+            <?php
             }
             ?>
             <li class="treeview">
@@ -104,11 +105,12 @@
                     if($MYUserType != 3)
                     {
                         ?>
-                        <li><a href="add_consultancy.php"><i class="fa fa-circle-o"></i>Add Consultancy</a></li>
-                        <?php
+                    <li><a href="add_consultancy.php"><i class="fa fa-circle-o"></i>Add Consultancy</a></li>
+                    <?php
                     }
                     ?>
-                    <li><a href="progress_consultancy.php"><i class="fa fa-circle-o"></i> In Progress Consultancy</a></li>
+                    <li><a href="progress_consultancy.php"><i class="fa fa-circle-o"></i> In Progress Consultancy</a>
+                    </li>
                     <li><a href="completed_consultancy.php"><i class="fa fa-circle-o"></i> Archive</a></li>
                 </ul>
             </li>
@@ -117,7 +119,7 @@
                     <i class="fa fa-envelope"></i> <span>Chat Room</span>
                     <span class="pull-right-container">
                         <small class="label pull-right bg-green">12</small>
-                                     </span>
+                    </span>
                 </a>
             </li>
             <li class="treeview">
