@@ -24,7 +24,7 @@
                     <div class="inner">
                         <h3>150</h3>
 
-                        <p>Consultants</p>
+                        <p style="font-size: 17px; font-weight: bold;">Consultants</p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-users"></i>
@@ -39,12 +39,12 @@
                     <div class="inner">
                         <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-                        <p>Archive</p>
+                        <p style="font-size: 17px; font-weight: bold;"> Archive</p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-archive"></i>
                     </div>
-                    <a href="all_consultancy.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="completed_consultancy.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -54,10 +54,10 @@
                     <div class="inner">
                         <h3>44</h3>
 
-                        <p>Clients</p>
+                        <p style="font-size: 17px; font-weight: bold;">In progress Consultancies</p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-users"></i>
+                        <i class="fa fa-spinner"></i>
                     </div>
                     <a href="all_clients.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
@@ -65,16 +65,16 @@
             <!-- ./col -->
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
-                <div class="small-box bg-red">
+                <div class="small-box bg-primary">
                     <div class="inner">
                         <h3>65</h3>
 
-                        <p>Unique Visitors</p>
+                        <p style="font-size: 17px; font-weight: bold;">Clients</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-pie-graph"></i>
+                        <i class="fa fa-users"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="all_clients.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
