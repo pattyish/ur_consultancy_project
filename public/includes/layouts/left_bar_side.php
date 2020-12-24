@@ -6,7 +6,7 @@
         <div class="user-panel">
             <div class="pull-left image">
                 <img src="<?php echo "backend/".$MYUserProfileImage; ?>" class="img-circle" alt="User Image"
-                    style="width:70px; height:70px; object-fit:cover; object-position: 50% 0;">
+                    style="width:50px; height:50px; object-fit:cover; object-position: 50% 0;">
             </div>
             <div class="pull-left info">
                 <p><?php echo $MYFirstname; ?></p>
