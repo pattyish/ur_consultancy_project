@@ -9,7 +9,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-           
+
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -25,9 +25,11 @@
                 <!-- Profile Image -->
                 <div class="box box-primary">
                     <div class="box-body box-profile">
-                        <img class="profile-user-img img-responsive img-circle"
-                            src="<?php echo $MYUserProfileImage; ?>" alt="User profile picture">
-
+                        <a href="#" data-toggle="modal" data-target="#change_profile">
+                            <img class="profile-user-img img-responsive img-circle"
+                                src="<?php echo $MYUserProfileImage; ?>" alt="User profile picture">
+                        </a>
+                        <?php include 'models/consultant_models/changing_profile_image.php'; ?>
                         <h3 class="profile-username text-center">
                             <?php echo $MYFirstname." ".$MYLastname; ?></h3>
 
@@ -165,14 +167,12 @@
                                             <div class="form-group">
                                                 <label for="">First-name</label>
                                                 <input type="text" class="form-control" id="firstName"
-                                                    placeholder="Enter First-name"
-                                                    value="<?php echo $MYFirstname; ?>">
+                                                    placeholder="Enter First-name" value="<?php echo $MYFirstname; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Last-name</label>
                                                 <input type="text" class="form-control" id="lastName"
-                                                    placeholder="Enter Password"
-                                                    value="<?php echo $MYLastname; ?>">
+                                                    placeholder="Enter Password" value="<?php echo $MYLastname; ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label for="">User Type </label>
@@ -182,7 +182,8 @@
                                             <div class="form-group">
                                                 <label for="">Gender</label>
                                                 <select id="Gender" class="form-control">
-                                                    <option value="<?php echo $MYUser_Gender; ?>"><?php echo $MYUser_Gender; ?></option>
+                                                    <option value="<?php echo $MYUser_Gender; ?>">
+                                                        <?php echo $MYUser_Gender; ?></option>
                                                     <option value="M">M</option>
                                                     <option value="F">F</option>
                                                 </select>
@@ -210,7 +211,8 @@
                                                 <label>Country</label>
                                                 <select class="form-control select2" id="country" multiple="multiple"
                                                     data-placeholder="Select a State" style="width: 100%;">
-                                                    <option value = "<?php echo $MYCountryId; ?>" selected><?php echo $MYCountry; ?></option>
+                                                    <option value="<?php echo $MYCountryId; ?>" selected>
+                                                        <?php echo $MYCountry; ?></option>
                                                     <?php include 'backend/getCountries.php'; ?>
                                                 </select>
                                             </div>
@@ -218,7 +220,8 @@
                                                 <label>Department</label>
                                                 <select class="form-control select2" id="department" multiple="multiple"
                                                     data-placeholder="Select a State" style="width: 100%;">
-                                                    <option value = "<?php echo $MYdepartment_id; ?>" selected><?php echo $MYdepartment_name; ?></option>
+                                                    <option value="<?php echo $MYdepartment_id; ?>" selected>
+                                                        <?php echo $MYdepartment_name; ?></option>
                                                     <?php include 'backend/getDepartments.php'; ?>
                                                 </select>
                                             </div>
@@ -229,12 +232,13 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Education</label>
-                                                <textarea class="form-control" id="userEducation" placeholder="About education and skills"><?php echo $MYuser_education; ?></textarea>
+                                                <textarea class="form-control" id="userEducation"
+                                                    placeholder="About education and skills"><?php echo $MYuser_education; ?></textarea>
                                             </div>
                                             <div class="form-group">
                                                 <label>Summary</label>
-                                                <textarea class="form-control" id="userSummary" placeholder="Enter the summary about your self"
-                                                    ><?php echo $MYuser_summary; ?></textarea>
+                                                <textarea class="form-control" id="userSummary"
+                                                    placeholder="Enter the summary about your self"><?php echo $MYuser_summary; ?></textarea>
                                             </div>
                                         </div>
                                     </div>
