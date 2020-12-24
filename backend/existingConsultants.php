@@ -17,33 +17,32 @@ if($retrieveCount > 0)
         $email = $lineRetrieve -> user_email;
         $department = $lineRetrieve -> department_name;
         ?>
-        <tr>
-            <td><?php echo $fName." ".$lName; ?></td>
-            <td><?php echo $gender; ?></td>
-            <td><?php echo $natId; ?></td>
-            <td><?php echo $email; ?></td>
-            <td><?php echo $department; ?></td>
-            <td>
-            <?php include 'models/consultant_models/view_consultant.php'; ?>
-                <div class="btn-group btn-group-sm table-button-div">
-                    <a href="#" data-toggle="modal" data-target="#view_consultant<?php echo $user_id;  ?>"
-                        class=" btn btn-info table_button">
-                        <i class="fa fa-eye"></i> View
-                    </a>
-                    <a href="#" data-toggle="modal" data-target="#edit_consultant<?php echo $user_id;  ?>"
-                        class=" btn btn-success table_button">
-                        <i class="fa fa-edit"></i> Edit
-                    </a>
-                    <a href="#" data-toggle="modal" data-target="#delete_consultant<?php echo $user_id;  ?>"
-                        class="btn btn-danger table_button">
-                        <i class="fa fa-trash"></i> Delete
-                    </a>
-                </div>
-                <?php include 'models/consultant_models/edit_consultant.php'; ?>
-            </td>
-            <?php include 'models/consultant_models/delete.php'; ?>
-        </tr>
-        <?php
+<tr>
+    <td><?php echo $fName." ".$lName; ?></td>
+    <td><?php echo $gender; ?></td>
+    <td><?php echo $natId; ?></td>
+    <td><?php echo $email; ?></td>
+    <td><?php echo $department; ?></td>
+    <td>
+        <?php include 'models/consultant_models/view_consultant.php'; ?>
+        <div class="btn-group btn-group-sm table-button-div">
+            <a href="#" data-toggle="modal" data-target="#view_consultant<?php echo $user_id;  ?>"
+                class=" btn btn-info table_button">
+                <i class="fa fa-eye"></i> View
+            </a>
+            <a href="edit_consultant.php?consultant_id=<?php echo $user_id;  ?>" class=" btn btn-success table_button">
+                <i class="fa fa-edit"></i> Edit
+            </a>
+            <a href="#" data-toggle="modal" data-target="#delete_consultant<?php echo $user_id;  ?>"
+                class="btn btn-danger table_button">
+                <i class="fa fa-trash"></i> Delete
+            </a>
+        </div>
+       
+    </td>
+    <?php include 'models/consultant_models/delete.php'; ?>
+</tr>
+<?php
     }
 }
 else

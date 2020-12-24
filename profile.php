@@ -20,7 +20,7 @@
         <div class="btn-group btn-group-sm table-button-div" style="margin-top: 15px;">
              <!-- <input type="submit" value=" Print Your CV" name="generate_cv_pdf" style="font-size: 15px;" -->
                 <!-- class=" btn btn-info table_button"> -->
-            <a href="TCPDF/pdf_files/cv_pdf.php?cv_id=<?php echo $MYUserId ;?>" target="_blank" class=" btn btn-info table_button">
+            <a href="cv_pdf.php?cv_id=<?php echo $MYUserId ;?>" target="_blank" class=" btn btn-info table_button">
                 <i class="fa fa-eye"></i> View
             </a>
 
