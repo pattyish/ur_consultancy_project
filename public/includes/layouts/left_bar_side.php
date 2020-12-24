@@ -56,9 +56,6 @@
             <li class="active treeview">
                 <a href="index.php">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                    <span class="pull-right-container">
-                       <!-- <i class="fa fa-angle-left pull-right"></i> -->
-                    </span>
                 </a>
             </li>
             <?php 
