@@ -22,26 +22,29 @@
     <section class="content">
         <div class="row">
             <div class="col-md-4">
-            <div class="box">
-                <div class="box-header with-border">
-                  <h3 class="box-title" text-blue><b>Partners view</b></h3>
-                  <div class="box-tools pull-right">
-                    <span class="label label-primary">Groups</span>
-                  </div>
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title" text-blue><b>Partners view</b></h3>
+                        <div class="box-tools pull-right">
+                            <span class="label label-success"><a href="#" style="text-decoration: none;" data-toggle="modal"
+                                    data-target="#create_group"> Create Group</a></span>
+                            <span class=" label label-primary">View Groups</span>
+                        </div>
+                    </div>
+                    <?php include 'models/create_group.php'; ?>
+                    <!-- /.box-header -->
+                    <div class="box-body no-padding">
+                        <ul class="users-list clearfix" id="userToChatWith">
+                            <?php include 'backend/getUsersToChatWith.php'; ?>
+                        </ul>
+                        <!-- /.users-list -->
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer text-center text-blue">
+                        <a href="javascript:void(0)" class="uppercase"><b>Communicate with your patners.</b></a>
+                    </div>
+                    <!-- /.box-footer -->
                 </div>
-                <!-- /.box-header -->
-                <div class="box-body no-padding">
-                  <ul class="users-list clearfix" id="userToChatWith">
-                  <?php include 'backend/getUsersToChatWith.php'; ?>
-                  </ul>
-                  <!-- /.users-list -->
-                </div>
-                <!-- /.box-body -->
-                <div class="box-footer text-center text-blue">
-                  <a href="javascript:void(0)" class="uppercase"><b>Communicate with your patners.</b></a>
-                </div>
-                <!-- /.box-footer -->
-              </div>
             </div>
             <div class="col-md-8">
                 <div class="box direct-chat direct-chat-primary">
@@ -51,8 +54,8 @@
                         <div class="box-tools pull-right">
                             <span data-toggle="tooltip" title="3 New Messages" class="badge bg-primary">.. </span>
                             &nbsp;&nbsp;&nbsp;
-                            <button style="font-size: 17px;" type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts"
-                                data-widget="chat-pane-toggle">
+                            <button style="font-size: 17px;" type="button" class="btn btn-box-tool"
+                                data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
                                 <i class="fa fa-comments"></i></button>
                         </div>
                     </div>
@@ -64,11 +67,13 @@
                     <div class="box-footer">
                         <form id="sendMessageForm">
                             <div class="input-group">
-                            <input type="hidden" id="receiverId">
-                            <textarea type="text" id="messageToSend" placeholder="Type Message ..." class="form-control">
+                                <input type="hidden" id="receiverId">
+                                <textarea type="text" id="messageToSend" placeholder="Type Message ..."
+                                    class="form-control">
                             </textarea>
-                            <span class="input-group-btn">
-                                    <button type="submit" id="sendMessageBtn" class="btn btn-primary btn-flat">Send</button>
+                                <span class="input-group-btn">
+                                    <button type="submit" id="sendMessageBtn"
+                                        class="btn btn-primary btn-flat">Send</button>
                                 </span>
                             </div>
                             <br>
