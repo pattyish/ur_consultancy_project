@@ -68,7 +68,7 @@
                             <textarea type="text" id="messageToSend" placeholder="Type Message ..." class="form-control">
                             </textarea>
                             <span class="input-group-btn">
-                                    <button type="submit" class="btn btn-primary btn-flat">Send</button>
+                                    <button type="submit" id="sendMessageBtn" class="btn btn-primary btn-flat">Send</button>
                                 </span>
                             </div>
                             <br>

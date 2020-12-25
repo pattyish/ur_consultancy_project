@@ -35,6 +35,7 @@ $(document).ready(function(){
         }
         else
         {
+            $("#sendMessageBtn").attr("disabled", true);
             $.ajax({
                 type: "post",
                 url: "backend/sendMessage.php",
@@ -43,6 +44,7 @@ $(document).ready(function(){
                 {
                     $("#conversation_window").html(response);
                     $("#messageToSend").val("");
+                    $("#sendMessageBtn").attr("disabled", false);
                 }
             });
         }
