@@ -4,9 +4,9 @@ if(isset($_GET['cv_id'])){
 	$consultant_id = $_GET['cv_id'];
 	// file to retrieve all existing consultants and show them in table with possible options
 	$retrieve = "SELECT * FROM users INNER JOIN user_type INNER JOIN department INNER JOIN country INNER JOIN 
-	school ON department.school_id  = school.school_id AND users.user_type_id = user_type.user_type_id AND
-	 users.user_department = department.department_id AND 	users.user_country = country.country_id
-	  WHERE users.user_status_id = 1 AND users.user_id = $consultant_id";
+	school ON department.school_id = school.school_id AND users.user_type_id = user_type.user_type_id AND 
+	users.user_department = department.department_id AND users.user_country = country.country_id 
+	WHERE users.user_status_id = 1 AND users.user_id = $consultant_id";
 	$retrieve = mysqli_query($connect,$retrieve);
 	$retrieveCount = mysqli_num_rows($retrieve);
 	$gender_value = "";
@@ -179,7 +179,7 @@ $pdf->Cell(189,5,'EDUCATION BACKGROUND AND SPECIFICATION',0,0,'L');
 $pdf->Ln(1);
 $pdf->Cell(189, 15,'___________________________', 0, 0,'L');
 $pdf->SetFont('times', '', 14);
-$pdf->Ln(10);
+$pdf->Ln(15);
 $pdf->MultiCell(189,5,$user_education,0, 'L', 0, 1, '', '', true);
 //footer
 $pdf->Ln(15);
@@ -192,6 +192,7 @@ $pdf->Ln(15);
 $pdf->MultiCell(189, 15, 'This is to confirm that '.$fName.' '.$lName.' is an active consultant of University of Rwanda, in school of '.$school.' and department of '.$department.'.', 0, 'L', 0, 1, '', '', true);
 $pdf->Ln(40);
 $pdf->Cell(100,5,'Done at Kigali on    '.$now,0,0,'C');
+
 // set text shadow effect
 $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
 
