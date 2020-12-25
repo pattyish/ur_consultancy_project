@@ -8,6 +8,11 @@ if(isset($_GET['cv_id'])){
 	users.user_country = country.country_id WHERE users.user_status_id = 1 AND users.user_id = $consultant_id";
 	$retrieve = mysqli_query($connect,$retrieve);
 	$retrieveCount = mysqli_num_rows($retrieve);
+	$gender_value = "";
+	$phone_number = "";
+	$education = "";
+	$summary = "";
+	$location = "";
 	if($retrieveCount > 0)
 	{
 		while($lineRetrieve = mysqli_fetch_object($retrieve))
@@ -24,6 +29,25 @@ if(isset($_GET['cv_id'])){
 			$department_id = $lineRetrieve -> department_id;
 			$country_name = $lineRetrieve -> country_name;
 			$country_id = $lineRetrieve -> country_id;
+			$user_phone = $lineRetrieve -> user_phone;
+			$user_summary = $lineRetrieve -> user_summary;
+			$user_education = $lineRetrieve -> user_education;
+			$user_location = $lineRetrieve -> user_location;
+			if($gender == "M"){
+              $gender_value = "Male";
+			}else{
+			  $gender_value ="Female";
+			}
+			if($user_phone == "Input your number"){
+				$phone_number = "No Updated Yet";
+			}else{
+                $phone_number = $user_phone;
+			}
+			if($user_location == ""){
+				$location = "No Updated Yet";
+			}else{
+				$location = $user_location;	
+			}
 		}
 	}        	
 // Include the main TCPDF library (search for installation path).
@@ -31,16 +55,14 @@ require_once('TCPDF/tcpdf.php');
 
 class PDF extends TCPDF{
 	public function Header(){
-		$image_file = K_PATH_IMAGES.'logo_example.jpg';
-		
-		$this->Image($image_file, 10, 10, 15, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
 		// Set font
 		$this->Ln(5);
-		$this->SetFont('times', 'B', 20);
+		$this->SetFont('times', 'B', 16);
 		// Title
 		$this->Cell(0, 15, 'CURRICULUM VITAE ', 0, false, 'C', 0, '', 0, false, 'M', 'M');
 		$this->Ln(1);
-		$this->Cell(0, 15, '________________________ ', 0, 0, 'C');
+		$this->Cell(0, 15, '_________________________________________________________________ ', 0, 0, 'L');
+		$this->Ln(10);
 	}
 }
 
@@ -96,13 +118,74 @@ $pdf->SetFont('dejavusans', '', 14, '', true);
 // Add a page
 // This method has several options, check the source code documentation for more information.
 $pdf->AddPage();
-
-$pdf->SetY(-120);
-$pdf->Ln(5);
+//names
+$pdf->Ln(10);
+$pdf->SetFont('times', 'B', 14);
+$pdf->Cell(40,5,'Names',0,0,'L');
+$pdf->SetFont('times', '', 14);
+$pdf->Cell(149,5,$fName.' '.$lName,0,0,'L');
+$pdf->Ln(10);
+//gendet
+$pdf->SetFont('times', 'B', 14);
+$pdf->Cell(40,5,'Gender',0,0,'L');
+$pdf->SetFont('times', '', 14);
+$pdf->Cell(149,5,$gender_value,0,0,'L');
+$pdf->Ln(10);
+//County
+$pdf->SetFont('times', 'B', 14);
+$pdf->Cell(40,5,'Country',0,0,'L');
+$pdf->SetFont('times', '', 14);
+$pdf->Cell(149,5,$country_name,0,0,'L');
+$pdf->Ln(10);
+//Natinaol ID
+$pdf->SetFont('times', 'B', 14);
+$pdf->Cell(40,5,'National ID',0,0,'L');
+$pdf->SetFont('times', '', 14);
+$pdf->Cell(149,5,$natId,0,0,'L');
+$pdf->Ln(10);
+//Email
+$pdf->SetFont('times', 'B', 14);
+$pdf->Cell(40,5,'Email',0,0,'L');
+$pdf->SetFont('times', '', 14);
+$pdf->Cell(149,5,$email,0,0,'L');
+$pdf->Ln(10);
+// phone number
+$pdf->SetFont('times', 'B', 14);
+$pdf->Cell(40,5,'Tel',0,0,'L');
+$pdf->SetFont('times', '', 14);
+$pdf->Cell(149,5,$phone_number ,0,0,'L');
+$pdf->Ln(10);
+//location
+$pdf->SetFont('times', 'B', 14);
+$pdf->Cell(40,5,'Location',0,0,'L');
+$pdf->SetFont('times', '', 14);
+$pdf->Cell(149,5,$location ,0,0,'L');
+$pdf->Ln(15);
+//summary
+$pdf->SetFont('times', 'B', 16);
+$pdf->Cell(189,5,'SUMMARY',0,0,'L');
+$pdf->Ln(1);
+$pdf->Cell(189, 15, '__________', 0, 0,'L');
+$pdf->SetFont('times', '', 14);
+$pdf->Ln(15);
+$pdf->MultiCell(189,5,$user_summary,0, 'L', 0, 1, '', '', true);
+$pdf->Ln(10);
+//education
+$pdf->SetFont('times', 'B', 16);
+$pdf->Cell(189,5,'EDUCATION BACKGROUND',0,0,'L');
+$pdf->Ln(1);
+$pdf->Cell(189, 15,'___________________________', 0, 0,'L');
+$pdf->SetFont('times', '', 14);
+$pdf->Ln(15);
+$pdf->MultiCell(189,5,$user_education,0, 'L', 0, 1, '', '', true);
+//footer
+$pdf->Ln(15);
 $pdf->SetFont('times', 'B', 16);
 $pdf->Cell(189,5,'CERTIFICATION',0,0,'L');
+$pdf->Ln(1);
+$pdf->Cell(189, 15, '________________', 0, 0,'L');
 $pdf->SetFont('times', '', 14);
-$pdf->Ln(8);
+$pdf->Ln(15);
 $pdf->MultiCell(189, 15, 'I, the undersigned, here by faithfully certify, with all my knowledge, that the above mentioned Information depicts my current situation.', 0, 'L', 0, 1, '', '', true);
 $pdf->Ln(5);
 $pdf->Cell(189,5,'Done at Kigali on ___________________________',0,0,'C');
@@ -113,13 +196,7 @@ $pdf->Cell(189,5,'_______________________________',0,0,'C');
 // set text shadow effect
 $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
 
-// Set some content to print
-$html = <<<EOD
 
-EOD;
-
-// Print text using writeHTMLCell()
-$pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
 
 // ---------------------------------------------------------
 
