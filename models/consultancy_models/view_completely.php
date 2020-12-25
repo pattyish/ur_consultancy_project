@@ -57,10 +57,19 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Make It Uncomplete</button>
+                <label for="">New-End-Date</label>
+                <?php $bynow = date("Y-m-d"); ?>
+                <input type="date" id="newEndDate<?php echo $consultancy_id; ?>" min="<?php echo $bynow; ?>" class="form-control" style="border: 0px;">
+                <span style="font-size: 15px;" id="RUCC<?php echo $consultancy_id; ?>"></span> &nbsp;&nbsp;
+                <button type="button" id="clooose<?php echo $consultancy_id; ?>" class="btn btn-primary reProgressConsultancy" value="<?php echo $consultancy_id; ?>">Expand deadline</button>
             </div>
         </div>
         <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
 </div>
+<script>
+$(document).ready(function(){
+    
+});
+</script>

@@ -445,7 +445,7 @@ $(document).ready(function(){
     $(".reActivateThisUser").on("click",function(e){
         e.preventDefault();
         var userId = $(this).val();
-        // link to backend/disableClient
+        // link to backend/reActivateUser
         $.ajax({
             type: "post",
             url: "backend/reActivateAUser.php",
@@ -480,7 +480,7 @@ $(document).ready(function(){
         else
         {
             $("#editClientFeedback").html("Saving...");
-            // AJAX to link to backend/addUser
+            // AJAX to link to backend/editClient
             $.ajax({
                 type:"post",
                 url:"backend/editClient.php",
@@ -516,7 +516,7 @@ $(document).ready(function(){
         else
         {
             $("#editUserFeedback").html("<i class='text-blue'><b>Saving...</b></i>");
-            // AJAX to link to backend/addUser
+            // AJAX to link to backend/editUser
             $.ajax({
                 type:"post",
                 url:"backend/editUser.php",
@@ -526,6 +526,40 @@ $(document).ready(function(){
                     $("#editUserFeedback").html("<i class='text-green'><b>"+response+"</b></i>");
                 }
             });   
+        }
+    });
+
+   // Re make uncomplete the completed consultancy
+   $(".reProgressConsultancy").on("click",function(e){
+        e.preventDefault();
+        var consultancy_id = $(this).val();
+        var newEndDate = $("#newEndDate"+consultancy_id).val();
+        if($.trim(newEndDate).length == 0)
+        {
+            $("#RUCC"+consultancy_id).html("<b><i class='text-red'>Choose new end date</i></b>");
+        }
+        else
+        {
+            $("#RUCC"+consultancy_id).html("<b><i class='text-blue'>Wait..</i></b>");
+            // link to backend/reUnCompleteConsultancy
+            $.ajax({
+                type: "post",
+                url: "backend/reUnCompleteConsultancy.php",
+                data: {consultancy_id : consultancy_id, newEndDate : newEndDate},
+                success: function(response)
+                {
+                    $("#clooose"+consultancy_id).hide();
+                    $("#RUCC"+consultancy_id).html("<b><i class='text-green'>"+response+"</i></b>");
+                    
+                    if(response.includes("Reactivated"))
+                    {
+                        //$("#RUCC"+consultancy_id).append(". <b><i class='text-green'>The page will refresh in 3 secs.</i></b>");
+                        setTimeout(function() {
+                            window.location.href="completed_consultancy.php";  
+                        }, 1000);
+                    }
+                }
+            });
         }
     });
 });

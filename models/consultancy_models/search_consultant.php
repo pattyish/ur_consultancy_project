@@ -23,7 +23,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button> &nbsp;&nbsp;
-                <button type="button" class="btn btn-primary">Preceed</button>
+                <button type="button" class="btn btn-primary">Proceed</button>
             </div>
         </div>
         <!-- /.modal-content -->
