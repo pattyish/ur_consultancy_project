@@ -50,3 +50,4 @@ else
     echo "";
 }
 ?>
+<input type="hidden" id="totalConsultants" value="<?php echo $retrieveCount; ?>">

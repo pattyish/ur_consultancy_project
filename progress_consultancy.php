@@ -6,7 +6,7 @@
 $(document).ready(function()
 {
     var allOnGoinConsultancy = $("#totalOngoingConsultancy").val();
-    $("#showTotal").html("fsfs");
+    $("#showTotal").html(allOnGoinConsultancy);
 });
 </script>
 
