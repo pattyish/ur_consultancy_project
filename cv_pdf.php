@@ -57,12 +57,14 @@ class PDF extends TCPDF{
 	public function Header(){
 		// Set font
 		$this->Ln(5);
-		$this->SetFont('times', 'B', 16);
+		$this->SetFont('times', 'B', 12);
+		$this->SetTextColor(189, 180, 179);
 		// Title
-		$this->Cell(0, 15, 'CURRICULUM VITAE ', 0, false, 'C', 0, '', 0, false, 'M', 'M');
+		$this->Cell(0, 15, 'CURRICULUM VITAE ', 0, false, 'L', 0, '', 0, false, 'M', 'M');
 		$this->Ln(1);
-		$this->Cell(0, 15, '_________________________________________________________________ ', 0, 0, 'L');
-		$this->Ln(10);
+		$this->SetTextColor(189, 180, 179);
+		$this->Cell(0, 15, '_____________________________________________________________________________________ ', 0, 0, 'L');
+		$this->Ln(8);
 	}
 }
 
@@ -72,7 +74,7 @@ $pdf = new PDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', f
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('Nicola Asuni');
-$pdf->SetTitle('hello');
+$pdf->SetTitle( $fName.' '.$lName.' curriculum vitae');
 $pdf->SetSubject('TCPDF Tutorial');
 $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
@@ -119,72 +121,71 @@ $pdf->SetFont('dejavusans', '', 14, '', true);
 // This method has several options, check the source code documentation for more information.
 $pdf->AddPage();
 //names
-$pdf->Ln(10);
-$pdf->SetFont('times', 'B', 14);
+$pdf->SetFont('times', 'B', 12);
 $pdf->Cell(40,5,'Names',0,0,'L');
 $pdf->SetFont('times', '', 14);
 $pdf->Cell(149,5,$fName.' '.$lName,0,0,'L');
 $pdf->Ln(10);
 //gendet
-$pdf->SetFont('times', 'B', 14);
+$pdf->SetFont('times', 'B', 12);
 $pdf->Cell(40,5,'Gender',0,0,'L');
-$pdf->SetFont('times', '', 14);
+$pdf->SetFont('times', '', 12);
 $pdf->Cell(149,5,$gender_value,0,0,'L');
 $pdf->Ln(10);
 //County
-$pdf->SetFont('times', 'B', 14);
+$pdf->SetFont('times', 'B', 12);
 $pdf->Cell(40,5,'Country',0,0,'L');
-$pdf->SetFont('times', '', 14);
+$pdf->SetFont('times', '', 12);
 $pdf->Cell(149,5,$country_name,0,0,'L');
 $pdf->Ln(10);
 //Natinaol ID
-$pdf->SetFont('times', 'B', 14);
+$pdf->SetFont('times', 'B', 12);
 $pdf->Cell(40,5,'National ID',0,0,'L');
-$pdf->SetFont('times', '', 14);
+$pdf->SetFont('times', '', 12);
 $pdf->Cell(149,5,$natId,0,0,'L');
 $pdf->Ln(10);
 //Email
-$pdf->SetFont('times', 'B', 14);
+$pdf->SetFont('times', 'B', 12);
 $pdf->Cell(40,5,'Email',0,0,'L');
-$pdf->SetFont('times', '', 14);
+$pdf->SetFont('times', '', 12);
 $pdf->Cell(149,5,$email,0,0,'L');
 $pdf->Ln(10);
 // phone number
-$pdf->SetFont('times', 'B', 14);
+$pdf->SetFont('times', 'B', 12);
 $pdf->Cell(40,5,'Tel',0,0,'L');
-$pdf->SetFont('times', '', 14);
+$pdf->SetFont('times', '', 12);
 $pdf->Cell(149,5,$phone_number ,0,0,'L');
 $pdf->Ln(10);
 //location
-$pdf->SetFont('times', 'B', 14);
+$pdf->SetFont('times', 'B', 12);
 $pdf->Cell(40,5,'Location',0,0,'L');
-$pdf->SetFont('times', '', 14);
+$pdf->SetFont('times', '', 12);
 $pdf->Cell(149,5,$location ,0,0,'L');
 $pdf->Ln(15);
 //summary
-$pdf->SetFont('times', 'B', 16);
+$pdf->SetFont('times', 'B', 14);
 $pdf->Cell(189,5,'SUMMARY',0,0,'L');
 $pdf->Ln(1);
 $pdf->Cell(189, 15, '__________', 0, 0,'L');
-$pdf->SetFont('times', '', 14);
+$pdf->SetFont('times', '', 12);
 $pdf->Ln(15);
 $pdf->MultiCell(189,5,$user_summary,0, 'L', 0, 1, '', '', true);
 $pdf->Ln(10);
 //education
-$pdf->SetFont('times', 'B', 16);
+$pdf->SetFont('times', 'B', 14);
 $pdf->Cell(189,5,'EDUCATION BACKGROUND',0,0,'L');
 $pdf->Ln(1);
 $pdf->Cell(189, 15,'___________________________', 0, 0,'L');
-$pdf->SetFont('times', '', 14);
+$pdf->SetFont('times', '', 12);
 $pdf->Ln(15);
 $pdf->MultiCell(189,5,$user_education,0, 'L', 0, 1, '', '', true);
 //footer
 $pdf->Ln(15);
-$pdf->SetFont('times', 'B', 16);
+$pdf->SetFont('times', 'B', 14);
 $pdf->Cell(189,5,'CERTIFICATION',0,0,'L');
 $pdf->Ln(1);
 $pdf->Cell(189, 15, '________________', 0, 0,'L');
-$pdf->SetFont('times', '', 14);
+$pdf->SetFont('times', '', 12);
 $pdf->Ln(15);
 $pdf->MultiCell(189, 15, 'I, the undersigned, here by faithfully certify, with all my knowledge, that the above mentioned Information depicts my current situation.', 0, 'L', 0, 1, '', '', true);
 $pdf->Ln(5);
