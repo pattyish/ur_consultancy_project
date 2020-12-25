@@ -175,9 +175,9 @@ $pdf->Cell(149,5,$location ,0,0,'L');
 $pdf->Ln(25);
 //education
 $pdf->SetFont('times', 'B', 16);
-$pdf->Cell(189,5,'EDUCATION BACKGROUND AND SPECIFICATION',0,0,'L');
+$pdf->Cell(189,5,'EDUCATION AND SKILLS',0,0,'L');
 $pdf->Ln(1);
-$pdf->Cell(189, 15,'___________________________', 0, 0,'L');
+$pdf->Cell(189, 15,'___________________', 0, 0,'L');
 $pdf->SetFont('times', '', 14);
 $pdf->Ln(15);
 $pdf->MultiCell(189,5,$user_education,0, 'L', 0, 1, '', '', true);
