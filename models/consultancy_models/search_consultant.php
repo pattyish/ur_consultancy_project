@@ -4,26 +4,32 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title"><b>Prepare Contract To<span
-                            class="text-success"><?php echo $consultancy_name; ?></span>
+                <h4 class="modal-title"><b>Signing a contract to <span
+                            class="text-blue"><b>"<?php echo $consultancy_name; ?>"</b></span>
                     </b></h4>
             </div>
             <div class="modal-body">
                 <form class="form" id="searchConsultant">
                     <div class="form-group">
-                        <label>Search Consultant By National Id</label>
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Find Consultant By National Id...." style="border-radius: 5px;"
-                            class="form-control" name="consultant_id" id="consultant_id">
-                        <input type="text" value="<?php echo $consultancy_id; ?>" style="border-radius: 5px;" class="form-control hidden"
-                            name="consultancy_id" id="consultancy_id">
+                        <div class="form-group">
+                            <label for="">National Id or Name </label>
+                            <select id="userNatId" class="form-control select2" multiple="multiple"
+                                            data-placeholder="Select a State" style="width: 100%;">
+                                <option>Type Id here</option>
+                            <?php
+                            include 'backend/getUsersNatId.php';
+                            ?>
+                            </select>
+                        </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button> &nbsp;&nbsp;
-                <button type="button" class="btn btn-primary">Proceed</button>
+                <span style="font-size: 15px;" id="userContract<?php echo $consultancy_id; ?>"></span> &nbsp;&nbsp;
+                <button type="button" class="btn btn-primary signContractWithUser" value="<?php echo $consultancy_id; ?>">Proceed</button>
             </div>
         </div>
         <!-- /.modal-content -->

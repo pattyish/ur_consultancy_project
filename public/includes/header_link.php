@@ -20,8 +20,12 @@ else if(isset($_SESSION['User_ID']))
     $lastActive = mysqli_query($connect,$lastActive);
     
     // complete all consultancies whose end date is yesterday
-    $complete = "UPDATE consultancy SET consultancy.consultancy_progress = 2 WHERE consultancy.consultancy_end_date = '$byno'";
+    $complete = "UPDATE consultancy SET consultancy.consultancy_progress = 2 WHERE consultancy.consultancy_end_date <= '$byno'";
     $complete = mysqli_query($connect,$complete);
+ 
+    // complete all consultants contract whose end date is yesterday
+    //$completeContract = "UPDATE consultant_contract SET consultant_contract.contract_progress_id = 2 WHERE consultant_contract.contract_end_date = '$byno'";
+    //$completeContract = mysqli_query($connect,$completeContract);
 
     // This query is to replace session when every time a user loads
     $myInfoQuery = "SELECT * FROM users INNER JOIN user_type INNER JOIN country INNER JOIN department ON users.user_type_id = user_type.user_type_id 

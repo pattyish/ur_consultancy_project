@@ -23,7 +23,7 @@ $query_check = mysqli_query($connect,$query_check);
 $count_check = mysqli_num_rows($query_check);
 if($count_check > 0)
 {
-    echo "Neither email nor National ID can be replicated.";
+    echo "<span class='text-red'>Neither email nor National ID can be replicated.</span>";
 }
 else
 {

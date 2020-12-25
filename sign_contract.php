@@ -4,6 +4,27 @@
 <?php 
 include 'backend/Database.php';
 $consultancy_id = $_GET['consultancy_id'];
+$userNatId = $_GET['userNatId'];
+
+// get information about the user chosen
+$getConsultant = "SELECT * FROM users INNER JOIN user_type INNER JOIN department ON 
+users.user_type_id = user_type.user_type_id AND users.user_department = department.department_id
+WHERE users.user_status_id = 1 AND users.user_national_id = '$userNatId' ";
+$getConsultant = mysqli_query($connect,$getConsultant);
+$getConsultantCount = mysqli_num_rows($getConsultant);
+if($getConsultantCount > 0)
+{
+    while($getConsultantLine = mysqli_fetch_object($getConsultant))
+    {
+        $user_id = $getConsultantLine -> user_id;
+        $fName = $getConsultantLine -> user_first_name;
+        $lName = $getConsultantLine -> user_last_name;
+        $gender = $getConsultantLine -> user_gender;
+        $natId = $getConsultantLine -> user_national_id;
+        $email = $getConsultantLine -> user_email;
+        $department = $getConsultantLine -> department_name;
+    }
+}
 // query to retrieve all existing consultants and show them in table with possible options
 $retrieve = "SELECT * FROM consultancy INNER JOIN client INNER JOIN consultancy_progress ON
 consultancy.consultancy_client_id = client.client_id AND 
@@ -50,7 +71,7 @@ if($retrieveCount > 0)
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><?php echo "Add Consultant name to consultancy name"; ?></h3>
+                        <h3 class="box-title text-blue"><?php echo "Contract of <b>".$fName." ".$lName."</b> to <b>".$consultancy_name."</b>"; ?></h3>
                     </div>
                     <form class="form" id="signContractForm">
                         <div class=""
@@ -62,7 +83,7 @@ if($retrieveCount > 0)
                                         <label for="">Consultance-Name</label>
                                         <input type="text" id="consultancy_name"
                                             value="<?php echo $consultancy_name; ?>"
-                                            placeholder="Consultancy Title......" class="form-control"> 
+                                            placeholder="Consultancy Title......" class="form-control" disabled> 
                                             <input type="hidden" id="consultancy_id"
                                             value="<?php echo $consultancy_id; ?>">
                                     </div>
@@ -73,8 +94,9 @@ if($retrieveCount > 0)
                                             class="form-control" disabled>
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Contract-Start-Date</label>
-                                        <input type="date" min="<?php echo $consultancy_start_date; ?>" id="start_date" value="" class="form-control">
+                                        <label for="">Currency</label>
+                                        <input type="text" id="currency" name="currency" placeholder="Cash......"
+                                            value="<?php echo $consultancy_currency; ?>" class="form-control" disabled>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -84,13 +106,12 @@ if($retrieveCount > 0)
                                             class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Currency</label>
-                                        <input type="text" id="currency" name="currency" placeholder="Cash......"
-                                            value="<?php echo $consultancy_currency; ?>" class="form-control" disabled>
+                                        <label for="">Contract-Start-Date</label>
+                                        <input type="date" min="<?php echo $consultancy_start_date; ?>" max="<?php echo $consultancy_end_date; ?>" id="start_date" value="" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Contract-End-Date</label>
-                                        <input type="date" id="end_date" max="<?php echo $consultancy_end_date; ?>" value="" class="form-control">
+                                        <input type="date" id="end_date" min="<?php echo $consultancy_start_date; ?>" max="<?php echo $consultancy_end_date; ?>" value="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -101,9 +122,8 @@ if($retrieveCount > 0)
                                                 <label for="">Consultant-Name</label>
                                                 <input type="text" id="consultant" name="consultant"
                                                     placeholder="Consultant-Name......"
-                                                    value="<?php //echo $consultancy_currency; ?>" class="form-control"
-                                                    disabled>
-                                                    <input type="text" id="consultant_id" value="<?php echo "his id here"; ?>">
+                                                    value="<?php echo $fName." ".$lName; ?>" class="form-control" disabled>
+                                                    <input type="hidden" id="consultant_id" value="<?php echo $user_id; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -111,7 +131,7 @@ if($retrieveCount > 0)
                                                 <label for="">Consultant-Department</label>
                                                 <input type="text" id="consultant" name="consultant"
                                                     placeholder="Consultant-Department......"
-                                                    value="<?php //echo $consultancy_currency; ?>" class="form-control"
+                                                    value="<?php echo $department; ?>" class="form-control"
                                                     disabled>
                                             </div>
                                         </div>
@@ -122,7 +142,7 @@ if($retrieveCount > 0)
                                 <div class="col-md-12 text-left">
                                     <button type="submit" class="btn btn-success"
                                         style="padding: 7px; font-size: 15px;">Sign Contract</button>
-                                    &nbsp; &nbsp; <span id="signContractFeedback"></span>
+                                    &nbsp; &nbsp; <span style="font-size: 15px;" id="signContractFeedback"></span>
                                 </div>
                             </div>
                         </div>

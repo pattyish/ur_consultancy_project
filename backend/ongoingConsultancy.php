@@ -56,17 +56,19 @@ if($retrieveCount > 0)
                 <i class="fa fa-eye"></i> View
             </a>
             <?php
-                    if($MYUserType != 3){
-                    ?>
-            <a href="edit_consultancy.php?consultancy_id=<?php echo $consultancy_id; ?>" data-toggle="modal"
-                data-target="" class=" btn btn-success table_button">
-                <i class="fa fa-edit"></i> Edit
-            </a>
-            <a href="#" data-toggle="modal" data-target="#make_contract<?php echo $consultancy_id; ?>"
-                class=" btn btn-warning table_button">
-                <i class="fa fa-step-forward"></i> Make Contract
-            </a>
-            <?php } ?>
+            if($MYUserType != 3)
+            {
+                ?>
+                <a href="edit_consultancy.php?consultancy_id=<?php echo $consultancy_id; ?>" data-toggle="modal"
+                    data-target="" class=" btn btn-success table_button">
+                    <i class="fa fa-edit"></i> Edit
+                </a>
+                <a href="#" data-toggle="modal" data-target="#make_contract<?php echo $consultancy_id; ?>"
+                    class=" btn btn-warning table_button">
+                    <i class="fa fa-step-forward"></i> Make Contract
+                </a>
+                <?php
+             } ?>
         </div>
     </td>
     <?php include 'models/consultancy_models/edit_in_progress.php'; ?>

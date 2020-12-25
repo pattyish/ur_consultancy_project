@@ -93,7 +93,7 @@ $(document).ready(function(){
         || $.trim(start_date).length == 0 || $.trim(end_date).length == 0 || $.trim(amount).length == 0
         || $.trim(currency).length == 0 || $.trim(ur_charges).length == 0 || $.trim(tax_charges).length == 0 || $.trim(client).length == 0)
         {
-            $("#addConsultancyFeedback").html("<i class='text-red'><b>All fields are required. "+client+"</b></i>");
+            $("#addConsultancyFeedback").html("<i class='text-red'><b>All fields are required. </b></i>");
         }
         else
         {
@@ -338,51 +338,32 @@ $(document).ready(function(){
         var start_date = $("#start_date").val();
         var end_date = $("#end_date").val();
         var amount = parseInt($("#amount").val());
-        var currency = $("#currency").val();
-        var ur_charges = parseInt($("#chargesToUr").val());
-        var tax_charges = parseInt($("#taxCharges").val());
-        var all_charges = ur_charges + tax_charges;
-        var consultant_charges = 100 - all_charges;
-        var client = $("#client").val();
-        if($.trim(sign_date).length == 0
-        || $.trim(start_date).length == 0 || $.trim(end_date).length == 0 || $.trim(amount).length == 0
-        || $.trim(currency).length == 0 || $.trim(ur_charges).length == 0 || $.trim(tax_charges).length == 0 || $.trim(client).length == 0)
+        if($.trim(sign_date).length == 0 || $.trim(start_date).length == 0 || $.trim(end_date).length == 0 || $.trim(amount).length == 0)
         {
-            $("#addConsultancyFeedback").html("<i class='text-red'><b>All fields are required. "+client+"</b></i>");
+            $("#signContractFeedback").html("<i class='text-red'><b>All fields are required.</b></i>");
         }
         else
         {
             if(start_date > end_date)
             {
-                $("#addConsultancyFeedback").html("<i class='text-red'><b>Start date should be the date before the end date.</b></i>"); 
-            }
-            else if(all_charges >= 100)
-            {
-                $("#addConsultancyFeedback").html("<i class='text-red'><b>Consider changing your charges percentages. It seems to be unusual.</b></i>"); 
+                $("#signContractFeedback").html("<i class='text-red'><b>Start date should be the date before the end date.</b></i>"); 
             }
             else
             {
-                $("#addConsultancyFeedback").html("<i class='text-blue'><b>Saving...</b></i>");
+                $("#signContractFeedback").html("<i class='text-blue'><b>Saving...</b></i>");
                 // AJAX to link to backend/addConsultancy.php
                   $.ajax({
                     type:"post",
-                    url:"backend/addConsultancy.php",
-                    data: {name : cName, sign_date : sign_date, start_date : start_date, end_date : end_date,
-                            amount  : amount, currency : currency, ur_charges : ur_charges, tax_charges : tax_charges,
-                            consultant_charges : consultant_charges, client : client},
+                    url:"backend/consultantContract.php",
+                    data: {consultancy_id : consultancy_id, consultant_id : consultant_id, start_date : start_date, end_date : end_date, amount : amount},
                     success: function(response)
                     {
-                        $("#addConsultancyFeedback").html("<i class='text-green'><b>"+response+"</b></i>");
+                        $("#signContractFeedback").html("<i class='text-green'><b>"+response+"</b></i>");
                         if(response.includes("successfully"))
                         {
-                            $("#consultancy_name").val("");
-                            $("#start_date").val("");
-                            $("#end_date").val("");
-                            $("#amount").val("");
-                            $("#currency").val("");
-                            $("#chargesToUr").val("");
-                            $("#taxCharges").val("");
-                            $("#client").val("");
+                            setTimeout(function() {
+                                window.location.href="progress_consultancy.php";  
+                            }, 1000);
                         }
                     }
                 });  
@@ -560,6 +541,22 @@ $(document).ready(function(){
                     }
                 }
             });
+        }
+    });
+
+    // Re make uncomplete the completed consultancy
+   $(".signContractWithUser").on("click",function(e){
+        e.preventDefault();
+        var consultancy_id = $(this).val();
+        var userNatId = $("#userNatId").val();
+        if($.trim(userNatId).length == 0)
+        {
+            $("#userContract"+consultancy_id).html("<b><i class='text-red'>No consultant selected</i></b>");
+        }
+        else
+        {
+            $("#userContract"+consultancy_id).html("");
+            window.location.href = "sign_contract.php?consultancy_id="+consultancy_id+"&userNatId="+userNatId;
         }
     });
 });
