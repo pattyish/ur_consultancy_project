@@ -191,8 +191,10 @@ $pdf->MultiCell(189, 15, 'I, the undersigned, here by faithfully certify, with a
 $pdf->Ln(5);
 $pdf->Cell(189,5,'Done at Kigali on ___________________________',0,0,'C');
 $pdf->Ln(8);
+$pdf->SetFont('times', 'B', 12);
 $pdf->Cell(189,5,$fName.' '.$lName,0,0,'C');
 $pdf->Ln(5);
+$pdf->SetFont('times', '', 12);
 $pdf->Cell(189,5,'_______________________________',0,0,'C');
 // set text shadow effect
 $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
