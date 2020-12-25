@@ -84,12 +84,12 @@ $pdf = new PDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', f
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('Paul Patrick');
-$pdf->SetTitle('My CV');
+$pdf->SetTitle('Consultant Confirmation');
 $pdf->SetSubject('TCPDF Tutorial');
 $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
 // set default header data
-$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 001', PDF_HEADER_STRING, array(0,64,255), array(0,64,128));
+$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' cv', PDF_HEADER_STRING, array(0,64,255), array(0,64,128));
 $pdf->setFooterData(array(0,64,0), array(0,64,128));
 
 // set header and footer fonts
@@ -125,73 +125,72 @@ $pdf->setFontSubsetting(true);
 // dejavusans is a UTF-8 Unicode font, if you only need to
 // print standard ASCII chars, you can use core fonts like
 // helvetica or times to reduce file size.
-$pdf->SetFont('dejavusans', '', 14, '', true);
+$pdf->SetFont('dejavusans', '', 12, '', true);
 
 // Add a page
 // This method has several options, check the source code documentation for more information.
 $pdf->AddPage();
 //names
-$pdf->Ln(10);
-$pdf->SetFont('times', 'B', 14);
+$pdf->SetFont('times', 'B', 12);
 $pdf->Cell(40,5,'Names',0,0,'L');
-$pdf->SetFont('times', '', 14);
+$pdf->SetFont('times', '', 12);
 $pdf->Cell(149,5,$fName.' '.$lName,0,0,'L');
 $pdf->Ln(10);
 //gendet
-$pdf->SetFont('times', 'B', 14);
+$pdf->SetFont('times', 'B', 12);
 $pdf->Cell(40,5,'Gender',0,0,'L');
-$pdf->SetFont('times', '', 14);
+$pdf->SetFont('times', '', 12);
 $pdf->Cell(149,5,$gender_value,0,0,'L');
 $pdf->Ln(10);
 //County
-$pdf->SetFont('times', 'B', 14);
+$pdf->SetFont('times', 'B', 12);
 $pdf->Cell(40,5,'Country',0,0,'L');
-$pdf->SetFont('times', '', 14);
+$pdf->SetFont('times', '', 12);
 $pdf->Cell(149,5,$country_name,0,0,'L');
 $pdf->Ln(10);
 //Natinaol ID
-$pdf->SetFont('times', 'B', 14);
+$pdf->SetFont('times', 'B', 12);
 $pdf->Cell(40,5,'National ID',0,0,'L');
-$pdf->SetFont('times', '', 14);
+$pdf->SetFont('times', '', 12);
 $pdf->Cell(149,5,$natId,0,0,'L');
 $pdf->Ln(10);
 //Email
-$pdf->SetFont('times', 'B', 14);
+$pdf->SetFont('times', 'B', 12);
 $pdf->Cell(40,5,'Email',0,0,'L');
-$pdf->SetFont('times', '', 14);
+$pdf->SetFont('times', '', 12);
 $pdf->Cell(149,5,$email,0,0,'L');
 $pdf->Ln(10);
 // phone number
-$pdf->SetFont('times', 'B', 14);
+$pdf->SetFont('times', 'B', 12);
 $pdf->Cell(40,5,'Tel',0,0,'L');
-$pdf->SetFont('times', '', 14);
+$pdf->SetFont('times', '', 12);
 $pdf->Cell(149,5,$phone_number ,0,0,'L');
 $pdf->Ln(10);
 //location
-$pdf->SetFont('times', 'B', 14);
+$pdf->SetFont('times', 'B', 12);
 $pdf->Cell(40,5,'Location',0,0,'L');
 $pdf->SetFont('times', '', 14);
 $pdf->Cell(149,5,$location ,0,0,'L');
-$pdf->Ln(25);
+$pdf->Ln(22);
 //education
-$pdf->SetFont('times', 'B', 16);
+$pdf->SetFont('times', 'B', 14);
 $pdf->Cell(189,5,'EDUCATION AND SKILLS',0,0,'L');
 $pdf->Ln(1);
-$pdf->Cell(189, 15,'___________________', 0, 0,'L');
-$pdf->SetFont('times', '', 14);
+$pdf->Cell(189, 15,'_________________________', 0, 0,'L');
+$pdf->SetFont('times', '', 12);
 $pdf->Ln(15);
 $pdf->MultiCell(189,5,$user_education,0, 'L', 0, 1, '', '', true);
 //footer
-$pdf->Ln(15);
-$pdf->SetFont('times', 'B', 16);
+$pdf->Ln(12);
+$pdf->SetFont('times', 'B', 14);
 $pdf->Cell(189,5,'CONFIRMATION',0,0,'L');
 $pdf->Ln(1);
 $pdf->Cell(189, 15, '________________', 0, 0,'L');
-$pdf->SetFont('times', '', 14);
+$pdf->SetFont('times', '', 12);
 $pdf->Ln(15);
 $pdf->MultiCell(189, 15, 'This is to confirm that '.$fName.' '.$lName.' is an active consultant of University of Rwanda, in school of '.$school.' and department of '.$department.'.', 0, 'L', 0, 1, '', '', true);
-$pdf->Ln(40);
-$pdf->Cell(100,5,'Done at Kigali on    '.$now,0,0,'C');
+$pdf->Ln(25);
+$pdf->Cell(189,5,'Done at Kigali on    '.$now,0,0,'C');
 
 // set text shadow effect
 $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
