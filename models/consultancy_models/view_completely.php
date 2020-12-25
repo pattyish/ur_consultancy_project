@@ -60,7 +60,7 @@
                 <label for="">New-End-Date</label>
                 <?php $bynow = date("Y-m-d"); ?>
                 <input type="date" id="newEndDate<?php echo $consultancy_id; ?>" min="<?php echo $bynow; ?>" class="form-control" style="border: 0px;">
-                <span style="font-size: 15px;" id="RUCC<?php echo $consultancy_id; ?>"></span> &nbsp;&nbsp;
+                <span style="font-size: 11px;" id="RUCC<?php echo $consultancy_id; ?>"></span> &nbsp;&nbsp;
                 <button type="button" id="clooose<?php echo $consultancy_id; ?>" class="btn btn-primary reProgressConsultancy" value="<?php echo $consultancy_id; ?>">Expand deadline</button>
             </div>
         </div>

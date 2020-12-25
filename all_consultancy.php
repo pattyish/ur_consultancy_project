@@ -10,7 +10,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Register Consultant
+          
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -19,7 +19,7 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content" style="margin-top: 20px;">
         <!-- Main row -->
         <div class="row">
         <div class="col-md-12">
@@ -29,7 +29,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <table id="all_consultants" class="table table-bordered table-striped">
+                        <table id="all_consultancies" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>Names</th>

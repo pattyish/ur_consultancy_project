@@ -1,22 +1,46 @@
 <?php 
+include 'backend/Database.php';
 if(isset($_GET['cv_id'])){
+	$consultant_id = $_GET['cv_id'];
+	// file to retrieve all existing consultants and show them in table with possible options
+	$retrieve = "SELECT * FROM users INNER JOIN user_type INNER JOIN department INNER JOIN country ON 
+	users.user_type_id = user_type.user_type_id AND users.user_department = department.department_id AND 
+	users.user_country = country.country_id WHERE users.user_status_id = 1 AND users.user_id = $consultant_id";
+	$retrieve = mysqli_query($connect,$retrieve);
+	$retrieveCount = mysqli_num_rows($retrieve);
+	if($retrieveCount > 0)
+	{
+		while($lineRetrieve = mysqli_fetch_object($retrieve))
+		{
+			$user_id = $lineRetrieve -> user_id;
+			$fName = $lineRetrieve -> user_first_name;
+			$lName = $lineRetrieve -> user_last_name;
+			$gender = $lineRetrieve -> user_gender;
+			$natId = $lineRetrieve -> user_national_id;
+			$email = $lineRetrieve -> user_email;
+			$department = $lineRetrieve -> department_name;
+			$user_type = $lineRetrieve -> user_type;
+			$user_type_id = $lineRetrieve -> user_type_id;
+			$department_id = $lineRetrieve -> department_id;
+			$country_name = $lineRetrieve -> country_name;
+			$country_id = $lineRetrieve -> country_id;
+		}
+	}        	
 // Include the main TCPDF library (search for installation path).
 require_once('TCPDF/tcpdf.php');
 
 class PDF extends TCPDF{
 	public function Header(){
-    	$image_file = K_PATH_IMAGES.'logo_example.jpg';
+		$image_file = K_PATH_IMAGES.'logo_example.jpg';
+		
 		$this->Image($image_file, 10, 10, 15, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
 		// Set font
 		$this->Ln(5);
-		$this->SetFont('helvetica', 'B', 20);
+		$this->SetFont('times', 'B', 20);
 		// Title
 		$this->Cell(0, 15, 'CURRICULUM VITAE ', 0, false, 'C', 0, '', 0, false, 'M', 'M');
-		$this->Ln(15);
-		$this->Cell(0, 15, ' ', 0, false, 'C', 0, '', 0, false, 'M', 'M');
-	}
-	public function Footer(){
-		
+		$this->Ln(1);
+		$this->Cell(0, 15, '________________________ ', 0, 0, 'C');
 	}
 }
 
@@ -26,7 +50,7 @@ $pdf = new PDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', f
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('Nicola Asuni');
-$pdf->SetTitle('TCPDF Example 001');
+$pdf->SetTitle('hello');
 $pdf->SetSubject('TCPDF Tutorial');
 $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
@@ -73,6 +97,19 @@ $pdf->SetFont('dejavusans', '', 14, '', true);
 // This method has several options, check the source code documentation for more information.
 $pdf->AddPage();
 
+$pdf->SetY(-120);
+$pdf->Ln(5);
+$pdf->SetFont('times', 'B', 16);
+$pdf->Cell(189,5,'CERTIFICATION',0,0,'L');
+$pdf->SetFont('times', '', 14);
+$pdf->Ln(8);
+$pdf->MultiCell(189, 15, 'I, the undersigned, here by faithfully certify, with all my knowledge, that the above mentioned Information depicts my current situation.', 0, 'L', 0, 1, '', '', true);
+$pdf->Ln(5);
+$pdf->Cell(189,5,'Done at Kigali on ___________________________',0,0,'C');
+$pdf->Ln(8);
+$pdf->Cell(189,5,$fName.' '.$lName,0,0,'C');
+$pdf->Ln(5);
+$pdf->Cell(189,5,'_______________________________',0,0,'C');
 // set text shadow effect
 $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
 
