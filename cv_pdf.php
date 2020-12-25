@@ -180,7 +180,7 @@ $pdf->SetFont('times', '', 12);
 $pdf->Ln(15);
 $pdf->MultiCell(189,5,$user_education,0, 'L', 0, 1, '', '', true);
 //footer
-$pdf->Ln(15);
+$pdf->Ln(10);
 $pdf->SetFont('times', 'B', 14);
 $pdf->Cell(189,5,'CERTIFICATION',0,0,'L');
 $pdf->Ln(1);
