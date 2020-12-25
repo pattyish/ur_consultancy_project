@@ -49,7 +49,10 @@
       'searching'   : true,
       'ordering'    : true,
       'info'        : true,
-      'autoWidth'   : true
+      'autoWidth'   : true,
+      buttons: [ 
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
     });
     $('#all_clients').DataTable({
       'paging'      : true,
@@ -57,7 +60,10 @@
       'searching'   : true,
       'ordering'    : true,
       'info'        : true,
-      'autoWidth'   : true
+      'autoWidth'   : true,
+      buttons: [ 
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
     });
     $('#completed_consultancy').DataTable({
       'paging'      : true,
@@ -68,6 +74,22 @@
       'autoWidth'   : true
     });
     $('#in_progress_consultancy').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : true
+    });
+    $('#disabled_consultants').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : true
+    });
+    $('#disabled_clients').DataTable({
       'paging'      : true,
       'lengthChange': true,
       'searching'   : true,

@@ -1,7 +1,7 @@
 <?php
 // file to retrieve all existing clients and show them in table with possible options
 $retrieve = "SELECT * FROM client INNER JOIN country ON client.client_id = country.country_id
- WHERE client.client_status = 1;";
+ WHERE client.client_status = 2;";
 $retrieve= mysqli_query($connect,$retrieve);
 $retrieveCount = mysqli_num_rows($retrieve);
 if($retrieveCount > 0)
@@ -25,18 +25,14 @@ if($retrieveCount > 0)
                 class=" btn btn-info table_button">
                 <i class="fa fa-eye"></i> View
             </a>
-            <a href="edit_client.php?client_id=<?php echo $clientId; ?>" class="btn btn-success table_button">
-                <i class="fa fa-edit"></i> Edit
+            <a href="#" data-toggle="modal" data-target="#activate_client<?php echo $clientId; ?>"
+                class=" btn btn-warning table_button">
+                <i class="fa fa-toggle-on"></i> Activate
             </a>
-            <a href="#" data-toggle="modal" data-target="#disable_client<?php echo $clientId; ?>"
-                class="btn btn-danger table_button">
-                <i class="fa fa-trash"></i> Delete
-            </a>
-            <?php include 'models/clients_models/edit_model.php'; ?>
+            <?php include 'models/clients_models/activate_client.php'; ?>
         </div>
 
     </td>
-    <?php include 'models/clients_models/disable_model.php'; ?>
 </tr>
 <?php
     }

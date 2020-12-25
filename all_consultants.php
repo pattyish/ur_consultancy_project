@@ -31,7 +31,10 @@
                 <div class="box" style="padding-left: 5px; padding-right: 5px;">
                     <div class="box-header"
                         style="border-bottom: 1px solid rgba(60, 141, 188, 0.3); margin-bottom: 10px;">
-                        <h3 class="box-title" style="padding-top: 10px; padding-bottom: 10px;">All Consultants</h3>
+                        <h3 class="box-title" style="padding-top: 10px; padding-bottom: 10px;">All Consultants 
+                        &nbsp;<span class="pull-right-container">
+                                <small class="label pull-right bg-green" id="newsmss">12</small>
+                            </span></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
