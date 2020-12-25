@@ -8,7 +8,7 @@
                     be disabled</b></h4>
             </div>
             <div class="modal-body">
-                <p>By clicking on Delete Button, this user will no long be a member of the system. </br>
+                <p>By clicking on Delete Button, this user will no long be a member of the system.
                     Are sure you want to disable this user?</p>
             </div>
             <div class="modal-footer">

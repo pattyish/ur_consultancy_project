@@ -47,10 +47,4 @@ else
     echo "";
 }
 ?>
-<script>
-$(document).ready(function(){
-    // Reactivate a user and bring him back in usual consultants
-    
-});
- 
-</script>
+<input type="hidden" id="totalDConsultants" value="<?php echo $retrieveCount; ?>">

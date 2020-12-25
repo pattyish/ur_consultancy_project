@@ -2,6 +2,14 @@
 <?php include 'public/includes/layouts/header.php';?>
 <?php include 'public/includes/layouts/left_bar_side.php';?>
 
+<script>
+$(document).ready(function()
+{
+    var totalDisabledClients = $("#totalDisabledClients").val();
+    $("#showTotalDClients").html(totalDisabledClients);
+});
+</script>
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -24,7 +32,7 @@
                         style="border-bottom: 1px solid rgba(60, 141, 188, 0.3); margin-bottom: 10px;">
                         <h3 class="box-title" style="padding-top: 10px; padding-bottom: 10px;"> Disabled Clients
                             &nbsp;<span class="pull-right-container">
-                                <small class="label pull-right bg-green" id="newsmss">12</small>
+                                <small class="label pull-right bg-blue" id="showTotalDClients"></small>
                             </span></h3>
                     </div>
                     <!-- /.box-header -->

@@ -2,6 +2,14 @@
 <?php include 'public/includes/layouts/header.php';?>
 <?php include 'public/includes/layouts/left_bar_side.php';?>
 
+<script>
+$(document).ready(function()
+{
+    var allOnGoinConsultancy = $("#totalOngoingConsultancy").val();
+    $("#showTotal").html(allOnGoinConsultancy);
+});
+</script>
+
 <!-- below ul tag is to help us load new sms automatically -->
 <ul class="users-list clearfix" id="userToChatWith" style="display: none;">
 </ul>
@@ -28,7 +36,7 @@
                         style="border-bottom: 1px solid rgba(60, 141, 188, 0.3); margin-bottom: 10px;">
                         <h3 class="box-title" style="padding-top: 10px; padding-bottom: 10px;">In Progress
                             Consultancies &nbsp;<span class="pull-right-container">
-                                <small class="label pull-right bg-green" id="newsmss">12</small>
+                                <small class="label pull-right bg-blue" id="showTotal">12</small>
                             </span></h3>
                     </div>
                     <!-- /.box-header -->

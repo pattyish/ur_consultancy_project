@@ -291,10 +291,10 @@ $(document).ready(function(){
                 
                 if(response.includes("Success"))
                 {
-                    $("#DCF"+userId).append(". <b><i class='text-green'>The page will refresh in 3 secs.</i></b>");
+                    //$("#DCF"+userId).append(". <b><i class='text-green'>The page will refresh in 3 secs.</i></b>");
                     setTimeout(function() {
                         window.location.href="all_consultants.php";  
-                    }, 3000);
+                    }, 1000);
                 }
             }
         }); 
@@ -313,12 +313,12 @@ $(document).ready(function(){
             {
                 $("#DC"+clientId).html("<b><i class='text-green'>"+response+"</i></b>");
                 
-                if(response.includes("Success"))
+                if(response.includes("Archived"))
                 {
-                    $("#DC"+clientId).append(". <b><i class='text-green'>The page will refresh in 3 secs.</i></b>");
+                    //$("#DC"+clientId).append(". <b><i class='text-green'>The page will refresh in 3 secs.</i></b>");
                     setTimeout(function() {
                         window.location.href="all_clients.php";  
-                    }, 3000);
+                    }, 1000);
                 }
             }
         }); 
@@ -440,6 +440,30 @@ $(document).ready(function(){
                     //$("#RAU"+userId).append(". <b><i class='text-green'>The page will refresh in 3 secs.</i></b>");
                     setTimeout(function() {
                         window.location.href="disable_consultants.php";  
+                    }, 1000);
+                }
+            }
+        }); 
+    });
+
+    // Reactivate a user and bring him back in usual consultants
+    $(".reActivateClient").on("click",function(e){
+        e.preventDefault();
+        var clientId = $(this).val();
+        // link to backend/reActivateUser
+        $.ajax({
+            type: "post",
+            url: "backend/reActivateClient.php",
+            data: {clientId : clientId},
+            success: function(response)
+            {
+                $("#RAClient"+clientId).html("<b><i class='text-green'>"+response+"</i></b>");
+                
+                if(response.includes("activated"))
+                {
+                    //$("#RAClient"+clientId).append(". <b><i class='text-green'>The page will refresh in 3 secs.</i></b>");
+                    setTimeout(function() {
+                        window.location.href="archivedClients.php";  
                     }, 1000);
                 }
             }

@@ -9,7 +9,7 @@
                 </h4>
             </div>
             <div class="modal-body">
-                <p>By clicking on Delete Button, this client will no longer be seen in the system. </br>
+                <p>By clicking on Delete Button, this client will no longer be seen in the system.
                     Are sure you want to disable this Client.</p>
             </div>
             <div class="modal-footer">

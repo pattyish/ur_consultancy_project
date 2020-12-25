@@ -43,6 +43,7 @@ if($retrieveCount > 0)
 }
 else
 {
-    echo "No clients available";
+    echo "";
 }
 ?>
+<input type="hidden" id="totalClients" value="<?php echo $retrieveCount; ?>">

@@ -75,6 +75,7 @@
                 <ul class="treeview-menu">
                     <li><a href="add_consultant.php"><i class="fa fa-circle-o"></i> Add Consultant </a></li>
                     <li><a href="all_consultants.php"><i class="fa fa-circle-o"></i>Registered Consultants</a></li>
+                    <li><a href="disable_consultants.php"><i class="fa fa-circle-o"></i> Archive</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -87,7 +88,7 @@
                 <ul class="treeview-menu">
                     <li><a href="register_client.php"><i class="fa fa-circle-o"></i> Add Client</a></li>
                     <li><a href="all_clients.php"><i class="fa fa-circle-o"></i> All Clients</a></li>
-                    <li><a href="archive.php"><i class="fa fa-circle-o"></i> Archive</a></li>
+                    <li><a href="archivedClients.php"><i class="fa fa-circle-o"></i> Archive</a></li>
                 </ul>
             </li>
             <?php
