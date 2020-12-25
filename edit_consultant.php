@@ -51,7 +51,7 @@ if($retrieveCount > 0)
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form" id="saveConsultant">
+                    <form role="form" id="ediConsultantInfo">
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-6">
@@ -128,10 +128,10 @@ if($retrieveCount > 0)
                         <!-- /.box-body -->
 
                         <div class="box-footer">
+                        <input type="hidden" id="user_id" value="<?php echo  $user_id; ?>">
                             <button type="submit" id="saveCons" class="btn btn-success">Update</button>
                             &nbsp;&nbsp;&nbsp;
-                            <br><br>
-                            <span id="feedback"> </span>
+                            <span id="editUserFeedback"> </span>
                         </div>
                     </form>
                 </div>

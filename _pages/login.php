@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>UR-Consultancy</title>
-    <link rel="shortcut icon" href="../img/logo.JPG" />
+    <link rel="shortcut icon" href="../backend/img/logo.JPG" />
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -100,7 +100,7 @@
             </form>
             <!-- /.social-auth-links -->
             <a href="#">I forgot my password</a><br>
-            <?php //echo password_hash("patty12", PASSWORD_DEFAULT); ?>
+            <?php echo password_hash("patty12", PASSWORD_DEFAULT); ?>
         </div>
         <!-- /.login-box-body -->
     </div>

@@ -458,10 +458,74 @@ $(document).ready(function(){
                 {
                     //$("#RAU"+userId).append(". <b><i class='text-green'>The page will refresh in 3 secs.</i></b>");
                     setTimeout(function() {
-                        window.location.href="all_clients.php";  
+                        window.location.href="disable_consultants.php";  
                     }, 1000);
                 }
             }
         }); 
+    });
+
+    // Edit client information
+    $("#editClientForm").on("submit",function(e){
+        e.preventDefault();
+        var client_id = parseInt($("#client_id").val());
+        var cName = $("#clientName").val();
+        var cEmail = $("#clientEmail").val();
+        var countryy = $("#country").val();
+        var country = parseInt($("#country").val());
+        if($.trim(cName).length == 0 || $.trim(cEmail).length == 0 || $.trim(countryy).length == 0)
+        {
+            $("#editClientFeedback").html("<i class='text-red'><b>All fields are required.</b></i>");
+        }
+        else
+        {
+            $("#editClientFeedback").html("Saving...");
+            // AJAX to link to backend/addUser
+            $.ajax({
+                type:"post",
+                url:"backend/editClient.php",
+                data: {client_id : client_id, cName : cName, cEmail : cEmail, country : country},
+                success: function(response)
+                {
+                    $("#editClientFeedback").html("<i class='text-green'><b>"+response+ "</b></i>");
+                }
+            });   
+        }
+    });
+
+    // Edit a consultant info 
+    $("#ediConsultantInfo").on("submit",function(e){
+        e.preventDefault();
+        var user_id = $("#user_id").val();
+        var fName = $("#fName").val();
+        var lName = $("#lName").val();
+        var gender = $("#gender").val();
+        var natId = $("#natId").val();
+        var userEmail = $("#userEmail").val();
+        var userType = $("#userType").val();
+        var countryy = $("#country").val();
+        var country = parseInt($("#country").val());
+        var departmentt = $("#department").val();
+        var department = parseInt($("#department").val());
+        if($.trim(fName).length == 0 || $.trim(lName).length == 0 || $.trim(gender).length == 0
+         || $.trim(natId).length == 0 || $.trim(userEmail).length == 0 || $.trim(userType).length == 0
+         || $.trim(countryy).length == 0 || $.trim(departmentt).length == 0)
+        {
+            $("#editUserFeedback").html("<i class='text-red'><b>All fields are required.</b></i>");
+        }
+        else
+        {
+            $("#editUserFeedback").html("<i class='text-blue'><b>Saving...</b></i>");
+            // AJAX to link to backend/addUser
+            $.ajax({
+                type:"post",
+                url:"backend/editUser.php",
+                data: {user_id : user_id, fName : fName, lName : lName, gender : gender, natId : natId , userEmail : userEmail, userType : userType, country : country, department : department},
+                success: function(response)
+                {
+                    $("#editUserFeedback").html("<i class='text-green'><b>"+response+"</b></i>");
+                }
+            });   
+        }
     });
 });

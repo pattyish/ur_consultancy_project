@@ -24,7 +24,7 @@
             <div class="col-md-4">
             <div class="box">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Partners view</h3>
+                  <h3 class="box-title" text-blue><b>Partners view</b></h3>
                   <div class="box-tools pull-right">
                     <span class="label label-primary">Groups</span>
                   </div>
@@ -37,8 +37,8 @@
                   <!-- /.users-list -->
                 </div>
                 <!-- /.box-body -->
-                <div class="box-footer text-center">
-                  <a href="javascript:void(0)" class="uppercase">View All Users</a>
+                <div class="box-footer text-center text-blue">
+                  <a href="javascript:void(0)" class="uppercase"><b>Communicate with your patners.</b></a>
                 </div>
                 <!-- /.box-footer -->
               </div>
