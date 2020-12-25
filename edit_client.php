@@ -10,7 +10,7 @@
 $client_id = $_GET['client_id'];
 // file to retrieve all existing clients and show them in table with possible options
 $retrieve = "SELECT * FROM client INNER JOIN country ON 
-client.client_id = country.country_id WHERE client.client_status = 1 AND client.client_id = $client_id;";
+client.country_id = country.country_id WHERE client.client_status = 1 AND client.client_id = $client_id;";
 $retrieve= mysqli_query($connect,$retrieve);
 $retrieveCount = mysqli_num_rows($retrieve);
 if($retrieveCount > 0)
@@ -48,7 +48,7 @@ if($retrieveCount > 0)
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form" id="addClientForm">
+                    <form role="form" id="editClientForm">
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-8">
@@ -76,8 +76,9 @@ if($retrieveCount > 0)
                         <!-- /.box-body -->
 
                         <div class="box-footer">
+                            <input type="hidden" id="client_id" value="<?php echo $client_id; ?>">
                             <button type="submit" class="btn btn-primary">Update Client</button>&nbsp;&nbsp;&nbsp;
-                            <span style="font-size: 20px;" id="addClientFeedback"></span>
+                            <span style="font-size: 20px;" id="editClientFeedback"></span>
                         </div>
                     </form>
                 </div>

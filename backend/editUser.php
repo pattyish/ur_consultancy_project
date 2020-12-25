@@ -1,28 +1,46 @@
 <?php
 session_start();
-include 'Database.php';
-// declaration of variables needed to insert a new user
-$userId = $connect -> real_escape_string($_POST['']);
-$fname = $connect -> real_escape_string($_POST['']);
-$lname = $connect -> real_escape_string($_POST['']);
-$email = $connect -> real_escape_string($_POST['']);
-$gender = $connect -> real_escape_string($_POST['']);
-$national_id = $connect -> real_escape_string($_POST['']);
-$status_id = $connect -> real_escape_string($_POST['']);
-$type_id = $connect -> real_escape_string($_POST['']);
+$myId = $_SESSION['User_ID'];
 
-// file to retrieve all existing consultants and show them in table with possible options
-$update = $update -> prepare("UPDATE users SET users.user_first_name =? ,users.user_last_name =? 
-,users.user_gender =? ,users.user_national_id =? ,users.user_email =?
-,users.user_status_id =? ,users.user_type_id =? WHERE users.user_id =? ");
-$update = bind_param("sssssiii",$fname,$lname,$gender,$national_id,$email,$status_id,$type_id,$userId);
-$update -> execute();
-if($update)
+include 'Database.php'; // include database connection
+
+// declaration of variables needed to insert a new user
+$user_id = $_POST['user_id'];
+$fname = $connect -> real_escape_string($_POST['fName']);
+$lname = $connect -> real_escape_string($_POST['lName']);
+$gender = $connect -> real_escape_string($_POST['gender']);
+$national_id = $connect -> real_escape_string($_POST['natId']);
+$email = $connect -> real_escape_string($_POST['userEmail']);
+$email = strtolower($email);
+$user_type_id = $connect -> real_escape_string($_POST['userType']);
+$country = $_POST['country'];
+$department = $_POST['department'];
+$now = date("Y-m-d h:i:s");
+
+// check uniqueness of Account info: Uname and Password
+$query_check = "SELECT * FROM users WHERE (users.user_email='$email' OR users.user_national_id='$national_id') AND users.user_id != $user_id";
+$query_check = mysqli_query($connect,$query_check);
+$count_check = mysqli_num_rows($query_check);
+if($count_check > 0)
 {
-    echo "Your profile changed.";
+    echo "Neither email nor National ID can be replicated.";
 }
 else
 {
-    echo "Request failed. Something went wrong.";
-}
+    // Query to update users info
+    $Update = $connect ->prepare("UPDATE 
+    users SET user_first_name = ?,user_last_name = ?,user_gender = ?,user_national_id = ?,user_email = ?,
+    user_type_id = ?,user_country = ?,user_department = ? WHERE users.user_id= ? ");
+    $Update -> bind_param("sssssiiii",$fname,$lname,$gender,$national_id,$email,$user_type_id,$country,$department,$user_id);
+    $Update->execute();
+    if($Update)
+    {
+        echo "Information has successfully changed";
+    }
+    else
+    {
+        echo "A request failed.";
+    }
+}  
+
 ?>

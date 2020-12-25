@@ -35,7 +35,7 @@ if($retrieveCount > 0)
                         <i class="fa fa-edit"></i> Activate
                     </a>
                 </div>
-                <?php include 'models/consultant_models/edit_consultant.php'; ?>
+                <?php include 'models/consultant_models/reActivateUser.php'; ?>
             </td>
             <?php include 'models/consultant_models/delete.php'; ?>
         </tr>
@@ -47,3 +47,10 @@ else
     echo "";
 }
 ?>
+<script>
+$(document).ready(function(){
+    // Reactivate a user and bring him back in usual consultants
+    
+});
+ 
+</script>

@@ -22,14 +22,20 @@ $(document).ready(function(){
      // sending a message
      $("#sendMessageForm").on("submit",function(e){
          e.preventDefault();
+         var userIdd= $("#receiverId").val();
         var userId= parseInt($("#receiverId").val());
         var messageContent= $("#messageToSend").val();
         if($.trim(messageContent).length == 0)
         {
             $("#sendMessageFeedback").html("<b>Write something, please</b>");
         }
+        else if($.trim(userIdd).length == 0)
+        {
+            $("#sendMessageFeedback").html("<b>Oops, you have not chosen a user to chat with.</b>");
+        }
         else
         {
+            $("#sendMessageBtn").attr("disabled", true);
             $.ajax({
                 type: "post",
                 url: "backend/sendMessage.php",
@@ -38,6 +44,7 @@ $(document).ready(function(){
                 {
                     $("#conversation_window").html(response);
                     $("#messageToSend").val("");
+                    $("#sendMessageBtn").attr("disabled", false);
                 }
             });
         }

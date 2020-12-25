@@ -41,17 +41,17 @@
                                     <div class="form-group">
                                     <?php $contract_sign_date = date("Y-m-d"); ?>
                                         <label for="">Consultancy-Sign-Date</label>
-                                        <input type="date" value="<?php echo $contract_sign_date; ?>" id="sign_date" placeholder="Consultancy Sign Date....."
+                                        <input type="date" value="<?php echo $contract_sign_date; ?>" id="sign_date"
                                             class="form-control" disabled>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Consultancy-Start-Date</label>
-                                        <input type="date" id="start_date" min="<?php echo $contract_sign_date; ?>" placeholder="Consultancy Start Date....."
+                                        <input type="date" id="start_date" min="<?php echo $contract_sign_date; ?>"
                                             class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Consultancy-End-Date</label>
-                                        <input type="date" id="end_date" min="<?php echo $contract_sign_date; ?>" placeholder="Consultancy Sign Date....."
+                                        <input type="date" id="end_date" min="<?php echo $contract_sign_date; ?>"
                                             class="form-control">
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@
                                     </div>
                                     <div class="form-group">
                                         <p>If Client not Exist, Follow this Link to first <a href="register_client.php">
-                                                 <b>Register Client</b>
+                                                 <b class="text-blue">Register Client</b>
                                             </a>
                                         </p>
                                     </div>

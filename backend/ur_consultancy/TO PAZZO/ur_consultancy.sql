@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2020 at 02:06 PM
+-- Generation Time: Dec 24, 2020 at 09:13 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -50,7 +50,23 @@ CREATE TABLE `campus` (
 --
 
 INSERT INTO `campus` (`campus_id`, `campus_name`) VALUES
-(1, 'NYARUGENGE');
+(1, 'NYARUGENGE'),
+(2, 'HUYE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chat_group`
+--
+
+CREATE TABLE `chat_group` (
+  `chat_group_id` int(11) NOT NULL,
+  `chat_group_name` varchar(100) NOT NULL,
+  `chat_group_create_date` datetime NOT NULL,
+  `chat_group_creator` int(11) NOT NULL,
+  `chat_group_description` text NOT NULL DEFAULT 'Not description',
+  `chat_group_status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -65,14 +81,6 @@ CREATE TABLE `client` (
   `country_id` int(11) NOT NULL,
   `client_status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `client`
---
-
-INSERT INTO `client` (`client_id`, `client_name`, `client_email`, `country_id`, `client_status`) VALUES
-(1, 'Rwanda Social Security Board', 'rssb@rssb.rw', 1, 1),
-(2, 'Rwanda National Bank', 'rwandanationalBanK12@gmail.com', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -91,7 +99,8 @@ CREATE TABLE `college` (
 --
 
 INSERT INTO `college` (`college_id`, `college_name`, `campus_id`) VALUES
-(1, 'COLLEGE OF SCIENCE AND TECHNOLOGY', 1);
+(3, 'COLLEGE OF SCIENCE AND TECHNOLOGY', 1),
+(4, 'COLLEGE OF MEDECINE', 2);
 
 -- --------------------------------------------------------
 
@@ -114,15 +123,6 @@ CREATE TABLE `consultancy` (
   `consultancy_progress` int(11) NOT NULL DEFAULT 1,
   `consultancy_adder` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `consultancy`
---
-
-INSERT INTO `consultancy` (`consultancy_id`, `consultancy_name`, `consultancy_sign_date`, `consultancy_start_date`, `consultancy_end_date`, `consultancy_amount`, `consultancy_currency`, `consultancy_UR_percentage`, `consultancy_Tax_percentage`, `consultancy_consultants_percentage`, `consultancy_client_id`, `consultancy_progress`, `consultancy_adder`) VALUES
-(1, 'Rwandan Population Statistics ', '2020-12-22 01:46:23', '2020-12-22', '2021-01-10', 20000, 'USD', 20, 20, 60, 1, 1, 4),
-(2, 'People who use smartphones than others in Rwanda', '2020-12-22 01:50:10', '2020-12-22', '2021-01-10', 2000000, 'POUNDS', 10, 20, 70, 2, 1, 4),
-(3, 'Rwandan Population Statistics ', '2020-12-23 08:35:41', '2020-12-23', '2021-01-10', 15000, 'RWF', 20, 20, 60, 1, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -181,7 +181,11 @@ INSERT INTO `country` (`country_id`, `country_name`) VALUES
 (3, 'Tanzania'),
 (4, 'Kenya'),
 (5, 'Morroco'),
-(6, 'Tunisia');
+(6, 'Tunisia'),
+(7, 'Nigeria'),
+(8, 'Ethiopie'),
+(9, 'Mali'),
+(10, 'Benin');
 
 -- --------------------------------------------------------
 
@@ -200,7 +204,22 @@ CREATE TABLE `department` (
 --
 
 INSERT INTO `department` (`department_id`, `department_name`, `school_id`) VALUES
-(1, 'COMPUTER SCIENCE', 3);
+(1, 'COMPUTER SCIENCE', 1),
+(2, 'PHARMACY', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `group_members`
+--
+
+CREATE TABLE `group_members` (
+  `group_members_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  `member_id` int(11) NOT NULL,
+  `join_date` datetime NOT NULL,
+  `group_members_status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -225,28 +244,10 @@ CREATE TABLE `message` (
 --
 
 INSERT INTO `message` (`message_id`, `message_content`, `message_file_docs`, `message_img`, `message_send_date`, `message_sender_id`, `message_receiver_id`, `message_status_id`, `message_reads`) VALUES
-(1, 'Hi m boy Pazzo', NULL, NULL, '2020-12-24 08:35:45', 4, 5, 1, 2),
-(2, 'Hi m boy Pazzo', NULL, NULL, '2020-12-24 08:37:18', 4, 5, 1, 2),
-(3, 'Hi pazzo', NULL, NULL, '2020-12-24 08:40:58', 4, 5, 1, 2),
-(4, 'This is good', NULL, NULL, '2020-12-24 08:54:48', 4, 5, 1, 2),
-(5, 'This is good', NULL, NULL, '2020-12-24 08:55:24', 4, 5, 1, 2),
-(7, 'Hii', NULL, NULL, '2020-12-24 08:56:31', 4, 5, 1, 2),
-(8, 'Hello phizzo brother', NULL, NULL, '2020-12-24 08:57:01', 4, 7, 1, 1),
-(9, 'Umeze gt se', NULL, NULL, '2020-12-24 08:58:47', 4, 7, 1, 1),
-(10, 'Bjr', NULL, NULL, '2020-12-24 09:00:27', 4, 5, 1, 2),
-(11, 'Hello', NULL, NULL, '2020-12-24 09:00:49', 4, 5, 1, 2),
-(12, 'Boy boy Big man', NULL, NULL, '2020-12-24 09:01:20', 4, 7, 1, 1),
-(13, 'Uraryoshye', NULL, NULL, '2020-12-24 09:02:20', 4, 7, 1, 1),
-(14, 'Pazzzzz', NULL, NULL, '2020-12-24 09:05:28', 4, 5, 1, 2),
-(15, 'Hello', NULL, NULL, '2020-12-24 09:06:39', 4, 7, 1, 1),
-(16, 'Yewe, I\\\'m sorry, I have been busy ', NULL, NULL, '2020-12-24 09:11:36', 5, 4, 1, 2),
-(17, 'Yewe, I\\\'m sorry, I have been busy ', NULL, NULL, '2020-12-24 09:15:52', 5, 4, 1, 2),
-(18, 'But ubu ndahari kkbx', NULL, NULL, '2020-12-24 09:17:51', 5, 4, 1, 2),
-(19, 'Pazzo, Salama', NULL, NULL, '2020-12-24 09:19:23', 7, 5, 1, 2),
-(20, 'Pazzo, Salama', NULL, NULL, '2020-12-24 09:19:39', 7, 5, 1, 2),
-(21, 'Jay P', NULL, NULL, '2020-12-24 09:19:48', 7, 4, 1, 2),
-(22, 'Kbx, turaburanye', NULL, NULL, '2020-12-24 09:21:49', 7, 7, 1, 1),
-(23, 'Rwanda\\nBurundi', NULL, NULL, '2020-12-24 09:22:39', 7, 7, 1, 1);
+(1, 'Hi Patrick', NULL, NULL, '2020-12-24 08:30:13', 3, 2, 1, 1),
+(2, 'Jay P, Umeze gt se?', NULL, NULL, '2020-12-24 08:50:28', 3, 2, 1, 1),
+(3, 'Meze fresh Pazzo', NULL, NULL, '2020-12-24 08:56:01', 2, 3, 1, 2),
+(4, 'Wowe se umeze gt?', NULL, NULL, '2020-12-24 08:56:10', 2, 3, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -297,7 +298,8 @@ CREATE TABLE `school` (
 --
 
 INSERT INTO `school` (`school_id`, `school_name`, `college_id`) VALUES
-(3, 'INFORMATION COMMUNICATION AND TECHNOLOGY', 1);
+(1, 'INFORMATION COMMUNICATION AND TECHNOLOGY', 3),
+(2, 'SCHOOL OF MEDECINE', 4);
 
 -- --------------------------------------------------------
 
@@ -339,8 +341,8 @@ CREATE TABLE `users` (
   `user_adder_id` int(11) NOT NULL,
   `user_last_active` datetime NOT NULL,
   `user_department` int(11) NOT NULL,
-  `user_location` text NOT NULL DEFAULT 'No entered location',
-  `user_education` text NOT NULL DEFAULT 'Not entered',
+  `user_location` text NOT NULL DEFAULT 'No location entered',
+  `user_education` text NOT NULL DEFAULT 'Not education',
   `user_summary` text NOT NULL DEFAULT 'No summary',
   `user_phone` varchar(20) NOT NULL DEFAULT 'Input your number'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -350,9 +352,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_first_name`, `user_last_name`, `user_gender`, `user_national_id`, `user_email`, `user_password`, `user_status_id`, `user_type_id`, `user_country`, `user_profile_image`, `user_adder_id`, `user_last_active`, `user_department`, `user_location`, `user_education`, `user_summary`, `user_phone`) VALUES
-(4, 'Mr. Jean Paul', 'NISHIMIRWE', 'M', '1199780117063139', 'nishimirwepaul2015@gmail.com', '$2y$10$/rG2rNMF.LvdvelOuroQQeSVB2JZfMebLHNMMHrH1HNFEpEmfpbI.', 1, 1, 1, 'profile_img/4de7931b4287506ba3a1166beefccb89b.jpg', 4, '2020-12-24 14:05:25', 1, 'Kigali, Rwanda', 'Software Engineering', 'Interested in developing software that aim at changing the world by helping everyone live in better and easy life.\n\nCollaboration and leadership skills are my strengths.', '(+250) 789 336 678'),
-(5, 'Patrick', 'ISHIMWE', 'M', '1199680012546588', 'patrickishimwe16@gmail.com', '$2y$10$OXCy5CGHORVrgz2KYJ4zmuQZ0z.B/ouQjTMtT64VDgM.k.PAf4jNe', 1, 2, 1, 'img/mimage.png', 4, '2020-12-24 09:18:57', 1, 'No entered location', 'Not entered', 'No summary', 'Input your number'),
-(7, 'Philius', 'HAKIZIMANA', 'M', '1199680012546544', 'hakizaphilius@gmail.com', '$2y$10$5HDLGrap45cFUfr/aVMrROmEY1Ku7bLPQl0Oy.bR5Zn/y8OQZXa0G', 1, 3, 1, 'img/mimage.png', 4, '2020-12-24 10:03:27', 1, 'No entered location', 'Not entered', 'No summary', 'Input your number');
+(2, 'Jean Paul', 'NISHIMIRWE', 'M', '1199780117063139', 'nishimirwepaul2015@gmail.com', '$2y$10$2MJI.vl3sAkP2SpYtEaFtOSFgRmDdAvnXZlY96yOEmicDC7ts6vFi', 1, 1, 1, 'profile_img/23aa0f009d53c04311d5f65b887e126ba.jpg', 2, '2020-12-24 20:56:14', 1, 'No location entered', 'Not education', 'No summary', 'Input your number'),
+(3, 'Patrick', 'ISHIMWE', 'M', '1199680012546588', 'patrickishimwe16@gmail.com', '$2y$10$HyaVWMPfIPPPbbIbLDZ1z.3xUmQikQ23xezvFHk15JDhyVpI.oGNO', 1, 2, 1, 'profile_img/31a1f9e31ee5b89b303b583f007b7e3c6.jpg', 2, '2020-12-24 21:04:24', 1, 'No location entered', 'Not education', 'No summary', 'Input your number');
 
 -- --------------------------------------------------------
 
@@ -391,6 +392,14 @@ ALTER TABLE `block_user`
 --
 ALTER TABLE `campus`
   ADD PRIMARY KEY (`campus_id`);
+
+--
+-- Indexes for table `chat_group`
+--
+ALTER TABLE `chat_group`
+  ADD PRIMARY KEY (`chat_group_id`),
+  ADD KEY `goup_chat.users.creator_idx` (`chat_group_creator`),
+  ADD KEY `goup_chat.status_idx` (`chat_group_status`);
 
 --
 -- Indexes for table `client`
@@ -444,6 +453,15 @@ ALTER TABLE `country`
 ALTER TABLE `department`
   ADD PRIMARY KEY (`department_id`),
   ADD KEY `department.school_idx` (`school_id`);
+
+--
+-- Indexes for table `group_members`
+--
+ALTER TABLE `group_members`
+  ADD PRIMARY KEY (`group_members_id`),
+  ADD KEY `group_members.group_idx` (`group_id`),
+  ADD KEY `group_members.users_idx` (`member_id`),
+  ADD KEY `group_members.status_idx` (`group_members_status`);
 
 --
 -- Indexes for table `message`
@@ -514,25 +532,31 @@ ALTER TABLE `block_user`
 -- AUTO_INCREMENT for table `campus`
 --
 ALTER TABLE `campus`
-  MODIFY `campus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `campus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `chat_group`
+--
+ALTER TABLE `chat_group`
+  MODIFY `chat_group_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `college`
 --
 ALTER TABLE `college`
-  MODIFY `college_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `college_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `consultancy`
 --
 ALTER TABLE `consultancy`
-  MODIFY `consultancy_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `consultancy_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `consultancy_progress`
@@ -550,19 +574,25 @@ ALTER TABLE `consultant_contract`
 -- AUTO_INCREMENT for table `country`
 --
 ALTER TABLE `country`
-  MODIFY `country_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `country_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-  MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `group_members`
+--
+ALTER TABLE `group_members`
+  MODIFY `group_members_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `message_read`
@@ -580,7 +610,7 @@ ALTER TABLE `reset_password`
 -- AUTO_INCREMENT for table `school`
 --
 ALTER TABLE `school`
-  MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `status`
@@ -592,7 +622,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user_type`
@@ -610,6 +640,13 @@ ALTER TABLE `user_type`
 ALTER TABLE `block_user`
   ADD CONSTRAINT `block.users.blockee` FOREIGN KEY (`block_user_blockee`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `block.users.blocker` FOREIGN KEY (`block_user_blocker`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `chat_group`
+--
+ALTER TABLE `chat_group`
+  ADD CONSTRAINT `goup_chat.status` FOREIGN KEY (`chat_group_status`) REFERENCES `status` (`status_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `goup_chat.users.creator` FOREIGN KEY (`chat_group_creator`) REFERENCES `users` (`user_id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `client`
@@ -645,6 +682,14 @@ ALTER TABLE `consultant_contract`
 --
 ALTER TABLE `department`
   ADD CONSTRAINT `department.school` FOREIGN KEY (`school_id`) REFERENCES `school` (`school_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `group_members`
+--
+ALTER TABLE `group_members`
+  ADD CONSTRAINT `group_members.group` FOREIGN KEY (`group_id`) REFERENCES `chat_group` (`chat_group_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `group_members.status` FOREIGN KEY (`group_members_status`) REFERENCES `status` (`status_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `group_members.users` FOREIGN KEY (`member_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `message`
