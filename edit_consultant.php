@@ -1,6 +1,14 @@
 <?php include 'public/includes/header_link.php';?>
 <?php include 'public/includes/layouts/header.php';?>
 <?php include 'public/includes/layouts/left_bar_side.php';?>
+<script>
+$(document).ready(function(){
+    $("#natId").on("keyup",function(){
+        var length = $(this).val();
+        $("#natIdLength").html(length.length);
+    });
+});
+</script>
 <?php
 $consultant_id = $_GET['consultant_id'];
 // file to retrieve all existing consultants and show them in table with possible options
@@ -82,8 +90,7 @@ if($retrieveCount > 0)
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="">National Id &nbsp;&nbsp; <span class="text-blue" id="natIdLength">
-                                            </span></label>
+                                        <label for="">National Id  &nbsp;&nbsp; <span class="text-blue" id="natIdLength"> </span></label>
                                         <input type="text" value="<?php echo  $natId; ?>" class="form-control"
                                             id="natId" placeholder="Enter Id Number">
                                     </div>
