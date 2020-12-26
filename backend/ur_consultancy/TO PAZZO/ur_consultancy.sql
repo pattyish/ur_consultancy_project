@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2020 at 09:13 PM
+-- Generation Time: Dec 26, 2020 at 12:09 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -65,8 +65,15 @@ CREATE TABLE `chat_group` (
   `chat_group_create_date` datetime NOT NULL,
   `chat_group_creator` int(11) NOT NULL,
   `chat_group_description` text NOT NULL DEFAULT 'Not description',
-  `chat_group_status` int(11) NOT NULL
+  `chat_group_status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `chat_group`
+--
+
+INSERT INTO `chat_group` (`chat_group_id`, `chat_group_name`, `chat_group_create_date`, `chat_group_creator`, `chat_group_description`, `chat_group_status`) VALUES
+(3, 'REB choice', '2020-12-26 11:07:26', 4, 'People chosen by REB to supervise exams 2020', 1);
 
 -- --------------------------------------------------------
 
@@ -81,6 +88,13 @@ CREATE TABLE `client` (
   `country_id` int(11) NOT NULL,
   `client_status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `client`
+--
+
+INSERT INTO `client` (`client_id`, `client_name`, `client_email`, `country_id`, `client_status`) VALUES
+(1, 'Rwanda Social Security Board', 'rssb@rssb.rw', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -124,6 +138,14 @@ CREATE TABLE `consultancy` (
   `consultancy_adder` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `consultancy`
+--
+
+INSERT INTO `consultancy` (`consultancy_id`, `consultancy_name`, `consultancy_sign_date`, `consultancy_start_date`, `consultancy_end_date`, `consultancy_amount`, `consultancy_currency`, `consultancy_UR_percentage`, `consultancy_Tax_percentage`, `consultancy_consultants_percentage`, `consultancy_client_id`, `consultancy_progress`, `consultancy_adder`) VALUES
+(1, 'People who use smartphones than others', '2020-12-24 10:12:28', '2020-12-24', '2020-12-27', 2000, 'USD', 20, 20, 60, 1, 1, 3),
+(2, 'Rwandan Population Statistics ', '2020-12-25 09:33:01', '2020-12-26', '2021-01-09', 2000000, 'RWF', 20, 30, 50, 1, 1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -157,8 +179,17 @@ CREATE TABLE `consultant_contract` (
   `contract_start_date` date NOT NULL,
   `contract_end_date` date NOT NULL,
   `contract_amount` double NOT NULL,
-  `contract_assigner_id` int(11) NOT NULL
+  `contract_assigner_id` int(11) NOT NULL,
+  `contract_status_id` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `consultant_contract`
+--
+
+INSERT INTO `consultant_contract` (`consultant_contract_id`, `contract_consultancy_id`, `contract_consultant_id`, `contract_sign_date`, `contract_start_date`, `contract_end_date`, `contract_amount`, `contract_assigner_id`, `contract_status_id`) VALUES
+(1, 1, 3, '2020-12-25 02:50:33', '2020-12-24', '2020-12-25', 100, 2, 1),
+(2, 2, 4, '2020-12-26 09:50:13', '2020-12-30', '2021-01-03', 20000, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -218,8 +249,15 @@ CREATE TABLE `group_members` (
   `group_id` int(11) NOT NULL,
   `member_id` int(11) NOT NULL,
   `join_date` datetime NOT NULL,
-  `group_members_status` int(11) NOT NULL
+  `group_members_status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `group_members`
+--
+
+INSERT INTO `group_members` (`group_members_id`, `group_id`, `member_id`, `join_date`, `group_members_status`) VALUES
+(1, 3, 4, '2020-12-26 11:07:26', 1);
 
 -- --------------------------------------------------------
 
@@ -246,8 +284,14 @@ CREATE TABLE `message` (
 INSERT INTO `message` (`message_id`, `message_content`, `message_file_docs`, `message_img`, `message_send_date`, `message_sender_id`, `message_receiver_id`, `message_status_id`, `message_reads`) VALUES
 (1, 'Hi Patrick', NULL, NULL, '2020-12-24 08:30:13', 3, 2, 1, 1),
 (2, 'Jay P, Umeze gt se?', NULL, NULL, '2020-12-24 08:50:28', 3, 2, 1, 1),
-(3, 'Meze fresh Pazzo', NULL, NULL, '2020-12-24 08:56:01', 2, 3, 1, 2),
-(4, 'Wowe se umeze gt?', NULL, NULL, '2020-12-24 08:56:10', 2, 3, 1, 2);
+(3, 'Meze fresh Pazzo', NULL, NULL, '2020-12-24 08:56:01', 2, 3, 1, 1),
+(4, 'Wowe se umeze gt?', NULL, NULL, '2020-12-24 08:56:10', 2, 3, 1, 1),
+(5, 'Nange meze neza peuh', NULL, NULL, '2020-12-24 09:17:24', 3, 2, 1, 1),
+(6, 'Ugiye kurara gute se?', NULL, NULL, '2020-12-24 09:17:37', 3, 2, 1, 1),
+(42, 'Ahhh, naraye neza kinywanyi', NULL, NULL, '2020-12-25 12:09:18', 2, 3, 1, 2),
+(43, 'Wowe se umeze gt?', NULL, NULL, '2020-12-25 12:09:29', 2, 3, 1, 2),
+(44, 'Hi Muneza', NULL, NULL, '2020-12-25 05:49:17', 2, 3, 1, 2),
+(45, 'Welcome Phizzo', NULL, NULL, '2020-12-26 09:18:40', 3, 4, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -299,7 +343,7 @@ CREATE TABLE `school` (
 
 INSERT INTO `school` (`school_id`, `school_name`, `college_id`) VALUES
 (1, 'INFORMATION COMMUNICATION AND TECHNOLOGY', 3),
-(2, 'SCHOOL OF MEDECINE', 4);
+(2, 'MEDECINE', 4);
 
 -- --------------------------------------------------------
 
@@ -352,8 +396,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_first_name`, `user_last_name`, `user_gender`, `user_national_id`, `user_email`, `user_password`, `user_status_id`, `user_type_id`, `user_country`, `user_profile_image`, `user_adder_id`, `user_last_active`, `user_department`, `user_location`, `user_education`, `user_summary`, `user_phone`) VALUES
-(2, 'Jean Paul', 'NISHIMIRWE', 'M', '1199780117063139', 'nishimirwepaul2015@gmail.com', '$2y$10$2MJI.vl3sAkP2SpYtEaFtOSFgRmDdAvnXZlY96yOEmicDC7ts6vFi', 1, 1, 1, 'profile_img/23aa0f009d53c04311d5f65b887e126ba.jpg', 2, '2020-12-24 20:56:14', 1, 'No location entered', 'Not education', 'No summary', 'Input your number'),
-(3, 'Patrick', 'ISHIMWE', 'M', '1199680012546588', 'patrickishimwe16@gmail.com', '$2y$10$HyaVWMPfIPPPbbIbLDZ1z.3xUmQikQ23xezvFHk15JDhyVpI.oGNO', 1, 2, 1, 'profile_img/31a1f9e31ee5b89b303b583f007b7e3c6.jpg', 2, '2020-12-24 21:04:24', 1, 'No location entered', 'Not education', 'No summary', 'Input your number');
+(2, 'Jean Paul', 'NISHIMIRWE', 'F', '1199780117063139', 'nishimirwepaul2015@gmail.com', '$2y$10$HUrI/JTKZVDlUOMF2sCCT.3c1q85D94iWcqGfySRh00yjjzJyAAwC', 1, 1, 5, 'profile_img/23aa0f009d53c04311d5f65b887e126ba.jpg', 2, '2020-12-26 12:04:42', 2, 'Nyarugenge, Kigali, Rwanda', 'Masters in software engineering', 'No summary', '(+250) 789 336 678'),
+(3, 'Patrick', 'ISHIMWE', 'M', '1199680012546588', 'patrickishimwe16@gmail.com', '$2y$10$R6huSDMgrX7dYlCWG1bPmu7hZFUqjLIQf78Cxs/ZaLcV1dMDhHlga', 1, 2, 1, 'profile_img/38f8fe05f746bd8f29a751fb1a2affefb.jpg', 2, '2020-12-26 11:40:52', 1, 'Nyamirambo, Kigali, Rwanda', 'Not education', 'No summary', 'Input your number'),
+(4, 'Philius', 'HAKIZIMANA', 'M', '1199680012546544', 'hakizaphilius@gmail.com', '$2y$10$R6huSDMgrX7dYlCWG1bPmu7hZFUqjLIQf78Cxs/ZaLcV1dMDhHlga', 1, 3, 1, 'profile_img/4d8bed6e4cbd0d7de857ff6739969d369.jpg', 3, '2020-12-26 12:09:01', 1, 'No location entered', 'Not education', 'No summary', 'Input your number');
 
 -- --------------------------------------------------------
 
@@ -439,7 +484,8 @@ ALTER TABLE `consultant_contract`
   ADD PRIMARY KEY (`consultant_contract_id`),
   ADD KEY `contract.consultancy_idx` (`contract_consultancy_id`),
   ADD KEY `contract.consltant_idx` (`contract_consultant_id`),
-  ADD KEY `contract.users.assigner_idx` (`contract_assigner_id`);
+  ADD KEY `contract.users.assigner_idx` (`contract_assigner_id`),
+  ADD KEY `contract.consultancyProgress` (`contract_status_id`);
 
 --
 -- Indexes for table `country`
@@ -538,13 +584,13 @@ ALTER TABLE `campus`
 -- AUTO_INCREMENT for table `chat_group`
 --
 ALTER TABLE `chat_group`
-  MODIFY `chat_group_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `chat_group_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `college`
@@ -556,7 +602,7 @@ ALTER TABLE `college`
 -- AUTO_INCREMENT for table `consultancy`
 --
 ALTER TABLE `consultancy`
-  MODIFY `consultancy_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `consultancy_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `consultancy_progress`
@@ -568,7 +614,7 @@ ALTER TABLE `consultancy_progress`
 -- AUTO_INCREMENT for table `consultant_contract`
 --
 ALTER TABLE `consultant_contract`
-  MODIFY `consultant_contract_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `consultant_contract_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `country`
@@ -586,13 +632,13 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `group_members`
 --
 ALTER TABLE `group_members`
-  MODIFY `group_members_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `group_members_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `message_read`
@@ -622,7 +668,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user_type`
@@ -674,6 +720,7 @@ ALTER TABLE `consultancy`
 --
 ALTER TABLE `consultant_contract`
   ADD CONSTRAINT `contract.consultancy` FOREIGN KEY (`contract_consultancy_id`) REFERENCES `consultancy` (`consultancy_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `contract.consultancyProgress` FOREIGN KEY (`contract_status_id`) REFERENCES `consultancy_progress` (`consultancy_progress_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `contract.users.assigner` FOREIGN KEY (`contract_assigner_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `contract.users.consultant` FOREIGN KEY (`contract_consultant_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
