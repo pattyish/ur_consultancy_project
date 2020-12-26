@@ -57,7 +57,7 @@
                 {
                     $('#SendImage').attr("disabled",false);
                     $("#uploadProfileImage").trigger("reset");
-                    $('#results').html(response);
+                    $('#results').html("<i class='text-blue'><b>"+response+"</b></i>");
                     
                 }
             });

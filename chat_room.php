@@ -6,6 +6,45 @@
 <?php include 'public/includes/layouts/left_bar_side.php';?>
 <!-- DIRECT CHAT -->
 
+<script>
+    $(document).ready(function() {
+
+        //viewPartners is clicked
+        $("#viewPartners").on("click",function(){
+            $("#groupOrInd").val(1);
+            $("#groupOrIndividual").html("Checking partners...");
+            $.ajax({
+                type: "POST",
+                url: "backend/exchangeToPartners.php",
+                success: function(data){
+                    $("#groupOrIndividual").html(data);
+                    $("#conversation_window").html("click on a user to see the conversation here.");
+                    $("#chat_with").html("Choose a user to chat with");
+                    $("#receiverId").val("");
+                }
+            });
+        });
+
+        //viewPartners is clicked
+        $("#viewGroups").on("click",function(){
+            $("#groupOrInd").val(2);
+            $("#groupOrIndividual").html("Checking groups...");
+            $.ajax({
+                type: "POST",
+                url: "backend/exchangeToGroups.php",
+                success: function(data){
+                    $("#groupOrIndividual").html(data);
+                    $("#conversation_window").html("click on a group to see the conversation here.");
+                    $("#chat_with").html("Choose a group on the left side");
+                    $("#receiverId").val("");
+                }
+            });
+        });
+
+    });
+
+    </script>
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -24,20 +63,25 @@
             <div class="col-md-4">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title" text-blue><b>Partners view</b></h3>
+                        <h3 class="box-title text-gray" id="onView"><b>Partners</b></h3>
                         <div class="box-tools pull-right">
-                            <span class="label label-success"><a href="#" style="text-decoration: none;" data-toggle="modal"
-                                    data-target="#create_group"> Create Group</a></span>
-                            <span class=" label label-primary">View Groups</span>
+                            <a href="#" id="viewPartners">
+                                <span class=" label label-primary">View partners</span>
+                            </a>
+                            <a href="#" id="viewPartners">
+                                <span class=" label label-primary" id="viewGroups">View Groups</span>
+                            </a>
+                            <span class="label label-success">
+                            <a href="#" style="text-decoration: none;" data-toggle="modal"
+                                    data-target="#create_group"> Create Group</a>
+                            </span>
                         </div>
                     </div>
                     <?php include 'models/create_group.php'; ?>
                     <!-- /.box-header -->
-                    <div class="box-body no-padding">
-                        <ul class="users-list clearfix" id="userToChatWith">
-                            <?php include 'backend/getUsersToChatWith.php'; ?>
-                        </ul>
+                    <div class="box-body no-padding" id="groupOrIndividual">
                         <!-- /.users-list -->
+                            <?php include 'backend/getUsersToChatWith.php'; ?>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer text-center text-blue">
@@ -68,6 +112,7 @@
                         <form id="sendMessageForm">
                             <div class="input-group">
                                 <input type="hidden" id="receiverId">
+                                <input type="hidden" id="groupOrInd" value="1">
                                 <textarea type="text" id="messageToSend" placeholder="Type Message ..."
                                     class="form-control">
                             </textarea>

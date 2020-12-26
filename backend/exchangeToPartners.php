@@ -1,4 +1,8 @@
 <?php 
+session_start();
+// this file is loaded when a user clicks on view partners
+$myId = $_SESSION['User_ID'];
+include 'Database.php';
 // select all people that I can chat with
 $retrieve = "SELECT * FROM users INNER JOIN user_type ON users.user_type_id = user_type.user_type_id AND users.user_status_id = 1 ";
 $retrieve = mysqli_query($connect,$retrieve);
@@ -50,6 +54,6 @@ else
 ?>
 </ul>
 <?php
-include 'backend/jsForChatting.php';
+include 'jsForChatting.php';
 ?>
 

@@ -1,6 +1,9 @@
 <script>
 $(document).ready(function(){
     $("#messageToSend").html("");
+
+    // chatting individually
+
     // chatting with other users
     $(".userToChat").on("click",function(e){
         var userId= parseInt($(this).val());
@@ -22,33 +25,94 @@ $(document).ready(function(){
      // sending a message
      $("#sendMessageForm").on("submit",function(e){
          e.preventDefault();
-         var userIdd= $("#receiverId").val();
-        var userId= parseInt($("#receiverId").val());
-        var messageContent= $("#messageToSend").val();
-        if($.trim(messageContent).length == 0)
+        var groupOrInd = $("#groupOrInd").val(); // check if it is groups or partners individually
+        if(groupOrInd == 1)
         {
-            $("#sendMessageFeedback").html("<b>Write something, please</b>");
+            // send a message to one single partner
+            var userIdd= $("#receiverId").val();
+            var userId= parseInt($("#receiverId").val());
+            var messageContent= $("#messageToSend").val();
+            if($.trim(messageContent).length == 0)
+            {
+                $("#sendMessageFeedback").html("<b>Write something, please</b>");
+            }
+            else if($.trim(userIdd).length == 0)
+            {
+                $("#sendMessageFeedback").html("<b>Oops, you have not chosen a user to chat with.</b>");
+            }
+            else
+            {
+                $("#sendMessageBtn").attr("disabled", true);
+                $.ajax({
+                    type: "post",
+                    url: "backend/sendMessage.php",
+                    data: {userId : userId, messageContent : messageContent},
+                    success: function(response)
+                    {
+                        $("#conversation_window").html(response);
+                        $("#messageToSend").val("");
+                    }
+                });
+                $("#sendMessageBtn").attr("disabled", false);
+                return false;
+            }
         }
-        else if($.trim(userIdd).length == 0)
+        else if(groupOrInd == 2)
         {
-            $("#sendMessageFeedback").html("<b>Oops, you have not chosen a user to chat with.</b>");
+            // send a message to one single partner
+            var groupIdd= $("#receiverId").val();
+            var groupId= parseInt($("#receiverId").val());
+            var messageContent= $("#messageToSend").val();
+            if($.trim(messageContent).length == 0)
+            {
+                $("#sendMessageFeedback").html("<b>Write something, please</b>");
+            }
+            else if($.trim(groupIdd).length == 0)
+            {
+                $("#sendMessageFeedback").html("<b>Select a group in which you want to send a message.</b>");
+            }
+            else
+            {
+                $("#sendMessageFeedback").html("");
+                $("#sendMessageBtn").attr("disabled", true);
+                $.ajax({
+                    type: "post",
+                    url: "backend/sendGroupMessages.php",
+                    data: {groupId : groupId, messageContent : messageContent},
+                    success: function(response)
+                    {
+                        $("#conversation_window").html(response);
+                        $("#messageToSend").val("");
+                        $("#sendMessageBtn").attr("disabled", false);
+                        $("#sendMessageForm").trigger("reset");
+                    }
+                });
+            }
         }
         else
         {
-            $("#sendMessageBtn").attr("disabled", true);
-            $.ajax({
-                type: "post",
-                url: "backend/sendMessage.php",
-                data: {userId : userId, messageContent : messageContent},
-                success: function(response)
-                {
-                    $("#conversation_window").html(response);
-                    $("#messageToSend").val("");
-                    $("#sendMessageBtn").attr("disabled", false);
-                }
-            });
-        }
-      
+            $("#sendMessageFeedback").html("<b>On left side, choose the receiver.</b>");
+        } 
+    });
+
+    // chatting in groups
+
+    // chatting within groups
+    $(".groupToChat").on("click",function(e){
+        var groupId= $(this).val();
+        var groupname= $(this).attr("groupname");
+        $("#chat_with").html("<b>Chatting with members of "+groupname+"</b>");
+        $("#receiverId").val(groupId);
+        $("#conversation_window").html("Loading chats of "+groupname+" group....." );
+        $.ajax({
+            type: "post",
+            url: "backend/groupMessages.php",
+            data: {groupId : groupId},
+            success: function(response)
+            {
+                $("#conversation_window").html(response);
+            }
+        });
     });
 });
 

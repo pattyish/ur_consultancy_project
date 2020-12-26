@@ -126,5 +126,5 @@ else if(isset($_SESSION['User_ID']))
             AutloadMessages(); 
         }, 5000); 
 
-</script>
+    </script>
 </head>
