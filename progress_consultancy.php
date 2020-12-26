@@ -36,7 +36,7 @@ $(document).ready(function()
                         style="border-bottom: 1px solid rgba(60, 141, 188, 0.3); margin-bottom: 10px;">
                         <h3 class="box-title" style="padding-top: 10px; padding-bottom: 10px;">In Progress
                             Consultancies &nbsp;<span class="pull-right-container">
-                                <small class="label pull-right bg-blue" id="showTotal">12</small>
+                                <small class="label pull-right bg-blue" id="showTotal"></small>
                             </span></h3>
                     </div>
                     <!-- /.box-header -->
