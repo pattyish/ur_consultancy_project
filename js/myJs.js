@@ -27,7 +27,7 @@ $(document).ready(function(){
                 data: {fName : fName, lName : lName, gender : gender, natId : natId , userEmail : userEmail, userType : userType, country : country, department : department},
                 success: function(response)
                 {
-                    $("#feedback").html("<i class='text-red'><b>"+response+"</b></i>");
+                    $("#feedback").html("<i class='text-green'><b>"+response+"</b></i>");
                     if(response.includes("successfully"))
                     {
                         $("#fName").val("");
@@ -581,6 +581,21 @@ $(document).ready(function(){
         {
             $("#userContract"+consultancy_id).html("");
             window.location.href = "sign_contract.php?consultancy_id="+consultancy_id+"&userNatId="+userNatId;
+        }
+    });
+
+    // CREATE A GROUP CHAT
+   $("#createGroupFrom").on("submit",function(e){
+        e.preventDefault();
+        var groupName =$("#groupName")..val();
+        var description = $("#groupDescription").val();
+        if($.trim(groupName).length == 0 || $.trim(description).length == 0)
+        {
+            $("#createGroupFeedback").html("<b><i class='text-red'>All fields are required</i></b>");
+        }
+        else
+        {
+            $("#createGroupFeedback").html("<b><i class='text-blue'>Goog</i></b>");
         }
     });
 });
