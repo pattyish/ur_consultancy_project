@@ -15,13 +15,9 @@
                     <div class="form-group">
                         <div class="form-group">
                             <label for="">National Id or Name </label>
-                            <select id="userNatId" class="form-control select2" multiple="multiple"
-                                            data-placeholder="Select a State" style="width: 100%;">
-                                <option>Type Id here</option>
                             <?php
                             include 'backend/getUsersNatId.php';
                             ?>
-                            </select>
                         </div>
                     </div>
                 </form>

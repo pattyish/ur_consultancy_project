@@ -572,7 +572,7 @@ $(document).ready(function(){
    $(".signContractWithUser").on("click",function(e){
         e.preventDefault();
         var consultancy_id = $(this).val();
-        var userNatId = $("#userNatId").val();
+        var userNatId = $("#userNatId"+consultancy_id).val();
         if($.trim(userNatId).length == 0)
         {
             $("#userContract"+consultancy_id).html("<b><i class='text-red'>No consultant selected</i></b>");
