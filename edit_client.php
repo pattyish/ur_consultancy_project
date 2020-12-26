@@ -78,7 +78,7 @@ if($retrieveCount > 0)
                         <div class="box-footer">
                             <input type="hidden" id="client_id" value="<?php echo $client_id; ?>">
                             <button type="submit" class="btn btn-primary">Update Client</button>&nbsp;&nbsp;&nbsp;
-                            <span style="font-size: 20px;" id="editClientFeedback"></span>
+                            <span style="font-size: 10px;" id="editClientFeedback"></span>
                         </div>
                     </form>
                 </div>
