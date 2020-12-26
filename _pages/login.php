@@ -39,11 +39,11 @@
                 var password= $("#password").val();
                 if($.trim(uName).length == 0 || $.trim(password).length == 0)
                 {
-                    $("#login_feedback").html("<i class='text-red'>Fill all fields.</i>");
+                    $("#login_feedback").html("<i class='text-red'><b>Fill all fields.</b></i>");
                 }
                 else
                 {
-                    $("#login_feedback").html("<i class='text-blue'>Checking...</i>");
+                    $("#login_feedback").html("<i class='text-blue'><b>Checking...</b></i>");
                     // AJAX to link to backend/addUser
                     $.ajax({
                         type:"post",

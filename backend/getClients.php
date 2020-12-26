@@ -1,5 +1,5 @@
 <?php
-$getClients= "SELECT * FROM client ORDER BY client.client_name ASC";
+$getClients= "SELECT * FROM client WHERE client.client_status = 1 ORDER BY client.client_name ASC";
 $getClients = mysqli_query($connect,$getClients);
 $countClients =mysqli_num_rows($getClients);
 if($countClients > 0)
