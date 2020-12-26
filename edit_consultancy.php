@@ -141,7 +141,7 @@ if($retrieveCount > 0)
                                 <input type="hidden" id="consultancyId" value="<?php echo $consultancy_id; ?>">
                                     <button type="submit" class="btn btn-success"
                                         style="padding: 7px; font-size: 15px;">Save changes</button>
-                                    &nbsp; &nbsp; <span style="font-size: 20px;" id="editConsultancyFeedback"></span>
+                                    &nbsp; &nbsp; <span style="font-size: 10px;" id="editConsultancyFeedback"></span>
                                 </div>
                             </div>
                         </div>
