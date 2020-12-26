@@ -584,19 +584,18 @@ $(document).ready(function(){
         }
     });
 
-    // CREATE CHATTING GROUP
-   $(".signContractWithUser").on("click",function(e){
+     // CREATE A GROUP CHAT
+    $("#createGroupFrom").on("submit",function(e){
         e.preventDefault();
-        var consultancy_id = $(this).val();
-        var userNatId = $("#userNatId"+consultancy_id).val();
-        if($.trim(userNatId).length == 0)
+        var groupName =$("#groupName")..val();
+        var description = $("#groupDescription").val();
+        if($.trim(groupName).length == 0 || $.trim(description).length == 0)
         {
-            $("#userContract"+consultancy_id).html("<b><i class='text-red'>No consultant selected</i></b>");
+            $("#createGroupFeedback").html("<b><i class='text-red'>All fields are required</i></b>");
         }
         else
         {
-            $("#userContract"+consultancy_id).html("");
-            window.location.href = "sign_contract.php?consultancy_id="+consultancy_id+"&userNatId="+userNatId;
+            $("#createGroupFeedback").html("<b><i class='text-blue'>Goog</i></b>");
         }
     });
 });
