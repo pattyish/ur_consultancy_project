@@ -18,10 +18,10 @@ else if($MYUserType == 2)
 }
 else if($MYUserType == 3)
 {
-    $retrieve = "SELECT * FROM consultancy INNER JOIN client INNER JOIN consultancy_progress INNER JOIN consultant_contract ON
-    consultancy.consultancy_client_id = client.client_id AND consultancy.consultancy_id = consultant_contract.contract_consultancy_id AND
-    consultancy.consultancy_progress = consultancy_progress.consultancy_progress_id WHERE consultant_contract.contract_consultant_id = $myId
-    AND consultancy.consultancy_progress = 1";
+    $retrieve = "SELECT * FROM consultancy INNER JOIN client INNER JOIN consultancy_progress ON
+    consultancy.consultancy_client_id = client.client_id AND 
+    consultancy.consultancy_progress = consultancy_progress.consultancy_progress_id WHERE 
+    consultancy.consultancy_progress = 1";
     $retrieve = mysqli_query($connect,$retrieve);
 }
 // file to retrieve all existing consultants and show them in table with possible options

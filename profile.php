@@ -54,7 +54,7 @@
                         <ul class="list-group list-group-unbordered">
                             <li class="list-group-item">
                             <?php 
-                            // query to count number of my completed consultancy
+                            // query to count number of ongoing consultancy
                             $comple = "SELECT * FROM consultant_contract INNER JOIN consultancy ON consultant_contract.contract_consultancy_id = consultancy.consultancy_id WHERE consultant_contract.contract_consultant_id = $myId AND consultancy.consultancy_progress = 2 ";
                             $comple = mysqli_query($connect,$comple);
                             $compleCount = mysqli_num_rows($comple);
@@ -63,7 +63,7 @@
                             </li>
                             <li class="list-group-item">
                             <?php 
-                            // query to count number of my ongoing consultancy
+                            // query to count number of ongoing consultancy
                             $onGoin = "SELECT * FROM consultant_contract INNER JOIN consultancy ON consultant_contract.contract_consultancy_id = consultancy.consultancy_id WHERE consultant_contract.contract_consultant_id = $myId AND consultancy.consultancy_progress = 1 ";
                             $onGoin = mysqli_query($connect,$onGoin);
                             $onGoinCount = mysqli_num_rows($onGoin);

@@ -7,7 +7,7 @@ include 'backend/Database.php';
 
 $myId=$_SESSION['User_ID'];
 // select all people that I can chat with
-$retrieve = "SELECT * FROM users INNER JOIN user_type ON users.user_type_id = user_type.user_type_id AND users.user_status_id = 1 ORDER BY users.user_first_name ASC";
+$retrieve = "SELECT * FROM users INNER JOIN user_type ON users.user_type_id = user_type.user_type_id AND users.user_status_id = 1";
 $retrieve = mysqli_query($connect,$retrieve);
 $retrieveCount = mysqli_num_rows($retrieve);
 if($retrieveCount > 0)
