@@ -8,6 +8,7 @@ $userId = $_POST['userId'];
 // update message to readable message
 $Update_Query="UPDATE message SET message_reads=1 WHERE (message.message_receiver_id=$myId AND message.message_sender_id=$userId)";
 $Update_Answer=mysqli_query($connect,$Update_Query);
+
 // doing our staff, first get the data of the receiver
 $query="SELECT * FROM users WHERE users.user_id=$userId;";
 $answer=mysqli_query($connect,$query);
@@ -17,8 +18,8 @@ while($line=mysqli_fetch_object($answer))
     $lastName=$line ->user_last_name;
     $receiverProfileImage=$line ->user_profile_image;
 }
-// select all people that I can chat with
-$Message_Query = "SELECT * FROM message WHERE (message.message_receiver_id=$myId OR message.message_sender_id=$myId) AND (message.message_receiver_id=$userId OR message.message_sender_id=$userId) ORDER BY message.message_Id DESC LIMIT 10;";
+// select all messages to load
+$Message_Query = "SELECT * FROM message WHERE (message.message_receiver_id=$myId OR message.message_sender_id=$myId) AND (message.message_receiver_id=$userId OR message.message_sender_id=$userId) ORDER BY message.message_Id DESC LIMIT 100;";
 $Message_Query = mysqli_query($connect,$Message_Query);
 $Message_Count = mysqli_num_rows($Message_Query);
 if($Message_Count == 0)
