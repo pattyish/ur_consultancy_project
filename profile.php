@@ -96,7 +96,7 @@
                         <p class="text-muted"><?php echo $MYuser_education; ?></p>
 
                         <hr>
-                        <strong><i class="fa fa-file-text-o margin-r-5"></i> Consultant Boi.</strong>
+                        <strong><i class="fa fa-file-text-o margin-r-5"></i> Consultant Bio.</strong>
 
                         <p class="text-muted"><?php echo $MYuser_summary; ?></p>
                     </div>
@@ -109,7 +109,7 @@
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#activity" data-toggle="tab">
-                                <h4>Consultant Boi.</h4>
+                                <h4>Consultant Bio.</h4>
                             </a></li>
                         <li><a href="#timeline" data-toggle="tab">
                                 <h4>Change Password</h4>
@@ -264,7 +264,7 @@
                                                     placeholder="About education and skills"><?php echo $MYuser_education; ?></textarea>
                                             </div>
                                             <div class="form-group">
-                                                <label>Consultant Boi.</label>
+                                                <label>Consultant Bio.</label>
                                                 <textarea class="form-control" id="userSummary"
                                                     placeholder="Enter the summary about your self"><?php echo $MYuser_summary; ?></textarea>
                                             </div>

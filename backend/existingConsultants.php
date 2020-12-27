@@ -35,7 +35,7 @@ if($retrieveCount > 0)
             </a>
             <a href="#" data-toggle="modal" data-target="#delete_consultant<?php echo $user_id;  ?>"
                 class="btn btn-danger table_button">
-                <i class="fa fa-trash"></i> Delete
+                <i class="fa fa-trash"></i> Disable
             </a>
         </div>
        
