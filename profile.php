@@ -109,7 +109,7 @@
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#activity" data-toggle="tab">
-                                <h4>Summary</h4>
+                                <h4>Consultant Boi.</h4>
                             </a></li>
                         <li><a href="#timeline" data-toggle="tab">
                                 <h4>Change Password</h4>
