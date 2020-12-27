@@ -6,45 +6,9 @@
 <?php include 'public/includes/layouts/left_bar_side.php';?>
 <!-- DIRECT CHAT -->
 
-<script>
-    $(document).ready(function() {
-
-        //viewPartners is clicked
-        $("#viewPartners").on("click",function(){
-            $("#groupOrInd").val(1);
-            $("#groupOrIndividual").html("Checking partners...");
-            $.ajax({
-                type: "POST",
-                url: "backend/exchangeToPartners.php",
-                success: function(data){
-                    $("#groupOrIndividual").html(data);
-                    $("#conversation_window").html("click on a user to see the conversation here.");
-                    $("#chat_with").html("Choose a user to chat with");
-                    $("#receiverId").val("");
-                }
-            });
-        });
-
-        //viewPartners is clicked
-        $("#viewGroups").on("click",function(){
-            $("#groupOrInd").val(2);
-            $("#groupOrIndividual").html("Checking groups...");
-            $.ajax({
-                type: "POST",
-                url: "backend/exchangeToGroups.php",
-                success: function(data){
-                    $("#groupOrIndividual").html(data);
-                    $("#conversation_window").html("click on a group to see the conversation here.");
-                    $("#chat_with").html("Choose a group on the left side");
-                    $("#receiverId").val("");
-                }
-            });
-        });
-
-    });
-
-    </script>
-
+<?php
+include 'backend/jsForChatting1.php';
+?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -65,13 +29,13 @@
                     <div class="box-header with-border">
                         <h3 class="box-title text-gray" id="onView"><b>Partners</b></h3>
                         <div class="box-tools pull-right">
-                            <a href="#" id="viewPartners">
+                            <a href="#" id="viewPartners" title="Display partners to chat with">
                                 <span class=" label label-primary">View partners</span>
                             </a>
-                            <a href="#" id="viewPartners">
+                            <a href="#" id="viewPartners" title="Display all groups you belong to">
                                 <span class=" label label-primary" id="viewGroups">View Groups</span>
                             </a>
-                            <span class="label label-success">
+                            <span class="label label-success" title="Create a new group">
                             <a href="#" style="text-decoration: none;" data-toggle="modal"
                                     data-target="#create_group"> Create Group</a>
                             </span>
@@ -96,7 +60,7 @@
                         <h2 class="box-title text-green" id="chat_with">Choose a user to chat with</h2>
 
                         <div class="box-tools pull-right">
-                            <span data-toggle="tooltip" title="3 New Messages" class="badge bg-primary">.. </span>
+                            <button data-toggle="tooltip" id="addNewMemberBtn" title="Add a group member" class="badge bg-primary" disabled hidden>+</button>
                             &nbsp;&nbsp;&nbsp;
                             <button style="font-size: 17px;" type="button" class="btn btn-box-tool"
                                 data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">

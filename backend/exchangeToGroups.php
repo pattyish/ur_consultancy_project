@@ -22,6 +22,7 @@ if($retrieveCount > 0)
         $chat_group_description = $lineRetrieve -> chat_group_description;
         $join_date = $lineRetrieve -> join_date;
         $chat_group_create_date = $lineRetrieve -> chat_group_create_date;
+        $chat_group_creator_id = $lineRetrieve -> chat_group_creator;
         $chat_group_creator = $lineRetrieve -> user_first_name;
         // get number of unreads message for each user
         /*$Unread_Query="SELECT COUNT(*) AS nbr FROM group_mesages 
@@ -33,7 +34,8 @@ if($retrieveCount > 0)
             $Unreads_Number=$Unread_Line ->nbr;
         } */
         ?>
-        <li class="groupToChat" value="<?php echo $chat_group_id; ?>" groupname="<?php echo $chat_group_name; ?>">
+        <li class="groupToChat" value="<?php echo $chat_group_id; ?>" groupname="<?php echo $chat_group_name; ?>" 
+        creator="<?php echo $chat_group_creator_id; ?>" me="<?php echo $myId; ?>">
             <img src="<?php echo "backend/img/groups.jpg"; ?>" alt="Group Image" style="width:60px; height:60px; object-fit:cover; object-position: 50% 0;">
             <a class="users-list-name groupToChat" href="#">
                 <?php echo $chat_group_name; ?>

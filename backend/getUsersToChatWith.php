@@ -49,7 +49,4 @@ else
 }
 ?>
 </ul>
-<?php
-include 'backend/jsForChatting.php';
-?>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2020 at 12:09 PM
+-- Generation Time: Dec 27, 2020 at 08:29 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -73,7 +73,9 @@ CREATE TABLE `chat_group` (
 --
 
 INSERT INTO `chat_group` (`chat_group_id`, `chat_group_name`, `chat_group_create_date`, `chat_group_creator`, `chat_group_description`, `chat_group_status`) VALUES
-(3, 'REB choice', '2020-12-26 11:07:26', 4, 'People chosen by REB to supervise exams 2020', 1);
+(3, 'REB choice', '2020-12-26 11:07:26', 4, 'People chosen by REB to supervise exams 2020', 1),
+(4, 'Geeks', '2020-12-26 20:54:13', 2, 'Real Programmers', 1),
+(5, 'Our Class', '2020-12-26 21:26:52', 2, 'Year 4 CSC', 1);
 
 -- --------------------------------------------------------
 
@@ -257,7 +259,35 @@ CREATE TABLE `group_members` (
 --
 
 INSERT INTO `group_members` (`group_members_id`, `group_id`, `member_id`, `join_date`, `group_members_status`) VALUES
-(1, 3, 4, '2020-12-26 11:07:26', 1);
+(1, 3, 4, '2020-12-26 11:07:26', 1),
+(2, 4, 2, '2020-12-26 20:54:13', 1),
+(3, 5, 2, '2020-12-26 21:26:52', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `group_mesages`
+--
+
+CREATE TABLE `group_mesages` (
+  `group_mesages_id` int(11) NOT NULL,
+  `group_mesages_content` text DEFAULT NULL,
+  `group_mesages_img` varchar(100) DEFAULT NULL,
+  `group_mesages_doc` varchar(100) DEFAULT NULL,
+  `group_mesages_sendDate` datetime NOT NULL,
+  `group_mesages_sender` int(11) NOT NULL,
+  `group_mesages_groupTo` int(11) NOT NULL,
+  `group_mesages_status` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `group_mesages`
+--
+
+INSERT INTO `group_mesages` (`group_mesages_id`, `group_mesages_content`, `group_mesages_img`, `group_mesages_doc`, `group_mesages_sendDate`, `group_mesages_sender`, `group_mesages_groupTo`, `group_mesages_status`) VALUES
+(431, 'Se', NULL, NULL, '2020-12-26 09:37:26', 2, 5, 1),
+(432, 'Se', NULL, NULL, '2020-12-26 09:37:26', 2, 5, 1),
+(433, 'Se', NULL, NULL, '2020-12-26 09:37:27', 2, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -282,16 +312,13 @@ CREATE TABLE `message` (
 --
 
 INSERT INTO `message` (`message_id`, `message_content`, `message_file_docs`, `message_img`, `message_send_date`, `message_sender_id`, `message_receiver_id`, `message_status_id`, `message_reads`) VALUES
-(1, 'Hi Patrick', NULL, NULL, '2020-12-24 08:30:13', 3, 2, 1, 1),
-(2, 'Jay P, Umeze gt se?', NULL, NULL, '2020-12-24 08:50:28', 3, 2, 1, 1),
-(3, 'Meze fresh Pazzo', NULL, NULL, '2020-12-24 08:56:01', 2, 3, 1, 1),
-(4, 'Wowe se umeze gt?', NULL, NULL, '2020-12-24 08:56:10', 2, 3, 1, 1),
-(5, 'Nange meze neza peuh', NULL, NULL, '2020-12-24 09:17:24', 3, 2, 1, 1),
-(6, 'Ugiye kurara gute se?', NULL, NULL, '2020-12-24 09:17:37', 3, 2, 1, 1),
-(42, 'Ahhh, naraye neza kinywanyi', NULL, NULL, '2020-12-25 12:09:18', 2, 3, 1, 2),
-(43, 'Wowe se umeze gt?', NULL, NULL, '2020-12-25 12:09:29', 2, 3, 1, 2),
-(44, 'Hi Muneza', NULL, NULL, '2020-12-25 05:49:17', 2, 3, 1, 2),
-(45, 'Welcome Phizzo', NULL, NULL, '2020-12-26 09:18:40', 3, 4, 1, 2);
+(80, 'xqs', NULL, NULL, '2020-12-26 09:39:15', 2, 3, 1, 1),
+(81, 'xqs', NULL, NULL, '2020-12-26 09:39:15', 2, 3, 1, 1),
+(82, 'xqs', NULL, NULL, '2020-12-26 09:39:16', 2, 3, 1, 1),
+(83, 'xqs', NULL, NULL, '2020-12-26 09:39:16', 2, 3, 1, 1),
+(84, 'Yooo', NULL, NULL, '2020-12-26 09:55:19', 3, 2, 1, 2),
+(85, 'Yooo', NULL, NULL, '2020-12-26 09:55:19', 3, 2, 1, 2),
+(86, 'Yooo', NULL, NULL, '2020-12-26 09:55:20', 3, 2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -396,9 +423,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_first_name`, `user_last_name`, `user_gender`, `user_national_id`, `user_email`, `user_password`, `user_status_id`, `user_type_id`, `user_country`, `user_profile_image`, `user_adder_id`, `user_last_active`, `user_department`, `user_location`, `user_education`, `user_summary`, `user_phone`) VALUES
-(2, 'Jean Paul', 'NISHIMIRWE', 'F', '1199780117063139', 'nishimirwepaul2015@gmail.com', '$2y$10$HUrI/JTKZVDlUOMF2sCCT.3c1q85D94iWcqGfySRh00yjjzJyAAwC', 1, 1, 5, 'profile_img/23aa0f009d53c04311d5f65b887e126ba.jpg', 2, '2020-12-26 12:04:42', 2, 'Nyarugenge, Kigali, Rwanda', 'Masters in software engineering', 'No summary', '(+250) 789 336 678'),
-(3, 'Patrick', 'ISHIMWE', 'M', '1199680012546588', 'patrickishimwe16@gmail.com', '$2y$10$R6huSDMgrX7dYlCWG1bPmu7hZFUqjLIQf78Cxs/ZaLcV1dMDhHlga', 1, 2, 1, 'profile_img/38f8fe05f746bd8f29a751fb1a2affefb.jpg', 2, '2020-12-26 11:40:52', 1, 'Nyamirambo, Kigali, Rwanda', 'Not education', 'No summary', 'Input your number'),
-(4, 'Philius', 'HAKIZIMANA', 'M', '1199680012546544', 'hakizaphilius@gmail.com', '$2y$10$R6huSDMgrX7dYlCWG1bPmu7hZFUqjLIQf78Cxs/ZaLcV1dMDhHlga', 1, 3, 1, 'profile_img/4d8bed6e4cbd0d7de857ff6739969d369.jpg', 3, '2020-12-26 12:09:01', 1, 'No location entered', 'Not education', 'No summary', 'Input your number');
+(2, 'Jean Paul', 'NISHIMIRWE', 'F', '1199780117063139', 'nishimirwepaul2015@gmail.com', '$2y$10$HUrI/JTKZVDlUOMF2sCCT.3c1q85D94iWcqGfySRh00yjjzJyAAwC', 1, 1, 5, 'profile_img/23aa0f009d53c04311d5f65b887e126ba.jpg', 2, '2020-12-27 08:28:25', 2, 'Nyarugenge, Kigali, Rwanda', 'Masters in software engineering', 'No summary', '(+250) 789 336 678'),
+(3, 'Patrick', 'ISHIMWE', 'M', '1199680012546588', 'patrickishimwe16@gmail.com', '$2y$10$R6huSDMgrX7dYlCWG1bPmu7hZFUqjLIQf78Cxs/ZaLcV1dMDhHlga', 1, 2, 1, 'profile_img/38f8fe05f746bd8f29a751fb1a2affefb.jpg', 2, '2020-12-26 21:53:29', 1, 'Nyamirambo, Kigali, Rwanda', 'Not education', 'No summary', 'Input your number'),
+(4, 'Philius', 'HAKIZIMANA', 'M', '1199680012546544', 'hakizaphilius@gmail.com', '$2y$10$R6huSDMgrX7dYlCWG1bPmu7hZFUqjLIQf78Cxs/ZaLcV1dMDhHlga', 1, 3, 1, 'profile_img/4aa8c7731fae6b0bfcc8171fb5e7aae46.jpg', 3, '2020-12-26 20:50:55', 1, 'No location entered', 'Not education', 'No summary', 'Input your number');
 
 -- --------------------------------------------------------
 
@@ -510,6 +537,15 @@ ALTER TABLE `group_members`
   ADD KEY `group_members.status_idx` (`group_members_status`);
 
 --
+-- Indexes for table `group_mesages`
+--
+ALTER TABLE `group_mesages`
+  ADD PRIMARY KEY (`group_mesages_id`),
+  ADD KEY `groupmessage.users_idx` (`group_mesages_sender`),
+  ADD KEY `groupmessage.group_idx` (`group_mesages_groupTo`),
+  ADD KEY `groupmessage.status_idx` (`group_mesages_status`);
+
+--
 -- Indexes for table `message`
 --
 ALTER TABLE `message`
@@ -584,7 +620,7 @@ ALTER TABLE `campus`
 -- AUTO_INCREMENT for table `chat_group`
 --
 ALTER TABLE `chat_group`
-  MODIFY `chat_group_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `chat_group_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `client`
@@ -632,13 +668,19 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `group_members`
 --
 ALTER TABLE `group_members`
-  MODIFY `group_members_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `group_members_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `group_mesages`
+--
+ALTER TABLE `group_mesages`
+  MODIFY `group_mesages_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=434;
 
 --
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `message_read`
@@ -737,6 +779,14 @@ ALTER TABLE `group_members`
   ADD CONSTRAINT `group_members.group` FOREIGN KEY (`group_id`) REFERENCES `chat_group` (`chat_group_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `group_members.status` FOREIGN KEY (`group_members_status`) REFERENCES `status` (`status_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `group_members.users` FOREIGN KEY (`member_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `group_mesages`
+--
+ALTER TABLE `group_mesages`
+  ADD CONSTRAINT `groupmessage.group` FOREIGN KEY (`group_mesages_groupTo`) REFERENCES `chat_group` (`chat_group_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `groupmessage.status` FOREIGN KEY (`group_mesages_status`) REFERENCES `status` (`status_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `groupmessage.users` FOREIGN KEY (`group_mesages_sender`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `message`
