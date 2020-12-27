@@ -4,7 +4,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title"><b><span class="text-success">Create New Group</span> </b></h4>
+                <h4 class="modal-title"><b><span class="text-success">Create New Chatting Group</span> </b></h4>
             </div>
             <form class="form" id="createGroupFrom">
             <div class="modal-body">
@@ -12,14 +12,14 @@
                         <label>Group Name</label>
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Name Of Group...." style="border-radius: 5px;"
+                        <input type="text" placeholder="Name of group with the maximim of 30 characters...." style="border-radius: 5px;"
                             class="form-control" name="groupName" id="groupName" maxlength ="30">
                     </div>
                     <div class="form-group">
                         <label>Group Description</label>
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Decription of Group...." style="border-radius: 5px;"
+                        <input type="text" placeholder="Decription of group with the maximum of 50 characters...." style="border-radius: 5px;"
                             class="form-control" id="groupDescription" id="groupDescription" maxlength ="50">
                     </div>
                
