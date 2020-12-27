@@ -58,18 +58,18 @@ else
                 <div class="direct-chat-info clearfix">
                     <span class="direct-chat-name pull-left">
                         <?php 
-                            echo $firstName." "; 
+                            echo $sender_first_name." "; 
                             if($creator == $sender)
                             {
-                                echo "Admin "; 
+                                echo "<small class='text-blue'>Admin</small> "; 
                             }
                             if($sender_type == 1)
                             {
-                                echo "(Dir.) "; 
+                                echo "<small class='text-blue'>(Dir.)</small>";
                             }
                             else if($sender_type == 2)
                             {
-                                echo "(BDCS) "; 
+                                echo "<small class='text-blue'>(BDCS)</small>"; 
                             }
                             else if($sender_type == 3)
                             {

@@ -30,6 +30,7 @@ $(document).ready(function(){
         var me= $(this).attr("me");
         var groupId= $(this).val();
         var groupname= $(this).attr("groupname");
+        $("#viewAllMembers").show();
         if(me == creator)
         {
             $("#addNewMemberBtn").show();
@@ -41,6 +42,7 @@ $(document).ready(function(){
         }
         $("#chat_with").html("<b>Chatting with members of "+groupname+"</b>");
         $("#receiverId").val(groupId);
+        $("#addMemberTo").val(groupId);
         $("#conversation_window").html("Loading chats of "+groupname+" group....." );
         $.ajax({
             type: "post",

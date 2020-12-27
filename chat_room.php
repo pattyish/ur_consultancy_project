@@ -61,13 +61,15 @@ include 'backend/jsForChatting1.php';
 
                         <div class="box-tools pull-right">
                             <button  id="addNewMemberBtn" title="Add a group member"
-                                data-toggle="modal" data-target="#add_group_member" class="badge bg-success" disabled
-                                hidden><i class="fa fa-plus"></i>Add Group Member</button>
+                                data-toggle="modal" data-target="#add_group_member" class="badge bg-green" disabled
+                                hidden>+ add</button>
+                                <input type="hidden" id="addMemberTo" value="">
                             &nbsp;&nbsp;&nbsp;
                             <?php include 'models/add_group_member.php'; ?>
-                            <button style="font-size: 17px;" type="button" class="btn btn-box-tool"
-                                data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
-                                <i class="fa fa-comments"></i></button>
+
+                            <button id="viewAllMembers" title="Display group members" class="badge bg-blue"hidden>
+                                View</button>
+                            
                         </div>
                     </div>
                     <div class="box-body">

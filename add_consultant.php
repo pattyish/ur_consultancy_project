@@ -71,7 +71,7 @@ $(document).ready(function(){
                                     <div class="form-group">
                                         <label for="">User Type </label>
                                         <select id="userType" class="form-control">
-                                            <option>Select Type</option>
+                                            <option value="">Select Type</option>
                                         <?php
                                         include 'backend/getUserTypes.php';
                                         ?>
