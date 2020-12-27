@@ -36,52 +36,56 @@ else
        if($sender==$myId)
        {
        ?>
-       <div class="direct-chat-msg right">
-           <div class="direct-chat-info clearfix">
-               <span class="direct-chat-name pull-left">Me</span>
-               <span class="direct-chat-timestamp pull-right"><?php echo $MessageTime; ?></span>
-           </div>
-           <img class="direct-chat-img" src="<?php echo "backend/".$sender_profile; ?>" alt="profile">
-           <div class="direct-chat-text w3-green">
-           <?php echo $Send_Messages; ?>
-           </div>
-       </div>
+       <span class="w3-right">
+            <div class="direct-chat-msg right" style="width: 500px;">
+                <div class="direct-chat-info clearfix">
+                    <span class="direct-chat-name pull-left">Me</span>
+                    <span class="direct-chat-timestamp pull-right"><?php echo $MessageTime; ?></span>
+                </div>
+                <img class="direct-chat-img" src="<?php echo "backend/".$sender_profile; ?>" alt="profile">
+                <div class="direct-chat-text w3-green">
+                <?php echo $Send_Messages; ?>
+                </div>
+            </div>
+        </span>
        <?php
        }
        else
        {
        ?>
-       <div class="direct-chat-msg">
-           <div class="direct-chat-info clearfix">
-               <span class="direct-chat-name pull-left">
-                   <?php 
-                       echo $firstName." "; 
-                       if($creator == $sender)
-                       {
-                           echo "Admin "; 
-                       }
-                       if($sender_type == 1)
-                       {
-                           echo "(Dir.) "; 
-                       }
-                       else if($sender_type == 2)
-                       {
-                           echo "(BDCS) "; 
-                       }
-                       else if($sender_type == 3)
-                       {
-                           echo " "; 
-                       }
-                   ?>
-               </span>
-               <span class="direct-chat-timestamp pull-right"><?php echo $MessageTime; ?></span>
-           </div>
-           <img class="direct-chat-img" src="<?php echo "backend/".$sender_profile; ?>" alt="profile">
+       <span class="w3-left">
+            <div class="direct-chat-msg" style="width: 500px;">
+                <div class="direct-chat-info clearfix">
+                    <span class="direct-chat-name pull-left">
+                        <?php 
+                            echo $firstName." "; 
+                            if($creator == $sender)
+                            {
+                                echo "Admin "; 
+                            }
+                            if($sender_type == 1)
+                            {
+                                echo "(Dir.) "; 
+                            }
+                            else if($sender_type == 2)
+                            {
+                                echo "(BDCS) "; 
+                            }
+                            else if($sender_type == 3)
+                            {
+                                echo " "; 
+                            }
+                        ?>
+                    </span>
+                    <span class="direct-chat-timestamp pull-right"><?php echo $MessageTime; ?></span>
+                </div>
+                <img class="direct-chat-img" src="<?php echo "backend/".$sender_profile; ?>" alt="profile">
 
-           <div class="direct-chat-text">
-               <?php echo $Send_Messages; ?>
-           </div>
-       </div>
+                <div class="direct-chat-text">
+                    <?php echo $Send_Messages; ?>
+                </div>
+            </div>
+        </span>
        <?php 
        }
    }
