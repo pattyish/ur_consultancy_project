@@ -96,7 +96,7 @@
                         <p class="text-muted"><?php echo $MYuser_education; ?></p>
 
                         <hr>
-                        <strong><i class="fa fa-file-text-o margin-r-5"></i> Summary</strong>
+                        <strong><i class="fa fa-file-text-o margin-r-5"></i> Consultant Boi.</strong>
 
                         <p class="text-muted"><?php echo $MYuser_summary; ?></p>
                     </div>
@@ -264,7 +264,7 @@
                                                     placeholder="About education and skills"><?php echo $MYuser_education; ?></textarea>
                                             </div>
                                             <div class="form-group">
-                                                <label>Summary</label>
+                                                <label>Consultant Boi.</label>
                                                 <textarea class="form-control" id="userSummary"
                                                     placeholder="Enter the summary about your self"><?php echo $MYuser_summary; ?></textarea>
                                             </div>
