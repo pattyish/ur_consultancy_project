@@ -60,16 +60,16 @@ include 'backend/jsForChatting1.php';
                         <h2 class="box-title text-success" id="chat_with">Choose a user to chat with</h2>
 
                         <div class="box-tools pull-right">
-                            <button  id="addNewMemberBtn" title="Add a group member"
-                                data-toggle="modal" data-target="#add_group_member" class="badge bg-green" disabled
-                                hidden>+ add</button>
-                                <input type="hidden" id="addMemberTo" value="">
+                            <button id="addNewMemberBtn" title="Add a group member" data-toggle="modal"
+                                data-target="#add_group_member" class="badge bg-green" disabled hidden>+ add</button>
+                            <input type="hidden" id="addMemberTo" value="">
                             &nbsp;&nbsp;&nbsp;
                             <?php include 'models/add_group_member.php'; ?>
 
-                            <button id="viewAllMembers" title="Display group members" class="badge bg-blue"hidden>
-                                View</button>
-                            
+                            <button id="viewAllMembers" data-toggle="modal" data-target="#view_group_members"
+                                title="Display group members" class="badge bg-blue" hidden>
+                               <i class="fa fa-eye"></i>  View</button>
+                                <?php include 'models/group_members.php'; ?>
                         </div>
                     </div>
                     <div class="box-body">
