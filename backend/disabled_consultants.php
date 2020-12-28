@@ -16,6 +16,7 @@ if($retrieveCount > 0)
         $natId = $lineRetrieve -> user_national_id;
         $email = $lineRetrieve -> user_email;
         $department = $lineRetrieve -> department_name;
+        $user_status_id  = $lineRetrieve -> user_status_id;
         ?>
         <tr>
             <td><?php echo $fName." ".$lName ?></td>

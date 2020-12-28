@@ -278,7 +278,7 @@
                                     &nbsp;&nbsp;&nbsp;
                                     <button type="reset" id="reset" class="btn btn-link">Reset</button>
                                     &nbsp;&nbsp;&nbsp;
-                                    <span style="font-size: 20px;" id="updateProfileFeedback"> </span>
+                                    <span style="font-size: 15px;" id="updateProfileFeedback"> </span>
                                     <br>
                                 </div>
                             </form>

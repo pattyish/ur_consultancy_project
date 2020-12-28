@@ -2,6 +2,9 @@
 <?php include 'public/includes/layouts/header.php';?>
 <?php include 'public/includes/layouts/left_bar_side.php';?>
 
+<ul class="users-list clearfix" id="userToChatWith" style="display: none;">
+</ul>
+
 <script>
 $(document).ready(function()
 {
@@ -93,17 +96,20 @@ $retrieveCount = mysqli_num_rows($retrieve);
                                         $contract_sign_date = $lineRetrieve -> contract_sign_date;
                                         $contract_start_date = $lineRetrieve -> contract_start_date;
                                         $contract_end_date = $lineRetrieve -> contract_end_date;
+
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $user_first_name." ".$user_last_name; ?></td>
+                                            <td><?php echo $user_email; ?></td>
+                                            <td><?php if($user_id == $myId || $MYUserType != 3){ echo $contract_amount;}else{ echo "Private";} ?></td>
+                                            <td><?php echo $department_name; ?></td>
+                                            <td><?php echo $school_name; ?></td>
+                                            <td>Buttons</td>
+                                        </tr>
+                                        <?php
                                     }
                                 }
                             ?>
-                                <tr>
-                                <td><?php echo $user_first_name." ".$user_last_name; ?></td>
-                                <td><?php echo $user_email; ?></td>
-                                <td><?php if($user_id == $myId || $MYUserType != 3){ echo $contract_amount;}else{ echo "Private";} ?></td>
-                                <td><?php echo $department_name; ?></td>
-                                <td><?php echo $school_name; ?></td>
-                                <td>Buttons</td>
-                                </tr>
                             </tbody>
 
                         </table>

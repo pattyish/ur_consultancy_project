@@ -45,7 +45,16 @@ if($retrieveCount > 0)
                     <?php echo $chat_group_name; ?>
                 </a>
                 <small class="users-list-date">
-                    <?php echo $chat_group_creator; ?>
+                    <?php
+                    if($group_members_status == 2)
+                    { 
+                        echo "<span class='text-red'>".$chat_group_creator."</span>"; 
+                    }
+                    else
+                    { 
+                        echo $chat_group_creator;
+                    }
+                    ?>
                     <!--
                     <span class="w3-badge w3-green">
                         <?php //if($Unreads_Number>0){echo $Unreads_Number;} else{} ?> 

@@ -17,7 +17,7 @@ $query_check = mysqli_query($connect,$query_check);
 $count_check = mysqli_num_rows($query_check);
 if($count_check < 0)
 {
-    echo "Group has no other members.".$groupId;
+    echo "Group has no other members.";
 }
 else
 {
