@@ -7,10 +7,10 @@
                 <h4 class="modal-title"><b><span class="text-danger">Group Members</span></b></h4>
             </div>
             <div class="modal-body">
-                <ul class="list list-unstyled">
-                <li class="" style="padding: 5px;">Patrick ishimwe</li>
-                <li class="" style="padding: 5px;">Jean Paul Nishimirwe</li>
-                </ul>
+            <table>
+            <tr><td>patrick ishimwe</td><td><button class="btn btn-danger">Disable</button></td></tr>
+            <tr><td>Jean Paul Nishimirwe</td><td><button class="btn btn-danger">Disable</button></td></tr>
+            </table>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button> &nbsp;&nbsp;
