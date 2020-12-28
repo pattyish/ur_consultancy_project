@@ -1,7 +1,6 @@
 <?php
 session_start();
 $myId = $_SESSION['User_ID'];
-
 include 'Database.php'; // include database connection
 
 // declaration of variables needed to insert a new user

@@ -42,6 +42,7 @@ else
     if(password_verify($UserPass,$UserPassword)) // verify if the password entered matches with a hash
     {
         $_SESSION['User_ID']=$UserId;
+        $_SESSION['User_Type']=$UserType;
         echo "Welcome, ".$Firstname; // Feedback to the user.
         if($UserType == 1) // if admin
         {

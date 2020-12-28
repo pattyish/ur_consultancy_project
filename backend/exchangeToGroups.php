@@ -2,6 +2,7 @@
 session_start();
 // this file is loaded when a user clicks on view partners
 $myId = $_SESSION['User_ID'];
+$MYUserType = $_SESSION['User_Type'];
 include 'Database.php';
 // select all people that I can chat with
 $retrieve = "SELECT * FROM chat_group INNER JOIN group_members INNER JOIN users 
@@ -24,6 +25,7 @@ if($retrieveCount > 0)
         $chat_group_create_date = $lineRetrieve -> chat_group_create_date;
         $chat_group_creator_id = $lineRetrieve -> chat_group_creator;
         $chat_group_creator = $lineRetrieve -> user_first_name;
+        $group_members_status = $lineRetrieve -> group_members_status;
         // get number of unreads message for each user
         /*$Unread_Query="SELECT COUNT(*) AS nbr FROM group_mesages 
                         WHERE (group_mesages.group_mesages_groupTo  =$chat_group_id AND
@@ -33,24 +35,27 @@ if($retrieveCount > 0)
         {
             $Unreads_Number=$Unread_Line ->nbr;
         } */
-        ?>
-        <li class="groupToChat" value="<?php echo $chat_group_id; ?>" groupname="<?php echo $chat_group_name; ?>" 
-        creator="<?php echo $chat_group_creator_id; ?>" me="<?php echo $myId; ?>">
-            <img src="<?php echo "backend/img/groups.jpg"; ?>" alt="Group Image" style="width:60px; height:60px; object-fit:cover; object-position: 50% 0;">
-            <a class="users-list-name groupToChat" href="#">
-                <?php echo $chat_group_name; ?>
-            </a>
-            <small class="users-list-date">
-                <?php echo $chat_group_creator; ?>
-                <!--
-                <span class="w3-badge w3-green">
-                    <?php //if($Unreads_Number>0){echo $Unreads_Number;} else{} ?> 
-                </span>
-                -->
-            </small>
-            
-        </li>
-        <?php
+        if($group_members_status == 1 || $MYUserType == 1)
+        {
+            ?>
+            <li class="groupToChat" value="<?php echo $chat_group_id; ?>" groupname="<?php echo $chat_group_name; ?>" 
+            creator="<?php echo $chat_group_creator_id; ?>" me="<?php echo $myId; ?>">
+                <img src="<?php echo "backend/img/groups.jpg"; ?>" alt="Group Image" style="width:60px; height:60px; object-fit:cover; object-position: 50% 0;">
+                <a class="users-list-name groupToChat" href="#">
+                    <?php echo $chat_group_name; ?>
+                </a>
+                <small class="users-list-date">
+                    <?php echo $chat_group_creator; ?>
+                    <!--
+                    <span class="w3-badge w3-green">
+                        <?php //if($Unreads_Number>0){echo $Unreads_Number;} else{} ?> 
+                    </span>
+                    -->
+                </small>
+                
+            </li>
+            <?php
+        }
     }
 }
 else

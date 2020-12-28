@@ -136,7 +136,19 @@ if($retrieveCount > 0)
 
                         <div class="box-footer">
                         <input type="hidden" id="user_id" value="<?php echo  $user_id; ?>">
+                        <?php 
+                        if($user_type_id == 1 && $MYUserType != 1)
+                        { 
+                            echo "<b class='text-blue'>This is admin, You are not llowed to make an update.</b>";
+                        } 
+                        else
+                        { 
+                            ?>
                             <button type="submit" id="saveCons" class="btn btn-success">Update</button>
+                            <?php 
+                        } 
+                        ?>
+                           
                             &nbsp;&nbsp;&nbsp;
                             <span id="editUserFeedback"> </span>
                         </div>
