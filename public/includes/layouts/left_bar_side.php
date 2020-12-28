@@ -126,6 +126,15 @@
             </li>
             <li class="treeview">
                 <a href="#">
+                    <i class="fa fa-file"></i>
+                    <span>Report</span>
+                    <span class="pull-right-container">
+                        <!-- <i class="fa fa-angle-left pull-right"></i> -->
+                    </span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="#">
                     <i class="fa fa-user"></i>
                     <span>Profile</span>
                     <span class="pull-right-container">
