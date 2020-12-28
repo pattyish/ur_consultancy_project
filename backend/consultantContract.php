@@ -13,17 +13,31 @@ $amount = $_POST['amount'];
 $now = date("Y-m-d h:i:s");
 $status_id = 1;
 
-$Insert = $connect -> prepare("INSERT INTO consultant_contract(contract_consultancy_id,contract_consultant_id,contract_sign_date,contract_start_date,
-contract_end_date,contract_amount,contract_assigner_id) VALUES (?,?,?,?,?,?,?)");
-$Insert->bind_param("iisssdi",$consultancy_id,$consultant_id,$now,$start_date,$end_date,$amount,$myId);
-$Insert->execute();
-if($Insert)
+// Check if the user is not already a consultant on the chosen consultancy
+// Select all membbers of the group selected
+$query_check = "SELECT * FROM consultant_contract WHERE consultant_contract.contract_consultancy_id = $consultancy_id
+                 AND consultant_contract.contract_consultant_id = $consultant_id ";
+$query_check = mysqli_query($connect,$query_check);
+$count_check = mysqli_num_rows($query_check);
+if($count_check > 0)
 {
-    echo "A contract is successfully recorded.";
+    echo "<i class='text-red'>This consultant is already assigned to this task.</i>";
 }
 else
 {
-    echo "A request failed.";
+
+    $Insert = $connect -> prepare("INSERT INTO consultant_contract(contract_consultancy_id,contract_consultant_id,contract_sign_date,contract_start_date,
+    contract_end_date,contract_amount,contract_assigner_id) VALUES (?,?,?,?,?,?,?)");
+    $Insert->bind_param("iisssdi",$consultancy_id,$consultant_id,$now,$start_date,$end_date,$amount,$myId);
+    $Insert->execute();
+    if($Insert)
+    {
+        echo "A contract is successfully recorded.";
+    }
+    else
+    {
+        echo "A request failed.";
+    } 
 } 
 
-?>
+    ?>

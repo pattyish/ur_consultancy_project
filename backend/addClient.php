@@ -17,7 +17,7 @@ $query_check = mysqli_query($connect,$query_check);
 $count_check = mysqli_num_rows($query_check);
 if($count_check > 0)
 {
-    echo "Remember, client name and email should be unique. So, you are causing conflicts.";
+    echo "<i class='text-red'>Remember, client name and email should be unique. So, you are causing conflicts.</i>";
 }
 else
 {

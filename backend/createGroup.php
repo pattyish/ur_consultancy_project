@@ -9,6 +9,13 @@ $groupName = $connect -> real_escape_string($_POST['groupName']);
 $description = $connect -> real_escape_string($_POST['description']);
 $now = date("Y-m-d H:i:s");
 
+$admin = "SELECT * FROM users WHERE users.user_type_id = 1 AND users.user_status_id = 1";
+$admin = mysqli_query($connect,$admin);
+while($line=mysqli_fetch_object($admin))
+{
+    $user_id=$line ->user_id ;
+}
+
 // check uniqueness of group info
 $query_check = "SELECT * FROM chat_group WHERE chat_group.chat_group_name='$groupName' AND chat_group.chat_group_status = 1";
 $query_check = mysqli_query($connect,$query_check);
@@ -40,6 +47,12 @@ else
         $add=$connect ->prepare("INSERT INTO group_members(group_id,member_id,join_date)
         VALUES (?,?,?)");
         $add->bind_param("sis",$group_id,$myId,$now);
+        $add->execute();
+
+        // Query to add admin of the system in the group
+        $add=$connect ->prepare("INSERT INTO group_members(group_id,member_id,join_date)
+        VALUES (?,?,?)");
+        $add->bind_param("sis",$group_id,$user_id,$now);
         $add->execute();
     }
     else

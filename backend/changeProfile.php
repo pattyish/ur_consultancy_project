@@ -38,6 +38,6 @@ if($Update)
 }
 else
 {
-    echo "A request failed.";
+    echo "<i class='text-red'>A request failed. You may be using email or ID which are already exist.</i>";
 }
 ?>

@@ -137,7 +137,29 @@
                     }
                 }); 
             }
-            
+        });
+
+         //View all members of the group
+         $("#viewAllMembers").on("click",function(){
+            var groupIdd= $("#addMemberTo").val();
+            var groupId= parseInt(groupIdd);
+            if($.trim(groupIdd).length == 0)
+            {
+                $("#allMembersTable").html("<i class='text-red'><b>May be you have not chosen the group.</b></i>");
+            }
+            else
+            {
+                $("#allMembersTable").html("<i class='text-blue'><b>Loading...</b></i>");
+                $.ajax({
+                    type: "post",
+                    url: "backend/allGroupMembers.php",
+                    data: {groupId : groupId},
+                    success: function(response)
+                    {
+                        $("#allMembersTable").html(response);
+                    }
+                }); 
+            }
         });
 
     });

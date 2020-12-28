@@ -19,16 +19,29 @@
                     </tr>
                     <tr>
                         <td style="padding: 10px; font-weight: bold;">National ID</td>
-                        <td><?php echo  $natId; ?></td>
+                        <td><?php echo $natId; ?></td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; font-weight: bold;">Email</td>
-                        <td><?php echo  $email; ?></td>
+                        <td><?php echo $email; ?></td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; font-weight: bold;">Department</td>
-                        <td><?php echo  $department; ?></td>
+                        <td><?php echo $department; ?></td>
                     </tr>
+                    <tr>
+                        <td style="padding: 10px; font-weight: bold;">Status</td>
+                        <td><?php 
+                        if($user_status_id  == 1)
+                        {
+                            echo  "<b class='text-green'>Active</b>";
+                        } 
+                        else 
+                        {
+                            echo  "<b class='text-red'>Disabled</b>";
+                        } 
+                         ?></td>
+                    </tr> 
                 </table>
             </div>
             <div class="modal-footer">

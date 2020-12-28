@@ -56,12 +56,32 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <label for="">New-End-Date</label>
-                <?php $bynow = date("Y-m-d"); ?>
-                <input type="date" id="newEndDate<?php echo $consultancy_id; ?>" min="<?php echo $bynow; ?>" class="form-control" style="border: 0px;">
-                <span style="font-size: 11px;" id="RUCC<?php echo $consultancy_id; ?>"></span> &nbsp;&nbsp;
-                <button type="button" id="clooose<?php echo $consultancy_id; ?>" class="btn btn-primary reProgressConsultancy" value="<?php echo $consultancy_id; ?>">Expand deadline</button>
+            <?php
+                if($MYUserType == 1)
+                {
+                    ?>
+                   <a href="consultants_worked_on.php?consultancy_id=<?php echo $consultancy_id; ?>" class="btn bg-blue pull-left">Consultants</a>
+                    <?php
+                }
+                else
+                {
+                    ?>
+                   <a href="consultants_worked_on.php?consultancy_id=<?php echo $consultancy_id; ?>" class="btn bg-blue">View Consultants</a>
+                    <?php
+                }
+                if($MYUserType == 1)
+                {
+                    ?>
+                    <span style="margin-left: -5px;">
+                        <label for="">New-End-Date</label>
+                        <?php $bynow = date("Y-m-d"); ?>
+                        <input type="date" id="newEndDate<?php echo $consultancy_id; ?>" min="<?php echo $bynow; ?>" class="form-control" style="border: 0px;">
+                        <span style="font-size: 11px;" id="RUCC<?php echo $consultancy_id; ?>"></span> &nbsp;&nbsp;
+                        <button type="button" id="clooose<?php echo $consultancy_id; ?>" class="btn btn-primary reProgressConsultancy" value="<?php echo $consultancy_id; ?>">Expand deadline</button>
+                    </span>
+                    <?php
+                }
+                ?>
             </div>
         </div>
         <!-- /.modal-content -->
