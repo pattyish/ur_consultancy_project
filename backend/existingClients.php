@@ -30,7 +30,7 @@ if($retrieveCount > 0)
             </a>
             <a href="#" data-toggle="modal" data-target="#disable_client<?php echo $clientId; ?>"
                 class="btn btn-danger table_button">
-                <i class="fa fa-trash"></i> Delete
+                <i class="fa fa-trash"></i> Disable
             </a>
             <?php include 'models/clients_models/edit_model.php'; ?>
         </div>

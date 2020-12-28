@@ -67,6 +67,9 @@ require_once('TCPDF/tcpdf.php');
 
 class PDF extends TCPDF{
 	public function Header(){
+		// Logo
+		$image_file = K_PATH_IMAGES.'logo.jpg';
+		$this->Image($image_file, 10, 10, 15, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
 		// Set font
 		$this->Ln(5);
 		$this->SetFont('times', 'B', 16);
