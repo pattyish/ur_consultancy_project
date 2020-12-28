@@ -3,11 +3,6 @@ $currentUserType = $MYUserType;
 $getNatId = "SELECT * FROM users WHERE users.user_status_id = 1";
 $getNatId = mysqli_query($connect,$getNatId);
 $countNatId = mysqli_num_rows($getNatId);
-?>
-<select id="userNatId<?php echo $consultancy_id; ?>" class="form-control select2" multiple="multiple"
-            data-placeholder="Select a consultant" style="width: 100%;">
-    <option value="">Type Id here</option>
-<?php
 if($countNatId > 0)
 {
     while($lineRetrieve=mysqli_fetch_object($getNatId))
@@ -18,10 +13,9 @@ if($countNatId > 0)
         $gender = $lineRetrieve -> user_gender;
         $natId = $lineRetrieve -> user_national_id; 
         ?>
-        <option value = "<?php echo $natId; ?>"><?php echo $natId." -- ".$lName; ?></option>
+        <option value = "<?php echo $user_id; ?>"><?php echo $natId." -- ".$lName; ?></option>
         <?php
             
     }
 }
 ?>
-</select>

@@ -83,15 +83,19 @@ $(document).ready(function(){
         var start_date = $("#start_date").val();
         var end_date = $("#end_date").val();
         var amount = parseInt($("#amount").val());
+        var teamLeaderr = $("#teamLeader").val();
+        var teamLeader = parseInt($("#teamLeader").val());
         var currency = $("#currency").val();
+        var ur_chargess = $("#chargesToUr").val();
         var ur_charges = parseInt($("#chargesToUr").val());
+        var tax_chargess = $("#taxCharges").val();
         var tax_charges = parseInt($("#taxCharges").val());
         var all_charges = ur_charges + tax_charges;
         var consultant_charges = 100 - all_charges;
         var client = $("#client").val();
         if($.trim(cName).length == 0 || $.trim(sign_date).length == 0
-        || $.trim(start_date).length == 0 || $.trim(end_date).length == 0 || $.trim(amount).length == 0
-        || $.trim(currency).length == 0 || $.trim(ur_charges).length == 0 || $.trim(tax_charges).length == 0 || $.trim(client).length == 0)
+        || $.trim(start_date).length == 0 || $.trim(end_date).length == 0 || $.trim(amount).length == 0 || $.trim(teamLeaderr).length == 0
+        || $.trim(currency).length == 0 || $.trim(ur_chargess).length == 0 || $.trim(tax_chargess).length == 0 || $.trim(client).length == 0)
         {
             $("#addConsultancyFeedback").html("<i class='text-red'><b>All fields are required. </b></i>");
         }
@@ -114,7 +118,7 @@ $(document).ready(function(){
                     url:"backend/addConsultancy.php",
                     data: {name : cName, sign_date : sign_date, start_date : start_date, end_date : end_date,
                             amount  : amount, currency : currency, ur_charges : ur_charges, tax_charges : tax_charges,
-                            consultant_charges : consultant_charges, client : client},
+                            consultant_charges : consultant_charges, client : client, teamLeader : teamLeader},
                     success: function(response)
                     {
                         $("#addConsultancyFeedback").html("<i class='text-green'><b>"+response+"</b></i>");
@@ -145,6 +149,8 @@ $(document).ready(function(){
         var end_date = $("#end_date").val();
         var amount1 = $("#amount").val();
         var amount = parseInt($("#amount").val());
+        var teamLeaderr = $("#teamLeader").val();
+        var teamLeader = parseInt($("#teamLeader").val());
         var currency = $("#currency").val();
         var ur_charges1 = $("#chargesToUr").val();
         var ur_charges = parseInt($("#chargesToUr").val());
@@ -153,7 +159,7 @@ $(document).ready(function(){
         var all_charges = ur_charges + tax_charges;
         var client1 = $("#client").val();
         var client = parseInt($("#client").val());
-        if($.trim(cName).length == 0 || $.trim(start_date).length == 0 || $.trim(end_date).length == 0 || $.trim(amount1).length == 0
+        if($.trim(cName).length == 0 || $.trim(start_date).length == 0 || $.trim(end_date).length == 0 || $.trim(amount1).length == 0 || $.trim(teamLeaderr).length == 0
         || $.trim(currency).length == 0 || $.trim(ur_charges1).length == 0 || $.trim(tax_charges1).length == 0 || $.trim(client1).length == 0)
         {
             $("#editConsultancyFeedback").html("<i class='text-red'><b>All fields are required. </b></i>");
@@ -176,7 +182,7 @@ $(document).ready(function(){
                     type:"post",
                     url:"backend/editConsultancy.php",
                     data: {consultancyId : consultancyId, name : cName, start_date : start_date, end_date : end_date,
-                            amount  : amount, currency : currency, ur_charges : ur_charges, tax_charges : tax_charges, client : client},
+                            amount  : amount, currency : currency, ur_charges : ur_charges, tax_charges : tax_charges, client : client, teamLeader : teamLeader},
                     success: function(response)
                     {
                         $("#editConsultancyFeedback").html("<i class='text-green'><b>"+response+"</b></i>");

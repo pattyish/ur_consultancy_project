@@ -50,9 +50,10 @@ else
         $add->execute();
 
         // Query to add admin of the system in the group
-        $add=$connect ->prepare("INSERT INTO group_members(group_id,member_id,join_date)
+        $group_members_status = 2; 
+        $add=$connect ->prepare("INSERT INTO group_members(group_id,member_id,join_date,group_members_status)
         VALUES (?,?,?)");
-        $add->bind_param("sis",$group_id,$user_id,$now);
+        $add->bind_param("sisi",$group_id,$user_id,$now,$group_members_status);
         $add->execute();
     }
     else

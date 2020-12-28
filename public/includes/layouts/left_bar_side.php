@@ -76,6 +76,7 @@
                     <li><a href="add_consultant.php"><i class="fa fa-circle-o"></i> Add Consultant </a></li>
                     <li><a href="all_consultants.php"><i class="fa fa-circle-o"></i>Registered Consultants</a></li>
                     <li><a href="disable_consultants.php"><i class="fa fa-circle-o"></i> Archive</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Consultants Contract</a></li>
                 </ul>
             </li>
             <li class="treeview">

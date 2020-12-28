@@ -10,8 +10,8 @@
 include 'backend/Database.php';
 $consultancy_id = $_GET['consultancy_id'];
 // file to retrieve all existing consultants and show them in table with possible options
-$retrieve = "SELECT * FROM consultancy INNER JOIN client INNER JOIN consultancy_progress ON
-consultancy.consultancy_client_id = client.client_id AND 
+$retrieve = "SELECT * FROM consultancy INNER JOIN client INNER JOIN consultancy_progress INNER JOIN users ON
+consultancy.consultancy_client_id = client.client_id AND consultancy.consultancy_leader = users.user_id AND
 consultancy.consultancy_progress = consultancy_progress.consultancy_progress_id WHERE 
 consultancy.consultancy_progress = 1 AND consultancy.consultancy_id = $consultancy_id";
 $retrieve = mysqli_query($connect,$retrieve);
@@ -33,6 +33,9 @@ if($retrieveCount > 0)
         $consultancy_progress = $lineRetrieve -> consultancy_progress_name;
         $client = $lineRetrieve -> client_name;
         $client_id = $lineRetrieve -> client_id;
+        $consultancy_leader = $lineRetrieve -> consultancy_leader;
+        $user_first_name = $lineRetrieve -> user_first_name;
+        $user_last_name = $lineRetrieve -> user_last_name;
     }
 }
         ?>
@@ -102,6 +105,14 @@ if($retrieveCount > 0)
                                             <option value="USD">USD</option>
                                             <option value="EUROS">EUROS</option>
                                             <option value="POUNDS">POUNDS</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Consultancy Leader</label>
+                                        <select id="teamLeader" class="form-control select2" multiple="multiple"
+                                                data-placeholder="Select a consultant" style="width: 100%;">
+                                            <option value="<?php echo $consultancy_leader; ?>" selected><?php echo $user_first_name." ".$user_last_name; ?></option>
+                                            <?php include 'backend/getLeader.php'; ?>
                                         </select>
                                     </div>
                                     <div class="form-group">

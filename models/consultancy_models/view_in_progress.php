@@ -29,25 +29,36 @@
                         <td style="padding: 10px; font-weight: bold;">End-Date</td>
                         <td><?php echo $consultancy_end_date; ?></td>
                     </tr>
+                    <?php
+                    if($consultancy_adder == $myId || $MYUserType == 1)
+                    {
+                        ?>
+                        <tr>
+                            <td style="padding: 10px; font-weight: bold;">Amount</td>
+                            <td><?php echo $consultancy_amount; ?></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; font-weight: bold;">Currency</td>
+                            <td class=""><?php echo $consultancy_currency; ?></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; font-weight: bold;">UR-Charges(%)</td>
+                            <td><?php echo $consultancy_UR_percentage; ?></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; font-weight: bold;">Taxes-Charges(%)</td>
+                            <td><?php echo $consultancy_Tax_percentage; ?></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; font-weight: bold;">Consultacy Payment(%)</td>
+                            <td><?php echo  $consultancy_consultants_percentage; ?></td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
                     <tr>
-                        <td style="padding: 10px; font-weight: bold;">Amount</td>
-                        <td><?php echo $consultancy_amount; ?></td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 10px; font-weight: bold;">Currency</td>
-                        <td class=""><?php echo $consultancy_currency; ?></td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 10px; font-weight: bold;">UR-Charges(%)</td>
-                        <td><?php echo $consultancy_UR_percentage; ?></td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 10px; font-weight: bold;">Taxes-Charges(%)</td>
-                        <td><?php echo $consultancy_Tax_percentage; ?></td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 10px; font-weight: bold;">Consultacy Payment(%)</td>
-                        <td><?php echo  $consultancy_consultants_percentage; ?></td>
+                        <td style="padding: 10px; font-weight: bold;">Consultancy Leader</td>
+                        <td class="text-blue" style="font-weight: bold;"><?php echo $user_first_name." ".$user_last_name; ?></td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; font-weight: bold;">Status</td>

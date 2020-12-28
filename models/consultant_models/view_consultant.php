@@ -30,6 +30,10 @@
                         <td><?php echo $department; ?></td>
                     </tr>
                     <tr>
+                        <td style="padding: 10px; font-weight: bold;">Country</td>
+                        <td><?php echo $country_name; ?></td>
+                    </tr>
+                    <tr>
                         <td style="padding: 10px; font-weight: bold;">Status</td>
                         <td><?php 
                         if($user_status_id  == 1)
