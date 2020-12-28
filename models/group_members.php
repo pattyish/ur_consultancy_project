@@ -8,8 +8,8 @@
             </div>
             <div class="modal-body">
             <table>
-            <tr><td>patrick ishimwe</td><td><button class="btn btn-danger">Disable</button></td></tr>
-            <tr><td>Jean Paul Nishimirwe</td><td><button class="btn btn-danger">Disable</button></td></tr>
+            <tr><td style="padding-right: 20px; padding-bottom: 10px;">patrick ishimwe</td><td><button class="btn btn-danger">Disable</button></td></tr>
+            <tr><td style="padding-right: 20px; padding-bottom: 10px;">Jean Paul Nishimirwe</td><td><button class="btn btn-danger">Disable</button></td></tr>
             </table>
             </div>
             <div class="modal-footer">
