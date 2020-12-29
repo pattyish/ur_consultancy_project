@@ -1,7 +1,7 @@
 <?php 
 include 'backend/Database.php';
-if(isset($_GET['cv_id'])){
-	$consultant_id = $_GET['cv_id'];
+if(isset($_GET['consultant_id'])){
+	$consultant_id = $_GET['consultant_id'];
 	// file to retrieve all existing consultants and show them in table with possible options
 	$retrieve = "SELECT * FROM users INNER JOIN user_type INNER JOIN department INNER JOIN country ON 
 	users.user_type_id = user_type.user_type_id AND users.user_department = department.department_id AND 
@@ -13,6 +13,7 @@ if(isset($_GET['cv_id'])){
 	$education = "";
 	$summary = "";
 	$location = "";
+	$now = date("d/m/Y");
 	if($retrieveCount > 0)
 	{
 		while($lineRetrieve = mysqli_fetch_object($retrieve))
@@ -120,6 +121,12 @@ $pdf->SetFont('dejavusans', '', 14, '', true);
 // Add a page
 // This method has several options, check the source code documentation for more information.
 $pdf->AddPage();
+//personal identification
+$pdf->SetFont('times', 'B', 14);
+$pdf->Cell(189,5,'Personal Identification',0,0,'L');
+$pdf->Ln(1);
+$pdf->Cell(189, 15, '___________________', 0, 0,'L');
+$pdf->ln(15);
 //names
 $pdf->SetFont('times', 'B', 12);
 $pdf->Cell(40,5,'Names',0,0,'L');
@@ -189,13 +196,13 @@ $pdf->SetFont('times', '', 12);
 $pdf->Ln(15);
 $pdf->MultiCell(189, 15, 'I, the undersigned, here by faithfully certify, with all my knowledge, that the above mentioned Information depicts my current situation.', 0, 'L', 0, 1, '', '', true);
 $pdf->Ln(5);
-$pdf->Cell(189,5,'Done at Kigali on ___________________________',0,0,'C');
+$pdf->Cell(189,5,'Done at Kigali on '.$now,0,0,'C');
 $pdf->Ln(8);
 $pdf->SetFont('times', 'B', 12);
 $pdf->Cell(189,5,$fName.' '.$lName,0,0,'C');
 $pdf->Ln(5);
 $pdf->SetFont('times', '', 12);
-$pdf->Cell(189,5,'_______________________________',0,0,'C');
+$pdf->Cell(189,5,'...................',0,0,'C');
 // set text shadow effect
 $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
 

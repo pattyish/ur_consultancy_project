@@ -6,8 +6,7 @@
 </ul>
 
 <script>
-$(document).ready(function()
-{
+$(document).ready(function() {
     var totalConsultants = $("#totalConsultants").val();
     $("#showTotalCslts").html(totalConsultants);
 });
@@ -38,7 +37,7 @@ $retrieveCount = mysqli_num_rows($retrieve);
     <section class="content-header">
         <div class="btn-group btn-group-sm table-button-div" style="margin-top: 15px;">
             <a href="progress_consultancy.php" style="font-size: 15px;" class=" btn btn-primary table_button">
-            <i class="fa fa-angle-left" ></i> back
+                <i class="fa fa-angle-left"></i> back
             </a>
         </div>
         <ol class="breadcrumb" style="margin-top: 15px;">
@@ -55,14 +54,16 @@ $retrieveCount = mysqli_num_rows($retrieve);
                 <div class="box" style="padding-left: 5px; padding-right: 5px;">
                     <div class="box-header"
                         style="border-bottom: 1px solid rgba(60, 141, 188, 0.3); margin-bottom: 10px;">
-                        <h3 class="box-title" style="padding-top: 10px; padding-bottom: 10px;">All Consultants assigned to  
-                        "<span class="text-blue text-bold"><?php echo $consultancy_name; ?></span>" 
-                        &nbsp;<span class="pull-right-container">
+                        <h3 class="box-title" style="padding-top: 10px; padding-bottom: 10px;">All Consultants assigned
+                            to
+                            "<span class="text-blue text-bold"><?php echo $consultancy_name; ?></span>"
+                            &nbsp;<span class="pull-right-container">
                                 <small class="label pull-right bg-blue" id="showTotalCslts"></small>
                             </span></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
+                    <div>
                         <table id="all_consultants" class="table table-bordered table-striped">
                             <thead>
                                 <tr class="text-blue">
@@ -75,7 +76,7 @@ $retrieveCount = mysqli_num_rows($retrieve);
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php
+                                <?php
                                 if($retrieveCount > 0)
                                 {
                                     while($lineRetrieve = mysqli_fetch_object($retrieve))
@@ -98,21 +99,32 @@ $retrieveCount = mysqli_num_rows($retrieve);
                                         $contract_end_date = $lineRetrieve -> contract_end_date;
 
                                         ?>
-                                        <tr>
-                                            <td><?php echo $user_first_name." ".$user_last_name; ?></td>
-                                            <td><?php echo $user_email; ?></td>
-                                            <td><?php if($user_id == $myId || $MYUserType != 3){ echo $contract_amount;}else{ echo "Private";} ?></td>
-                                            <td><?php echo $department_name; ?></td>
-                                            <td><?php echo $school_name; ?></td>
-                                            <td>Buttons</td>
-                                        </tr>
-                                        <?php
+                                <tr>
+                                    <td><?php echo $user_first_name." ".$user_last_name; ?></td>
+                                    <td><?php echo $user_email; ?></td>
+                                    <td><?php if($user_id == $myId || $MYUserType != 3){ echo $contract_amount;}else{ echo "Private";} ?>
+                                    </td>
+                                    <td><?php echo $department_name; ?></td>
+                                    <td><?php echo $school_name; ?></td>
+                                    <td>
+                                        <div class="btn-group btn-group-sm table-button-div">
+                                            <a href="#" data-toggle="modal"
+                                                data-target="#view_contracts<?php echo $user_id;  ?>"
+                                                class=" btn btn-info table_button">
+                                                <i class="fa fa-eye"></i> View
+                                            </a>
+                                        </div>
+                                        <?php include 'models/view_contract.php'; ?>
+                                    </td>
+                                </tr>
+                                <?php
                                     }
                                 }
                             ?>
                             </tbody>
 
                         </table>
+                        </div>
                     </div>
                 </div>
                 <!-- /.box-body -->

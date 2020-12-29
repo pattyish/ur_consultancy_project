@@ -20,7 +20,6 @@ if($retrieveCount > 0)
         ?>
 <tr>
     <td><?php echo $fName." ".$lName; ?></td>
-    <td><?php echo $gender; ?></td>
     <td><?php echo $natId; ?></td>
     <td><?php echo $email; ?></td>
     <td><?php echo $department; ?></td>
@@ -38,8 +37,11 @@ if($retrieveCount > 0)
                 class="btn btn-danger table_button">
                 <i class="fa fa-trash"></i> Disable
             </a>
+            <a href="consultant_cv.php?consultant_id=<?php echo $user_id; ?>" target="_blank" class="btn btn-warning table_button">
+                <i class="fa fa-file"></i> Print Cv
+            </a>
         </div>
-       
+
     </td>
     <?php include 'models/consultant_models/delete.php'; ?>
 </tr>

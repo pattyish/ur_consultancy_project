@@ -50,7 +50,6 @@ $(document).ready(function()
                             <thead>
                                 <tr class="text-blue">
                                     <th>Names</th>
-                                    <th>Gender</th>
                                     <th>National ID</th>
                                     <th>Email Address</th>
                                     <th>Department</th>
