@@ -40,7 +40,7 @@ if(isset($_GET['consultant_id'])){
 			  $gender_value ="Female";
 			}
 			if($user_phone == "Input your number"){
-				$phone_number = "No Updated Yet";
+				$phone_number = "Not Updated Yet";
 			}else{
                 $phone_number = $user_phone;
 			}

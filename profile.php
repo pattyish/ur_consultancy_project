@@ -22,7 +22,7 @@
             <!-- class=" btn btn-info table_button"> -->
             <a href="cv_pdf.php?cv_id=<?php echo $MYUserId ;?>" target="_blank" style="font-size: 15px;" class=" btn
                 btn-success table_button">
-                <i class=""></i> Print Your Consultant confirmation
+                <i class=""></i> Print Your CV
             </a>
 
         </div>
@@ -142,7 +142,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div>
-                                            <h4>Experience Summary</h4>
+                                            <h4>Bio.</h4>
                                             <p>
                                                 <?php echo $MYuser_summary; ?>
                                             </p>
