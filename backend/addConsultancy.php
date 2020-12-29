@@ -15,6 +15,7 @@ $ur_charges = $_POST['ur_charges'];
 $tax_charges = $_POST['tax_charges'];
 $consultant_charges = $_POST['consultant_charges'];
 $client = $_POST['client'];
+$teamLeader = $_POST['teamLeader'];
 $now = date("Y-m-d h:i:s");
 $status_id = 1;
 
@@ -24,10 +25,10 @@ $status_id = 1;
 
 $Insert = $connect -> prepare("INSERT INTO consultancy(consultancy_name,consultancy_sign_date,consultancy_start_date,
 consultancy_end_date,consultancy_amount,consultancy_currency,consultancy_UR_percentage,
-consultancy_Tax_percentage,consultancy_consultants_percentage,consultancy_client_id,consultancy_adder) 
-VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-$Insert->bind_param("ssssdsdddii",$name,$now,$start_date,$end_date,$amount,$currency,$ur_charges,$tax_charges,
-$consultant_charges,$client,$myId);
+consultancy_Tax_percentage,consultancy_consultants_percentage,consultancy_client_id,consultancy_adder,consultancy_leader) 
+VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+$Insert->bind_param("ssssdsdddiii",$name,$now,$start_date,$end_date,$amount,$currency,$ur_charges,$tax_charges,
+$consultant_charges,$client,$myId,$teamLeader);
 $Insert->execute();
 if($Insert)
 {

@@ -2,24 +2,24 @@
 include 'Database.php';
 if($MYUserType == 1)
 {
-    $retrieve = "SELECT * FROM consultancy INNER JOIN client INNER JOIN consultancy_progress ON
-    consultancy.consultancy_client_id = client.client_id AND 
+    $retrieve = "SELECT * FROM consultancy INNER JOIN client INNER JOIN consultancy_progress INNER JOIN users ON
+    consultancy.consultancy_client_id = client.client_id AND consultancy.consultancy_leader = users.user_id AND 
     consultancy.consultancy_progress = consultancy_progress.consultancy_progress_id WHERE 
     consultancy.consultancy_progress = 1";
     $retrieve = mysqli_query($connect,$retrieve);
 }
 else if($MYUserType == 2)
 {
-    $retrieve = "SELECT * FROM consultancy INNER JOIN client INNER JOIN consultancy_progress ON
-    consultancy.consultancy_client_id = client.client_id AND 
+    $retrieve = "SELECT * FROM consultancy INNER JOIN client INNER JOIN consultancy_progress INNER JOIN users ON
+    consultancy.consultancy_client_id = client.client_id AND consultancy.consultancy_leader = users.user_id AND 
     consultancy.consultancy_progress = consultancy_progress.consultancy_progress_id WHERE 
     consultancy.consultancy_progress = 1";
     $retrieve = mysqli_query($connect,$retrieve);
 }
 else if($MYUserType == 3)
 {
-    $retrieve = "SELECT * FROM consultancy INNER JOIN client INNER JOIN consultancy_progress ON
-    consultancy.consultancy_client_id = client.client_id AND 
+    $retrieve = "SELECT * FROM consultancy INNER JOIN client INNER JOIN consultancy_progress INNER JOIN users ON
+    consultancy.consultancy_client_id = client.client_id AND consultancy.consultancy_leader = users.user_id AND 
     consultancy.consultancy_progress = consultancy_progress.consultancy_progress_id WHERE 
     consultancy.consultancy_progress = 1";
     $retrieve = mysqli_query($connect,$retrieve);
@@ -43,6 +43,10 @@ if($retrieveCount > 0)
         $consultancy_consultants_percentage = $lineRetrieve -> consultancy_consultants_percentage;
         $consultancy_progress = $lineRetrieve -> consultancy_progress_name;
         $consultancy_client = $lineRetrieve -> client_name;
+        $consultancy_adder  = $lineRetrieve -> consultancy_adder;
+        $consultancy_leader = $lineRetrieve -> consultancy_leader;
+        $user_first_name = $lineRetrieve -> user_first_name;
+        $user_last_name = $lineRetrieve -> user_last_name;
         ?>
         <tr>
             <td><?php echo $consultancy_name; ?></td>

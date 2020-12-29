@@ -72,6 +72,14 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
+                                        <label for="">Consultancy Leader</label>
+                                        <select id="teamLeader" class="form-control select2" multiple="multiple"
+                                                data-placeholder="Select a consultant" style="width: 100%;">
+                                            <option value="">Type Id here</option>
+                                            <?php include 'backend/getLeader.php'; ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="">Choose Client</label>
                                         <select class="form-control select2" multiple="multiple"
                                             id="client" name="client" data-placeholder="Select a client..."
