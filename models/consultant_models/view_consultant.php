@@ -26,12 +26,20 @@
                         <td><?php echo $email; ?></td>
                     </tr>
                     <tr>
+                        <td style="padding: 10px; font-weight: bold;">Country</td>
+                        <td><?php echo $country_name; ?></td>
+                    </tr>
+                    <tr>
                         <td style="padding: 10px; font-weight: bold;">Department</td>
                         <td><?php echo $department; ?></td>
                     </tr>
                     <tr>
-                        <td style="padding: 10px; font-weight: bold;">Country</td>
-                        <td><?php echo $country_name; ?></td>
+                        <td style="padding: 10px; font-weight: bold;">School</td>
+                        <td><?php echo $school_name; ?></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; font-weight: bold;">College</td>
+                        <td><?php echo $college_name; ?></td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; font-weight: bold;">Status</td>

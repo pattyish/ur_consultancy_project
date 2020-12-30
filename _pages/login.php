@@ -100,7 +100,7 @@
             </form>
             <!-- /.social-auth-links -->
             <a href="#">I forgot my password</a><br>
-            <?php //echo password_hash("patty12", PASSWORD_DEFAULT); ?>
+            <?php echo password_hash("consultancy12", PASSWORD_DEFAULT); ?>
         </div>
         <!-- /.login-box-body -->
     </div>
