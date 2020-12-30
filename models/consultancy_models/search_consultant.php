@@ -14,7 +14,7 @@
                     </div>
                     <div class="form-group">
                         <div class="form-group">
-                            <label for="">National Id or Name </label>
+                            <label for="">Choose only one National Id or Name </label>
                             <?php
                             include 'backend/getUsersNatId.php';
                             ?>

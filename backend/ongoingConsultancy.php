@@ -43,7 +43,7 @@ if($retrieveCount > 0)
         $consultancy_consultants_percentage = $lineRetrieve -> consultancy_consultants_percentage;
         $consultancy_progress = $lineRetrieve -> consultancy_progress_name;
         $consultancy_client = $lineRetrieve -> client_name;
-        $consultancy_adder  = $lineRetrieve -> consultancy_adder;
+        $consultancy_adder = $lineRetrieve -> consultancy_adder;
         $consultancy_leader = $lineRetrieve -> consultancy_leader;
         $user_first_name = $lineRetrieve -> user_first_name;
         $user_last_name = $lineRetrieve -> user_last_name;
@@ -62,7 +62,7 @@ if($retrieveCount > 0)
                         <i class="fa fa-eye"></i> View
                     </a>
                     <?php
-                    if($MYUserType != 3)
+                    if($MYUserType == 1 || $myId == $consultancy_adder)
                     {
                         ?>
                         <a href="edit_consultancy.php?consultancy_id=<?php echo $consultancy_id; ?>" data-toggle="modal"

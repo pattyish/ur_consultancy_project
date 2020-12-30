@@ -100,7 +100,7 @@ if($retrieveCount > 0)
                                     <div class="form-group">
                                         <label for="">Currency</label>
                                         <input type="text" id="currency" name="currency" placeholder="Cash......"
-                                            value="<?php echo $consultancy_currency; ?>" class="form-control" disabled>
+                                            value="RWF<?php // echo $consultancy_currency; ?>" class="form-control" disabled>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

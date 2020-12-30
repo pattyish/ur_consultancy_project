@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2020 at 08:29 AM
+-- Generation Time: Dec 30, 2020 at 04:46 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -68,15 +68,6 @@ CREATE TABLE `chat_group` (
   `chat_group_status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `chat_group`
---
-
-INSERT INTO `chat_group` (`chat_group_id`, `chat_group_name`, `chat_group_create_date`, `chat_group_creator`, `chat_group_description`, `chat_group_status`) VALUES
-(3, 'REB choice', '2020-12-26 11:07:26', 4, 'People chosen by REB to supervise exams 2020', 1),
-(4, 'Geeks', '2020-12-26 20:54:13', 2, 'Real Programmers', 1),
-(5, 'Our Class', '2020-12-26 21:26:52', 2, 'Year 4 CSC', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -90,13 +81,6 @@ CREATE TABLE `client` (
   `country_id` int(11) NOT NULL,
   `client_status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `client`
---
-
-INSERT INTO `client` (`client_id`, `client_name`, `client_email`, `country_id`, `client_status`) VALUES
-(1, 'Rwanda Social Security Board', 'rssb@rssb.rw', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -132,21 +116,32 @@ CREATE TABLE `consultancy` (
   `consultancy_end_date` date NOT NULL,
   `consultancy_amount` double NOT NULL,
   `consultancy_currency` varchar(10) NOT NULL,
+  `consultancy_exchange_rate` double NOT NULL,
   `consultancy_UR_percentage` double NOT NULL,
   `consultancy_Tax_percentage` double NOT NULL,
   `consultancy_consultants_percentage` double NOT NULL,
   `consultancy_client_id` int(11) NOT NULL,
   `consultancy_progress` int(11) NOT NULL DEFAULT 1,
-  `consultancy_adder` int(11) NOT NULL
+  `consultancy_adder` int(11) NOT NULL,
+  `consultancy_leader` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `consultancy`
+-- Table structure for table `consultancy_announcement`
 --
 
-INSERT INTO `consultancy` (`consultancy_id`, `consultancy_name`, `consultancy_sign_date`, `consultancy_start_date`, `consultancy_end_date`, `consultancy_amount`, `consultancy_currency`, `consultancy_UR_percentage`, `consultancy_Tax_percentage`, `consultancy_consultants_percentage`, `consultancy_client_id`, `consultancy_progress`, `consultancy_adder`) VALUES
-(1, 'People who use smartphones than others', '2020-12-24 10:12:28', '2020-12-24', '2020-12-27', 2000, 'USD', 20, 20, 60, 1, 1, 3),
-(2, 'Rwandan Population Statistics ', '2020-12-25 09:33:01', '2020-12-26', '2021-01-09', 2000000, 'RWF', 20, 30, 50, 1, 1, 2);
+CREATE TABLE `consultancy_announcement` (
+  `consultancy_announcement_id` int(11) NOT NULL,
+  `consultancy_announcement` text NOT NULL,
+  `consultancy_announcement_link` text DEFAULT NULL,
+  `consultancy_announcement_date` datetime NOT NULL,
+  `consultancy_announcement_school` int(11) NOT NULL,
+  `consultancy_announcement_status` int(11) NOT NULL,
+  `consultancy_announcement_shown` int(11) NOT NULL,
+  `consultancy_announcement_poster` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -158,14 +153,6 @@ CREATE TABLE `consultancy_progress` (
   `consultancy_progress_id` int(11) NOT NULL,
   `consultancy_progress_name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `consultancy_progress`
---
-
-INSERT INTO `consultancy_progress` (`consultancy_progress_id`, `consultancy_progress_name`) VALUES
-(1, 'IN PROGRESS'),
-(2, 'COMPLETED');
 
 -- --------------------------------------------------------
 
@@ -182,16 +169,8 @@ CREATE TABLE `consultant_contract` (
   `contract_end_date` date NOT NULL,
   `contract_amount` double NOT NULL,
   `contract_assigner_id` int(11) NOT NULL,
-  `contract_status_id` int(11) NOT NULL DEFAULT 1
+  `contract_progress_id` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `consultant_contract`
---
-
-INSERT INTO `consultant_contract` (`consultant_contract_id`, `contract_consultancy_id`, `contract_consultant_id`, `contract_sign_date`, `contract_start_date`, `contract_end_date`, `contract_amount`, `contract_assigner_id`, `contract_status_id`) VALUES
-(1, 1, 3, '2020-12-25 02:50:33', '2020-12-24', '2020-12-25', 100, 2, 1),
-(2, 2, 4, '2020-12-26 09:50:13', '2020-12-30', '2021-01-03', 20000, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -213,12 +192,7 @@ INSERT INTO `country` (`country_id`, `country_name`) VALUES
 (2, 'Uganda'),
 (3, 'Tanzania'),
 (4, 'Kenya'),
-(5, 'Morroco'),
-(6, 'Tunisia'),
-(7, 'Nigeria'),
-(8, 'Ethiopie'),
-(9, 'Mali'),
-(10, 'Benin');
+(5, 'Morroco');
 
 -- --------------------------------------------------------
 
@@ -237,8 +211,9 @@ CREATE TABLE `department` (
 --
 
 INSERT INTO `department` (`department_id`, `department_name`, `school_id`) VALUES
-(1, 'COMPUTER SCIENCE', 1),
-(2, 'PHARMACY', 2);
+(1, 'COMPUTER SCIENCE', 3),
+(2, 'MEDCINE', 4),
+(3, 'INFORMATION TECHNOLGY', 3);
 
 -- --------------------------------------------------------
 
@@ -253,15 +228,6 @@ CREATE TABLE `group_members` (
   `join_date` datetime NOT NULL,
   `group_members_status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `group_members`
---
-
-INSERT INTO `group_members` (`group_members_id`, `group_id`, `member_id`, `join_date`, `group_members_status`) VALUES
-(1, 3, 4, '2020-12-26 11:07:26', 1),
-(2, 4, 2, '2020-12-26 20:54:13', 1),
-(3, 5, 2, '2020-12-26 21:26:52', 1);
 
 -- --------------------------------------------------------
 
@@ -279,15 +245,6 @@ CREATE TABLE `group_mesages` (
   `group_mesages_groupTo` int(11) NOT NULL,
   `group_mesages_status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `group_mesages`
---
-
-INSERT INTO `group_mesages` (`group_mesages_id`, `group_mesages_content`, `group_mesages_img`, `group_mesages_doc`, `group_mesages_sendDate`, `group_mesages_sender`, `group_mesages_groupTo`, `group_mesages_status`) VALUES
-(431, 'Se', NULL, NULL, '2020-12-26 09:37:26', 2, 5, 1),
-(432, 'Se', NULL, NULL, '2020-12-26 09:37:26', 2, 5, 1),
-(433, 'Se', NULL, NULL, '2020-12-26 09:37:27', 2, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -307,19 +264,6 @@ CREATE TABLE `message` (
   `message_reads` int(11) NOT NULL DEFAULT 2
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `message`
---
-
-INSERT INTO `message` (`message_id`, `message_content`, `message_file_docs`, `message_img`, `message_send_date`, `message_sender_id`, `message_receiver_id`, `message_status_id`, `message_reads`) VALUES
-(80, 'xqs', NULL, NULL, '2020-12-26 09:39:15', 2, 3, 1, 1),
-(81, 'xqs', NULL, NULL, '2020-12-26 09:39:15', 2, 3, 1, 1),
-(82, 'xqs', NULL, NULL, '2020-12-26 09:39:16', 2, 3, 1, 1),
-(83, 'xqs', NULL, NULL, '2020-12-26 09:39:16', 2, 3, 1, 1),
-(84, 'Yooo', NULL, NULL, '2020-12-26 09:55:19', 3, 2, 1, 2),
-(85, 'Yooo', NULL, NULL, '2020-12-26 09:55:19', 3, 2, 1, 2),
-(86, 'Yooo', NULL, NULL, '2020-12-26 09:55:20', 3, 2, 1, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -337,7 +281,9 @@ CREATE TABLE `message_read` (
 
 INSERT INTO `message_read` (`message_read_id`, `message_read_name`) VALUES
 (1, 'READ'),
-(2, 'UNREAD');
+(2, 'UNREAD'),
+(3, 'READ'),
+(4, 'UNREAD');
 
 -- --------------------------------------------------------
 
@@ -369,8 +315,8 @@ CREATE TABLE `school` (
 --
 
 INSERT INTO `school` (`school_id`, `school_name`, `college_id`) VALUES
-(1, 'INFORMATION COMMUNICATION AND TECHNOLOGY', 3),
-(2, 'MEDECINE', 4);
+(3, 'INFORMATION COMMUNICATION AND TECHNOLOGY', 3),
+(4, 'MEDECINE', 4);
 
 -- --------------------------------------------------------
 
@@ -423,9 +369,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_first_name`, `user_last_name`, `user_gender`, `user_national_id`, `user_email`, `user_password`, `user_status_id`, `user_type_id`, `user_country`, `user_profile_image`, `user_adder_id`, `user_last_active`, `user_department`, `user_location`, `user_education`, `user_summary`, `user_phone`) VALUES
-(2, 'Jean Paul', 'NISHIMIRWE', 'F', '1199780117063139', 'nishimirwepaul2015@gmail.com', '$2y$10$HUrI/JTKZVDlUOMF2sCCT.3c1q85D94iWcqGfySRh00yjjzJyAAwC', 1, 1, 5, 'profile_img/23aa0f009d53c04311d5f65b887e126ba.jpg', 2, '2020-12-27 08:28:25', 2, 'Nyarugenge, Kigali, Rwanda', 'Masters in software engineering', 'No summary', '(+250) 789 336 678'),
-(3, 'Patrick', 'ISHIMWE', 'M', '1199680012546588', 'patrickishimwe16@gmail.com', '$2y$10$R6huSDMgrX7dYlCWG1bPmu7hZFUqjLIQf78Cxs/ZaLcV1dMDhHlga', 1, 2, 1, 'profile_img/38f8fe05f746bd8f29a751fb1a2affefb.jpg', 2, '2020-12-26 21:53:29', 1, 'Nyamirambo, Kigali, Rwanda', 'Not education', 'No summary', 'Input your number'),
-(4, 'Philius', 'HAKIZIMANA', 'M', '1199680012546544', 'hakizaphilius@gmail.com', '$2y$10$R6huSDMgrX7dYlCWG1bPmu7hZFUqjLIQf78Cxs/ZaLcV1dMDhHlga', 1, 3, 1, 'profile_img/4aa8c7731fae6b0bfcc8171fb5e7aae46.jpg', 3, '2020-12-26 20:50:55', 1, 'No location entered', 'Not education', 'No summary', 'Input your number');
+(9, 'Jean Paul', 'NISHIMIRWE', 'M', '1199780117063139', 'nishimirwepaul2015@gmail.com', '$2y$10$1h.QuF6beAid5VlZD3Kp3uIJ5cgyLdIStss0OtWNa4JT5yfzu97Gy', 1, 1, 2, 'img/mimage.png', 1, '2020-12-30 16:41:01', 1, 'No location entered', 'Not education', 'No summary', 'Input your number'),
+(10, 'Patrick', 'ISHIMWE', 'M', '1199680012546588', 'patrickishimwe16@gmail.com', '$2y$10$1h.QuF6beAid5VlZD3Kp3uIJ5cgyLdIStss0OtWNa4JT5yfzu97Gy', 1, 2, 1, 'img/mimage.png', 9, '2020-12-30 16:44:43', 1, 'No location entered', 'Not education', 'No summary', 'Input your number'),
+(11, 'Philius', 'HAKIZIMANA', 'M', '1199680012546544', 'hakizaphilius@gmail.com', '$2y$10$DdYUNFzZ40x0QBIf4rBd/uEPr6KNtlBV4o6LQf3s6f6kdRPICVqlG', 1, 3, 1, 'img/mimage.png', 10, '2020-12-30 04:41:39', 1, 'No location entered', 'Not education', 'No summary', 'Input your number');
 
 -- --------------------------------------------------------
 
@@ -496,7 +442,17 @@ ALTER TABLE `consultancy`
   ADD PRIMARY KEY (`consultancy_id`),
   ADD KEY `consultancy.client_idx` (`consultancy_client_id`),
   ADD KEY `consultancy.progress_idx` (`consultancy_progress`),
-  ADD KEY `consultancy.users.adder_idx` (`consultancy_adder`);
+  ADD KEY `consultancy.users.adder_idx` (`consultancy_adder`),
+  ADD KEY `consultancy.users.leader_idx` (`consultancy_leader`);
+
+--
+-- Indexes for table `consultancy_announcement`
+--
+ALTER TABLE `consultancy_announcement`
+  ADD PRIMARY KEY (`consultancy_announcement_id`),
+  ADD KEY `announcement.school_idx` (`consultancy_announcement_school`),
+  ADD KEY `announcement.status_idx` (`consultancy_announcement_status`),
+  ADD KEY `announcement.users.poster_idx` (`consultancy_announcement_poster`);
 
 --
 -- Indexes for table `consultancy_progress`
@@ -512,7 +468,7 @@ ALTER TABLE `consultant_contract`
   ADD KEY `contract.consultancy_idx` (`contract_consultancy_id`),
   ADD KEY `contract.consltant_idx` (`contract_consultant_id`),
   ADD KEY `contract.users.assigner_idx` (`contract_assigner_id`),
-  ADD KEY `contract.consultancyProgress` (`contract_status_id`);
+  ADD KEY `contract.progress_idx` (`contract_progress_id`);
 
 --
 -- Indexes for table `country`
@@ -590,7 +546,6 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `user_email_UNIQUE` (`user_email`),
   ADD KEY `users.status_idx` (`user_status_id`),
   ADD KEY `users.user_type_idx` (`user_type_id`),
-  ADD KEY `users.users.adder_idx` (`user_adder_id`),
   ADD KEY `users.country_idx` (`user_country`),
   ADD KEY `users.department_idx` (`user_department`);
 
@@ -620,13 +575,13 @@ ALTER TABLE `campus`
 -- AUTO_INCREMENT for table `chat_group`
 --
 ALTER TABLE `chat_group`
-  MODIFY `chat_group_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `chat_group_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `college`
@@ -638,55 +593,61 @@ ALTER TABLE `college`
 -- AUTO_INCREMENT for table `consultancy`
 --
 ALTER TABLE `consultancy`
-  MODIFY `consultancy_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `consultancy_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `consultancy_announcement`
+--
+ALTER TABLE `consultancy_announcement`
+  MODIFY `consultancy_announcement_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `consultancy_progress`
 --
 ALTER TABLE `consultancy_progress`
-  MODIFY `consultancy_progress_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `consultancy_progress_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `consultant_contract`
 --
 ALTER TABLE `consultant_contract`
-  MODIFY `consultant_contract_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `consultant_contract_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `country`
 --
 ALTER TABLE `country`
-  MODIFY `country_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `country_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-  MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `group_members`
 --
 ALTER TABLE `group_members`
-  MODIFY `group_members_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `group_members_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `group_mesages`
 --
 ALTER TABLE `group_mesages`
-  MODIFY `group_mesages_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=434;
+  MODIFY `group_mesages_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `message_read`
 --
 ALTER TABLE `message_read`
-  MODIFY `message_read_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `message_read_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `reset_password`
@@ -698,7 +659,7 @@ ALTER TABLE `reset_password`
 -- AUTO_INCREMENT for table `school`
 --
 ALTER TABLE `school`
-  MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `school_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `status`
@@ -710,7 +671,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user_type`
@@ -755,14 +716,23 @@ ALTER TABLE `college`
 ALTER TABLE `consultancy`
   ADD CONSTRAINT `consultancy.client` FOREIGN KEY (`consultancy_client_id`) REFERENCES `client` (`client_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `consultancy.progress` FOREIGN KEY (`consultancy_progress`) REFERENCES `consultancy_progress` (`consultancy_progress_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `consultancy.users.adder` FOREIGN KEY (`consultancy_adder`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `consultancy.users.adder` FOREIGN KEY (`consultancy_adder`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `consultancy.users.leader` FOREIGN KEY (`consultancy_leader`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `consultancy_announcement`
+--
+ALTER TABLE `consultancy_announcement`
+  ADD CONSTRAINT `announcement.school` FOREIGN KEY (`consultancy_announcement_school`) REFERENCES `school` (`school_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `announcement.status` FOREIGN KEY (`consultancy_announcement_status`) REFERENCES `status` (`status_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `announcement.users.poster` FOREIGN KEY (`consultancy_announcement_poster`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `consultant_contract`
 --
 ALTER TABLE `consultant_contract`
   ADD CONSTRAINT `contract.consultancy` FOREIGN KEY (`contract_consultancy_id`) REFERENCES `consultancy` (`consultancy_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `contract.consultancyProgress` FOREIGN KEY (`contract_status_id`) REFERENCES `consultancy_progress` (`consultancy_progress_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `contract.progress` FOREIGN KEY (`contract_progress_id`) REFERENCES `consultancy_progress` (`consultancy_progress_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `contract.users.assigner` FOREIGN KEY (`contract_assigner_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `contract.users.consultant` FOREIGN KEY (`contract_consultant_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 

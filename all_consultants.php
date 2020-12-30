@@ -18,9 +18,16 @@ $(document).ready(function()
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="btn-group btn-group-sm table-button-div" style="margin-top: 15px;">
-            <a href="disable_consultants.php" class=" btn btn-warning table_button">
-                Disabled Consultants
-            </a>
+        <?php
+            if($MYUserType == 1)
+            {
+                ?>
+                <a href="disable_consultants.php" class=" btn btn-warning table_button">
+                    Disabled Consultants
+                </a>
+                <?php
+            }
+        ?>
             <a href="add_consultant.php" class=" btn btn-info table_button">
                 <i class="fa fa-plus"></i> Add Consultants
             </a>
