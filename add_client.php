@@ -10,7 +10,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Register New Client
+
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -19,7 +19,7 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content" style="margin-top:20px;">
         <!-- Main row -->
         <div class="row">
             <div class="col-md-12">

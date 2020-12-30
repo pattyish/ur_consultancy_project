@@ -88,7 +88,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <p>If Client not Exist, Follow this Link to first <a href="register_client.php">
+                                        <p>If Client not Exist, Follow this Link to first <a href="add_client.php">
                                                  <b class="text-blue">Register Client</b>
                                             </a>
                                         </p>
