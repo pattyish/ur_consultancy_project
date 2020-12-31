@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2020 at 04:46 PM
+-- Generation Time: Dec 31, 2020 at 04:42 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -82,6 +82,14 @@ CREATE TABLE `client` (
   `client_status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `client`
+--
+
+INSERT INTO `client` (`client_id`, `client_name`, `client_email`, `country_id`, `client_status`) VALUES
+(1, 'Rwanda Information Society Authority', 'risarwanda@risa.com', 1, 1),
+(2, 'Rwanda Social Security Board', 'rssb@rssb.rw', 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -126,6 +134,14 @@ CREATE TABLE `consultancy` (
   `consultancy_leader` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `consultancy`
+--
+
+INSERT INTO `consultancy` (`consultancy_id`, `consultancy_name`, `consultancy_sign_date`, `consultancy_start_date`, `consultancy_end_date`, `consultancy_amount`, `consultancy_currency`, `consultancy_exchange_rate`, `consultancy_UR_percentage`, `consultancy_Tax_percentage`, `consultancy_consultants_percentage`, `consultancy_client_id`, `consultancy_progress`, `consultancy_adder`, `consultancy_leader`) VALUES
+(31, 'People who use smartphones than others', '2020-12-31 04:25:53', '2020-12-31', '2020-12-31', 7500000, 'RWF', 1, 15, 15, 70, 2, 1, 9, 11),
+(32, 'Rwandan Population Statistics ', '2020-12-31 04:29:18', '2020-12-31', '2020-12-31', 1400000, 'USD', 950, 10, 20, 70, 1, 1, 9, 10);
+
 -- --------------------------------------------------------
 
 --
@@ -153,6 +169,14 @@ CREATE TABLE `consultancy_progress` (
   `consultancy_progress_id` int(11) NOT NULL,
   `consultancy_progress_name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `consultancy_progress`
+--
+
+INSERT INTO `consultancy_progress` (`consultancy_progress_id`, `consultancy_progress_name`) VALUES
+(1, 'IN PROGRESS'),
+(2, 'COMPLETED');
 
 -- --------------------------------------------------------
 
@@ -212,7 +236,7 @@ CREATE TABLE `department` (
 
 INSERT INTO `department` (`department_id`, `department_name`, `school_id`) VALUES
 (1, 'COMPUTER SCIENCE', 3),
-(2, 'MEDCINE', 4),
+(2, 'MEDECINE', 4),
 (3, 'INFORMATION TECHNOLGY', 3);
 
 -- --------------------------------------------------------
@@ -369,9 +393,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_first_name`, `user_last_name`, `user_gender`, `user_national_id`, `user_email`, `user_password`, `user_status_id`, `user_type_id`, `user_country`, `user_profile_image`, `user_adder_id`, `user_last_active`, `user_department`, `user_location`, `user_education`, `user_summary`, `user_phone`) VALUES
-(9, 'Jean Paul', 'NISHIMIRWE', 'M', '1199780117063139', 'nishimirwepaul2015@gmail.com', '$2y$10$1h.QuF6beAid5VlZD3Kp3uIJ5cgyLdIStss0OtWNa4JT5yfzu97Gy', 1, 1, 2, 'img/mimage.png', 1, '2020-12-30 16:41:01', 1, 'No location entered', 'Not education', 'No summary', 'Input your number'),
-(10, 'Patrick', 'ISHIMWE', 'M', '1199680012546588', 'patrickishimwe16@gmail.com', '$2y$10$1h.QuF6beAid5VlZD3Kp3uIJ5cgyLdIStss0OtWNa4JT5yfzu97Gy', 1, 2, 1, 'img/mimage.png', 9, '2020-12-30 16:44:43', 1, 'No location entered', 'Not education', 'No summary', 'Input your number'),
-(11, 'Philius', 'HAKIZIMANA', 'M', '1199680012546544', 'hakizaphilius@gmail.com', '$2y$10$DdYUNFzZ40x0QBIf4rBd/uEPr6KNtlBV4o6LQf3s6f6kdRPICVqlG', 1, 3, 1, 'img/mimage.png', 10, '2020-12-30 04:41:39', 1, 'No location entered', 'Not education', 'No summary', 'Input your number');
+(9, 'Jean Paul', 'NISHIMIRWE', 'M', '1199780117063139', 'nishimirwepaul2015@gmail.com', '$2y$10$1h.QuF6beAid5VlZD3Kp3uIJ5cgyLdIStss0OtWNa4JT5yfzu97Gy', 1, 1, 2, 'profile_img/957aac49140a47881055fdc78e9ddb413.jpg', 1, '2020-12-31 16:40:46', 2, 'Nyamagabe, Southern Proviince', 'Not education', 'No summary', '+250 789 336 678'),
+(10, 'Patrick', 'ISHIMWE', 'M', '1199680012546588', 'patrickishimwe16@gmail.com', '$2y$10$1h.QuF6beAid5VlZD3Kp3uIJ5cgyLdIStss0OtWNa4JT5yfzu97Gy', 1, 2, 1, 'img/mimage.png', 9, '2020-12-30 16:59:56', 1, 'No location entered', 'Not education', 'No summary', 'Input your number'),
+(11, 'Philius', 'HAKIZIMANA', 'M', '1199680012546544', 'hakizaphilius@gmail.com', '$2y$10$DdYUNFzZ40x0QBIf4rBd/uEPr6KNtlBV4o6LQf3s6f6kdRPICVqlG', 1, 3, 1, 'img/mimage.png', 10, '2020-12-30 04:41:39', 1, 'No location entered', 'Not education', 'No summary', 'Input your number'),
+(12, 'Emmanuel', 'KAGABA', 'M', '1199680012546500', 'kagabathefather@gmail.com', '$2y$10$7rHdJI6ccINfzd1Fnaxrie1.yaoeES6F9f4FuyqmrZzQ0DvTFn2Ka', 1, 2, 1, 'img/mimage.png', 9, '2020-12-30 09:20:13', 1, 'No location entered', 'Not education', 'No summary', 'Input your number');
 
 -- --------------------------------------------------------
 
@@ -581,7 +606,7 @@ ALTER TABLE `chat_group`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `college`
@@ -593,7 +618,7 @@ ALTER TABLE `college`
 -- AUTO_INCREMENT for table `consultancy`
 --
 ALTER TABLE `consultancy`
-  MODIFY `consultancy_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `consultancy_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `consultancy_announcement`
@@ -605,7 +630,7 @@ ALTER TABLE `consultancy_announcement`
 -- AUTO_INCREMENT for table `consultancy_progress`
 --
 ALTER TABLE `consultancy_progress`
-  MODIFY `consultancy_progress_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `consultancy_progress_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `consultant_contract`
@@ -671,7 +696,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user_type`
