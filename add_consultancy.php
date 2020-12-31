@@ -54,13 +54,13 @@
                                         <input type="date" id="end_date" min="<?php echo $contract_sign_date; ?>"
                                             class="form-control">
                                     </div>
-                                </div>
-                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Total-Amount</label>
                                         <input type="number"  step="any" id="amount" placeholder="Cash......"
                                             class="form-control">
                                     </div>
+                                </div>
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Currency</label>
                                         <select name="currency" class="form-control" id="currency">
@@ -70,6 +70,11 @@
                                             <option value="EUROS">EUROS</option>
                                             <option value="POUNDS">POUNDS</option>
                                         </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Exchange Rate</label>
+                                        <input type="number"  step="any" id="exchange" placeholder="Cash......"
+                                            class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Consultancy Leader</label>
@@ -88,7 +93,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <p>If Client not Exist, Follow this Link to first <a href="register_client.php">
+                                        <p>If Client not Exist, Follow this Link to first <a href="add_client.php">
                                                  <b class="text-blue">Register Client</b>
                                             </a>
                                         </p>
