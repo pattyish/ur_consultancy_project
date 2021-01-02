@@ -47,7 +47,7 @@ if($retrieveCount > 0)
 
         </h1>
         <ol class="breadcrumb">
-            <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="Home"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">Dashboard</li>
         </ol>
     </section>

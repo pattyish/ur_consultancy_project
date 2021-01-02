@@ -534,7 +534,7 @@ $(document).ready(function(){
         else
         {
             $("#userContract"+consultancy_id).html("");
-            window.location.href = "sign_contract.php?consultancy_id="+consultancy_id+"&userNatId="+userNatId;
+            window.location.href = "makeContract?consultancy_id="+consultancy_id+"&userNatId="+userNatId;
         }
     });
 

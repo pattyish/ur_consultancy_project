@@ -13,7 +13,7 @@ if(isset($_SESSION['User_ID']))
         session_destroy();
         ?>
         <script>
-            window.location.href='../_pages/login.php';
+            window.location.href='../_pages/Welcome';
         </script>
         <?php
     }
@@ -22,7 +22,7 @@ else
 {
     ?>
     <script>
-        window.location.href='../_pages/login.php';
+        window.location.href='../_pages/Welcome';
     </script>
     <?php
 }

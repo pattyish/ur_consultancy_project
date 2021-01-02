@@ -41,7 +41,7 @@ $retrieveCount = mysqli_num_rows($retrieve);
             </a>
         </div>
         <ol class="breadcrumb" style="margin-top: 15px;">
-            <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="Home"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">Consultants</li>
         </ol>
     </section>

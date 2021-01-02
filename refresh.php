@@ -4,7 +4,7 @@ if(!(isset($_SESSION['User_ID'])))
 {
     ?>
     <script>
-        window.location.href='_pages/login.php';
+        window.location.href='_pages/Welcome';
     </script>
     <?php
 }

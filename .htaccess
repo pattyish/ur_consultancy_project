@@ -1,0 +1,27 @@
+RewriteEngine on
+
+RewriteRule Home index.php [NC,L]
+RewriteRule Welcome _pages/login.php [NC,L]
+RewriteRule myProfile profile.php [NC,L]
+RewriteRule ChattingRoom chat_room.php [NC,L]
+RewriteRule AllCompletedTasks completed_consultancy.php [NC,L]
+RewriteRule TasksInProgress progress_consultancy.php [NC,L]
+RewriteRule NewConsultancy add_consultancy.php [NC,L]
+RewriteRule ClientsDisabled archivedClients.php [NC,L]
+RewriteRule ActiveClients all_clients.php [NC,L]
+RewriteRule NewClient add_client.php [NC,L]
+RewriteRule ConsultancyDisabled disable_consultants.php [NC,L]
+RewriteRule ActiveConsultants all_consultants.php [NC,L]
+RewriteRule NewConsultant add_consultant.php [NC,L]
+RewriteRule GetOut logout.php [NC,L]
+RewriteRule changeUserInfo edit_consultant.php [NC,L]
+RewriteRule generateCV consultant_cv.php [NC,L]
+RewriteRule changeConsultancyInfo edit_consultancy.php [NC,L]
+RewriteRule assignedConsultants consultants_worked_on.php [NC,L]
+RewriteRule makeContract sign_contract.php [NC,L]
+RewriteRule BlockUser Block.php [NC,L]
+RewriteRule NewUser NewUser.php [NC,L]
+
+
+
+
