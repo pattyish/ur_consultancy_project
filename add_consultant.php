@@ -18,7 +18,7 @@ $(document).ready(function(){
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Register Consultant
+           
         </h1>
         <ol class="breadcrumb">
             <li><a href="Home"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -27,7 +27,7 @@ $(document).ready(function(){
     </section>
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content" style="margin-top: 20px;">
         <!-- Main row -->
         <div class="row">
             <div class="col-md-12">
