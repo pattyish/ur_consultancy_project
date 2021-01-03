@@ -17,7 +17,7 @@ $(document).ready(function() {
     <section class="content-header">
         <div class="btn-group btn-group-sm table-button-div" style="margin-top: 15px;">
             <form method="post" action="export_excel.php">
-                <button type="submit" name="export_excel" class=" btn btn-warning table_button">Export Excel</button>
+                <!-- <button type="submit" name="export_excel" class=" btn btn-warning table_button">Export Excel</button> -->
             </form>
         </div>
 

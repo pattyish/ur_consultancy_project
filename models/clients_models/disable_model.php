@@ -15,7 +15,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button> &nbsp;&nbsp;
                 <span style="font-size: 15px;" id="DC<?php echo $clientId; ?>"></span> &nbsp;&nbsp;
-                <button type="button" class="btn btn-danger disableClient" value="<?php echo $clientId; ?>">Delete</button>
+                <button type="button" class="btn btn-danger disableClient" value="<?php echo $clientId; ?>">Disable</button>
             </div>
         </div>
         <!-- /.modal-content -->
