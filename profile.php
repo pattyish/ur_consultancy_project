@@ -53,7 +53,7 @@
 
                         <ul class="list-group list-group-unbordered">
                             <li class="list-group-item">
-                            <?php 
+                                <?php 
                             // query to count number of ongoing consultancy
                             $comple = "SELECT * FROM consultant_contract INNER JOIN consultancy ON consultant_contract.contract_consultancy_id = consultancy.consultancy_id WHERE consultant_contract.contract_consultant_id = $myId AND consultancy.consultancy_progress = 2 ";
                             $comple = mysqli_query($connect,$comple);
@@ -62,7 +62,7 @@
                                 <b>Completely Consultancy</b> <a class="pull-right"><?php echo $compleCount; ?></a>
                             </li>
                             <li class="list-group-item">
-                            <?php 
+                                <?php 
                             // query to count number of ongoing consultancy
                             $onGoin = "SELECT * FROM consultant_contract INNER JOIN consultancy ON consultant_contract.contract_consultancy_id = consultancy.consultancy_id WHERE consultant_contract.contract_consultant_id = $myId AND consultancy.consultancy_progress = 1 ";
                             $onGoin = mysqli_query($connect,$onGoin);
@@ -260,12 +260,12 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Education</label>
-                                                <textarea class="form-control" id="userEducation"
+                                                <textarea class="form-control" id="userEducation" rows="10" cols="80"
                                                     placeholder="About education and skills"><?php echo $MYuser_education; ?></textarea>
                                             </div>
                                             <div class="form-group">
                                                 <label>Consultant Bio.</label>
-                                                <textarea class="form-control" id="userSummary"
+                                                <textarea class="form-control" id="userSummary" rows="10" cols="80"
                                                     placeholder="Enter the summary about your self"><?php echo $MYuser_summary; ?></textarea>
                                             </div>
                                         </div>

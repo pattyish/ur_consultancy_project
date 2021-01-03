@@ -4,10 +4,10 @@ include 'backend/Database.php';
 if(!(isset($_SESSION['User_ID'])))
 {
     ?>
-    <script>
-        window.location.href='_pages/login.php';
-    </script>
-    <?php
+<script>
+window.location.href = '_pages/login.php';
+</script>
+<?php
 }
 else if(isset($_SESSION['User_ID']))
 {
@@ -62,6 +62,7 @@ else if(isset($_SESSION['User_ID']))
 <html>
 <?php
 ?>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -91,8 +92,8 @@ else if(isset($_SESSION['User_ID']))
     <!-- DataTables -->
     <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/Buttons-1.6.5/css/buttons.bootstrap.min.css">
-    <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-    <!-- Select2 -->
+    <!-- summernote -->
+    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
     <!-- my style-->
     <link rel="stylesheet" href="dist/css/css_style.css">
     <link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
@@ -106,26 +107,24 @@ else if(isset($_SESSION['User_ID']))
     <!-- Google Font -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-        <script src="jquery.js"></script>
-        <script src="myJs.js"></script>
-	    <script src="jquery.form.min.js"></script>
+    <script src="jquery.js"></script>
+    <script src="myJs.js"></script>
+    <script src="jquery.form.min.js"></script>
 
-        <script>
-        // autoLoad
-        function AutloadMessages()
-        {
-            $.ajax({
-                type: "POST",
-                url: "refresh.php",
-                success: function(data){
-                    $("#userToChatWith").html(data);
-                }
-            });
-        }
+    <script>
+    // autoLoad
+    function AutloadMessages() {
+        $.ajax({
+            type: "POST",
+            url: "refresh.php",
+            success: function(data) {
+                $("#userToChatWith").html(data);
+            }
+        });
+    }
+    AutloadMessages();
+    setInterval(function() {
         AutloadMessages();
-        setInterval(function () {
-            AutloadMessages(); 
-        }, 5000); 
-
+    }, 5000);
     </script>
 </head>

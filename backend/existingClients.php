@@ -1,7 +1,7 @@
 <?php
 // file to retrieve all existing clients and show them in table with possible options
 
-$retrieve = "SELECT * FROM client INNER JOIN country ON client.country_id = country.country_id WHERE client.client_status = 1;";
+$retrieve = "SELECT * FROM client INNER JOIN country ON client.country_id = country.country_id WHERE client.client_status = 1";
 $retrieve= mysqli_query($connect,$retrieve);
 $retrieveCount = mysqli_num_rows($retrieve);
 if($retrieveCount > 0)

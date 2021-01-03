@@ -3,8 +3,7 @@
 <?php include 'public/includes/layouts/left_bar_side.php';?>
 
 <script>
-$(document).ready(function()
-{
+$(document).ready(function() {
     var totalClients = $("#totalClients").val();
     $("#showTotalClients").html(totalClients);
 });
@@ -16,9 +15,12 @@ $(document).ready(function()
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
+        <div class="btn-group btn-group-sm table-button-div" style="margin-top: 15px;">
+            <form method="post" action="export_excel.php">
+                <button type="submit" name="export_excel" class=" btn btn-warning table_button">Export Excel</button>
+            </form>
+        </div>
 
-        </h1>
         <ol class="breadcrumb">
             <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">Dashboard</li>
