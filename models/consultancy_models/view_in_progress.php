@@ -35,12 +35,20 @@
                         ?>
                         <tr>
                             <td style="padding: 10px; font-weight: bold;">Amount</td>
-                            <td><?php echo $consultancy_amount; ?></td>
+                            <td><?php echo $consultancy_amount." ".$consultancy_currency; ?></td>
                         </tr>
-                        <tr>
-                            <td style="padding: 10px; font-weight: bold;">Currency</td>
-                            <td class=""><?php echo $consultancy_currency; ?></td>
-                        </tr>
+                        <?php
+                        if($consultancy_currency != "RWF")
+                        {
+                            ?>
+                            <tr>
+                                <td style="padding: 10px; font-weight: bold;">Rwandan</td>
+                                <td class=""><?php echo ($consultancy_exchange_rate * $consultancy_amount)." RWF " ; ?></td>
+                            </tr>
+                            
+                            <?php
+                        }
+                        ?>
                         <tr>
                             <td style="padding: 10px; font-weight: bold;">UR-Charges(%)</td>
                             <td><?php echo $consultancy_UR_percentage; ?></td>
@@ -68,7 +76,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <a href="assignedConsultants?consultancy_id=<?php echo $consultancy_id; ?>" class="btn btn-primary"><i class="fa fa-eye"></i> View Consultants</a>
+                <a href="consultants_worked_on.php?consultancy_id=<?php echo $consultancy_id; ?>" class="btn btn-primary"><i class="fa fa-eye"></i> View Consultants</a>
             </div>
         </div>
         <!-- /.modal-content -->

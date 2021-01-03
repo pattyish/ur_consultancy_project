@@ -5,7 +5,7 @@ $myId = $_SESSION['User_ID'];
 include 'Database.php'; // include database connection
 
 // declaration of variables needed to insert a new user
-$name = $connect -> real_escape_string($_POST['name']);
+$name = $_POST['name'];
 $sign_date = $connect -> real_escape_string($_POST['sign_date']);
 $start_date = $connect -> real_escape_string($_POST['start_date']);
 $end_date = $connect -> real_escape_string($_POST['end_date']);
