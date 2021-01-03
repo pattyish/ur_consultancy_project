@@ -35,12 +35,20 @@
                         ?>
                         <tr>
                             <td style="padding: 10px; font-weight: bold;">Amount</td>
-                            <td><?php echo $consultancy_amount; ?></td>
+                            <td><?php echo $consultancy_amount." ".$consultancy_currency; ?></td>
                         </tr>
-                        <tr>
-                            <td style="padding: 10px; font-weight: bold;">Currency</td>
-                            <td class=""><?php echo $consultancy_currency; ?></td>
-                        </tr>
+                        <?php
+                        if($consultancy_currency != "RWF")
+                        {
+                            ?>
+                            <tr>
+                                <td style="padding: 10px; font-weight: bold;">Rwandan</td>
+                                <td class=""><?php echo ($consultancy_exchange_rate * $consultancy_amount)." RWF " ; ?></td>
+                            </tr>
+                            
+                            <?php
+                        }
+                        ?>
                         <tr>
                             <td style="padding: 10px; font-weight: bold;">UR-Charges(%)</td>
                             <td><?php echo $consultancy_UR_percentage; ?></td>

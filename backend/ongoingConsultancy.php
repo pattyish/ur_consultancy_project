@@ -38,6 +38,7 @@ if($retrieveCount > 0)
         $consultancy_end_date = $lineRetrieve -> consultancy_end_date;
         $consultancy_amount = $lineRetrieve -> consultancy_amount;
         $consultancy_currency = $lineRetrieve -> consultancy_currency;
+        $consultancy_exchange_rate = $lineRetrieve -> consultancy_exchange_rate;
         $consultancy_UR_percentage = $lineRetrieve -> consultancy_UR_percentage;
         $consultancy_Tax_percentage = $lineRetrieve -> consultancy_Tax_percentage;
         $consultancy_consultants_percentage = $lineRetrieve -> consultancy_consultants_percentage;
@@ -65,7 +66,7 @@ if($retrieveCount > 0)
                     if($MYUserType == 1 || $myId == $consultancy_adder)
                     {
                         ?>
-                        <a href="edit_consultancy.php?consultancy_id=<?php echo $consultancy_id; ?>" data-toggle="modal"
+                        <a href="changeConsultancyInfo?consultancy_id=<?php echo $consultancy_id; ?>" data-toggle="modal"
                             data-target="" class=" btn btn-success table_button">
                             <i class="fa fa-edit"></i> Edit
                         </a>

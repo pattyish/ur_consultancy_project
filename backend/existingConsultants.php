@@ -40,7 +40,7 @@ if($retrieveCount > 0)
             if($MYUserType == 1)
             {
                 ?>
-                <a href="edit_consultant.php?consultant_id=<?php echo $user_id;  ?>" class=" btn btn-success table_button">
+                <a href="changeUserInfo?consultant_id=<?php echo $user_id;  ?>" class=" btn btn-success table_button">
                     <i class="fa fa-edit"></i> Edit
                 </a>
                 <a href="#" data-toggle="modal" data-target="#delete_consultant<?php echo $user_id;  ?>"
@@ -50,7 +50,7 @@ if($retrieveCount > 0)
                 <?php
             }
             ?>
-            <a href="consultant_cv.php?consultant_id=<?php echo $user_id; ?>" target="_blank" class="btn btn-warning table_button">
+            <a href="generateCV?consultant_id=<?php echo $user_id; ?>" target="_blank" class="btn btn-warning table_button">
                 <i class="fa fa-file"></i> Print Cv
             </a>
         </div>

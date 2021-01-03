@@ -28,12 +28,12 @@ $(document).ready(function()
                 <?php
             }
         ?>
-            <a href="add_consultant.php" class=" btn btn-info table_button">
+            <a href="NewConsultant" class=" btn btn-info table_button">
                 <i class="fa fa-plus"></i> Add Consultants
             </a>
         </div>
         <ol class="breadcrumb" style="margin-top: 15px;">
-            <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="Home"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">Consultants</li>
         </ol>
     </section>

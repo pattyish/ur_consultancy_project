@@ -18,6 +18,7 @@ if($retrieveCount > 0)
         $consultancy_end_date = $lineRetrieve -> consultancy_end_date;
         $consultancy_amount = $lineRetrieve -> consultancy_amount;
         $consultancy_currency = $lineRetrieve -> consultancy_currency;
+        $consultancy_exchange_rate = $lineRetrieve -> consultancy_exchange_rate;
         $consultancy_UR_percentage = $lineRetrieve -> consultancy_UR_percentage;
         $consultancy_Tax_percentage = $lineRetrieve -> consultancy_Tax_percentage;
         $consultancy_consultants_percentage = $lineRetrieve -> consultancy_consultants_percentage;

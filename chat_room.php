@@ -17,7 +17,7 @@ include 'backend/jsForChatting1.php';
             <small></small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="Home"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">Message</li>
         </ol>
     </section>

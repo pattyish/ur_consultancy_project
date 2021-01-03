@@ -13,7 +13,7 @@
             Record Consultancy
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="Home"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">Dashboard</li>
         </ol>
     </section>
@@ -54,13 +54,13 @@
                                         <input type="date" id="end_date" min="<?php echo $contract_sign_date; ?>"
                                             class="form-control">
                                     </div>
-                                </div>
-                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Total-Amount</label>
                                         <input type="number"  step="any" id="amount" placeholder="Cash......"
                                             class="form-control">
                                     </div>
+                                </div>
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Currency</label>
                                         <select name="currency" class="form-control" id="currency">
@@ -70,6 +70,11 @@
                                             <option value="EUROS">EUROS</option>
                                             <option value="POUNDS">POUNDS</option>
                                         </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Exchange Rate</label>
+                                        <input type="number"  step="any" id="exchange" placeholder="Cash......"
+                                            class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Consultancy Leader</label>

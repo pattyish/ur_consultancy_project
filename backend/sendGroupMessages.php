@@ -16,7 +16,7 @@ else
 	// detecting links
     include 'detectLinks.php';
 	include 'Database.php';
-	$Message= $connect -> real_escape_string($_POST['messageContent']);
+	$Message= $_POST['messageContent'];
 	//$Message=nl2br($Message);
 	$myId = $_SESSION['User_ID'];
     $groupId = intval($_POST['groupId']);

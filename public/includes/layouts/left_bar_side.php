@@ -55,7 +55,7 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
             <li class="active treeview">
-                <a href="index.php">
+                <a href="Home">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
@@ -73,9 +73,9 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="add_consultant.php"><i class="fa fa-circle-o"></i> Add Consultant </a></li>
-                    <li><a href="all_consultants.php"><i class="fa fa-circle-o"></i>Registered Consultants</a></li>
-                    <li><a href="disable_consultants.php"><i class="fa fa-circle-o"></i> Archive</a></li>
+                    <li><a href="NewConsultant"><i class="fa fa-circle-o"></i> Add Consultant </a></li>
+                    <li><a href="ActiveConsultants"><i class="fa fa-circle-o"></i>Registered Consultants</a></li>
+                    <li><a href="ConsultancyDisabled"><i class="fa fa-circle-o"></i> Archive</a></li>
                     <li><a href="#"><i class="fa fa-circle-o"></i> Consultants Contract</a></li>
                 </ul>
             </li>
@@ -87,9 +87,9 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="add_client.php"><i class="fa fa-circle-o"></i> Add Client</a></li>
-                    <li><a href="all_clients.php"><i class="fa fa-circle-o"></i> All Clients</a></li>
-                    <li><a href="archivedClients.php"><i class="fa fa-circle-o"></i> Archive</a></li>
+                    <li><a href="NewClient"><i class="fa fa-circle-o"></i> Add Client</a></li>
+                    <li><a href="ActiveClients"><i class="fa fa-circle-o"></i> All Clients</a></li>
+                    <li><a href="ClientsDisabled"><i class="fa fa-circle-o"></i> Archive</a></li>
                 </ul>
             </li>
             <?php
@@ -108,17 +108,17 @@
                     if($MYUserType != 3)
                     {
                         ?>
-                    <li><a href="add_consultancy.php"><i class="fa fa-circle-o"></i>Add Consultancy</a></li>
+                    <li><a href="NewConsultancy"><i class="fa fa-circle-o"></i>Add Consultancy</a></li>
                     <?php
                     }
                     ?>
-                    <li><a href="progress_consultancy.php"><i class="fa fa-circle-o"></i> In Progress Consultancy</a>
+                    <li><a href="TasksInProgress"><i class="fa fa-circle-o"></i> In Progress Consultancy</a>
                     </li>
-                    <li><a href="completed_consultancy.php"><i class="fa fa-circle-o"></i> Archive</a></li>
+                    <li><a href="AllCompletedTasks"><i class="fa fa-circle-o"></i> Archive</a></li>
                 </ul>
             </li>
             <li>
-                <a href="chat_room.php">
+                <a href="ChattingRoom">
                     <i class="fa fa-envelope"></i> <span>Chat Room</span>
                     <span class="pull-right-container">
                         <small class="label pull-right bg-green" id="newsmss"></small>
@@ -143,8 +143,8 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="profile.php"><i class="fa fa-circle-o"></i>My Profile</a></li>
-                    <li><a href="backend/logout.php"><i class="fa fa-circle-o"></i> Logout </a></li>
+                    <li><a href="myProfile"><i class="fa fa-circle-o"></i>My Profile</a></li>
+                    <li><a href="backend/GetOut"><i class="fa fa-circle-o"></i> Logout </a></li>
                 </ul>
             </li>
         </ul>

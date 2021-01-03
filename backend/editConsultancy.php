@@ -6,7 +6,7 @@ include 'Database.php'; // include database connection
 
 // declaration of variables needed to insert a new user
 $consultancyId = $connect -> real_escape_string($_POST['consultancyId']);
-$name = $connect -> real_escape_string($_POST['name']);
+$name = $_POST['name'];
 $start_date = $connect -> real_escape_string($_POST['start_date']);
 $end_date = $connect -> real_escape_string($_POST['end_date']);
 $amount = $_POST['amount'];

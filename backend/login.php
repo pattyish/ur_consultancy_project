@@ -47,19 +47,19 @@ else
         if($UserType == 1) // if admin
         {
             ?>
-            <script>window.location.href='../index.php';</script>
+            <script>window.location.href='../Home';</script>
             <?php
         }
         else if($UserType == 2) // if BDSC
         {
             ?>
-             <script>window.location.href='../index.php';</script>
+             <script>window.location.href='../Home';</script>
             <?php
         }
         else if($UserType == 3) // if normal consultant
         {
             ?>
-             <script>window.location.href='../index.php';</script>
+             <script>window.location.href='../Home';</script>
             <?php
         }
         else

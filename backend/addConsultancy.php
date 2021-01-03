@@ -5,12 +5,13 @@ $myId = $_SESSION['User_ID'];
 include 'Database.php'; // include database connection
 
 // declaration of variables needed to insert a new user
-$name = $connect -> real_escape_string($_POST['name']);
+$name = $_POST['name'];
 $sign_date = $connect -> real_escape_string($_POST['sign_date']);
 $start_date = $connect -> real_escape_string($_POST['start_date']);
 $end_date = $connect -> real_escape_string($_POST['end_date']);
 $amount = $_POST['amount'];
 $currency = $connect -> real_escape_string($_POST['currency']);
+$consultancy_exchange_rate = $_POST['exchange'];
 $ur_charges = $_POST['ur_charges'];
 $tax_charges = $_POST['tax_charges'];
 $consultant_charges = $_POST['consultant_charges'];
@@ -24,10 +25,10 @@ $status_id = 1;
 //$Insert =  mysqli_query($connect,$Insert);
 
 $Insert = $connect -> prepare("INSERT INTO consultancy(consultancy_name,consultancy_sign_date,consultancy_start_date,
-consultancy_end_date,consultancy_amount,consultancy_currency,consultancy_UR_percentage,
+consultancy_end_date,consultancy_amount,consultancy_currency,consultancy_exchange_rate,consultancy_UR_percentage,
 consultancy_Tax_percentage,consultancy_consultants_percentage,consultancy_client_id,consultancy_adder,consultancy_leader) 
-VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
-$Insert->bind_param("ssssdsdddiii",$name,$now,$start_date,$end_date,$amount,$currency,$ur_charges,$tax_charges,
+VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+$Insert->bind_param("ssssdsddddiii",$name,$now,$start_date,$end_date,$amount,$currency,$consultancy_exchange_rate,$ur_charges,$tax_charges,
 $consultant_charges,$client,$myId,$teamLeader);
 $Insert->execute();
 if($Insert)
@@ -40,3 +41,4 @@ else
 } 
 
 ?>
+
