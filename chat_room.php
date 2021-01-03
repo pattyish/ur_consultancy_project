@@ -68,8 +68,8 @@ include 'backend/jsForChatting1.php';
 
                             <button id="viewAllMembers" data-toggle="modal" data-target="#view_group_members"
                                 title="Display group members" class="badge bg-blue" hidden>
-                               <i class="fa fa-eye"></i>  View</button>
-                                <?php include 'models/group_members.php'; ?>
+                                <i class="fa fa-eye"></i> View</button>
+                            <?php include 'models/group_members.php'; ?>
                         </div>
                     </div>
                     <div class="box-body">
@@ -82,8 +82,8 @@ include 'backend/jsForChatting1.php';
                             <div class="input-group">
                                 <input type="hidden" id="receiverId">
                                 <input type="hidden" id="groupOrInd" value="1">
-                                <textarea type="text" id="messageToSend" placeholder="Type Message ..."
-                                    class="form-control">
+                                <textarea type="text" id="messageToSend" rows="10" cols="80"
+                                    placeholder="Type Message ..." class="form-control">
                             </textarea>
                                 <span class="input-group-btn">
                                     <button type="submit" id="sendMessageBtn"

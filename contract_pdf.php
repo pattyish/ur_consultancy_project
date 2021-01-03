@@ -68,16 +68,11 @@ require_once('TCPDF/tcpdf.php');
 class PDF extends TCPDF{
 	public function Header(){
 		// Logo
-		$image_file = K_PATH_IMAGES.'logo.jpg';
-		$this->Image($image_file, 10, 10, 15, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
-        $this->Cell(0, 15, '______________________________________ ', 0, 0, 'L');
-        // Set font
-		$this->Ln(5);
-		$this->SetFont('times', 'B', 16);
-		// Title
-		$this->Cell(0, 15, 'CONTRACT FOR CONSULTANCY SERVICES ', 0, false, 'C', 0, '', 0, false, 'M', 'M');
-		$this->Ln(1);
-		$this->Ln(10);
+		$image_file = K_PATH_IMAGES.'ur_logo_black.png';
+		$this->Image($image_file, 15, 10, 80, 30, 'png', '', 'T', false, 300, '', false, false, 0, false, false, false);
+		$this->Ln(24);
+		$this->Cell(0, 15,'_______________________________________________________________________________________________', 0, 0,'L');
+
 	}
 }
 
@@ -133,67 +128,38 @@ $pdf->SetFont('dejavusans', '', 12, '', true);
 // Add a page
 // This method has several options, check the source code documentation for more information.
 $pdf->AddPage();
-//names
+$pdf->Ln(27);
 $pdf->SetFont('times', 'B', 12);
-$pdf->Cell(40,5,'Names',0,0,'L');
+$pdf->Cell(189,5,'CONTRACT FOR CONSULTANCY SERVICES',0,0,'C');
+$pdf->Ln(15);
+$pdf->Cell(189,5,'BETWEEN THE UNDERSIGNED',0,0,'L');
+$pdf->Ln(11);
 $pdf->SetFont('times', '', 12);
-$pdf->Cell(149,5,$fName.' '.$lName,0,0,'L');
+$pdf->MultiCell(189, 15, 'The University of Rwanda (UR) a public high learning institution established by the law no 71/2013 of 23/09/2013, having its office in Mburabuturo, Gikondo, and P.O.BOX 4285 Kigali Rwanda, hereinafter referred to as “UR - Consultancy Services”', 0, 'L', 0, 1, '', '', true);
 $pdf->Ln(10);
-//gendet
-$pdf->SetFont('times', 'B', 12);
-$pdf->Cell(40,5,'Gender',0,0,'L');
-$pdf->SetFont('times', '', 12);
-$pdf->Cell(149,5,$gender_value,0,0,'L');
+$pdf->Cell(189,5,'-And- ',0,0,'L');
 $pdf->Ln(10);
-//County
-$pdf->SetFont('times', 'B', 12);
-$pdf->Cell(40,5,'Country',0,0,'L');
-$pdf->SetFont('times', '', 12);
-$pdf->Cell(149,5,$country_name,0,0,'L');
+$pdf->MultiCell(189, 15, '…………………………….. (Full Name) Léonard carrying ID 1197580026902066, hereinafter referred to as 
+“Consultant”', 0, 'L', 0, 1, '', '', true);
 $pdf->Ln(10);
-//Natinaol ID
+$pdf->MultiCell(189, 15, 'WHEREAS Royal HaskoningDHV, an independent and international Dutch engineering company, in collaboration with the UR - College of Science and Technology have decided to provide a two-month training to Rwandan university graduates in the framework of capacity building of the project "Sugar make it work / Isukari Imvugo Tuyigire Ingiro (IITI);', 0, 'L', 0, 1, '', '', true);
+$pdf->Ln(12);
+$pdf->MultiCell(189, 15, 'WHEREAS, UR desires to hire a consultant to take part in the project as trainer on behalf of UR - College of Science and Technology;', 0, 'L', 0, 1, '', '', true);
+$pdf->Ln(12);
+$pdf->MultiCell(189, 15, 'WHEREAS ………………………(Full name )  has expressed his desire to be hired by 
+UR- Consultancy Services;', 0, 'L', 0, 1, '', '', true);
+$pdf->Ln(20);
+$pdf->MultiCell(189, 15, 'NOW, THEREFORE UR - Consultancy Services and the Consultant have agreed as follows:', 0, 'c', 0, 1, '', '', true);
+$pdf->Ln(50);
+
 $pdf->SetFont('times', 'B', 12);
-$pdf->Cell(40,5,'National ID',0,0,'L');
-$pdf->SetFont('times', '', 12);
-$pdf->Cell(149,5,$natId,0,0,'L');
-$pdf->Ln(10);
-//Email
-$pdf->SetFont('times', 'B', 12);
-$pdf->Cell(40,5,'Email',0,0,'L');
-$pdf->SetFont('times', '', 12);
-$pdf->Cell(149,5,$email,0,0,'L');
-$pdf->Ln(10);
-// phone number
-$pdf->SetFont('times', 'B', 12);
-$pdf->Cell(40,5,'Tel',0,0,'L');
-$pdf->SetFont('times', '', 12);
-$pdf->Cell(149,5,$phone_number ,0,0,'L');
-$pdf->Ln(10);
-//location
-$pdf->SetFont('times', 'B', 12);
-$pdf->Cell(40,5,'Location',0,0,'L');
-$pdf->SetFont('times', '', 14);
-$pdf->Cell(149,5,$location ,0,0,'L');
-$pdf->Ln(22);
-//education
-$pdf->SetFont('times', 'B', 14);
-$pdf->Cell(189,5,'EDUCATION AND SKILLS',0,0,'L');
-$pdf->Ln(1);
+$pdf->Cell(189, 15,'SCOPE OF WORK', 0, 0,'L');
+$pdf->Ln(2);
 $pdf->Cell(189, 15,'_________________________', 0, 0,'L');
 $pdf->SetFont('times', '', 12);
 $pdf->Ln(15);
 $pdf->MultiCell(189,5,$user_education,0, 'L', 0, 1, '', '', true);
-//footer
-$pdf->Ln(12);
-$pdf->SetFont('times', 'B', 14);
-$pdf->Cell(189,5,'CONFIRMATION',0,0,'L');
-$pdf->Ln(1);
-$pdf->Cell(189, 15, '________________', 0, 0,'L');
-$pdf->SetFont('times', '', 12);
-$pdf->Ln(15);
-$pdf->MultiCell(189, 15, 'This is to confirm that '.$fName.' '.$lName.' is an active consultant of University of Rwanda, in school of '.$school.' and department of '.$department.'.', 0, 'L', 0, 1, '', '', true);
-$pdf->Ln(25);
-$pdf->Cell(189,5,'Done at Kigali on    '.$now,0,0,'C');
+
 
 // set text shadow effect
 $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
