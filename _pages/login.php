@@ -99,7 +99,7 @@
                 </div>
             </form>
             <!-- /.social-auth-links -->
-            <a href="#">I forgot my password</a><br>
+            <a href="forgot_password.php">I forgot my password</a><br>
             <?php // echo password_hash("consultancy12", PASSWORD_DEFAULT); ?>
         </div>
         <!-- /.login-box-body -->
