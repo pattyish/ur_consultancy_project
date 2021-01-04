@@ -34,7 +34,7 @@
                             </a>
                         </li>
                         <li class="dropdown" style="font-size: 12px;">
-                            <a href="AddAnnouncement">
+                            <a href="#" data-toggle="modal" data-target="#add_announcement">
                                 <i class="fa fa-plus text-success"></i>
                                 Add Consultancy Link
                             </a>
@@ -80,3 +80,4 @@
                 </div>
             </nav>
         </header>
+        <?php include 'models/add_announcement.php'?>

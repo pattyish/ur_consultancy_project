@@ -76,7 +76,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <a href="consultants_worked_on.php?consultancy_id=<?php echo $consultancy_id; ?>" class="btn btn-primary"><i class="fa fa-eye"></i> View Consultants</a>
+                <a href="assignedConsultants?consultancy_id=<?php echo $consultancy_id; ?>" class="btn btn-primary"><i class="fa fa-eye"></i> View Consultants</a>
             </div>
         </div>
         <!-- /.modal-content -->
