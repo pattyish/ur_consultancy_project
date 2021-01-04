@@ -76,7 +76,7 @@
                     <li><a href="NewConsultant"><i class="fa fa-circle-o"></i> Add Consultant </a></li>
                     <li><a href="ActiveConsultants"><i class="fa fa-circle-o"></i>Registered Consultants</a></li>
                     <li><a href="ConsultancyDisabled"><i class="fa fa-circle-o"></i> Archive</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Consultants Contract</a></li>
+                    <li><a href="ConsultantsContract"><i class="fa fa-circle-o"></i> Consultants Contract</a></li>
                 </ul>
             </li>
             <li class="treeview">
