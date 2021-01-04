@@ -21,7 +21,7 @@
                     <ul class="nav navbar-nav">
                         <!-- Messages: style can be found in dropdown.less-->
                         <li class="dropdown messages-menu" style="margin-left: 0px;">
-                            <a href="chat_room.php">
+                            <a href="ChattingRoom">
                                 <i class="fa fa-envelope-o"></i>
                                 <span class="label label-success" id="newsms"></span>
                             </a>

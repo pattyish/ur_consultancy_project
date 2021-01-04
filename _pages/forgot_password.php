@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>UR-Consultancy | Forgot Password</title>
+    <link rel="shortcut icon" href="../backend/img/logo.JPG" />
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -32,7 +33,7 @@
     <!-- Automatic element centering -->
     <div class="lockscreen-wrapper">
         <!-- User name -->
-        <div class="lockscreen-name">John Doe</div>
+        <div class="lockscreen-name">UR Consultancy System</div>
 
         <!-- START LOCK SCREEN ITEM -->
         <div class="lockscreen-item">
@@ -62,12 +63,8 @@
             Enter your email to request for new password.
         </div>
         <div class="text-center">
-            <a href="#" style="text-decoration: none; color: black; font-weight: bold;">Sign in if you remember your
-                password.</a>
-        </div>
-        <div class="lockscreen-footer text-center">
-            Copyright &copy; 2021 <b><a href="https://www.ur.ac.rw" class="text-black">University of Rwanda</a></b><br>
-            All rights reserved
+            <a href="Welcome" class="text-blue" style="text-decoration: none; color: black; font-weight: bold;">Sign in</a>
+             if you remember your password.
         </div>
     </div>
     <!-- /.center -->
