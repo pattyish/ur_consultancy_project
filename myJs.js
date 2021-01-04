@@ -543,13 +543,31 @@ $(document).ready(function(){
         e.preventDefault();
         var link =$("#link").val();
         var description = $("#description").val();
-        if($.trim(link).length == 0 || $.trim(description).length == 0)
+        var schooll = $("#school").val();
+        var school = parseInt($("#school").val());
+        if($.trim(link).length == 0 || $.trim(description).length == 0 || $.trim(schooll).length == 0)
         {
             $("#addAnnouncementFeedback").html("<b><i class='text-red'>All fields are required</i></b>");
         }
         else
         {
-            $("#addAnnouncementFeedback").html("<b><i class='text-blue'>Good</i></b>");
+            $("#addAnnouncementFeedback").html("<b><i class='text-blue'>Publishing...</i></b>");
+            $.ajax({
+                type: "post",
+                url: "backend/publishAnnouncement.php",
+                data: {link : link, description : description, school : school},
+                success: function(response)
+                {
+                    $("#addAnnouncementFeedback").html("<b><i class='text-green'>"+response+"</i></b>");
+                    
+                    if(response.includes("Published"))
+                    {
+                        setTimeout(function() {
+                            window.location.href="Home";  
+                        }, 1000);
+                    }
+                }
+            });
         }
     });
 

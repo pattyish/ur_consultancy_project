@@ -82,7 +82,11 @@ include 'backend/jsForChatting1.php';
                             <div class="input-group">
                                 <input type="hidden" id="receiverId">
                                 <input type="hidden" id="groupOrInd" value="1">
+                                <textarea type="text" id="messageToSend" rows="3"
                                     placeholder="Type Message ..." class="form-control">
+                            </textarea>
+                                <span class="input-group-btn">
+                                    <button type="submit" id="sendMessageBtn"
                                         class="btn btn-primary btn-flat">Send</button>
                                 </span>
                             </div>
