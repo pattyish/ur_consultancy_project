@@ -22,6 +22,11 @@ else
 	include 'timeDifference.php'; // function to find timeCounter() 
 
     // doing our staff, first get the data of the receiver
+    
+    // update message to readable message
+    $Update_Query="UPDATE message SET message_reads=1 WHERE (message.message_receiver_id=$myId AND message.message_sender_id=$receiverId)";
+    $Update_Answer=mysqli_query($connect,$Update_Query);
+    
 	$query="SELECT * FROM users WHERE users.user_id=$receiverId;";
 	$answer=mysqli_query($connect,$query);
 	while($line=mysqli_fetch_object($answer))
@@ -66,9 +71,19 @@ else
 				<span class="w3-right">
 					<div class="direct-chat-msg right" style="width: 500px;">
 						<div class="direct-chat-info clearfix">
-							<span class="direct-chat-name pull-left">Me</span>
-							<span class="direct-chat-timestamp pull-right"><?php echo $MessageTime; ?></span>
-						</div>
+                            <span class="direct-chat-name pull-left">Me</span>
+                            <span class="direct-chat-timestamp pull-right">
+                                <?php echo $MessageTime; ?>
+                                <?php
+                                if($Reads == 1)
+    							{
+        							?>
+                                    <i class="fa fa-check" aria-hidden="true" style="font-size:15px; color:blue;"></i>
+        							<?php
+        						}
+        						?>
+                            </span>
+                        </div>
 						<img class="direct-chat-img" src="<?php echo "backend/".$myProfileImage; ?>" alt="profile">
 						<div class="direct-chat-text">
 						<?php echo $Send_Messages; ?>

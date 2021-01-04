@@ -48,7 +48,7 @@ $retrieveDClientsCount = mysqli_num_rows($retrieveDClients);
     
         </h1>
         <ol class="breadcrumb">
-            <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="Home"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">Dashboard</li>
         </ol>
     </section>
@@ -68,7 +68,15 @@ $retrieveDClientsCount = mysqli_num_rows($retrieveDClients);
                     <div class="icon">
                         <i class="fa fa-users"></i>
                     </div>
-                    <a href="all_consultants.php" class="small-box-footer text-bold">View the list <i class="fa fa-arrow-circle-right"></i></a>
+                    <?php
+                    if($MYUserType != 3)
+                    {
+                        ?>
+                        <a href="ActiveConsultants" class="small-box-footer text-bold">View the list <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="NewConsultant" class="small-box-footer text-bold">Add new <i class="fa fa-plus" aria-hidden="true"></i></a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
             <!-- ./col -->
@@ -83,7 +91,14 @@ $retrieveDClientsCount = mysqli_num_rows($retrieveDClients);
                     <div class="icon">
                         <i class="fa fa-archive"></i>
                     </div>
-                    <a href="completed_consultancy.php" class="small-box-footer text-bold">View the list <i class="fa fa-arrow-circle-right"></i></a>
+                    <?php
+                    if($MYUserType != 3)
+                    {
+                        ?>
+                        <a href="ConsultancyDisabled" class="small-box-footer text-bold">View the list <i class="fa fa-arrow-circle-right"></i></a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
             <!-- ./col -->
@@ -98,7 +113,15 @@ $retrieveDClientsCount = mysqli_num_rows($retrieveDClients);
                     <div class="icon">
                         <i class="fa fa-spinner"></i>
                     </div>
-                    <a href="progress_consultancy.php" class="small-box-footer text-bold">View the list <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="TasksInProgress" class="small-box-footer text-bold">View the list <i class="fa fa-arrow-circle-right"></i></a>
+                    <?php
+                    if($MYUserType != 3)
+                    {
+                        ?>
+                        <a href="NewConsultancy" class="small-box-footer text-bold">Add new <i class="fa fa-plus" aria-hidden="true"></i></a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
             <!-- ./col -->
@@ -113,7 +136,7 @@ $retrieveDClientsCount = mysqli_num_rows($retrieveDClients);
                     <div class="icon">
                         <i class="fa fa-users"></i>
                     </div>
-                    <a href="completed_consultancy.php" class="small-box-footer text-bold">View the list <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="AllCompletedTasks" class="small-box-footer text-bold">View the list <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -132,7 +155,15 @@ $retrieveDClientsCount = mysqli_num_rows($retrieveDClients);
                     <div class="icon">
                         <i class="fa fa-users"></i>
                     </div>
-                    <a href="all_clients.php" class="small-box-footer text-bold">View the list <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="ActiveClients" class="small-box-footer text-bold">View the list <i class="fa fa-arrow-circle-right"></i></a>
+                    <?php
+                    if($MYUserType != 3)
+                    {
+                        ?>
+                        <a href="NewClient" class="small-box-footer text-bold">Add new <i class="fa fa-plus" aria-hidden="true"></i></a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
             <!-- ./col -->
@@ -147,7 +178,14 @@ $retrieveDClientsCount = mysqli_num_rows($retrieveDClients);
                     <div class="icon">
                         <i class="fa fa-archive"></i>
                     </div>
-                    <a href="archivedClients.php" class="small-box-footer text-bold">View the list <i class="fa fa-arrow-circle-right"></i></a>
+                    <?php
+                    if($MYUserType != 3)
+                    {
+                        ?>                    
+                        <a href="ClientsDisabled" class="small-box-footer text-bold">View the list <i class="fa fa-arrow-circle-right"></i></a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>

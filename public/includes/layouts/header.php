@@ -5,7 +5,7 @@
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="index.php" class="logo">
+            <a href="Home" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>UR</b>C</span>
                 <!-- logo for regular state and mobile devices -->
@@ -34,7 +34,7 @@
                             </a>
                         </li>
                         <li class="dropdown" style="font-size: 12px;">
-                            <a href="create_announcement.php">
+                            <a href="AddAnnouncement">
                                 <i class="fa fa-plus text-success"></i>
                                 Add Consultancy Link
                             </a>
