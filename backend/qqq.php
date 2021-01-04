@@ -54,7 +54,17 @@ else
                 <div class="direct-chat-msg right" style="width: 500px;">
                     <div class="direct-chat-info clearfix">
                         <span class="direct-chat-name pull-left">Me</span>
-                        <span class="direct-chat-timestamp pull-right"><?php echo $MessageTime; ?></span>
+                        <span class="direct-chat-timestamp pull-right">
+                            <?php echo $MessageTime; ?>
+                            <?php
+                            if($Reads == 1)
+							{
+    							?>
+                                <i class="fa fa-check" aria-hidden="true" style="font-size:15px; color:blue;"></i>
+    							<?php
+    						}
+    						?>
+                        </span>
                     </div>
                     <img class="direct-chat-img" src="<?php echo "backend/".$myProfileImage; ?>" alt="profile" style="width:40px; height:40px; object-fit:cover; object-position: 50% 0;">
                     <div class="direct-chat-text">
@@ -71,7 +81,9 @@ else
                 <div class="direct-chat-msg" style="width: 500px;">
                     <div class="direct-chat-info clearfix">
                         <span class="direct-chat-name pull-left"><?php echo $firstName; ?></span>
-                        <span class="direct-chat-timestamp pull-right"><?php echo $MessageTime; ?></span>
+                        <span class="direct-chat-timestamp pull-right">
+                            <?php echo $MessageTime; ?>
+                        </span>
                     </div>
                     <img class="direct-chat-img" src="<?php echo "backend/".$receiverProfileImage; ?>" alt="profile" style="width:40px; height:40px; object-fit:cover; object-position: 50% 0;">
 

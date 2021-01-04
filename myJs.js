@@ -538,18 +538,18 @@ $(document).ready(function(){
         }
     });
 
-    // CREATE A GROUP CHAT
-    $("#createGroupFrom").on("submit",function(e){
+    // SAVE AN ANNOUNCEMENT
+    $("#saveAnnouncmentForm").on("submit",function(e){
         e.preventDefault();
-        var groupName =$("#groupName").val();
-        var description = $("#groupDescription").val();
-        if($.trim(groupName).length == 0 || $.trim(description).length == 0)
+        var link =$("#link").val();
+        var description = $("#description").val();
+        if($.trim(link).length == 0 || $.trim(description).length == 0)
         {
-            $("#createGroupFeedback").html("<b><i class='text-red'>All fields are required</i></b>");
+            $("#addAnnouncementFeedback").html("<b><i class='text-red'>All fields are required</i></b>");
         }
         else
         {
-            $("#createGroupFeedback").html("<b><i class='text-blue'>Goog</i></b>");
+            $("#addAnnouncementFeedback").html("<b><i class='text-blue'>Good</i></b>");
         }
     });
 

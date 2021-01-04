@@ -21,7 +21,9 @@ RewriteRule assignedConsultants consultants_worked_on.php [NC,L]
 RewriteRule makeContract sign_contract.php [NC,L]
 RewriteRule BlockUser Block.php [NC,L]
 RewriteRule NewUser NewUser.php [NC,L]
-RewriteRule ConsultantsContract consultancy_contract.php [NC,L]
+RewriteRule NewUser NewUser.php [NC,L] 
+RewriteRule AllConsultantsContract all_consultants_contract.php [NC,L]
+
 
 
 
