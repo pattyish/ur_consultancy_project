@@ -1,6 +1,5 @@
 <body class="hold-transition skin-blue sidebar-mini">
 
-
     <div class="wrapper">
 
         <header class="main-header">
@@ -28,45 +27,45 @@
                         </li>
                         <!-- Notifications: style can be found in dropdown.less -->
                         <li class="dropdown notifications-menu">
+                        <?php
+                            // select all announcements to show them in notification
+                            $announce = "SELECT * FROM consultancy_announcement WHERE consultancy_announcement.consultancy_announcement_shown = 1 ";
+                            $announce = mysqli_query($connect,$announce);
+                            $announceCount = mysqli_num_rows($announce);                                  
+                            ?>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-bell-o"></i>
-                                <span class="label label-warning">10</span>
+                                <span class="label label-warning"><?php echo $announceCount; ?></span>
                             </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">You have 10 notifications</li>
+                            <ul class="dropdown-menu" style="margin-right: -100px;">
+                                <li class="header text-blue">You have <?php echo $announceCount; ?> notifications</li>
                                 <li>
                                     <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-users text-red"></i> 5 new members joined
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-warning text-yellow"></i> Very long description here
-                                                that may not fit into the
-                                                page and may cause design problems
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-user text-red"></i> You changed your username
-                                            </a>
-                                        </li>
+                                    <?php
+                                        if($announceCount = 0)
+                                        {
+                                            echo "No new announcements";
+                                        }
+                                        else
+                                        {
+                                            while($announceRetrieve = mysqli_fetch_object($announce))
+                                            {
+                                                $consultancy_announcement = $announceRetrieve -> consultancy_announcement;
+                                                $consultancy_announcement_link = $announceRetrieve -> consultancy_announcement_link;
+                                                ?>
+                                                <li>
+                                                    <a href="<?php echo $consultancy_announcement_link; ?>" target="_blank" >
+                                                        <i class="fa fa-newspaper-o text-red"></i> <?php echo $consultancy_announcement; ?>
+                                                    </a>
+                                                </li>
+                                                <?php
+                                            }
+                                        }        
+                                        ?>
                                     </ul>
                                 </li>
-                                <li class="footer"><a href="#">View all</a></li>
+                                <li class="footer"><a href="#" class="text-blue">View all announcements</a></li>
                             </ul>
                         </li>
                         <li class="dropdown" style="font-size: 12px;">
