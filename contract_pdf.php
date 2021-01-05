@@ -69,8 +69,8 @@ class PDF extends TCPDF{
 	public function Header(){
 		// Logo
 		$image_file = K_PATH_IMAGES.'ur_logo_black.png';
-		$this->Image($image_file, 15, 10, 80, 30, 'png', '', 'T', false, 300, '', false, false, 0, false, false, false);
-		$this->Ln(24);
+		$this->Image($image_file, 15, 5, 60, 20, 'png', '', 'T', false, 300, '', false, false, 0, false, false, false);
+		$this->Ln(12);
 		$this->Cell(0, 15,'_______________________________________________________________________________________________', 0, 0,'L');
 
 	}
@@ -128,7 +128,7 @@ $pdf->SetFont('dejavusans', '', 12, '', true);
 // Add a page
 // This method has several options, check the source code documentation for more information.
 $pdf->AddPage();
-$pdf->Ln(27);
+$pdf->Ln(20);
 $pdf->SetFont('times', 'B', 12);
 $pdf->Cell(189,5,'CONTRACT FOR CONSULTANCY SERVICES',0,0,'C');
 $pdf->Ln(15);
@@ -155,11 +155,13 @@ $pdf->Ln(50);
 $pdf->SetFont('times', 'B', 12);
 $pdf->Cell(189, 15,'SCOPE OF WORK', 0, 0,'L');
 $pdf->Ln(2);
-$pdf->Cell(189, 15,'_________________________', 0, 0,'L');
+$pdf->Cell(189, 15,'_________________', 0, 0,'L');
+$pdf->Ln(7);
+$pdf->SetFont('times', 'B', 12);
+$pdf->Cell(189, 15,'Article 1', 0, 0,'L');
+$pdf->Ln(12);
 $pdf->SetFont('times', '', 12);
-$pdf->Ln(15);
-$pdf->MultiCell(189,5,$user_education,0, 'L', 0, 1, '', '', true);
-
+$pdf->MultiCell(189, 15, 'The UR - Consultancy Services hereby hires the Consultant to provide and perform the services set here to and the Consultant hereby accepts the engagement.', 0, 'L', 0, 1, '', '', true);
 
 // set text shadow effect
 $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
