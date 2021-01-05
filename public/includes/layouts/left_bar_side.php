@@ -125,15 +125,12 @@
                     </span>
                 </a>
             </li>
-            <!-- <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-file"></i>
-                    <span>Report</span>
-                    <span class="pull-right-container"> -->
-            <!-- <i class="fa fa-angle-left pull-right"></i> -->
-            <!-- </span>
-                </a> -->
-            <!-- </li> -->
+            <li>
+                <a href="ReportPage">
+                    <i class="fa fa-search"></i>
+                    <span>Search</span>
+                </a>
+            </li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-user"></i>

@@ -23,7 +23,7 @@ RewriteRule BlockUser Block.php [NC,L]
 RewriteRule NewUser NewUser.php [NC,L]
 RewriteRule AllConsultantsContract all_consultants_contract.php [NC,L]
 RewriteRule requestPassword _pages/forgot_password.php [NC,L] 
-
+RewriteRule ReportPage search_page.php [NC,L]
 
 
 
