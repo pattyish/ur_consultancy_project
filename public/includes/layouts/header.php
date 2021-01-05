@@ -92,10 +92,10 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="profile.php" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="myProfile" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="backend/logout.php" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="backend/GetOut" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>

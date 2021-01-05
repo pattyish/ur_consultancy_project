@@ -44,7 +44,7 @@ $(document).ready(function()
                         <table id="completed_consultancy" class="table table-bordered table-striped">
                             <thead>
                                 <tr class="text-blue">
-                                    <th>Consultacy Title</th>
+                                    <th>Consultancy Title</th>
                                     <th>Signed Date</th>
                                     <th>Start Date</th>
                                     <th>End Date</th>

@@ -79,13 +79,13 @@
                 if($MYUserType == 1)
                 {
                     ?>
-                   <a href="consultants_worked_on.php?consultancy_id=<?php echo $consultancy_id; ?>" class="btn bg-blue pull-left">Consultants</a>
+                   <a href="assignedConsultants?consultancy_id=<?php echo $consultancy_id; ?>" class="btn bg-blue pull-left">Consultants</a>
                     <?php
                 }
                 else
                 {
                     ?>
-                   <a href="consultants_worked_on.php?consultancy_id=<?php echo $consultancy_id; ?>" class="btn bg-blue">View Consultants</a>
+                   <a href="assignedConsultants?consultancy_id=<?php echo $consultancy_id; ?>" class="btn bg-blue">View Consultants</a>
                     <?php
                 }
                 if($MYUserType == 1)
