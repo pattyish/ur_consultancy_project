@@ -1,8 +1,9 @@
 <?php
 include 'Database.php';
 // file to retrieve all existing consultants and show them in table with possible options
-$retrieve = "SELECT * FROM consultant_contract INNER JOIN users INNER JOIN consultancy ON 
-consultant_contract.contract_consultant_id = users.user_id AND consultant_contract.contract_consultancy_id = consultancy.consultancy_id ";
+$retrieve = "SELECT * FROM consultant_contract INNER JOIN users INNER JOIN consultancy INNER JOIN consultancy_progress ON 
+consultant_contract.contract_consultant_id = users.user_id AND consultant_contract.contract_consultancy_id = consultancy.consultancy_id
+AND consultant_contract.contract_progress_id = consultancy_progress.consultancy_progress_id ";
 $retrieve = mysqli_query($connect,$retrieve);
 $retrieveCount = mysqli_num_rows($retrieve);
 if($retrieveCount > 0)
@@ -20,6 +21,7 @@ if($retrieveCount > 0)
         $contract_end_date = $lineRetrieve -> contract_end_date;
         $contract_amount = $lineRetrieve -> contract_amount;
         $contract_progress_id = $lineRetrieve -> contract_progress_id;
+        $consultancy_progress_name = $lineRetrieve -> consultancy_progress_name;
         // consultant
         $user_first_name = $lineRetrieve -> user_first_name;
         $user_last_name = $lineRetrieve -> user_last_name;
@@ -30,17 +32,18 @@ if($retrieveCount > 0)
     <td><?php echo $contract_start_date; ?></td>
     <td><?php echo $contract_end_date; ?></td>
     <td><?php echo $contract_amount; ?></td>
-    <td class="text-success" style="font-weight: bold;"><?php if($contract_progress_id == 1){echo "IN PROGRESS";}
-    else if($contract_progress_id == 2){ echo "COMPLETED";} ?></td>
+    <td class="text-success" style="font-weight: bold;"><?php echo $consultancy_progress_name; ?></td>
+    <!--
     <td>
         <div class="btn-group btn-group-sm table-button-div">
-            <a href="#" data-toggle="modal" data-target="#view_all_contracts<?php echo $consultant_contract_id; ?>"
+            <a href="#" data-toggle="modal" data-target="#view_all_contracts<?php // echo $consultant_contract_id; ?>"
                 class=" btn btn-info table_button">
                 <i class="fa fa-eye"></i> View
             </a>
         </div>
-        <?php include 'models/consultant_models/view_all_contracts.php'; ?>
+        <?php // include 'models/consultant_models/view_all_contracts.php'; ?>
     </td>
+    -->
 </tr>
 
 <?php

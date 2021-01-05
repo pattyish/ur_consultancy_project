@@ -45,6 +45,10 @@
                         <td style="padding: 10px; font-weight: bold;">Contract Amount</td>
                         <td><?php echo $contract_amount; ?></td>
                     </tr>
+                    <tr>
+                        <td style="padding: 10px; font-weight: bold;">Status</td>
+                        <td class="text-success" style="font-weight: bold;"><?php echo $consultancy_progress; ?></td>
+                    </tr>
                 </table>
             </div>
             <div class="modal-footer">

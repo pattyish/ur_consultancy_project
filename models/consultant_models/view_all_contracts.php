@@ -9,12 +9,16 @@
             <div class="modal-body">
                 <table>
                     <tr>
-                        <td style="padding: 10px;">Consultant</td>
-                        <td><?php echo  $user_first_name." ".$user_last_name; ?></td>
+                        <td style="padding: 10px;" class="text-bold">Consultant</td>
+                        <td><?php echo $user_first_name." ".$user_last_name; ?></td>
                     </tr>
                     <tr>
-                        <td style="padding: 10px;">Consultancy Title</td>
-                        <td><?php echo  $consultancy_name; ?></td>
+                        <td style="padding: 10px;" class="text-bold">Consultancy Title</td>
+                        <td><?php echo $consultancy_name; ?></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;" class="text-bold">Status</td>
+                        <td class="text-warning" style="font-weight: bold;"><?php echo $consultancy_progress_name; ?></td>
                     </tr>
                 </table>
             </div>

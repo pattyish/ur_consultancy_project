@@ -44,12 +44,12 @@ $(document).ready(function()
                             <thead>
                                 <tr class="text-blue">
                                     <th>Names</th>
-                                    <th>Consultacy Title</th>
+                                    <th>Consultancy Title</th>
                                     <th>Start Date</th>
                                     <th>End Date</th>
                                     <th>Amount</th>
                                     <th>Status</th>
-                                    <th>Actions</th>
+                                    <!-- <th>Actions</th> -->
                                 </tr>
                             </thead>
                             <tbody>

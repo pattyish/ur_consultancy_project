@@ -21,9 +21,10 @@ while($lineConsultancy = mysqli_fetch_object($getConsultancy))
     $consultancy_name = $lineConsultancy -> consultancy_name;
 }
 // select all people worked on consultancy
-$retrieve = "SELECT * FROM consultant_contract INNER JOIN users INNER JOIN 
+$retrieve = "SELECT * FROM consultant_contract INNER JOIN users INNER JOIN consultancy_progress INNER JOIN
 consultancy INNER JOIN department INNER JOIN school ON consultant_contract.contract_consultancy_id = consultancy.consultancy_id AND 
-consultant_contract.contract_consultant_id = users.user_id AND users.user_department = department.department_id AND department.school_id = school.school_id WHERE
+consultant_contract.contract_consultant_id = users.user_id AND users.user_department = department.department_id AND department.school_id = school.school_id
+AND consultant_contract.contract_progress_id = consultancy_progress.consultancy_progress_id WHERE
  consultant_contract.contract_consultancy_id = $consultancy_id";
 $retrieve = mysqli_query($connect,$retrieve);
 $retrieveCount = mysqli_num_rows($retrieve);
@@ -36,7 +37,7 @@ $retrieveCount = mysqli_num_rows($retrieve);
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="btn-group btn-group-sm table-button-div" style="margin-top: 15px;">
-            <a href="progress_consultancy.php" style="font-size: 15px;" class=" btn btn-primary table_button">
+            <a href="TasksInProgress" style="font-size: 15px;" class=" btn btn-primary table_button">
                 <i class="fa fa-angle-left"></i> back
             </a>
         </div>
@@ -97,6 +98,7 @@ $retrieveCount = mysqli_num_rows($retrieve);
                                         $contract_sign_date = $lineRetrieve -> contract_sign_date;
                                         $contract_start_date = $lineRetrieve -> contract_start_date;
                                         $contract_end_date = $lineRetrieve -> contract_end_date;
+                                        $consultancy_progress = $lineRetrieve -> consultancy_progress_name;
 
                                         ?>
                                 <tr>

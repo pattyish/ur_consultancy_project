@@ -44,7 +44,7 @@ $(document).ready(function()
                         <table id="in_progress_consultancy" class="table table-bordered table-striped">
                             <thead>
                                 <tr class="text-blue">
-                                    <th>Consultacy Title</th>
+                                    <th>Consultancy Title</th>
                                     <th>Start Date</th>
                                     <th>End Date</th>
                                     <th>Amount</th>
